@@ -1,0 +1,56 @@
+import ButtonActions from "@/components/ButtonActions";
+import ButtonAddTrans from "@/components/ButtonAddTrans";
+import ItemList from "@/components/ItemList";
+import MySelect from "@/components/MySelect";
+
+const Transactions = () => {
+  return (
+    <section className="pt-12">
+      <div className="herro-container">
+        <div className="flex flex-wrap gap-3 justify-between pb-6">
+          <h2 className="text-[#1E293B] text-2xl font-medium">Transactions</h2>
+          <ButtonAddTrans />
+        </div>
+        <div className="flex flex-wrap gap-5 pb-6">
+          <MySelect
+            options={[
+              { value: "day", label: "This day" },
+              { value: "week", label: "This week" },
+              { value: "month", label: "This month" },
+            ]}
+            titlePlaceholder="This Month"
+          />
+          <MySelect
+            options={[
+              { value: "income", label: "Income" },
+              { value: "expense", label: "Expense" },
+            ]}
+            titlePlaceholder="All Types"
+          />
+          <MySelect
+            options={[
+              { value: "first", label: "New ones first" },
+              { value: "old", label: "First the old ones" },
+            ]}
+            titlePlaceholder="Newest First"
+          />
+        </div>
+        <div>
+          <ul>
+            <li className="grid grid-cols-6 text-[#64748B] text-[18px] border-b-1 border-b-[#e2e8f0] bg-[#E2E8F0] pt-4 pb-4 laptop:pr-19 laptop:pl-19 pl-5 pr-5">
+              <span>Date</span>
+              <span>Category</span>
+              <span>Description</span>
+              <span>Amount</span>
+              <span>Type </span>
+              <span>Actions</span>
+            </li>
+            <ItemList />
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Transactions;

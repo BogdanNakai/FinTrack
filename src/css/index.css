@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-mobile: 425px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-laptop: 1024px;
+  --breakpoint-desktop: 1440px;
+}
+
+.herro-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.custom-select__control {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0 14px;
+  width: 220px;
+  height: 44px;
+}
+
+.custom-select__value-container {
+  height: auto;
+}
+
+.custom-select__single-value {
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: #64748b;
+    border-right: none;
+}
+
+.custom-select__indicator-separator {
+  display: none;
+}
