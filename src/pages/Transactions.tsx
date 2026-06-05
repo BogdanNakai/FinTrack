@@ -1,18 +1,19 @@
 import ButtonActions from "@/components/ButtonActions";
 import ButtonAddTrans from "@/components/ButtonAddTrans";
 import ItemList from "@/components/ItemList";
-import MySelect from "@/components/MySelect";
+import SelectFilter from "@/components/SelectFilter";
+import PopapaddTrans from "@/components/PopapAddTrans";
 
 const Transactions = () => {
   return (
-    <section className="pt-12">
+    <section className="pt-12 flex items-center justify-center relative min-h-full">
       <div className="herro-container">
         <div className="flex flex-wrap gap-3 justify-between pb-6">
           <h2 className="text-[#1E293B] text-2xl font-medium">Transactions</h2>
           <ButtonAddTrans />
         </div>
         <div className="flex flex-wrap gap-5 pb-6">
-          <MySelect
+          <SelectFilter
             options={[
               { value: "day", label: "This day" },
               { value: "week", label: "This week" },
@@ -20,14 +21,14 @@ const Transactions = () => {
             ]}
             titlePlaceholder="This Month"
           />
-          <MySelect
+          <SelectFilter
             options={[
               { value: "income", label: "Income" },
               { value: "expense", label: "Expense" },
             ]}
             titlePlaceholder="All Types"
           />
-          <MySelect
+          <SelectFilter
             options={[
               { value: "first", label: "New ones first" },
               { value: "old", label: "First the old ones" },
@@ -49,6 +50,7 @@ const Transactions = () => {
           </ul>
         </div>
       </div>
+      <PopapaddTrans />
     </section>
   );
 };

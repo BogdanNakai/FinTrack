@@ -1,7 +1,8 @@
 import "@/css/index.css";
 import Transactions from "@/pages/Transactions";
+import type { FC } from "react";
 
-function App() {
+const App: FC = () => {
   return <Transactions />
 }
 
