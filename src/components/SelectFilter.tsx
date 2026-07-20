@@ -1,7 +1,8 @@
+import type { ICategory } from "@/types/categories.type";
 import React, { useState } from "react";
 import Select from "react-select";
 
-const SelectFilter = ({ options, titlePlaceholder, }) => {
+const SelectFilter = (options: ICategory, titlePlaceholder) => {
   const customStyles = {
     control: (provided: any) => ({
       ...provided,

@@ -1,73 +1,151 @@
-# React + TypeScript + Vite
+# 💰 Expense Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Веб-застосунок для обліку особистих фінансів. Дозволяє керувати доходами та витратами, переглядати статистику, контролювати баланс і аналізувати фінансову активність.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Основні можливості
 
-## React Compiler
+### Авторизація
+- Реєстрація
+- Вхід
+- Вихід
+- Protected Routes
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Управління транзакціями
+- Додавання доходів і витрат
+- Редагування операцій
+- Видалення операцій
+- Категорії
+- Дата
+- Опис
+- Сума
 
-## Expanding the ESLint configuration
+### Аналітика
+- Загальний баланс
+- Загальна сума доходів
+- Загальна сума витрат
+- Статистика за категоріями
+- Графік витрат
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Додаткові можливості
+- Пошук транзакцій
+- Фільтрація за категорією
+- Фільтрація за типом
+- Фільтрація за датою
+- Сортування
+- Темна тема
+- Адаптивний дизайн
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Технології
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- React
+- TypeScript
+- Vite
+- React Router
+- React Hook Form
+- Redux Toolkit
+- TanStack Query (React Query)
+- Axios
+- SCSS
+- Recharts
+- LocalStorage
+
+---
+
+## 📁 Структура проєкту
+
+```
+src/
+│
+├── app/
+├── assets/
+├── components/
+├── features/
+│   ├── auth/
+│   ├── transactions/
+│   └── statistics/
+├── hooks/
+├── layouts/
+├── pages/
+├── routes/
+├── services/
+├── store/
+├── types/
+├── utils/
+└── styles/
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Встановлення
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone <repository-url>
+
+cd expense-tracker
+
+npm install
+
+npm run dev
 ```
+
+---
+
+## 📦 Доступні команди
+
+```bash
+npm run dev      # Запуск у режимі розробки
+
+npm run build    # Збірка проєкту
+
+npm run preview  # Перегляд production-збірки
+
+npm run lint     # Перевірка ESLint
+```
+
+---
+
+## 📸 Скріншоти
+
+Після завершення проєкту тут будуть додані скріншоти.
+
+---
+
+## 🌐 Демо
+
+Vercel:
+```
+https://your-project.vercel.app
+```
+
+---
+
+## 📚 Що було використано
+
+- React Components
+- React Hooks
+- React Router
+- React Hook Form
+- Redux Toolkit
+- TanStack Query
+- CRUD Operations
+- TypeScript
+- REST API
+- Responsive Design
+- Authentication
+- Charts & Analytics
+
+---
+
+## 🎯 Мета проєкту
+
+Створити сучасний React-застосунок, максимально наближений до реального комерційного проєкту, та закріпити навички роботи з TypeScript, управління станом, формами, маршрутизацією, REST API та архітектурою великих React-додатків.
+
+---
+
+## 👨‍💻 Автор
+
+Bogdan Nakai
