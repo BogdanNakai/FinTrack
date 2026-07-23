@@ -1,9 +1,22 @@
 import "@/css/index.css";
-import Transactions from "@/pages/Transactions";
 import type { FC } from "react";
+import { lazy, Suspense } from "react";
+import { Routes, Route } from "react-router-dom";
+
+
+const Transactions = lazy(() => import('@/pages/Transactions'));
+const Login = lazy(() => import("@/pages/Login"));
+const SingIn = lazy(() => import("@/pages/SingIn"));
 
 const App: FC = () => {
-  return <Transactions />
-}
+  return (
+    <Routes>
+      <Route path="/" element={<Transactions />}></Route>
+      <Route path="/login" element={<Login />}></Route>
+      <Route path="/singIn" element={<SingIn />}></Route>
+      <Route path="/transactions" element={<Transactions />}></Route>
+    </Routes>
+  );
+};
 
 export default App;
