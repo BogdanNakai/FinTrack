@@ -7,13 +7,20 @@
   --breakpoint-desktop: 1440px;
 }
 
-body{
-  height: 100vh;
+@import url("https://fonts.googleapis.com/css?family=Inter:300,regular,500,600,700,800,900&display=swap");
+
+[class*="container"] {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 15px;
 }
 
-[id='root'] {
-  height: 100%;
+body {
+  font-family: "Inter",
+    sans-serif;
 }
+
+
 
 .react-datepicker-popper {
   z-index: 9999;
@@ -22,6 +29,7 @@ body{
 .react-datepicker-wrapper {
   width: 100%;
 }
+
 .react-datepicker__input-container {
   width: 100%;
 }
@@ -53,11 +61,11 @@ body{
 }
 
 .custom-select__single-value {
-    font-weight: 400;
-    font-size: 14px;
-    letter-spacing: 0.02em;
-    color: #64748b;
-    border-right: none;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: #64748b;
+  border-right: none;
 }
 
 .custom-select__indicator-separator {
