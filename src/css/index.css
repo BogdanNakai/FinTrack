@@ -20,6 +20,10 @@ body {
     sans-serif;
 }
 
+[data-fls-menu-open] body {
+  overflow: hidden;
+}
+
 
 
 .react-datepicker-popper {

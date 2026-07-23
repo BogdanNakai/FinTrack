@@ -1,25 +1,19 @@
-import "@/css/header.scss"
+import "@/css/header.scss";
 
 const Menu = () => {
 
-	
+  const toggleMenu = () => {
+    document.documentElement.toggleAttribute("data-fls-menu-open");
+  };
 
-
-
-  /* export function menuInit() {
-	document.addEventListener("click", function (e) {
-		if (bodyLockStatus && e.target.closest('[data-fls-menu]')) {
-			bodyLockToggle()
-			document.documentElement.toggleAttribute("data-fls-menu-open")
-		}
-	});
-}
-document.querySelector('[data-fls-menu]') ?
-	window.addEventListener('load', menuInit) : null */
-	return (
+  return (
     <>
       <div className="header__menu menu flex">
-        <button type="button" className="menu__icon icon-menu">
+        <button
+          onClick={() => toggleMenu()}
+          type="button"
+          className="menu__icon icon-menu"
+        >
           <span></span>
         </button>
         <nav className="menu__body">
@@ -32,7 +26,7 @@ document.querySelector('[data-fls-menu]') ?
                 Dashboard
               </a>
             </li>
-            <li className="">
+            <li className="menu__item">
               <a
                 href=""
                 className="menu__link text-[16px] text-[#64748B] block p-[10px]"
@@ -40,7 +34,7 @@ document.querySelector('[data-fls-menu]') ?
                 Transactions
               </a>
             </li>
-            <li className="">
+            <li className="menu__item">
               <a
                 href=""
                 className="menu__link text-[16px] text-[#64748B] block p-[10px]"
@@ -48,7 +42,7 @@ document.querySelector('[data-fls-menu]') ?
                 Budget
               </a>
             </li>
-            <li className="">
+            <li className="menu__item">
               <a
                 href=""
                 className="menu__link text-[16px] text-[#64748B] block p-[10px]"
@@ -56,7 +50,7 @@ document.querySelector('[data-fls-menu]') ?
                 Goals
               </a>
             </li>
-            <li className="">
+            <li className="menu__item">
               <a
                 href=""
                 className="menu__link text-[16px] text-[#64748B] block p-[10px]"

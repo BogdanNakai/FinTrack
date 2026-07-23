@@ -6,14 +6,14 @@ import Menu from "./Menu";
 const Header = () => {
   return (
     <>
-      <header className="shadow-[0_2px_10px_0_rgba(2,6,23,0.06)] pt-[12px] pb-[12px] bg-white">
+      <header className="shadow-[0_2px_10px_0_rgba(2,6,23,0.06)] pt-[12px] pb-[12px] bg-white relative z-[50]">
         <div className="header__container">
-          <div className="flex items-center justify-between">
-            <div className="">
+          <div className="flex items-center gap-[20px] md:justify-between">
+            <div className="md:flex-[0_0_auto] flex-[1_0_auto] relative z-10">
               <img src={logo} alt="FinTrack" />
             </div>
             <Menu />
-            <div className="flex items-center gap-[15px]">
+            <div className="flex items-center gap-[15px] relative z-10">
               <a href="">
                 <img src={notifiaction} alt="Notification" />
               </a>
