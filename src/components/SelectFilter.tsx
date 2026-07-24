@@ -1,10 +1,9 @@
-import type { ICategory } from "@/types/categories.type";
-import React, { useState } from "react";
-import Select from "react-select";
+import type { SelectFilterProps, SelectOption } from "@/types/Transactions.types";
+import Select, { type StylesConfig } from "react-select";
 
-const SelectFilter = (options: ICategory, titlePlaceholder) => {
-  const customStyles = {
-    control: (provided: any) => ({
+const SelectFilter = <T extends string>({ options, titlePlaceholder}: SelectFilterProps<T>) => {
+  const customStyles: StylesConfig<SelectOption<T>, false> = {
+    control: (provided) => ({
       ...provided,
       height: "44px",
       width: "100%",
@@ -12,7 +11,9 @@ const SelectFilter = (options: ICategory, titlePlaceholder) => {
       paddingRight: "12px",
       border: "2px solid #e2e8f0",
     }),
-    options: () => ({}),
+    option: (provided) => ({
+      ...provided,
+    }),
   };
 
   return (
