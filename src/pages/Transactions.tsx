@@ -1,9 +1,8 @@
-import ButtonActions from "@/components/ButtonActions";
-import ButtonGreen from "@/components/ButtonGreen";
+import ButtonPrimary from "@/components/ButtonPrimary";
 import ItemList from "@/components/ItemList";
 import SelectFilter from "@/components/SelectFilter";
-import PopapaddTrans from "@/components/PopapAddTrans";
 import Header from "@/layouts/Header";
+
 
 const Transactions = () => {
   return (
@@ -12,8 +11,10 @@ const Transactions = () => {
       <section className="pt-12 flex items-center justify-center relative min-h-full">
         <div className="herro-container">
           <div className="flex flex-wrap gap-3 justify-between pb-6">
-            <h2 className="text-[#1E293B] text-2xl font-medium">Transactions</h2>
-            <ButtonGreen textButton={'Add Transaction'}/>
+            <h2 className="text-[#1E293B] text-2xl font-medium">
+              Transactions
+            </h2>
+            <ButtonPrimary textButton={"Add Transaction"} />
           </div>
           <div className="flex flex-wrap gap-5 pb-6">
             <SelectFilter
@@ -53,10 +54,8 @@ const Transactions = () => {
             </ul>
           </div>
         </div>
-    {/*     <PopapaddTrans /> */}
       </section>
     </>
-   
   );
 };
 
