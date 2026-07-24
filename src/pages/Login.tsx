@@ -1,9 +1,10 @@
-import ButtonPrimary from "@/components/ButtonGreen";
-import Input from "@/components/Input.tsx";
+
 
 import google from "@/assets/icon_google.svg";
 import email from "@/assets/icon_message_input.svg";
 import password from "@/assets/icon_password_input.svg";
+import ButtonPrimary from "@/components/Buttons/ButtonPrimary";
+import Input from "@/components/Form/Input";
 
 const Login = () => {
   return (

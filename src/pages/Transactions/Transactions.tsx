@@ -1,5 +1,5 @@
-import ButtonPrimary from "@/components/ButtonPrimary";
-import ItemList from "@/components/ItemList";
+import ButtonPrimary from "@/components/Buttons/ButtonPrimary";
+import ItemList from "@/components/ItemList/ItemList";
 import SelectFilter from "@/components/SelectFilter/SelectFilter";
 import Header from "@/layouts/Header";
 

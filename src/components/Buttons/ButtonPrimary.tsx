@@ -1,4 +1,6 @@
-const ButtonPrimary = ({ textButton, size }) => {
+import type { IButtonProps } from "./Buttons.type";
+
+const ButtonPrimary = ({ textButton }: IButtonProps) => {
   return (
     <button
       type="button"

@@ -1,9 +1,13 @@
 import iconEyePassword from "@/assets/icon_eye_thin.svg";
 import iconEyePasswordClose from "@/assets/icon_eye_closed.svg";
+import type { Iinput } from "./Form.type";
 
-const Input = ({ type, placeholder, icon }) => {
+const Input = ({ type, placeholder, icon }: Iinput) => {
   const inputType = type === "password";
   const buttonEye = type === "text";
+
+  console.log(icon);
+  
 
   return (
     <>

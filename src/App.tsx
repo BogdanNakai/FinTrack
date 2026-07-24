@@ -4,7 +4,7 @@ import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
 
-const Transactions = lazy(() => import('@/pages/Transactions'));
+const Transactions = lazy(() => import('@/pages/Transactions/Transactions'));
 const Login = lazy(() => import("@/pages/Login"));
 const SingIn = lazy(() => import("@/pages/SingIn"));
 const PageComp = lazy(() => import("@/pages/PageComp"));

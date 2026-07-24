@@ -1,9 +1,8 @@
-import ButtonCansel from "@/components/ButtonCansel";
-import ButtonRemove from "@/components/ButtonRemove";
-import ModalDeleteTransactions from "@/components/ModalDeleteTransaction";
-import PopapaddTrans from "@/components/PopapAddTrans";
-import ProfileSettingsCard from "@/components/ProfileSettingsCard";
-import UserInfo from "@/components/UserInfo";
+import ButtonCansel from "@/components/Buttons/ButtonCansel";
+import ButtonRemove from "@/components/Buttons/ButtonRemove";
+import ProfileSettingsCard from "@/components/Cart/ProfileSettingsCard";
+import UserInfo from "@/components/Cart/UserInfo";
+import ModalDeleteTransactions from "@/components/Popap/ModalDeleteTransaction";
 import Header from "@/layouts/Header";
 
 const PageComp = () => {

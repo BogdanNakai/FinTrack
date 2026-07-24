@@ -1,5 +1,6 @@
-import ButtonCansel from "./ButtonCansel";
-import ButtonRemove from "./ButtonRemove";
+import ButtonCansel from "../Buttons/ButtonCansel";
+import ButtonRemove from "../Buttons/ButtonRemove";
+
 
 const ModalDeleteTransactions = () => { 
 	return (
