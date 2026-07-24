@@ -1,8 +1,9 @@
-import ButtonGreeen from "@/components/ButtonGreen";
-import google from "@/assets/icon_google.svg";
+import ButtonPrimary from "@/components/ButtonGreen";
 import Input from "@/components/Input.tsx";
-import email from "@/assets/outline_email.svg";
-import password from "@/assets/password_outline.svg";
+
+import google from "@/assets/icon_google.svg";
+import email from "@/assets/icon_message_input.svg";
+import password from "@/assets/icon_password_input.svg";
 
 const Login = () => {
   return (
@@ -28,7 +29,7 @@ const Login = () => {
                       icon={password}
                     />
                     <div className="flex justify-center w-[160px]">
-                      <ButtonGreeen textButton={"SIGN IN"} />
+                      <ButtonPrimary textButton={"SIGN IN"} />
                     </div>
                   </div>
                 </form>
@@ -42,7 +43,7 @@ const Login = () => {
                 Enter your personal details and start journey with us
               </p>
               <div className="flex justify-center w-[160px]">
-                <ButtonGreeen textButton={"SIGN UP"} />
+                <ButtonPrimary textButton={"SIGN UP"} />
               </div>
             </div>
           </div>

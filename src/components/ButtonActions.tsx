@@ -1,5 +1,5 @@
-import deleteIcon from "@/assets/delete_icon.svg";
-import editIcon from "@/assets/edit_icon.svg";
+import deleteIcon from "@/assets/icon_remove.svg";
+import editIcon from "@/assets/icon_change.svg";
 
 const ButtonActions = () => {
   return (

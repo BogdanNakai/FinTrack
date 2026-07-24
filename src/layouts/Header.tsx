@@ -1,7 +1,8 @@
-import logo from "@/assets/logo.svg";
-import user from "@/assets/icon_user_acount.svg";
-import notifiaction from "@/assets/notifiaction.svg";
 import Menu from "./Menu";
+
+import logo from "@/assets/logo.svg";
+import user from "@/assets/icon_user.svg";
+import notifiaction from "@/assets/icon_notifiaction.svg";
 
 const Header = () => {
   return (
@@ -10,7 +11,9 @@ const Header = () => {
         <div className="header__container">
           <div className="flex items-center gap-[20px] md:justify-between">
             <div className="md:flex-[0_0_auto] flex-[1_0_auto] relative z-10">
-              <img src={logo} alt="FinTrack" />
+              <div className=" max-w-[127px] h-[43px]">
+                <img src={logo} alt="FinTrack" className="w-full h-full" />
+              </div>
             </div>
             <Menu />
             <div className="flex items-center gap-[15px] relative z-10">

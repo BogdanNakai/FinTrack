@@ -1,9 +1,10 @@
-import ButtonGreeen from "@/components/ButtonGreen";
-import google from "@/assets/icon_google.svg";
+import ButtonPrimary from "@/components/ButtonGreen";
 import Input from "@/components/Input.tsx";
-import email from "@/assets/outline_email.svg";
-import user from "@/assets/user_outline.svg";
-import password from "@/assets/password_outline.svg";
+
+import google from "@/assets/icon_google.svg";
+import email from "@/assets/icon_message_input.svg";
+import password from "@/assets/icon_password_input.svg";
+import user from "@/assets/icon_user.svg";
 
 const SingIn = () => {
   return (
@@ -17,7 +18,7 @@ const SingIn = () => {
                 Log in to manage your finances.
               </p>
               <div className="flex justify-center w-[160px]">
-                <ButtonGreeen textButton={"SIGN IN"} />
+                <ButtonPrimary textButton={"SIGN IN"} />
               </div>
             </div>
             <div className="flex-[0_0_60%] gap-[20px] h-[100%] flex flex-col justify-center">
@@ -46,7 +47,7 @@ const SingIn = () => {
                       icon={password}
                     />
                     <div className="flex justify-center w-[160px]">
-                      <ButtonGreeen textButton={"SIGN UP"} />
+                      <ButtonPrimary textButton={"SIGN UP"} />
                     </div>
                   </div>
                 </form>

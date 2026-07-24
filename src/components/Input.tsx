@@ -1,4 +1,4 @@
-import iconEyePassword from "@/assets/icon__eye_thin.svg";
+import iconEyePassword from "@/assets/icon_eye_thin.svg";
 import iconEyePasswordClose from "@/assets/icon_eye_closed.svg";
 
 const Input = ({ type, placeholder, icon }) => {
