@@ -1,5 +1,5 @@
-import ButtonLogout from "./ButtonLogout";
-import ButtonPrimary from "./ButtonPrimary";
+import ButtonLogout from "../Buttons/ButtonLogout";
+import ButtonPrimary from "../Buttons/ButtonPrimary";
 
 const UserInfo = () => { 
 	return (

@@ -1,9 +1,8 @@
-import type { ICategory } from "@/types/categories.type";
-import SelectFilter from "./SelectFilter";
+import SelectFilter from "../SelectFilter/SelectFilter";
 
 const PopapaddTrans = () => { 
 
-  const categoriesValue: ICategory[] = [
+  const categoriesValue = [
     { value: "savings-account", label: "Savings Account" },
     { value: "health-fitness", label: "Health & Fitness" },
     { value: "bills-utilities", label: "Bills & Utilities" },
@@ -14,7 +13,7 @@ const PopapaddTrans = () => {
     { value: "salary", label: "Salary" },
     { value: "food-dining", label: "Food & Dining" },
   ];
-  const typeValue: ICategory[] = [
+  const typeValue = [
     { value: "income", label: "Income" },
     { value: "expense", label: "Expense" },
   ];

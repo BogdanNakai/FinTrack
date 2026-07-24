@@ -1,5 +1,6 @@
-import type { ISelectFilterProps, ISelectOption } from "@/types/Transactions.types";
+
 import Select, { type StylesConfig } from "react-select";
+import type { ISelectFilterProps, ISelectOption } from "./Select.types";
 
 const SelectFilter = <T extends string>({
   options,

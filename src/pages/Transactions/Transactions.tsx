@@ -1,6 +1,6 @@
 import ButtonPrimary from "@/components/ButtonPrimary";
 import ItemList from "@/components/ItemList";
-import SelectFilter from "@/components/SelectFilter";
+import SelectFilter from "@/components/SelectFilter/SelectFilter";
 import Header from "@/layouts/Header";
 
 
