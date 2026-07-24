@@ -5,9 +5,9 @@ import { Routes, Route } from "react-router-dom";
 
 
 const Transactions = lazy(() => import('@/pages/Transactions/Transactions'));
-const Login = lazy(() => import("@/pages/Login"));
-const SingIn = lazy(() => import("@/pages/SingIn"));
-const PageComp = lazy(() => import("@/pages/PageComp"));
+const Login = lazy(() => import("@/pages/Login/Login"));
+const SingIn = lazy(() => import("@/pages/SingIn/SingIn"));
+const PageComp = lazy(() => import("@/pages/PageComponents/PageComp"));
 
 const App: FC = () => {
   return (
