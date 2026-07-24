@@ -1,8 +1,11 @@
-import type { SelectFilterProps, SelectOption } from "@/types/Transactions.types";
+import type { ISelectFilterProps, ISelectOption } from "@/types/Transactions.types";
 import Select, { type StylesConfig } from "react-select";
 
-const SelectFilter = <T extends string>({ options, titlePlaceholder}: SelectFilterProps<T>) => {
-  const customStyles: StylesConfig<SelectOption<T>, false> = {
+const SelectFilter = <T extends string>({
+  options,
+  titlePlaceholder,
+}: ISelectFilterProps<T>) => {
+  const customStyles: StylesConfig<ISelectOption<T>, false> = {
     control: (provided) => ({
       ...provided,
       height: "44px",
