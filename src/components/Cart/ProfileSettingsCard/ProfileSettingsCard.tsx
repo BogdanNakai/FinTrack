@@ -1,5 +1,6 @@
-import ButtonPrimary from "../Buttons/ButtonPrimary";
-import ButtonRemove from "../Buttons/ButtonRemove";
+import './ProfileSettingsCard.scss'
+import ButtonPrimary from "@/components/Buttons/ButtonPrimary";
+import ButtonRemove from "@/components/Buttons/ButtonRemove";
 
 const ProfileSettingsCard = () => {
   return (
@@ -35,19 +36,19 @@ const ProfileSettingsCard = () => {
               Notifications Preferences:
             </p>
             <ul className="text-[12px] whitespace-nowrap text[#1E293B] tracking-[0.02em] grid gap-2 md:pt-5.75">
-              <label className="flex items-center gap-2.5">
-                <input type="checkbox" />
-                <span className="checkmark"></span>
+              <label className="flex items-center gap-2.5 custom-chekbox">
+                <input type="checkbox" className="custom-chekbox__input" />
+                <span className="custom-chekbox__fake-checkbox"></span>
                 Budget Limit Alerts
               </label>
-              <label className="flex items-center gap-2.5">
-                <input type="checkbox" />
-                <span className="checkmark"></span>
+              <label className="flex items-center gap-2.5 custom-chekbox">
+                <input type="checkbox" className="custom-chekbox__input" />
+                <span className="custom-chekbox__fake-checkbox"></span>
                 Goal Reminders
               </label>
-              <label className="flex items-center gap-2.5">
-                <input type="checkbox" />
-                <span className="checkmark"></span>
+              <label className="flex items-center gap-2.5 custom-chekbox">
+                <input type="checkbox" className="custom-chekbox__input" />
+                <span className="custom-chekbox__fake-checkbox"></span>
                 Weekly Summary Emails
               </label>
             </ul>
