@@ -42,7 +42,7 @@ const Transactions = () => {
           </div>
           <div>
             <ul>
-              <li className="grid grid-cols-6 text-[#64748B] text-[18px] border-b-1 border-b-[#e2e8f0] bg-[#E2E8F0] pt-4 pb-4 laptop:pr-19 laptop:pl-19 pl-5 pr-5">
+              <li className="grid grid-cols-6 text-[#64748B] text-[18px] border-b border-b-[#e2e8f0] bg-[#E2E8F0] pt-4 pb-4 laptop:pr-19 laptop:pl-19 pl-5 pr-5">
                 <span>Date</span>
                 <span>Category</span>
                 <span>Description</span>
