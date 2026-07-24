@@ -13,7 +13,7 @@ const ModalDeleteTransactions = () => {
         </p>
         <div className="flex items-center gap-[10px]">
           <ButtonCansel />
-          <ButtonRemove />
+          <ButtonRemove textButton="Cansel"/>
         </div>
       </div>
     </>

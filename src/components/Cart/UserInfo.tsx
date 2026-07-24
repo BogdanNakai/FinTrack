@@ -1,5 +1,7 @@
 import ButtonLogout from "../Buttons/ButtonLogout";
 import ButtonPrimary from "../Buttons/ButtonPrimary";
+import ButtonRemove from "../Buttons/ButtonRemove";
+
 
 const UserInfo = () => { 
 	return (
@@ -22,9 +24,7 @@ const UserInfo = () => {
                   width="1"
                   height="1"
                 >
-                  <use
-                    transform="scale(0.00390625)"
-                  />
+                  <use transform="scale(0.00390625)" />
                 </pattern>
                 <image
                   id="image0_2080_1299"
@@ -42,7 +42,7 @@ const UserInfo = () => {
         </div>
         <div className="flex items-center gap-[12px]">
           <ButtonPrimary textButton={"Edit Profile"} />
-          <ButtonLogout />
+          <ButtonRemove textButton={"Edit Profile"} />
         </div>
       </div>
     </>
