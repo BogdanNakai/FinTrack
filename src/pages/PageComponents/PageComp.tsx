@@ -5,6 +5,7 @@ import { ExpenseBreakdownCart } from "@/components/Cart/ExpenseBreakdownCart/Exp
 
 import ProfileSettingsCard from "@/components/Cart/ProfileSettingsCard/ProfileSettingsCard";
 import UserInfo from "@/components/Cart/UserInfo";
+import Message from "@/components/Message/Message";
 import ModalDeleteTransactions from "@/components/Popap/ModalDeleteTransaction";
 import Header from "@/layouts/Header";
 
@@ -19,6 +20,14 @@ const PageComp = () => {
           <UserInfo />
           <ProfileSettingsCard />
           <ExpenseBreakdownCart />
+          <Message
+            textMessag="Budget created successfully!"
+            type="Success"
+          />
+          <Message
+            textMessag="Failed to add budget. Please try again."
+            type="Failed"
+          />
         </div>
       </section>
     </>
