@@ -1,6 +1,6 @@
 export interface Iinput {
-  type: string;
-  placeholder: string;
+  type?: string;
+  placeholder?: string;
   icon?: string;
   name?: string;
 }
