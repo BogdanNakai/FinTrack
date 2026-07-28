@@ -1,11 +1,9 @@
-export interface ISelectOption<T extends string = string> {
-  value: T;
+export interface ISelectOption {
+  value: string;
   label: string;
 }
 
-export interface ISelectFilterProps<T extends string = string> {
-  options: ISelectOption<T>[];
-  titlePlaceholder?: string;
-  value?: ISelectOption<T> | null;
-  onChange?: (option: ISelectOption<T> | null) => void;
+export interface SelectFilterProps {
+  SelectOptionsList: ISelectOption[];
+  NameSelect?: string;
 }

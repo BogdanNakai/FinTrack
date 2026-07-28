@@ -1,32 +1,40 @@
+import { useState } from "react";
+import { FormControl, InputLabel, MenuItem } from "@mui/material";
+import Select, { type SelectChangeEvent } from "@mui/material/Select";
+import type { SelectFilterProps } from "./Select.types";
 
-import Select, { type StylesConfig } from "react-select";
-import type { ISelectFilterProps, ISelectOption } from "./Select.types";
+const SelectFilter = ({ SelectOptionsList, NameSelect }: SelectFilterProps) => {
+  const [category, setCategory] = useState("");
+  const [open, setOpen] = useState(false);
 
-const SelectFilter = <T extends string>({
-  options,
-  titlePlaceholder,
-}: ISelectFilterProps<T>) => {
-  const customStyles: StylesConfig<ISelectOption<T>, false> = {
-    control: (provided) => ({
-      ...provided,
-      height: "44px",
-      width: "100%",
-      borderRadius: "12px",
-      paddingRight: "12px",
-      border: "2px solid #e2e8f0",
-    }),
-    option: (provided) => ({
-      ...provided,
-    }),
+  const handleChange = (event: SelectChangeEvent) => {
+    setCategory(event.target.value);
   };
 
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
   return (
-    <Select
-      options={options}
-      placeholder={titlePlaceholder}
-      classNamePrefix="custom-select"
-      styles={customStyles}
-    />
+    <>
+      <FormControl fullWidth sx={{ minWidth: 120 }} size="small">
+        <InputLabel id="demo-simple-select-label">{NameSelect}</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={category}
+          label="All Category"
+          onChange={handleChange}
+        >
+          {SelectOptionsList.map((e: any) => {
+            return <MenuItem value={e.value}>{e.label}</MenuItem>;
+          })}
+        </Select>
+      </FormControl>
+    </>
   );
 };
 
