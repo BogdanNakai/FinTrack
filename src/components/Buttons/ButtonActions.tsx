@@ -12,7 +12,7 @@ const ButtonActions = () => {
       </button>
       <button
         type="button"
-        className="bg-[#EF4444] w-9 h-9 rounded-full flex justify-center items-center"
+        className="bg-[#EF4444] w-9 min-h-9 rounded-full flex justify-center items-center"
       >
         <img src={deleteIcon} alt="Image" />
       </button>

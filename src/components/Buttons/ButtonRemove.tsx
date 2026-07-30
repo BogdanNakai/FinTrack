@@ -6,7 +6,7 @@ const ButtonRemove = ({ textButton }: IButtonProps) => {
       <div>
         <button
           type="button"
-          className="block tracking-[0.02em] px-[20px] box-border h-[40px] min-w-[120px] bg-[#EF4444] text-[16px] text-[#FFFFFF] rounded-[8px] hover:bg-[#f87171] active:scale-[0.95] transition-[0.15s]"
+          className="block tracking-[0.02em] px-[20px] box-border min-h-[40px] min-w-[120px] bg-[#EF4444] text-[16px] text-[#FFFFFF] rounded-[8px] hover:bg-[#f87171] active:scale-[0.95] transition-[0.15s]"
         >
           {textButton}
         </button>
