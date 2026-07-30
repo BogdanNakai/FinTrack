@@ -1,10 +1,10 @@
 import ButtonPrimary from "@/components/Buttons/ButtonPrimary";
 import ItemList from "@/components/ItemList/ItemList";
 import SelectFilter from "@/components/SelectFilter/SelectFilter";
+import { filterOptionsTime, typeValue } from "@/context/AppContext";
 import Header from "@/layouts/Header";
 
-
-const Transactions = () => {
+const TransactionsPage = () => {
   return (
     <>
       <Header />
@@ -18,26 +18,16 @@ const Transactions = () => {
           </div>
           <div className="flex flex-wrap gap-5 pb-6">
             <SelectFilter
-              options={[
-                { value: "day", label: "This day" },
-                { value: "week", label: "This week" },
-                { value: "month", label: "This month" },
-              ]}
-              titlePlaceholder="This Month"
+              SelectOptionsList={filterOptionsTime}
+              NameSelect="This Month"
             />
             <SelectFilter
-              options={[
-                { value: "income", label: "Income" },
-                { value: "expense", label: "Expense" },
-              ]}
-              titlePlaceholder="All Types"
+              SelectOptionsList={typeValue}
+              NameSelect="All Types"
             />
             <SelectFilter
-              options={[
-                { value: "first", label: "New ones first" },
-                { value: "old", label: "First the old ones" },
-              ]}
-              titlePlaceholder="Newest First"
+              SelectOptionsList={typeValue}
+              NameSelect="Newest First"
             />
           </div>
           <div>
@@ -59,4 +49,4 @@ const Transactions = () => {
   );
 };
 
-export default Transactions;
+export default TransactionsPage;

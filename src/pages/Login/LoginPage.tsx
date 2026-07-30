@@ -5,8 +5,9 @@ import email from "@/assets/icon_message_input.svg";
 import password from "@/assets/icon_password_input.svg";
 import ButtonPrimary from "@/components/Buttons/ButtonPrimary";
 import Input from "@/components/Form/Input";
+import InputPassword from "@/components/Form/InputPassword";
 
-const Login = () => {
+const LoginPage = () => {
   return (
     <>
       <section className="h-[100vh]">
@@ -24,11 +25,19 @@ const Login = () => {
                 <form action="" className="w-[320px]">
                   <div className="grid gap-[20px] place-items-center">
                     <Input type="email" placeholder="Email" icon={email} />
-                    <Input
-                      type="password"
+                    <InputPassword
+                      name="input-password"
                       placeholder="Password"
                       icon={password}
                     />
+                    <div>
+                      <a
+                        href=""
+                        className="text-[#64748B] text-[14px] text-center"
+                      >
+                        Forgot your password?
+                      </a>
+                    </div>
                     <div className="flex justify-center w-[160px]">
                       <ButtonPrimary textButton={"SIGN IN"} />
                     </div>
@@ -44,7 +53,7 @@ const Login = () => {
                 Enter your personal details and start journey with us
               </p>
               <div className="flex justify-center w-[160px]">
-                <ButtonPrimary textButton={"SIGN UP"} />
+                <ButtonPrimary link={ '/singIn'} textButton={"SIGN UP"} />
               </div>
             </div>
           </div>
@@ -54,4 +63,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

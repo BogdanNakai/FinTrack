@@ -6,8 +6,9 @@ import password from "@/assets/icon_password_input.svg";
 import user from "@/assets/icon_user.svg";
 import ButtonPrimary from "@/components/Buttons/ButtonPrimary";
 import Input from "@/components/Form/Input";
+import InputPassword from "@/components/Form/InputPassword";
 
-const SingIn = () => {
+const SingInPage = () => {
   return (
     <>
       <section className="h-[100vh]">
@@ -19,7 +20,7 @@ const SingIn = () => {
                 Log in to manage your finances.
               </p>
               <div className="flex justify-center w-[160px]">
-                <ButtonPrimary textButton={"SIGN IN"} />
+                <ButtonPrimary link={"/login"} textButton={"SIGN IN"} />
               </div>
             </div>
             <div className="flex-[0_0_60%] gap-[20px] h-[100%] flex flex-col justify-center">
@@ -37,13 +38,13 @@ const SingIn = () => {
                   <div className="grid gap-[20px] place-items-center">
                     <Input type="name" placeholder="Name" icon={user} />
                     <Input type="email" placeholder="Email" icon={email} />
-                    <Input
-                      type="password"
+                    <InputPassword
+                      name="input-password"
                       placeholder="Password"
                       icon={password}
                     />
-                    <Input
-                      type="password"
+                    <InputPassword
+                      name="input-password-confirm"
                       placeholder="Confirm Password"
                       icon={password}
                     />
@@ -61,4 +62,4 @@ const SingIn = () => {
   );
 };
 
-export default SingIn;
+export default SingInPage;
