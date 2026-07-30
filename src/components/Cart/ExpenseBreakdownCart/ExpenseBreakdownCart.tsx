@@ -7,22 +7,9 @@ import {
   type Plugin,
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
+import { categoriesData } from "@/context/AppContext";
 
 ChartJS.register(ArcElement, Tooltip);
-
-// Дані за категоріями з макета
-const categoriesData = [
-  { label: "Food", value: 26.1, color: "#22c55e", darkColor: "#15803d" },
-  { label: "Travel", value: 22.8, color: "#2563eb", darkColor: "#1d4ed8" },
-  {
-    label: "Entertainment",
-    value: 16.3,
-    color: "#f59e0b",
-    darkColor: "#b45309",
-  },
-  { label: "Shopping", value: 13.1, color: "#ef4444", darkColor: "#b91c1c" },
-  { label: "Others", value: 21.7, color: "#64748b", darkColor: "#334155" },
-];
 
 // Плагін для малювання 3D-грані ТІЛЬКИ знизу під діаграмою
 const bottomDepthPlugin: Plugin<"pie"> = {
@@ -30,7 +17,7 @@ const bottomDepthPlugin: Plugin<"pie"> = {
   beforeDatasetDraw(chart) {
     const { ctx } = chart;
     const meta = chart.getDatasetMeta(0);
-    const depth = 12; // Товщина бічної грані
+    const depth = 26; // Товщина бічної грані
 
     ctx.save();
 
@@ -124,6 +111,7 @@ export const ExpenseBreakdownCart: React.FC = () => {
         fontFamily: "system-ui, -apple-system, sans-serif",
         boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)",
         maxWidth: "520px",
+        height: "333px",
       }}
     >
       {/* Заголовок */}
@@ -135,17 +123,8 @@ export const ExpenseBreakdownCart: React.FC = () => {
           color: "#1e293b",
         }}
       >
-        Expense Breakdown
+        Top 5 Expenses
       </h2>
-      <p
-        style={{
-          margin: "4px 0 20px 0",
-          fontSize: "14px",
-          color: "#64748b",
-        }}
-      >
-        This month’s spending by category
-      </p>
 
       {/* Основний блок: Діаграма + Легенда */}
       <div
@@ -160,9 +139,9 @@ export const ExpenseBreakdownCart: React.FC = () => {
         <div
           style={{
             width: "240px",
-            height: "270px",
+            height: "290px",
             transform: "scaleY(0.75)", // Сплющує коло по вертикалі, створюючи потрібний кут огляду
-            transformOrigin: "center center",
+            transformOrigin: "start center",
           }}
         >
           <Pie data={data} options={options} plugins={[bottomDepthPlugin]} />
