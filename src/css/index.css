@@ -18,12 +18,22 @@
 body {
   font-family: "Inter",
     sans-serif;
+    height: 100vh;
 }
 
 [data-fls-menu-open] body {
   overflow: hidden;
 }
 
+[id='root'] {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+main {
+  flex: 1 1 auto;
+}
 
 
 .react-datepicker-popper {
