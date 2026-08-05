@@ -1,12 +1,11 @@
-import ButtonLogout from "../Buttons/ButtonLogout";
+import ButtonChenges from "../Buttons/ButtonChenges";
 import ButtonPrimary from "../Buttons/ButtonPrimary";
-import ButtonRemove from "../Buttons/ButtonRemove";
 
 
 const UserInfo = () => { 
 	return (
     <>
-      <div className="flex flex-col items-center max-w-[400px] gap-[24px] px-[20px] py-[39px] shadow-[0_6px_18px_0_rgba(2,6,23,0.1)] rounded-[12px]">
+      <div className="flex flex-col items-center max-w-[400px] gap-[24px] px-[39px] py-[20px] shadow-[0_6px_18px_0_rgba(2,6,23,0.1)] rounded-[12px]">
         <div className="flex flex-col items-center gap-[20px]">
           <div className="rounded-[50%] overflow-hidden">
             <svg
@@ -40,9 +39,9 @@ const UserInfo = () => {
             email@example.com
           </p>
         </div>
-        <div className="flex items-center gap-[12px]">
+        <div className="flex items-center gap-[12px] flex-wrap justify-center">
           <ButtonPrimary textButton={"Edit Profile"} />
-          <ButtonRemove textButton={"Edit Profile"} />
+          <ButtonChenges textButton={"Change Password"} />
         </div>
       </div>
     </>
