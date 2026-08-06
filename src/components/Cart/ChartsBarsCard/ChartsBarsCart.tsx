@@ -1,46 +1,44 @@
-import { lastFiveMonthe } from "@/context/AppContext";
-import { LineChart } from "@mui/x-charts";
+import { totalСostsСategory } from "@/context/AppContext";
+import { BarChart } from "@mui/x-charts";
 
-const LineDiagramIncExp = () => {
-  const pData = [null, 2, 500, 233, 34, 200, 230];
-  const uData = [null, 3, 34, 1111, 5, 142, 100];
+const ChartsBarsCart = () => {
 
-  const numbersOnlyP = pData.filter((i): i is number => i !== null);
-  const numbersOnlyU = uData.filter((i): i is number => i !== null);
+  const value = totalСostsСategory.map((i) => i.value);
+  const maxValue = value.length > 0 ? Math.max(...value) : 0;
 
-  const maxNumberP = numbersOnlyP.length > 0 ? Math.max(...numbersOnlyP) : 0;
-  const maxNumberU = numbersOnlyU.length > 0 ? Math.max(...numbersOnlyU) : 0;
-
-  const maxNumber = Math.max(maxNumberP, maxNumberU);
-  const xLabels = lastFiveMonthe();
 
   return (
     <div className="bg-white rounded-2xl md:p-6 p-3 font-sans shadow-[0_4px_20px_rgba(0,0,0,0.05)] max-w-[520px] w-full h-auto">
       <div className="flex items-center gap-1.5 justify-between pb-[12px]">
         <h3 className="text-[18px] text-[#1E293B] font-bold">
-          Income vs Expense
+          Spending by Category
         </h3>
-        <p className="text-[12] text-[#64748B] ">Monthly trend</p>
       </div>
-      <LineChart
+      <BarChart
         height={215}
         grid={{ vertical: false, horizontal: true }}
-        series={[
-          { data: pData, label: "Expense", color: "#EF4444" },
-          { data: uData, label: "Income", color: "#00B894" },
-        ]}
+        hideLegend
         xAxis={[
           {
-            scaleType: "point",
-            data: xLabels,
-            height: 28,
+            scaleType: "band",
+            data: totalСostsСategory.map((d) => d.label),
             disableTicks: true,
+            colorMap: {
+              type: "ordinal",
+              values: totalСostsСategory.map((d) => d.label),
+              colors: totalСostsСategory.map((d) => d.color),
+            },
+          },
+        ]}
+        series={[
+          {
+            data: totalСostsСategory.map((d) => d.value),
           },
         ]}
         yAxis={[
           {
             min: 0,
-            max: maxNumber * 1.2,
+            max: maxValue * 1.3,
             width: 50,
             tickNumber: 10,
             tickLabelInterval: (value, index) => index % 2 === 0,
@@ -68,14 +66,9 @@ const LineDiagramIncExp = () => {
             strokeWidth: 0.78,
           },
         }}
-        slotProps={{
-          legend: {
-            position: { vertical: "bottom", horizontal: "center" },
-          },
-        }}
       />
     </div>
   );
 };
 
-export default LineDiagramIncExp;
+export default ChartsBarsCart;
