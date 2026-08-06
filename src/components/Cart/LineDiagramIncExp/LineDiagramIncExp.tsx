@@ -1,10 +1,14 @@
 import { lastFiveMonthe } from "@/context/AppContext";
 import { LineChart } from "@mui/x-charts";
+import type { LineDiagramIncExpProps } from "./LineDiagramIncExp.type";
 
-const LineDiagramIncExp = () => {
-  const pData = [null, 2, 500, 233, 34, 200, 230];
-  const uData = [null, 3, 34, 1111, 5, 142, 100];
 
+const LineDiagramIncExp: React.FC<LineDiagramIncExpProps> = ({
+  pData,
+  uData,
+  seriesData,
+  title
+}) => {
   const numbersOnlyP = pData.filter((i): i is number => i !== null);
   const numbersOnlyU = uData.filter((i): i is number => i !== null);
 
@@ -18,17 +22,14 @@ const LineDiagramIncExp = () => {
     <div className="bg-white rounded-2xl md:p-6 p-3 font-sans shadow-[0_4px_20px_rgba(0,0,0,0.05)] max-w-[520px] w-full h-auto">
       <div className="flex items-center gap-1.5 justify-between pb-[12px]">
         <h3 className="text-[18px] text-[#1E293B] font-bold">
-          Income vs Expense
+          { title}
         </h3>
         <p className="text-[12] text-[#64748B] ">Monthly trend</p>
       </div>
       <LineChart
         height={215}
         grid={{ vertical: false, horizontal: true }}
-        series={[
-          { data: pData, label: "Expense", color: "#EF4444" },
-          { data: uData, label: "Income", color: "#00B894" },
-        ]}
+        series={seriesData}
         xAxis={[
           {
             scaleType: "point",
