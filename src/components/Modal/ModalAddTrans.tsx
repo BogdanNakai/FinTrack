@@ -6,9 +6,8 @@ import InputMony from "../Form/InputMony";
 import InputPopap from "../Form/InputPopap";
 import SelectFilter from "../SelectFilter/SelectFilter";
 
-const PopapaddTrans = () => { 
-
-	return (
+const ModalAddTrans = () => {
+  return (
     <div className="w-160 h-107.5 p-6 bg-[#ffffff] rounded-xl absolute top-50% visible border-2 border-[#000]">
       <h3 className="text-2xl pb-5">Add Transaction</h3>
       <form className="h-auto grid grid-cols-1 gap-3.5">
@@ -35,7 +34,7 @@ const PopapaddTrans = () => {
           />
         </label>
         <label className="max-w-full w-40">
-            <InputMony name="Amount" type="number" placeholder="Amount" />
+          <InputMony name="Amount" type="number" placeholder="Amount" />
         </label>
         <div className="flex justify-end items-center gap-3">
           <ButtonSecondary textButton="Cansel" />
@@ -46,4 +45,4 @@ const PopapaddTrans = () => {
   );
 };
 
-export default PopapaddTrans
+export default ModalAddTrans;
