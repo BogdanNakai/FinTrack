@@ -2,10 +2,8 @@ import { totalСostsСategory } from "@/context/AppContext";
 import { BarChart } from "@mui/x-charts";
 
 const ChartsBarsCart = () => {
-
   const value = totalСostsСategory.map((i) => i.value);
   const maxValue = value.length > 0 ? Math.max(...value) : 0;
-
 
   return (
     <div className="bg-white rounded-2xl md:p-6 p-3 font-sans shadow-[0_4px_20px_rgba(0,0,0,0.05)] max-w-[520px] w-full h-auto">

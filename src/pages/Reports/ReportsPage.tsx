@@ -1,10 +1,24 @@
 import ButtonPrimary from "@/components/Buttons/ButtonPrimary";
-import ExpenseBreakdownCart from "@/components/Cart/ExpenseBreakdownCart/ExpenseBreakdownCart";
+import ChartsBarsCart from "@/components/Cart/ChartsBarsCard/ChartsBarsCart";
+import GoalProgressCard from "@/components/Cart/GoalProgressCard/GoalProgressCard";
+import ExpenseBreakdownCart from "@/components/Cart/ExpenseBreakdownCard/ExpenseBreakdownCart";
 import LineDiagramIncExp from "@/components/Cart/LineDiagramIncExp/LineDiagramIncExp";
 import SelectFilter from "@/components/SelectFilter/SelectFilter";
-import { categoriesValue, filterOptionsTime } from "@/context/AppContext";
+import {
+  categoriesValue,
+  filterOptionsTime,
+  categoriesData,
+  GoalProgress,
+  seriesBalanse,
+  dataIncome,
+  dataExpense,
+  dataBudget,
+  dataSpending,
+  seriesBudgetSpending,
+} from "@/context/AppContext";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
+import ModalAddGoal from "@/components/Modal/ModalAddGoal";
 
 const ReportsPage = () => {
   return (
@@ -34,9 +48,30 @@ const ReportsPage = () => {
                   />
                 </div>
               </div>
-              <div className="flex items-start flex-wrap gap-5 justify-center">
-                <ExpenseBreakdownCart />
-                <LineDiagramIncExp />
+              <div className="grid gap-5 lg:grid-cols-2 grid-cols-1 lg:justify-items-normal justify-items-center">
+                <ExpenseBreakdownCart
+                  categoriesData={categoriesData}
+                  title="Top 5 Expenses"
+                />
+                <ChartsBarsCart />
+                <LineDiagramIncExp
+                  uData={dataExpense}
+                  pData={dataIncome}
+                  seriesData={seriesBalanse}
+                  title="Monthly trend"
+                />
+                <ExpenseBreakdownCart
+                  categoriesData={GoalProgress}
+                  title="Completed vs Ongoing Goals"
+                />
+                <GoalProgressCard />
+                <LineDiagramIncExp
+                  uData={dataBudget}
+                  pData={dataSpending}
+                  seriesData={seriesBudgetSpending}
+                  title="Budget vs Spending Over Time"
+                />
+                <ModalAddGoal />
               </div>
             </div>
           </div>

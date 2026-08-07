@@ -22,7 +22,7 @@ const GoalProgressCard = () => {
         ]}
         series={[
           { dataKey: "saved", label: "Saved Amount", color: "#00B894" },
-          { dataKey: "remaining", label: "Remaining Amount", color: "#E2E8F0" },
+          { dataKey: "target", label: "Remaining Amount", color: "#E2E8F0" },
         ]}
         margin={{
           left: 0,
