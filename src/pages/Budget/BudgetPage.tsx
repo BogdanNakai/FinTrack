@@ -1,12 +1,16 @@
 import ButtonPrimaryAtion from "@/components/Buttons/ButtonPrimaryAtion";
 import BudgetCard from "@/components/Card/BudgetCart/BudgetCard";
 import ExpenseBreakdownCard from "@/components/Card/ExpenseBreakdownCard/ExpenseBreakdownCard";
-import GoalProgressCard from "@/components/Card/GoalProgressCard/GoalProgressCard";
+import LineDiagram from "@/components/Card/LineDiagram/LineDiagram";
+import InputMonthe from "@/components/Form/InputMonthe";
 import SelectFilter from "@/components/SelectFilter/SelectFilter";
+import TabletBudget from "@/components/Tablets/TabletBudget";
 import {
-  GoalProgress,
+  categoriesData,
   categoriesValue,
-  statusGoal,
+  dataBudget,
+  dataSpending,
+  seriesBudgetSpending,
 } from "@/context/AppContext";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
@@ -32,10 +36,7 @@ const BudgetPage = () => {
               </div>
               <div className="flex items-center gap-[20px] flex-wrap">
                 <div className="max-w-[220px] w-full">
-                  <SelectFilter
-                    SelectOptionsList={statusGoal}
-                    NameSelect="Status"
-                  />
+                  <InputMonthe />
                 </div>
                 <div className="max-w-[220px] w-full">
                   <SelectFilter
@@ -47,15 +48,24 @@ const BudgetPage = () => {
               <div className="flex items-center gap-[24px] flex-wrap lg:flex-nowrap justify-start pb-[24px]">
                 <BudgetCard />
               </div>
+              <div>
+                <TabletBudget />
+
+              </div>
               <div className="">
-                <h2 className="text-[20px] text-[#1E293B] font-semibold">
-                  Goal Progress Overview
+                <h2 className="text-[20px] text-[#1E293B] font-semibold pb-[21px]">
+                  Budget Insights
                 </h2>
                 <div className="grid gap-5 lg:grid-cols-2 grid-cols-1 lg:justify-items-normal justify-items-center">
-                  <GoalProgressCard />
+                  <LineDiagram
+                    uData={dataBudget}
+                    pData={dataSpending}
+                    seriesData={seriesBudgetSpending}
+                    title="Budget vs Spending Over Time"
+                  />
                   <ExpenseBreakdownCard
-                    categoriesData={GoalProgress}
-                    title="Completed vs Ongoing Goals"
+                    categoriesData={categoriesData}
+                    title="Category-wise Budget Allocation"
                   />
                 </div>
               </div>

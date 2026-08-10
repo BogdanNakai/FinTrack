@@ -1,8 +1,9 @@
 import { lastFiveMonthe } from "@/context/AppContext";
 import { LineChart } from "@mui/x-charts";
-import type { LineDiagramIncExpProps } from "./LineDiagram.type";
 
-const LineDiagram: React.FC<LineDiagramIncExpProps> = ({
+import type { ILineDiagram } from "./LineDiagram.type";
+
+const LineDiagram: React.FC<ILineDiagram> = ({
   pData,
   uData,
   seriesData,

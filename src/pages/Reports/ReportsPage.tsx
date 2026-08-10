@@ -17,8 +17,8 @@ import Header from "@/layouts/Header";
 import ModalAddGoal from "@/components/Modal/ModalAddGoal";
 import ExpenseBreakdownCard from "@/components/Card/ExpenseBreakdownCard/ExpenseBreakdownCard";
 import ChartsBarsCard from "@/components/Card/ChartsBarsCard/ChartsBarsCard";
-import LineDiagram from "@/components/Card/LineDiagram/LineDiagram";
 import GoalProgressCard from "@/components/Card/GoalProgressCard/GoalProgressCard";
+import LineDiagram from "@/components/Card/LineDiagram/LineDiagram";
 
 const ReportsPage = () => {
   return (

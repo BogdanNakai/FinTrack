@@ -4,7 +4,7 @@ interface ISeriesData {
   color: string;
 }
 
-export interface LineDiagramIncExpProps {
+export interface ILineDiagram {
   pData: (number | null)[];
   uData: (number | null)[];
   seriesData: ISeriesData[];
