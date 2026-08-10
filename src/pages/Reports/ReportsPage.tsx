@@ -1,8 +1,4 @@
 import ButtonPrimary from "@/components/Buttons/ButtonPrimary";
-import ChartsBarsCart from "@/components/Cart/ChartsBarsCard/ChartsBarsCart";
-import GoalProgressCard from "@/components/Cart/GoalProgressCard/GoalProgressCard";
-import ExpenseBreakdownCart from "@/components/Cart/ExpenseBreakdownCard/ExpenseBreakdownCart";
-import LineDiagramIncExp from "@/components/Cart/LineDiagramIncExp/LineDiagramIncExp";
 import SelectFilter from "@/components/SelectFilter/SelectFilter";
 import {
   categoriesValue,
@@ -19,6 +15,10 @@ import {
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
 import ModalAddGoal from "@/components/Modal/ModalAddGoal";
+import ExpenseBreakdownCard from "@/components/Card/ExpenseBreakdownCard/ExpenseBreakdownCard";
+import ChartsBarsCard from "@/components/Card/ChartsBarsCard/ChartsBarsCard";
+import LineDiagram from "@/components/Card/LineDiagram/LineDiagram";
+import GoalProgressCard from "@/components/Card/GoalProgressCard/GoalProgressCard";
 
 const ReportsPage = () => {
   return (
@@ -49,23 +49,23 @@ const ReportsPage = () => {
                 </div>
               </div>
               <div className="grid gap-5 lg:grid-cols-2 grid-cols-1 lg:justify-items-normal justify-items-center">
-                <ExpenseBreakdownCart
+                <ExpenseBreakdownCard
                   categoriesData={categoriesData}
                   title="Top 5 Expenses"
                 />
-                <ChartsBarsCart />
-                <LineDiagramIncExp
+                <ChartsBarsCard />
+                <LineDiagram
                   uData={dataExpense}
                   pData={dataIncome}
                   seriesData={seriesBalanse}
                   title="Monthly trend"
                 />
-                <ExpenseBreakdownCart
+                <ExpenseBreakdownCard
                   categoriesData={GoalProgress}
                   title="Completed vs Ongoing Goals"
                 />
                 <GoalProgressCard />
-                <LineDiagramIncExp
+                <LineDiagram
                   uData={dataBudget}
                   pData={dataSpending}
                   seriesData={seriesBudgetSpending}
