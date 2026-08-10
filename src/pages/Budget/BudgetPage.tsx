@@ -1,13 +1,11 @@
 import ButtonPrimaryAtion from "@/components/Buttons/ButtonPrimaryAtion";
-import BudgetCart from "@/components/Cart/BudgetCard/BudgetCard";
-import ExpenseBreakdownCart from "@/components/Cart/ExpenseBreakdownCard/ExpenseBreakdownCart";
-import GoalCard from "@/components/Cart/GoalCard/GoalCard";
-import GoalProgressCard from "@/components/Cart/GoalProgressCard/GoalProgressCard";
+import BudgetCard from "@/components/Card/BudgetCart/BudgetCard";
+import ExpenseBreakdownCard from "@/components/Card/ExpenseBreakdownCard/ExpenseBreakdownCard";
+import GoalProgressCard from "@/components/Card/GoalProgressCard/GoalProgressCard";
 import SelectFilter from "@/components/SelectFilter/SelectFilter";
 import {
   GoalProgress,
   categoriesValue,
-  filterOptionsTime,
   statusGoal,
 } from "@/context/AppContext";
 import Copyright from "@/layouts/Copyright";
@@ -55,7 +53,7 @@ const BudgetPage = () => {
                 </h2>
                 <div className="grid gap-5 lg:grid-cols-2 grid-cols-1 lg:justify-items-normal justify-items-center">
                   <GoalProgressCard />
-                  <ExpenseBreakdownCart
+                  <ExpenseBreakdownCard
                     categoriesData={GoalProgress}
                     title="Completed vs Ongoing Goals"
                   />

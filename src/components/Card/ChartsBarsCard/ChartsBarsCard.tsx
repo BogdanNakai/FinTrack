@@ -1,7 +1,7 @@
 import { totalСostsСategory } from "@/context/AppContext";
 import { BarChart } from "@mui/x-charts";
 
-const ChartsBarsCart = () => {
+const ChartsBarsCard = () => {
   const value = totalСostsСategory.map((i) => i.value);
   const maxValue = value.length > 0 ? Math.max(...value) : 0;
 
@@ -69,4 +69,4 @@ const ChartsBarsCart = () => {
   );
 };
 
-export default ChartsBarsCart;
+export default ChartsBarsCard;

@@ -7,7 +7,7 @@ import {
   type Plugin,
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
-import type { MyComponentProps } from "./ExpenseBreakdownCart.type";
+import type { MyComponentProps } from "./ExpenseBreakdownCard.type";
 
 ChartJS.register(ArcElement, Tooltip);
 
@@ -24,7 +24,7 @@ const options: ChartOptions<"pie"> = {
   },
 };
 
-const ExpenseBreakdownCart: React.FC<MyComponentProps> = ({
+const ExpenseBreakdownCard: React.FC<MyComponentProps> = ({
   categoriesData,
   title,
 }) => {
@@ -137,4 +137,4 @@ const ExpenseBreakdownCart: React.FC<MyComponentProps> = ({
   );
 };
 
-export default ExpenseBreakdownCart;
+export default ExpenseBreakdownCard;
