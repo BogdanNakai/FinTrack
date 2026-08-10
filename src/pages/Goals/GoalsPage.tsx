@@ -1,5 +1,5 @@
 import ButtonPrimaryAtion from "@/components/Buttons/ButtonPrimaryAtion";
-import ExpenseBreakdownCart from "@/components/Card/ExpenseBreakdownCard/ExpenseBreakdownCart";
+import ExpenseBreakdownCard from "@/components/Card/ExpenseBreakdownCard/ExpenseBreakdownCard";
 import GoalCard from "@/components/Card/GoalCard/GoalCard";
 import GoalProgressCard from "@/components/Card/GoalProgressCard/GoalProgressCard";
 import SelectFilter from "@/components/SelectFilter/SelectFilter";
@@ -53,7 +53,7 @@ const GoalsPage = () => {
                 </h2>
                 <div className="grid gap-5 lg:grid-cols-2 grid-cols-1 lg:justify-items-normal justify-items-center">
                   <GoalProgressCard />
-                  <ExpenseBreakdownCart
+                  <ExpenseBreakdownCard
                     categoriesData={GoalProgress}
                     title="Completed vs Ongoing Goals"
                   />
