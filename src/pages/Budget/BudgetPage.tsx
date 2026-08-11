@@ -1,4 +1,5 @@
 import ButtonPrimaryAtion from "@/components/Buttons/ButtonPrimaryAtion";
+import ButtonActionsList from "@/components/Buttons/ButtonsActionList";
 import BudgetCard from "@/components/Card/BudgetCart/BudgetCard";
 import ExpenseBreakdownCard from "@/components/Card/ExpenseBreakdownCard/ExpenseBreakdownCard";
 import LineDiagram from "@/components/Card/LineDiagram/LineDiagram";
@@ -49,8 +50,8 @@ const BudgetPage = () => {
                 <BudgetCard />
               </div>
               <div>
-                <TabletBudget />
-
+                <div className="pb-6"><TabletBudget /></div>
+                <div><ButtonActionsList /></div>
               </div>
               <div className="">
                 <h2 className="text-[20px] text-[#1E293B] font-semibold pb-[21px]">
