@@ -1,50 +1,63 @@
 import ButtonPrimary from "@/components/Buttons/ButtonPrimary";
-import ItemList from "@/components/ItemList/ItemList";
+import ButtonPrimaryActions from "@/components/Buttons/ButtonPrimaryAtions";
+import ButtonsActionsList from "@/components/Buttons/ButtonsActionsList";
 import SelectFilter from "@/components/SelectFilter/SelectFilter";
+import TabletTransaction from "@/components/Tablets/TablletTransaction";
 import { filterOptionsTime, typeValue } from "@/context/AppContext";
+import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
 
 const TransactionsPage = () => {
   return (
     <>
       <Header />
-      <section className="pt-12 flex items-center justify-center relative min-h-full">
-        <div className="herro-container">
-          <div className="flex flex-wrap gap-3 justify-between pb-6">
-            <h2 className="text-[#1E293B] text-2xl font-medium">
-              Transactions
-            </h2>
-            <ButtonPrimary textButton={"Add Transaction"} />
+      <main>
+        <section className="pt-12">
+          <div className="herro__container">
+            <div className="flex flex-wrap gap-3 justify-between pb-6">
+              <h2 className="font-[Poppins] font-sans text-2xl text-[#1E293B] tracking-[0.02em] font-medium ">
+                Transactions
+              </h2>
+              <ButtonPrimaryActions textButton={"Add Transaction"} />
+            </div>
+            <div className="flex gap-5 pb-6">
+              <div className="max-w-56 w-full ">
+                <SelectFilter
+                  SelectOptionsList={filterOptionsTime}
+                  NameSelect="This Month"
+                />
+              </div>
+              <div className="max-w-56 w-full ">
+                <SelectFilter
+                  SelectOptionsList={filterOptionsTime}
+                  NameSelect="This Month"
+                />
+              </div>
+              <div className="max-w-56 w-full">
+                <SelectFilter
+                  SelectOptionsList={typeValue}
+                  NameSelect="All Types"
+                />
+              </div>
+              <div className="max-w-56 w-full">
+                <SelectFilter
+                  SelectOptionsList={typeValue}
+                  NameSelect="Newest First"
+                />
+              </div>
+            </div>
+            <div>
+              <div className="pb-6">
+                <TabletTransaction />
+              </div>
+              <div>
+                <ButtonsActionsList />
+              </div>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-5 pb-6">
-            <SelectFilter
-              SelectOptionsList={filterOptionsTime}
-              NameSelect="This Month"
-            />
-            <SelectFilter
-              SelectOptionsList={typeValue}
-              NameSelect="All Types"
-            />
-            <SelectFilter
-              SelectOptionsList={typeValue}
-              NameSelect="Newest First"
-            />
-          </div>
-          <div>
-            <ul>
-              <li className="grid grid-cols-6 text-[#64748B] text-[18px] border-b border-b-[#e2e8f0] bg-[#E2E8F0] pt-4 pb-4 laptop:pr-19 laptop:pl-19 pl-5 pr-5">
-                <span>Date</span>
-                <span>Category</span>
-                <span>Description</span>
-                <span>Amount</span>
-                <span>Type </span>
-                <span>Actions</span>
-              </li>
-              <ItemList />
-            </ul>
-          </div>
-        </div>
-      </section>
+        </section>
+      </main>
+      <Copyright />
     </>
   );
 };
