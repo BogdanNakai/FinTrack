@@ -1,14 +1,10 @@
-import { listTransactionBudget } from "@/context/AppContext";
+import { listTransactionBudget, monyFormatter } from "@/context/AppContext";
 import ElementTitleCategory from "./ElementTitleCategory";
 import ProgressLine from "../uii/ProgressLine/ProgressLine";
 import ButtonActions from "../Buttons/ButtonActions";
 
 const ItemTablet = () => {
-  const monyFormatter = new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-    maximumFractionDigits: 0,
-  });
+
 
   return (
     <>
