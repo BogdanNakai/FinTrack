@@ -14,6 +14,16 @@ ChartJS.register(ArcElement, Tooltip);
 const options: ChartOptions<"pie"> = {
   responsive: true,
   maintainAspectRatio: false,
+
+  layout: {
+    padding: {
+      top: 10,
+      right: 10,
+      bottom: 30, // місце для 3D-товщини
+      left: 10,
+    },
+  },
+
   plugins: {
     legend: {
       display: false,
@@ -108,14 +118,16 @@ const ExpenseBreakdownCard: React.FC<MyComponentProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-2xl md:p-6 p-3 shadow-[0_4px_20px_rgba(0,0,0,0.05)] max-w-[520px] w-full min-h-[333px]">
+    <div className="bg-white rounded-2xl md:p-6 p-3 shadow-[0_4px_20px_rgba(0,0,0,0.05)] max-w-[520px] w-full min-h-[330px]">
       <div className="flex items-center gap-1.5 justify-between pb-[12px]">
         <h3 className="text-[18px] text-[#1E293B] font-bold">{title}</h3>
       </div>
       <div className="flex items-center justify-between gap-5 flex-wrap">
         <div
-          className="w-[240px] h-[290px] origin-left"
-          style={{ transform: "scaleY(0.75)" }}
+          className="w-[265px] h-[250px] origin-left"
+          style={{
+            transform: "scaleY(0.75)",
+          }}
         >
           <Pie data={data} options={options} plugins={[bottomDepthPlugin]} />
         </div>
