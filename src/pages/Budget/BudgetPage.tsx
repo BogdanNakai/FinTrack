@@ -1,4 +1,4 @@
-import ButtonPrimaryAtion from "@/components/Buttons/ButtonPrimaryAtion";
+import ButtonPrimaryActions from "@/components/Buttons/ButtonPrimaryActions";
 import ButtonActionsList from "@/components/Buttons/ButtonsActionList";
 import BudgetCard from "@/components/Card/BudgetCart/BudgetCard";
 import ExpenseBreakdownCard from "@/components/Card/ExpenseBreakdownCard/ExpenseBreakdownCard";
@@ -33,7 +33,7 @@ const BudgetPage = () => {
                     Plan and monitor your monthly limits
                   </p>
                 </div>
-                <ButtonPrimaryAtion textButton="Add New Budget" />
+                <ButtonPrimaryActions textButton="Add New Budget" />
               </div>
               <div className="flex items-center gap-[20px] flex-wrap">
                 <div className="max-w-[220px] w-full">
@@ -50,8 +50,12 @@ const BudgetPage = () => {
                 <BudgetCard />
               </div>
               <div>
-                <div className="pb-6"><TabletBudget /></div>
-                <div><ButtonActionsList /></div>
+                <div className="pb-6">
+                  <TabletBudget />
+                </div>
+                <div>
+                  <ButtonActionsList />
+                </div>
               </div>
               <div className="">
                 <h2 className="text-[20px] text-[#1E293B] font-semibold pb-[21px]">

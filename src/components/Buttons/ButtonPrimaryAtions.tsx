@@ -1,7 +1,7 @@
 import type { IButtonProps } from "./Buttons.type";
-import plus from '@/assets/icon_plus.svg'
+import plus from "@/assets/icon_plus.svg";
 
-const ButtonPrimaryAtion = ({ textButton, link }: IButtonProps) => {
+const ButtonPrimaryActions = ({ textButton, link }: IButtonProps) => {
   return (
     <a
       href={link}
@@ -14,4 +14,4 @@ const ButtonPrimaryAtion = ({ textButton, link }: IButtonProps) => {
   );
 };
 
-export default ButtonPrimaryAtion;
+export default ButtonPrimaryActions;

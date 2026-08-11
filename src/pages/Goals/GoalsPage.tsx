@@ -1,4 +1,4 @@
-import ButtonPrimaryAtion from "@/components/Buttons/ButtonPrimaryAtion";
+import ButtonPrimaryActions from "@/components/Buttons/ButtonPrimaryActions";
 import ExpenseBreakdownCard from "@/components/Card/ExpenseBreakdownCard/ExpenseBreakdownCard";
 import GoalCard from "@/components/Card/GoalCard/GoalCard";
 import GoalProgressCard from "@/components/Card/GoalProgressCard/GoalProgressCard";
@@ -28,7 +28,7 @@ const GoalsPage = () => {
                     Set, track, and achieve your financial targets
                   </p>
                 </div>
-                <ButtonPrimaryAtion textButton="Add Goal" />
+                <ButtonPrimaryActions textButton="Add Goal" />
               </div>
               <div className="flex items-center gap-[20px] flex-wrap">
                 <div className="max-w-[220px] w-full">
