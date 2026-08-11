@@ -1,4 +1,5 @@
-import ButtonPrimaryActions from "@/components/Buttons/ButtonPrimaryActions";
+
+import ButtonPrimaryActions from "@/components/Buttons/ButtonPrimaryAtions";
 import ExpenseBreakdownCard from "@/components/Card/ExpenseBreakdownCard/ExpenseBreakdownCard";
 import GoalCard from "@/components/Card/GoalCard/GoalCard";
 import GoalProgressCard from "@/components/Card/GoalProgressCard/GoalProgressCard";

@@ -1,5 +1,6 @@
-import ButtonPrimaryActions from "@/components/Buttons/ButtonPrimaryActions";
-import ButtonActionsList from "@/components/Buttons/ButtonsActionList";
+
+import ButtonPrimaryActions from "@/components/Buttons/ButtonPrimaryAtions";
+import ButtonsActionsList from "@/components/Buttons/ButtonsActionsList";
 import BudgetCard from "@/components/Card/BudgetCart/BudgetCard";
 import ExpenseBreakdownCard from "@/components/Card/ExpenseBreakdownCard/ExpenseBreakdownCard";
 import LineDiagram from "@/components/Card/LineDiagram/LineDiagram";
@@ -54,7 +55,7 @@ const BudgetPage = () => {
                   <TabletBudget />
                 </div>
                 <div>
-                  <ButtonActionsList />
+                  <ButtonsActionsList />
                 </div>
               </div>
               <div className="">
