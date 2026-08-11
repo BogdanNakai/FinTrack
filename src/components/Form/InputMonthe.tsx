@@ -3,8 +3,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs, { Dayjs } from "dayjs";
 // Імпортуємо іконку стрілки вниз
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'; 
-
 function InputMonthe() {
   return (
     <div className="w-full">
