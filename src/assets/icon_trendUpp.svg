@@ -1,0 +1,24 @@
+<svg
+	width="20"
+	height="20"
+	viewBox="0 0 20 20"
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
+	className="flex-grow-0 flex-shrink-0 w-5 h-5 relative"
+	preserveAspectRatio="xMidYMid meet"
+>
+	<path
+		d="M2.5 14.1666L7.5 9.16659L10.8333 12.4999L17.5 5.83325"
+		stroke="#22C55E"
+		stroke-width="0.67"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+	/>
+	<path
+		d="M14.1667 5.83325H17.5V9.16659"
+		stroke="#22C55E"
+		stroke-width="0.67"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+	/>
+</svg>
