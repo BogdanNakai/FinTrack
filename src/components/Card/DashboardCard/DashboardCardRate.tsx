@@ -6,27 +6,27 @@ const DashboardCardRate = ({ title, balanse, growth }) => {
   return (
     <>
       <div
-        className="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 max-w-[260px] w-full relative overflow-hidden gap-2 p-4 rounded-xl bg-white"
+        className="flex flex-col justify-start items-start flex-[0_1_150px] sm:flex-[0_1_150px] lg:flex-[0_1_260px] min-w-[150px] md:min-w-[190px] w-full  relative overflow-hidden gap-2 p-2.5 md:p-4 rounded-xl bg-white"
         style={{ boxShadow: "0px 6px 18px 0 rgba(2,6,23,0.06)" }}
       >
-        <p className="flex-grow-0 flex-shrink-0 text-xs text-left text-slate-500">
+        <p className="flex-grow-0 flex-shrink-0 text-[10px] md:text-xs text-left text-slate-500">
           {title}
         </p>
-        <p className="flex-grow-0 flex-shrink-0 text-[28px] font-medium text-left text-slate-800">
+        <p className="flex-grow-0 flex-shrink-0 text-[22px] md:text-[28px]  font-medium text-left text-slate-800">
           {balanse}%
         </p>
 
-        <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-2">
+        <div className="flex justify-center items-center flex-grow-0 flex-shrink-1 relative gap-2">
           {growth > 0 ? (
             <>
-              <p className="flex-grow-0 flex-shrink-0 text-xs text-left text-green-500">
+              <p className="flex-grow-0 flex-shrink-1 text-[8px] max-[450]:text-[10px] md:text-xs text-left text-green-500 wrap-break-word">
                 {growth}% improvement
               </p>
               <img src={trendUpp} alt="Image" />
             </>
           ) : (
             <>
-              <p className="flex-grow-0 flex-shrink-0 text-xs text-left text-red-500">
+              <p className="flex-grow-0 flex-shrink-1 text-[8px] max-[450]:text-[10px] md:text-xs text-left text-red-500 wrap-break-word">
                 {growth}% deterioration
               </p>
 

@@ -37,6 +37,7 @@ const options: ChartOptions<"pie"> = {
 const ExpenseBreakdownCard: React.FC<MyComponentProps> = ({
   categoriesData,
   title,
+  text,
 }) => {
   
   const bottomDepthPlugin: Plugin<"pie"> = {
@@ -118,27 +119,30 @@ const ExpenseBreakdownCard: React.FC<MyComponentProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-2xl md:p-6 p-3 shadow-[0_4px_20px_rgba(0,0,0,0.05)] max-w-[520px] w-full min-h-[330px]">
-      <div className="flex items-center gap-1.5 justify-between pb-[12px]">
+    <div className="bg-white rounded-2xl p-3 lg:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)] min-w-auto md:min-w-[340px] max-w-[520px] w-full h-full min-h-auto md:min-h-[300px] lg:min-h-[330px]">
+      <div className="items-center gap-1.5 justify-between pb-[12px]">
         <h3 className="text-[18px] text-[#1E293B] font-bold">{title}</h3>
+        <p className=" text-[12px] lg:text-sm text-left text-slate-500">
+          {text}
+        </p>
       </div>
-      <div className="flex items-center justify-between gap-5 flex-wrap">
+      <div className="flex items-start justify-between lg:flex-nowrap gap-2.5 lg:gap-5 max-[425px]:flex-wrap">
         <div
-          className="w-[265px] h-[250px] origin-left"
+          className="max-w-[265px] w-full h-[224px] origin-left"
           style={{
             transform: "scaleY(0.75)",
           }}
         >
           <Pie data={data} options={options} plugins={[bottomDepthPlugin]} />
         </div>
-        <div className="flex min-w-[140px] flex-col gap-2.5">
+        <div className="flex min-w-[120px] flex-col max-[425px]:flex-row  max-[425px]:flex-wrap max-[425px]:gap-2 gap-1.8">
           {categoriesData.map((item) => (
             <div key={item.label} className="flex items-center gap-2.5">
               <span
                 className="inline-block h-3 w-3 rounded-full"
                 style={{ backgroundColor: item.color }}
               />
-              <span className="text-sm font-medium text-slate-700">
+              <span className="text-[10px] lg:text-sm font-medium text-slate-700">
                 {item.label}
               </span>
             </div>

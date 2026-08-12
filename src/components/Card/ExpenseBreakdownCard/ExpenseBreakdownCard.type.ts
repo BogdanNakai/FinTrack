@@ -8,4 +8,5 @@ type InfoCategoryItem = {
 export type MyComponentProps = {
   categoriesData: InfoCategoryItem[];
   title: string
+  text?: string
 };

@@ -18,22 +18,24 @@ const TabletRecentTransactions = () => {
             View All
           </a>
         </div>
-        <div className="max-w-[760px] w-full">
-          <div className="flex justify-start items-start relative py-2.5 bg-[#f8f9fa] border-t-0 border-r-0 border-b-[0.4px] border-l-0 border-slate-500">
-            <p className="flex-[0_0_36.84%] text-sm font-medium text-center text-slate-800">
-              Transaction
-            </p>
-            <p className="flex-[0_0_23.68%] text-sm font-medium text-center text-slate-600">
-              Category
-            </p>
-            <p className="flex-[0_0_23.68%] text-sm font-medium text-center text-slate-500">
-              Date
-            </p>
-            <p className="flex-[0_0_18.42%] text-sm font-medium text-center text-slate-800">
-              Amount
-            </p>
+        <div className="w-full overflow-x-auto">
+          <div className="min-w-[760px]">
+            <div className="flex justify-start items-start relative py-2.5 bg-[#f8f9fa] border-t-0 border-r-0 border-b-[0.4px] border-l-0 border-slate-500">
+              <p className="flex-[0_0_36.84%] text-sm font-medium text-center text-slate-800">
+                Transaction
+              </p>
+              <p className="flex-[0_0_23.68%] text-sm font-medium text-center text-slate-600">
+                Category
+              </p>
+              <p className="flex-[0_0_23.68%] text-sm font-medium text-center text-slate-500">
+                Date
+              </p>
+              <p className="flex-[0_0_18.42%] text-sm font-medium text-center text-slate-800">
+                Amount
+              </p>
+            </div>
+            <ItemTabletRecent />
           </div>
-          <ItemTabletRecent />
         </div>
       </div>
     </>

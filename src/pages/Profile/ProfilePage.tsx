@@ -1,5 +1,5 @@
-import ProfileSettingsCard from "@/components/Cart/ProfileSettingsCard/ProfileSettingsCard";
-import UserInfo from "@/components/Cart/UserInfo";
+import ProfileSettingsCard from "@/components/Card/ProfileSettingsCard/ProfileSettingsCard";
+import UserInfo from "@/components/Card/UserInfo";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
 
