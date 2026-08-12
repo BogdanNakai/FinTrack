@@ -20,7 +20,7 @@ const GoalsPage = () => {
         <section className="py-[47px]">
           <div className="reports__container">
             <div className="grid gap-[12px]">
-              <div className="flex items-center justify-between py-[24px]">
+              <div className="flex items-center flex-wrap justify-between gap-2.5 py-[24px]">
                 <div>
                   <h2 className="font-[Poppins] font-sans text-2xl text-[#1E293B] tracking-[0.02em] font-medium pb-[10px]">
                     Budget Planner
@@ -31,7 +31,7 @@ const GoalsPage = () => {
                 </div>
                 <ButtonPrimaryActions textButton="Add Goal" />
               </div>
-              <div className="flex items-center gap-[20px] flex-wrap">
+              <div className="flex items-center gap-[20px] flex-wrap max-[768px]:justify-center">
                 <div className="max-w-[220px] w-full">
                   <SelectFilter
                     SelectOptionsList={filterOptionsTime}
@@ -45,11 +45,11 @@ const GoalsPage = () => {
                   />
                 </div>
               </div>
-              <div className="flex items-center gap-[24px] flex-wrap lg:flex-nowrap justify-center pb-[24px]">
+              <div className="flex items-center gap-[24px] max-[680px]:flex-wrap flex-nowrap justify-center pb-[24px]">
                 <GoalCard />
               </div>
               <div className="">
-                <h2 className="text-[20px] text-[#1E293B] font-semibold">
+                <h2 className="text-[20px] text-[#1E293B] font-semibold pb-[12px]">
                   Goal Progress Overview
                 </h2>
                 <div className="grid gap-5 lg:grid-cols-2 grid-cols-1 lg:justify-items-normal justify-items-center">
