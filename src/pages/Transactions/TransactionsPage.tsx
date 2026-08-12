@@ -15,12 +15,12 @@ const TransactionsPage = () => {
         <section className="pt-12">
           <div className="herro__container">
             <div className="flex flex-wrap gap-3 justify-between pb-6">
-              <h2 className="font-[Poppins] font-sans text-2xl text-[#1E293B] tracking-[0.02em] font-medium ">
+              <h2 className="font-[Poppins] font-sans text-[20px] md:text-2xl text-[#1E293B] tracking-[0.02em] font-medium ">
                 Transactions
               </h2>
               <ButtonPrimaryActions textButton={"Add Transaction"} />
             </div>
-            <div className="flex gap-5 pb-6">
+            <div className="grid grid-cols-2 min-[600px]:grid-cols-4 gap-2.5 lg:gap-5 pb-6">
               <div className="max-w-56 w-full ">
                 <SelectFilter
                   SelectOptionsList={filterOptionsTime}
@@ -47,8 +47,10 @@ const TransactionsPage = () => {
               </div>
             </div>
             <div>
-              <div className="pb-6">
-                <TabletTransaction />
+              <div className="w-full overflow-x-auto pb-6">
+                <div className="min-w-[768px]">
+                  <TabletTransaction />
+                </div>
               </div>
               <div>
                 <ButtonsActionsList />
