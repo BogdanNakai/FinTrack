@@ -28,7 +28,7 @@ const ReportsPage = () => {
         <section className="py-[47px]">
           <div className="reports__container">
             <div className="grid gap-[12px]">
-              <div className="flex items-center justify-between py-[24px]">
+              <div className="flex items-center flex-wrap gap-2.5 justify-between py-[24px]">
                 <h2 className="font-[Poppins] font-sans text-2xl text-[#1E293B] tracking-[0.02em] font-medium ">
                   Reports / Analytics
                 </h2>
@@ -60,18 +60,6 @@ const ReportsPage = () => {
                   seriesData={seriesBalanse}
                   title="Monthly trend"
                 />
-                <ExpenseBreakdownCard
-                  categoriesData={GoalProgress}
-                  title="Completed vs Ongoing Goals"
-                />
-                <GoalProgressCard />
-                <LineDiagram
-                  uData={dataBudget}
-                  pData={dataSpending}
-                  seriesData={seriesBudgetSpending}
-                  title="Budget vs Spending Over Time"
-                />
-                <ModalAddGoal />
               </div>
             </div>
           </div>
