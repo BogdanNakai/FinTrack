@@ -5,56 +5,52 @@ import dayjs, { Dayjs } from "dayjs";
 // Імпортуємо іконку стрілки вниз
 function InputMonthe() {
   return (
-    <div className="w-full">
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DatePicker
-          label="Mounth"
-          views={["month", "year"]}
-          // 1. Встановлюємо сьогоднішню дату за замовчуванням
-          defaultValue={dayjs()}
-          // 2. Передаємо нову іконку замість календаря
-          slots={{
-            // Кастомна SVG-стрілка вниз замість іконки календаря
-            openPickerIcon: () => (
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                style={{
-                  fill: "currentColor",
-                  position: "absolute",
-                  right: "7px",
-                  pointerEvents: "none", // важно, чтобы клик проходил сквозь иконку в сам Select
-                }}
-              >
-                <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
-              </svg>
-            ),
-          }}
-          slotProps={{
-            field: {
-              openPickerButtonPosition: "end",
-            },
-            popper: {
-              placement: "bottom-start",
-              modifiers: [
-                {
-                  name: "flip",
-                  enabled: false,
-                },
-              ],
-            },
-            textField: {
-              sx: {
-                borderRadius: 10,
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <DatePicker
+        label="Mounth"
+        views={["month", "year"]}
+        defaultValue={dayjs()}
+        slots={{
+          openPickerIcon: () => (
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              style={{
+                fill: "currentColor",
+                position: "absolute",
+                right: "7px",
+                pointerEvents: "none", // важно, чтобы клик проходил сквозь иконку в сам Select
+              }}
+            >
+              <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
+            </svg>
+          ),
+        }}
+        slotProps={{
+          field: {
+            openPickerButtonPosition: "end",
+          },
+          popper: {
+            placement: "bottom-start",
+            modifiers: [
+              {
+                name: "flip",
+                enabled: false,
               },
-              fullWidth: true,
-              size: "small",
+            ],
+          },
+          textField: {
+            sx: {
+              borderRadius: 10,
+              width: "50cqw",
+              minWidth: "150px",
             },
-          }}
-        />
-      </LocalizationProvider>
-    </div>
+            size: "small",
+          },
+        }}
+      />
+    </LocalizationProvider>
   );
 }
 
