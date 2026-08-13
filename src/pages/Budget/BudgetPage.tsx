@@ -19,7 +19,7 @@ import Header from "@/layouts/Header";
 const BudgetPage = () => {
   return (
     <>
-      <Header />
+      <Header active="budget" />
       <main>
         <section className="py-[20px] lg:py-[47px]">
           <div className="reports__container">

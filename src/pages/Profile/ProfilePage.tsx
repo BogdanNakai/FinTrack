@@ -6,7 +6,7 @@ import Header from "@/layouts/Header";
 const ProfilePage = () => {
   return (
     <>
-      <Header />
+      <Header active='profile' />
       <main>
         <section className="py-[47px]">
           <div className="profile__container">

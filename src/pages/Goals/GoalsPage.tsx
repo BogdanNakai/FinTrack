@@ -15,7 +15,7 @@ import Header from "@/layouts/Header";
 const GoalsPage = () => {
   return (
     <>
-      <Header />
+      <Header active='goals'/>
       <main>
         <section className="py-[47px]">
           <div className="reports__container">

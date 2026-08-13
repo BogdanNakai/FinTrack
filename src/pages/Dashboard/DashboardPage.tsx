@@ -16,7 +16,7 @@ import Header from "@/layouts/Header";
 const DashboardPage = () => {
   return (
     <>
-      <Header />
+      <Header active="dashboard" />
       <main>
         <section className="py-[47px]">
           <div className="dashboard__container">

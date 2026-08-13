@@ -19,6 +19,7 @@ body {
   font-family: "Inter",
     sans-serif;
     height: 100vh;
+    background: #F8FAFC;
 }
 
 [data-fls-menu-open] body {

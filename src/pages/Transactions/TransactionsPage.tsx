@@ -10,7 +10,7 @@ import Header from "@/layouts/Header";
 const TransactionsPage = () => {
   return (
     <>
-      <Header />
+      <Header active="transactions" />
       <main>
         <section className="pt-12">
           <div className="herro__container">

@@ -23,7 +23,7 @@ import LineDiagram from "@/components/Card/LineDiagram/LineDiagram";
 const ReportsPage = () => {
   return (
     <>
-      <Header />
+      <Header active='reports'/>
       <main>
         <section className="py-[47px]">
           <div className="reports__container">

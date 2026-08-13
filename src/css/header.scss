@@ -55,11 +55,43 @@
 
 	// .menu__link
 	&__link {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		transition: all 0.3s ease;
+		color: #64748B;
+
 		@media (max-width: 768px) {
-			display: block;
 			width: 100%;
 			font-size: 26px;
-			text-align: center;			
+			text-align: center;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 9px;
+			width: 0%;
+			height: 1px;
+		}
+
+		&:hover {
+			color: #00deb2;
+
+			&::after {
+				transition: width 0.3s;
+				width: 80%;
+				background: #00deb2;
+			}
+		}
+	}
+
+	&__link-active {
+		color: #00b894;
+
+		&::after {
+			width: 80%;
+			background: #00d3a9;
 		}
 	}
 }
