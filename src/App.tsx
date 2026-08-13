@@ -12,6 +12,7 @@ const PageComp = lazy(() => import("@/pages/PageComponents/PageComp"));
 const ReportsPage = lazy(() => import("@/pages/Reports/ReportsPage"));
 const GoalsPage = lazy(() => import("@/pages/Goals/GoalsPage"));
 const BudgetPage = lazy(() => import("@/pages/Budget/BudgetPage"));
+const DashboardPage = lazy(() => import("@/pages/Dashboard/DashboardPage"));
 
 const App: FC = () => {
   return (
@@ -25,6 +26,7 @@ const App: FC = () => {
       <Route path="/reports" element={<ReportsPage />}></Route>
       <Route path="/goals" element={<GoalsPage />}></Route>
       <Route path="/budget" element={<BudgetPage />}></Route>
+      <Route path="/dashboard" element={<DashboardPage />}></Route>
     </Routes>
   );
 };
