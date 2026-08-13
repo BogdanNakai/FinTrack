@@ -20,20 +20,20 @@ const TransactionsPage = () => {
               </h2>
               <ButtonPrimaryActions textButton={"Add Transaction"} />
             </div>
-            <div className="grid grid-cols-2 min-[600px]:grid-cols-4 gap-2.5 lg:gap-5 pb-6">
-              <div className="max-w-56 w-full ">
+            <div className="flex flex-wrap min-[550px]:flex-nowrap gap-2.5 lg:gap-5 pb-6">
+              <div className="max-w-full min-[550px]:max-w-56 w-full">
                 <SelectFilter
                   SelectOptionsList={filterDateRange}
                   NameSelect="This Month"
                 />
               </div>
-              <div className="max-w-56 w-full">
+              <div className="max-w-full min-[550px]:max-w-56 w-full">
                 <SelectFilter
                   SelectOptionsList={typeValue}
                   NameSelect="All Types"
                 />
               </div>
-              <div className="max-w-56 w-full">
+              <div className="max-w-full min-[550px]:max-w-56 w-full">
                 <SelectFilter
                   SelectOptionsList={filterNewestFirst}
                   NameSelect="Newest First"
