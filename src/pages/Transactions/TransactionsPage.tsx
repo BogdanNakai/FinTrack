@@ -3,7 +3,7 @@ import ButtonPrimaryActions from "@/components/Buttons/ButtonPrimaryAtions";
 import ButtonsActionsList from "@/components/Buttons/ButtonsActionsList";
 import SelectFilter from "@/components/SelectFilter/SelectFilter";
 import TabletTransaction from "@/components/Tablets/TablletTransaction";
-import { filterTimePeriod, typeValue } from "@/context/AppContext";
+import { filterDateRange, filterNewestFirst, filterTimePeriod, typeValue } from "@/context/AppContext";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
 
@@ -23,13 +23,7 @@ const TransactionsPage = () => {
             <div className="grid grid-cols-2 min-[600px]:grid-cols-4 gap-2.5 lg:gap-5 pb-6">
               <div className="max-w-56 w-full ">
                 <SelectFilter
-                  SelectOptionsList={filterTimePeriod}
-                  NameSelect="This Month"
-                />
-              </div>
-              <div className="max-w-56 w-full ">
-                <SelectFilter
-                  SelectOptionsList={filterTimePeriod}
+                  SelectOptionsList={filterDateRange}
                   NameSelect="This Month"
                 />
               </div>
@@ -41,7 +35,7 @@ const TransactionsPage = () => {
               </div>
               <div className="max-w-56 w-full">
                 <SelectFilter
-                  SelectOptionsList={typeValue}
+                  SelectOptionsList={filterNewestFirst}
                   NameSelect="Newest First"
                 />
               </div>
