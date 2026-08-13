@@ -35,18 +35,26 @@ const SingInPage = () => {
                 <div className="flex justify-center">
                   <form action="" className="w-[320px]">
                     <div className="grid gap-[20px] place-items-center">
-                      <Input type="name" placeholder="Name" icon={user} />
-                      <Input type="email" placeholder="Email" icon={email} />
-                      <InputPassword
-                        name="input-password"
-                        placeholder="Password"
-                        icon={password}
-                      />
-                      <InputPassword
-                        name="input-password-confirm"
-                        placeholder="Confirm Password"
-                        icon={password}
-                      />
+                      <div className="w-full max-w-[300px]">
+                        <Input name="name" type="name" placeholder="Name" icon={user} />
+                      </div>
+                      <div className="w-full max-w-[300px]">
+                        <Input name="email" type="email" placeholder="Email" icon={email} />
+                      </div>
+                      <div className="w-full max-w-[300px]">
+                        <InputPassword
+                          name="input-password"
+                          placeholder="Password"
+                          icon={password}
+                        />
+                      </div>
+                      <div className="w-full max-w-[300px]">
+                        <InputPassword
+                          name="input-password-confirm"
+                          placeholder="Confirm Password"
+                          icon={password}
+                        />
+                      </div>
                       <div className="flex justify-center w-[160px]">
                         <ButtonPrimary textButton={"SIGN UP"} />
                       </div>

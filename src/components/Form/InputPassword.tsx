@@ -30,7 +30,7 @@ const InputPassword = ({ type, placeholder, icon }: Iinput) => {
 
   return (
     <>
-      <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+      <FormControl sx={{ width: "100%" }} variant="outlined">
         <TextField
           fullWidth
           id={`${outlinedPasswordId}-input`}

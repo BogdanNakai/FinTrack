@@ -21,14 +21,24 @@ const LoginPage = () => {
                 </div>
                 <p className="text-[12px] text-center">or use your account</p>
                 <div className="flex justify-center">
-                  <form action="" className="w-[320px]">
+                  <form action="" className="w-[300px]">
                     <div className="grid gap-[20px] place-items-center">
-                      <Input type="email" placeholder="Email" icon={email} />
-                      <InputPassword
-                        name="input-password"
-                        placeholder="Password"
-                        icon={password}
-                      />
+                      <div className="w-full max-w-[320px]">
+                        <Input
+                          name="email"
+                          type="email"
+                          placeholder="Email"
+                          icon={email}
+                        />
+                      </div>
+                      <div className="w-full max-w-[300px]">
+                        <InputPassword
+                          type="password"
+                          name="password"
+                          placeholder="Password"
+                          icon={password}
+                        />
+                      </div>
                       <div>
                         <a
                           href=""

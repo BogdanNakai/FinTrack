@@ -2,14 +2,14 @@
 import type { Iinput } from "./Form.type";
 import { InputAdornment, TextField } from "@mui/material";
 
-const Input = ({ type, placeholder, icon }: Iinput) => {
+const Input = ({ type, name, placeholder, icon }: Iinput) => {
 
   return (
     <>
       <TextField
         label={placeholder}
         id={`${name}-input`}
-        sx={{ m: 1, width: "25ch" }}
+        sx={{ width: "100%" }}
         variant="outlined"
         size="small"
         fullWidth
