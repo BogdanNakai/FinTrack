@@ -12,7 +12,7 @@
 			left: -100%;
 			top: 0px;
 			overflow: auto;
-			padding: 70px 15px 30px 15px;
+
 			transition: left 0.3s;
 
 			&::before {
@@ -41,6 +41,8 @@
 	// .menu__list
 	&__list {
 		@media (max-width: 768px) {
+			padding: 80px 0 0 0;
+			overflow: scroll;
 			flex-direction: column;
 			background: #ffffff;
 			height: 100%;

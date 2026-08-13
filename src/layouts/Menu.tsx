@@ -29,11 +29,11 @@ const Menu = ({ active }) => {
             {menuItems.map((e: any) => (
               <li key={e.id} className="menu__item flex items-center gap=[8px]">
                 <Link
+                  onClick={() => toggleMenu()}
                   to={e.url}
                   className={`menu__link text-[16px] block p-[10px] ${
-                    e.id === active
-                      ? "menu__link-active"
-                      : null}`}
+                    e.id === active ? "menu__link-active" : null
+                  }`}
                 >
                   {e.label}
                 </Link>
