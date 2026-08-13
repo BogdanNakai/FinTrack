@@ -30,6 +30,13 @@ export const filterTimePeriod = [
   { value: "yearly", label: "Yearly" },
 ];
 
+export const filterNewestFirst = [
+  { value: "newest", label: "Newest First" },
+  { value: "oldest", label: "Oldest First" },
+  { value: "highest", label: "Highest Amount" },
+  { value: "lowest", label: "Lowest Amount" },
+];
+
 export const categoriesData = [
   { label: "Food", value: 26.1, color: "#22c55e", darkColor: "#15803d" },
   { label: "Travel", value: 22.8, color: "#2563eb", darkColor: "#1d4ed8" },
