@@ -34,14 +34,14 @@ const ReportsPage = () => {
                 </h2>
                 <ButtonPrimary textButton="Export" />
               </div>
-              <div className="flex items-center gap-[20px] flex-wrap">
-                <div className="max-w-[220px] w-full">
+              <div className="flex items-center gap-[15px] md:gap-[20px] max-[480px]:flex-wrap">
+                <div className="min-[480px]:max-w-[220px] w-full">
                   <SelectFilter
                     SelectOptionsList={filterTimePeriod}
                     NameSelect="Time Period"
                   />
                 </div>
-                <div className="max-w-[220px] w-full">
+                <div className="min-[480px]:max-w-[220px] w-full">
                   <SelectFilter
                     SelectOptionsList={categoriesValue}
                     NameSelect="All Categories"

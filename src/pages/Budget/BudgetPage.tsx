@@ -35,11 +35,11 @@ const BudgetPage = () => {
                 </div>
                 <ButtonPrimaryActions textButton="Add New Budget" />
               </div>
-              <div className="flex items-center max-[425px]:flex-wrap gap-1.5 md:gap-[20px] flex-nowrap">
-                <div className="w-[220px]">
-                  <InputMonthe title="Monthe"/>
+              <div className="flex items-center max-[480px]:flex-wrap gap-[15px] md:gap-[20px] flex-nowrap">
+                <div className="min-[550px]:max-w-[220px] w-full">
+                  <InputMonthe title="Monthe" />
                 </div>
-                <div className="max-w-[220px] w-full">
+                <div className="min-[550px]:max-w-[220px] w-full">
                   <SelectFilter
                     SelectOptionsList={categoriesValue}
                     NameSelect="All Categories"

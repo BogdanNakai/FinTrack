@@ -78,8 +78,9 @@ function InputMonthe({ title }) {
             onClick: () => setIsOpen(true),
             size: "small",
             sx: {
-              width: "50cqw",
-              minWidth: "150px",
+              width: "100%", // або "300px", "50%" тощо
+              minWidth: "100px",
+              maxWidth: "100%", // якщо потрібно о
 
               // === ЗАГАЛЬНИЙ HOVER ДЛЯ ВСІХ ЕЛЕМЕНТІВ ІНПУТА ===
               "&:hover": {
