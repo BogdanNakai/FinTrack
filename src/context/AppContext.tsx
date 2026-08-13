@@ -37,6 +37,14 @@ export const filterNewestFirst = [
   { value: "lowest", label: "Lowest Amount" },
 ];
 
+export const filterDateRange = [
+  { value: "today", label: "Today" },
+  { value: "thisWeek", label: "This Week" },
+  { value: "thisMonth", label: "This Month" },
+  { value: "lastMonth", label: "Last Month" },
+  { value: "lastThreeMonths", label: "Last 3 Months" },
+];
+
 export const categoriesData = [
   { label: "Food", value: 26.1, color: "#22c55e", darkColor: "#15803d" },
   { label: "Travel", value: 22.8, color: "#2563eb", darkColor: "#1d4ed8" },
