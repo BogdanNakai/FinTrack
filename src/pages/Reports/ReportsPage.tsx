@@ -2,7 +2,7 @@ import ButtonPrimary from "@/components/Buttons/ButtonPrimary";
 import SelectFilter from "@/components/SelectFilter/SelectFilter";
 import {
   categoriesValue,
-  filterOptionsTime,
+  filterTimePeriod,
   categoriesData,
   GoalProgress,
   seriesBalanse,
@@ -23,7 +23,7 @@ import LineDiagram from "@/components/Card/LineDiagram/LineDiagram";
 const ReportsPage = () => {
   return (
     <>
-      <Header active='reports'/>
+      <Header active="reports" />
       <main>
         <section className="py-[47px]">
           <div className="reports__container">
@@ -37,7 +37,7 @@ const ReportsPage = () => {
               <div className="flex items-center gap-[20px] flex-wrap">
                 <div className="max-w-[220px] w-full">
                   <SelectFilter
-                    SelectOptionsList={filterOptionsTime}
+                    SelectOptionsList={filterTimePeriod}
                     NameSelect="Time Period"
                   />
                 </div>

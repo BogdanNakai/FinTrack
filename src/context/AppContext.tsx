@@ -22,10 +22,12 @@ export const typeValue = [
   { value: "income", label: "Income" },
   { value: "expense", label: "Expense" },
 ];
-export const filterOptionsTime = [
-  { value: "day", label: "This day" },
-  { value: "week", label: "This week" },
-  { value: "month", label: "This month" },
+
+export const filterTimePeriod = [
+  { value: "weekly", label: "Weekly" },
+  { value: "monthly", label: "Monthly" },
+  { value: "quarterly", label: "Quarterly" },
+  { value: "yearly", label: "Yearly" },
 ];
 
 export const categoriesData = [

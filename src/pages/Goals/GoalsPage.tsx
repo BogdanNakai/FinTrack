@@ -1,4 +1,3 @@
-
 import ButtonPrimaryActions from "@/components/Buttons/ButtonPrimaryAtions";
 import ExpenseBreakdownCard from "@/components/Card/ExpenseBreakdownCard/ExpenseBreakdownCard";
 import GoalCard from "@/components/Card/GoalCard/GoalCard";
@@ -6,7 +5,7 @@ import GoalProgressCard from "@/components/Card/GoalProgressCard/GoalProgressCar
 import SelectFilter from "@/components/SelectFilter/SelectFilter";
 import {
   GoalProgress,
-  filterOptionsTime,
+  filterTimePeriod,
   statusGoal,
 } from "@/context/AppContext";
 import Copyright from "@/layouts/Copyright";
@@ -15,7 +14,7 @@ import Header from "@/layouts/Header";
 const GoalsPage = () => {
   return (
     <>
-      <Header active='goals'/>
+      <Header active="goals" />
       <main>
         <section className="py-[47px]">
           <div className="reports__container">
@@ -34,7 +33,7 @@ const GoalsPage = () => {
               <div className="flex items-center gap-[20px] flex-wrap max-[768px]:justify-center">
                 <div className="max-w-[220px] w-full">
                   <SelectFilter
-                    SelectOptionsList={filterOptionsTime}
+                    SelectOptionsList={filterTimePeriod}
                     NameSelect="Time Period"
                   />
                 </div>
