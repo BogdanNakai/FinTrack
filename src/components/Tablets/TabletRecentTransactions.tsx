@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ItemTabletRecent from "./ItemTabletRecent";
 
 const TabletRecentTransactions = () => {
@@ -11,12 +12,12 @@ const TabletRecentTransactions = () => {
           Recent Transactions
         </p>
         <div>
-          <a
-            href="#"
-            className="flex-grow-0 flex-shrink-0 text-sm font-medium text-left text-blue-600"
+          <Link
+            to="/transactions"
+            className="flex-grow-0 flex-shrink-0 block text-sm font-medium text-left transition duration-200 hover:text-blue-400 text-blue-600 active:scale-[0.9] border-b-1 border-blue-600 "
           >
             View All
-          </a>
+          </Link>
         </div>
         <div className="w-full overflow-x-auto">
           <div className="min-w-[760px]">

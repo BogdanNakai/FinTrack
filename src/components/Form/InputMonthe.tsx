@@ -2,14 +2,20 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs, { Dayjs } from "dayjs";
+import { useState } from "react";
 // Імпортуємо іконку стрілки вниз
-function InputMonthe() {
+function InputMonthe({ title}) {
+   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
-        label="Mounth"
+        label={title}
         views={["month", "year"]}
         defaultValue={dayjs()}
+        open={isOpen}
+        onOpen={() => setIsOpen(true)}
+        onClose={() => setIsOpen(false)}
         slots={{
           openPickerIcon: () => (
             <svg
@@ -41,6 +47,7 @@ function InputMonthe() {
             ],
           },
           textField: {
+            onClick: () => setIsOpen(true),
             sx: {
               borderRadius: 10,
               width: "50cqw",

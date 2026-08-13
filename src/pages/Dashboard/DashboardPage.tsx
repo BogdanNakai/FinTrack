@@ -2,6 +2,7 @@ import DashboardCard from "@/components/Card/DashboardCard/DashboardCard";
 import DashboardCardRate from "@/components/Card/DashboardCard/DashboardCardRate";
 import ExpenseBreakdownCard from "@/components/Card/ExpenseBreakdownCard/ExpenseBreakdownCard";
 import LineDiagram from "@/components/Card/LineDiagram/LineDiagram";
+import InputMonthe from "@/components/Form/InputMonthe";
 import TabletRecentTransactions from "@/components/Tablets/TabletRecentTransactions";
 import {
   categoriesData,
@@ -52,10 +53,13 @@ const DashboardPage = () => {
                   );
                 })}
               </div>
-              <div className="flex flex-wrap gap-3 justify-between pb-6">
+              <div className="flex flex-wrap gap-3 flex-wrap justify-between pb-6">
                 <h2 className="font-[Poppins] font-sans text-[20px] md:text-2xl text-[#1E293B] tracking-[0.02em] font-medium ">
                   Spending Overview
                 </h2>
+                <div className="max-w-[150px]">
+                  <InputMonthe title="This Month" />
+                </div>
               </div>
               <div className="flex justify-center items-center max-[860px]:flex-wrap gap-2.5 xl:gap-16 pb-12">
                 <div className="max-w-[520px] w-full">
