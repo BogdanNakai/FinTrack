@@ -56,7 +56,7 @@ const SingInPage = () => {
                         />
                       </div>
                       <div className="flex justify-center w-[160px]">
-                        <ButtonPrimary textButton={"SIGN UP"} />
+                        <ButtonPrimary link="/login" textButton={"SIGN UP"} />
                       </div>
                     </div>
                   </form>
