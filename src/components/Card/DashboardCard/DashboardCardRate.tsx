@@ -1,8 +1,8 @@
 import trendUpp from "@/assets/icon_trendUpp.svg";
 import trendDown from "@/assets/icon_trendDown.svg";
-import { monyFormatter } from "@/context/AppContext";
+import type { IDashboardCard } from "./DashboardCard.type";
 
-const DashboardCardRate = ({ title, balanse, growth }) => {
+const DashboardCardRate = ({ title, balanse, growth }: IDashboardCard) => {
   return (
     <>
       <div

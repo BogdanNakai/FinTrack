@@ -37,7 +37,7 @@ const BudgetPage = () => {
               </div>
               <div className="flex items-center max-[480px]:flex-wrap gap-[15px] md:gap-[20px] flex-nowrap">
                 <div className="min-[550px]:max-w-[220px] w-full">
-                  <InputMonthe title="Monthe" />
+                  <InputMonthe placeholder="Monthe" />
                 </div>
                 <div className="min-[550px]:max-w-[220px] w-full">
                   <SelectFilter

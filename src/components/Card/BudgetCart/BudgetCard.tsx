@@ -1,7 +1,8 @@
 import ProgressLine from "@/components/uii/ProgressLine/ProgressLine";
 import { monyFormatter } from "@/context/AppContext";
+import type { IBudgetCard } from "./BudgetCard.type";
 
-const BudgetCard = ({ title, amount, type }) => {
+const BudgetCard = ({ title, amount, type }: IBudgetCard) => {
   return (
     <>
       <div

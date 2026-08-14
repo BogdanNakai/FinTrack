@@ -43,12 +43,12 @@ const DashboardPage = () => {
                       />
                       <DashboardCardRate
                         title="Total Rate"
-                        balanse={(
+                        balanse={Math.round(
                           (e.totalIncome - e.totalExpense) /
-                          (e.totalIncome / 100)
-                        ).toFixed(0)}
+                            (e.totalIncome / 100)
+                        )}
                         growth={12}
-                      />{" "}
+                      />
                     </div>
                   );
                 })}
@@ -58,7 +58,7 @@ const DashboardPage = () => {
                   Spending Overview
                 </h2>
                 <div className="max-w-[150px]">
-                  <InputMonthe title="This Month" />
+                  <InputMonthe placeholder="This Month" />
                 </div>
               </div>
               <div className="flex justify-center items-center max-[860px]:flex-wrap gap-2.5 xl:gap-16 pb-12">
