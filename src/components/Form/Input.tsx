@@ -1,9 +1,14 @@
-
-import type { Iinput } from "./Form.type";
+import type { FieldValues } from "react-hook-form";
+import type { IInput, IRegisterFormType } from "./Form.type";
 import { InputAdornment, TextField } from "@mui/material";
 
-const Input = ({ type, name, placeholder, icon }: Iinput) => {
-
+const Input = <T extends FieldValues>({
+  type,
+  name,
+  placeholder,
+  icon,
+  register,
+}: IInput<IRegisterFormType>) => {
   return (
     <>
       <TextField
@@ -26,6 +31,9 @@ const Input = ({ type, name, placeholder, icon }: Iinput) => {
             ),
           },
         }}
+        {...register(name, {
+          required: "lorem",
+        })}
       />
     </>
   );

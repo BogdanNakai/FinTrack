@@ -3,9 +3,9 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
-import type { Iinput } from "./Form.type";
+import type { IInput } from "./Form.type";
 // Імпортуємо іконку стрілки вниз
-function InputMonthe({ placeholder }: Iinput) {
+function InputMonthe({ placeholder }: IInput) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

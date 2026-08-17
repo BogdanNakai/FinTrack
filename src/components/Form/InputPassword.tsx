@@ -5,11 +5,16 @@ import {
   InputAdornment,
   TextField,
 } from "@mui/material";
-import type { Iinput } from "./Form.type";
+import type { IInput, IRegisterFormType } from "./Form.type";
 import passwordVisible from "@/assets/icon_passwordVisible.svg";
 import passwordVisibleOff from "@/assets/icon_passwordVisibleOff.svg";
 
-const InputPassword = ({ type, placeholder, icon }: Iinput) => {
+const InputPassword = ({
+  placeholder,
+  icon,
+  name,
+  register,
+}: IInput<IRegisterFormType>) => {
   const outlinedPasswordId = React.useId();
 
   const [showPassword, setShowPassword] = React.useState(false);
@@ -79,6 +84,9 @@ const InputPassword = ({ type, placeholder, icon }: Iinput) => {
               ),
             },
           }}
+          {...register(name, {
+            required: "lorem",
+          })}
         />
       </FormControl>
     </>
@@ -86,4 +94,3 @@ const InputPassword = ({ type, placeholder, icon }: Iinput) => {
 };
 
 export default InputPassword;
-

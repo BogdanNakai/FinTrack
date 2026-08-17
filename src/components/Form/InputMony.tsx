@@ -1,7 +1,12 @@
-import { FormControl, InputAdornment, InputLabel, OutlinedInput } from "@mui/material";
-import type { Iinput } from "./Form.type";
+import {
+  FormControl,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+} from "@mui/material";
+import type { IInput } from "./Form.type";
 
-const InputMony = ({ name, placeholder, type }: Iinput) => {
+const InputMony = ({ name, placeholder, type }: IInput) => {
   return (
     <>
       <FormControl size="small" variant="outlined">
@@ -11,10 +16,10 @@ const InputMony = ({ name, placeholder, type }: Iinput) => {
           type={type}
           label={placeholder}
           endAdornment={<InputAdornment position="end">$</InputAdornment>}
-         />
+        />
       </FormControl>
     </>
   );
 };
 
-export default InputMony
+export default InputMony;
