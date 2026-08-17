@@ -1,11 +1,16 @@
 import google from "@/assets/icon_google.svg";
 import email from "@/assets/icon_message_input.svg";
 import password from "@/assets/icon_password_input.svg";
+import ButtonLinkPrimary from "@/components/Buttons/ButtonLinkPrimary";
 import ButtonPrimary from "@/components/Buttons/ButtonPrimary";
 import Input from "@/components/Form/Input";
 import InputPassword from "@/components/Form/InputPassword";
 
 const LoginPage = () => {
+
+  
+
+
   return (
     <>
       <main>
@@ -48,7 +53,7 @@ const LoginPage = () => {
                         </a>
                       </div>
                       <div className="flex justify-center w-[160px]">
-                        <ButtonPrimary textButton={"SIGN IN"} />
+                        <ButtonPrimary type="submit" textButton={"SIGN IN"} />
                       </div>
                     </div>
                   </form>
@@ -62,7 +67,7 @@ const LoginPage = () => {
               Enter your personal details and start journey with us
             </p>
             <div className="flex justify-center w-[160px]">
-              <ButtonPrimary link={"/singIn"} textButton={"SIGN UP"} />
+              <ButtonLinkPrimary type={ undefined} link={"/singIn"} textButton={"SIGN UP"} />
             </div>
           </div>
         </section>

@@ -55,8 +55,8 @@ const ProfileSettingsCard = () => {
           </div>
         </div>
         <div className="flex gap-[12px] flex-wrap justify-center items-center">
-          <ButtonPrimary textButton="Export Data" />
-          <ButtonRemove textButton="Clear All Data" />
+          <ButtonPrimary type='button' textButton="Export Data" />
+          <ButtonRemove type='button' textButton="Clear All Data" />
         </div>
       </div>
     </>

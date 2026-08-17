@@ -5,8 +5,11 @@ import user from "@/assets/icon_user.svg";
 import ButtonPrimary from "@/components/Buttons/ButtonPrimary";
 import Input from "@/components/Form/Input";
 import InputPassword from "@/components/Form/InputPassword";
+import ButtonLinkPrimary from "@/components/Buttons/ButtonLinkPrimary";
 
 const SingInPage = () => {
+
+
   return (
     <>
       <main>
@@ -17,7 +20,7 @@ const SingInPage = () => {
               Log in to manage your finances.
             </p>
             <div className="flex justify-center w-[160px]">
-              <ButtonPrimary link={"/login"} textButton={"SIGN IN"} />
+              <ButtonLinkPrimary type={ undefined} link={"/login"} textButton={"SIGN IN"} />
             </div>
           </div>
           <div className="flex-1">
@@ -36,10 +39,20 @@ const SingInPage = () => {
                   <form action="" className="w-[320px]">
                     <div className="grid gap-[20px] place-items-center">
                       <div className="w-full max-w-[300px]">
-                        <Input name="name" type="name" placeholder="Name" icon={user} />
+                        <Input
+                          name="name"
+                          type="name"
+                          placeholder="Name"
+                          icon={user}
+                        />
                       </div>
                       <div className="w-full max-w-[300px]">
-                        <Input name="email" type="email" placeholder="Email" icon={email} />
+                        <Input
+                          name="email"
+                          type="email"
+                          placeholder="Email"
+                          icon={email}
+                        />
                       </div>
                       <div className="w-full max-w-[300px]">
                         <InputPassword
@@ -56,7 +69,7 @@ const SingInPage = () => {
                         />
                       </div>
                       <div className="flex justify-center w-[160px]">
-                        <ButtonPrimary link="/login" textButton={"SIGN UP"} />
+                        <ButtonPrimary type="submit" textButton={"SIGN UP"} />
                       </div>
                     </div>
                   </form>

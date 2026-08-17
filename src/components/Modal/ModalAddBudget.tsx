@@ -23,8 +23,8 @@ const ModalAddBudget = () => {
           <InputPopap name="goalName" placeholder="Goal Name" type="text" />
         </label>
         <div className="flex justify-end items-center gap-3">
-          <ButtonSecondary textButton="Cansel" />
-          <ButtonPrimary textButton="Add" />
+          <ButtonSecondary type="button" textButton="Cansel" />
+          <ButtonPrimary type="button" textButton="Add" />
         </div>
       </form>
     </div>

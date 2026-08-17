@@ -40,8 +40,8 @@ const UserInfo = () => {
           </p>
         </div>
         <div className="flex items-center gap-[12px] flex-wrap justify-center">
-          <ButtonPrimary textButton={"Edit Profile"} />
-          <ButtonChenges textButton={"Change Password"} />
+          <ButtonPrimary type="button" textButton={"Edit Profile"} />
+          <ButtonChenges type="button" textButton={"Change Password"} />
         </div>
       </div>
     </>

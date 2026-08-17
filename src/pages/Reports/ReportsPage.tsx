@@ -26,7 +26,7 @@ const ReportsPage = () => {
                 <h2 className="font-[Poppins] font-sans text-2xl text-[#1E293B] tracking-[0.02em] font-medium ">
                   Reports / Analytics
                 </h2>
-                <ButtonPrimary textButton="Export" />
+                <ButtonPrimary type="button" textButton="Export" />
               </div>
               <div className="flex items-center gap-[15px] md:gap-[20px] max-[480px]:flex-wrap">
                 <div className="min-[480px]:max-w-[220px] w-full">
