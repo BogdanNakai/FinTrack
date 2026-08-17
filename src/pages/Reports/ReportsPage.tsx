@@ -4,21 +4,15 @@ import {
   categoriesValue,
   filterTimePeriod,
   categoriesData,
-  GoalProgress,
   seriesBalanse,
   dataIncome,
   dataExpense,
-  dataBudget,
-  dataSpending,
-  seriesBudgetSpending,
 } from "@/context/AppContext";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
-import ModalAddGoal from "@/components/Modal/ModalAddGoal";
 import ExpenseBreakdownCard from "@/components/Card/ExpenseBreakdownCard/ExpenseBreakdownCard";
-import ChartsBarsCard from "@/components/Card/ChartsBarsCard/ChartsBarsCard";
-import GoalProgressCard from "@/components/Card/GoalProgressCard/GoalProgressCard";
 import LineDiagram from "@/components/Card/LineDiagram/LineDiagram";
+import ChartsBarsCard from "@/components/Card/ChartsBarsCard/ChartsBarsCard";
 
 const ReportsPage = () => {
   return (
