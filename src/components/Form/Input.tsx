@@ -8,7 +8,9 @@ const Input = <T extends FieldValues>({
   placeholder,
   icon,
   register,
+  errors,
 }: IInput<IRegisterFormType>) => {
+
   return (
     <>
       <TextField
@@ -18,6 +20,7 @@ const Input = <T extends FieldValues>({
         variant="outlined"
         size="small"
         fullWidth
+        error={!!errors}
         slotProps={{
           input: {
             startAdornment: (
@@ -32,9 +35,19 @@ const Input = <T extends FieldValues>({
           },
         }}
         {...register(name, {
-          required: "lorem",
+          required: `Please enter ${name} `,
+          validate: (value) => {
+            if (type === "email") {
+              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              return (
+                emailRegex.test(value) || "Please enter a valid email address"
+              );
+            }
+            return true;
+          },
         })}
       />
+      <span className="text-[11px] text-red-500">{errors?.message}</span>
     </>
   );
 };

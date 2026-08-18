@@ -7,8 +7,34 @@ import Input from "@/components/Form/Input";
 import InputPassword from "@/components/Form/InputPassword";
 import ButtonLinkPrimary from "@/components/Buttons/ButtonLinkPrimary";
 
+import { useForm} from "react-hook-form";
+import type { IRegisterFormType, TOnSubmitForm } from "@/components/Form/Form.type";
+import { useEffect } from "react";
+
 const SingInPage = () => {
 
+const {
+  register,
+  handleSubmit,
+  reset,
+  formState: { errors, isSubmitSuccessful },
+} = useForm<IRegisterFormType>({
+  mode: "onChange",
+});
+  
+ 
+  const onSubmit: TOnSubmitForm = (data) => {
+    const newUsers = [data];
+    localStorage.setItem("user", JSON.stringify(newUsers));
+  };
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful, reset]);
+  
+  
 
   return (
     <>
@@ -20,7 +46,11 @@ const SingInPage = () => {
               Log in to manage your finances.
             </p>
             <div className="flex justify-center w-[160px]">
-              <ButtonLinkPrimary type={ undefined} link={"/login"} textButton={"SIGN IN"} />
+              <ButtonLinkPrimary
+                type={undefined}
+                link={"/login"}
+                textButton={"SIGN IN"}
+              />
             </div>
           </div>
           <div className="flex-1">
@@ -36,7 +66,11 @@ const SingInPage = () => {
                   or use your email for registration
                 </p>
                 <div className="flex justify-center">
-                  <form action="" className="w-[320px]">
+                  <form
+                    action=""
+                    className="w-[320px]"
+                    onSubmit={handleSubmit(onSubmit)}
+                  >
                     <div className="grid gap-[20px] place-items-center">
                       <div className="w-full max-w-[300px]">
                         <Input
@@ -44,6 +78,8 @@ const SingInPage = () => {
                           type="name"
                           placeholder="Name"
                           icon={user}
+                          register={register}
+                          errors={errors.name}
                         />
                       </div>
                       <div className="w-full max-w-[300px]">
@@ -52,20 +88,28 @@ const SingInPage = () => {
                           type="email"
                           placeholder="Email"
                           icon={email}
+                          register={register}
+                          errors={errors.email}
                         />
                       </div>
                       <div className="w-full max-w-[300px]">
                         <InputPassword
-                          name="input-password"
+                          name="password"
+                          type="password"
                           placeholder="Password"
                           icon={password}
+                          register={register}
+                          errors={errors.password}
                         />
                       </div>
                       <div className="w-full max-w-[300px]">
                         <InputPassword
-                          name="input-password-confirm"
+                          name="confirmPassword"
+                          type="password"
                           placeholder="Confirm Password"
                           icon={password}
+                          register={register}
+                          errors={errors.confirmPassword}
                         />
                       </div>
                       <div className="flex justify-center w-[160px]">

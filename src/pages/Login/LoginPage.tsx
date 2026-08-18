@@ -6,10 +6,30 @@ import ButtonPrimary from "@/components/Buttons/ButtonPrimary";
 import Input from "@/components/Form/Input";
 import InputPassword from "@/components/Form/InputPassword";
 
+import { FormProvider, useForm } from "react-hook-form";
+import type { IRegisterFormType, TOnSubmitForm } from "@/components/Form/Form.type";
+import { useEffect } from "react";
+
 const LoginPage = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitSuccessful },
+  } = useForm<IRegisterFormType>({
+    mode: "onChange",
+  });
 
-  
+  const onSubmit: TOnSubmitForm = (data) => {
+    const newUsers = [data];
+    localStorage.setItem("user", JSON.stringify(newUsers));
+  };
 
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful, reset]);
 
   return (
     <>
@@ -26,7 +46,7 @@ const LoginPage = () => {
                 </div>
                 <p className="text-[12px] text-center">or use your account</p>
                 <div className="flex justify-center">
-                  <form action="" className="w-[300px]">
+                  <form onSubmit={handleSubmit(onSubmit)} action="" className="w-[300px]">
                     <div className="grid gap-[20px] place-items-center">
                       <div className="w-full max-w-[320px]">
                         <Input
@@ -34,6 +54,8 @@ const LoginPage = () => {
                           type="email"
                           placeholder="Email"
                           icon={email}
+                          register={register}
+                          errors={errors.email}
                         />
                       </div>
                       <div className="w-full max-w-[300px]">
@@ -42,6 +64,8 @@ const LoginPage = () => {
                           name="password"
                           placeholder="Password"
                           icon={password}
+                          register={register}
+                          errors={errors.password}
                         />
                       </div>
                       <div>
@@ -67,7 +91,11 @@ const LoginPage = () => {
               Enter your personal details and start journey with us
             </p>
             <div className="flex justify-center w-[160px]">
-              <ButtonLinkPrimary type={ undefined} link={"/singIn"} textButton={"SIGN UP"} />
+              <ButtonLinkPrimary
+                type={undefined}
+                link={"/singIn"}
+                textButton={"SIGN UP"}
+              />
             </div>
           </div>
         </section>

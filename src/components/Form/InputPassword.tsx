@@ -14,6 +14,8 @@ const InputPassword = ({
   icon,
   name,
   register,
+  errors,
+  type
 }: IInput<IRegisterFormType>) => {
   const outlinedPasswordId = React.useId();
 
@@ -42,6 +44,7 @@ const InputPassword = ({
           type={showPassword ? "text" : "password"}
           label={placeholder}
           size="small"
+          error={!!errors}
           slotProps={{
             input: {
               endAdornment: (
@@ -85,10 +88,21 @@ const InputPassword = ({
             },
           }}
           {...register(name, {
-            required: "lorem",
+            required: `Please enter password`,
+            validate: (value) => {
+              if (type === "password") {
+                const emailRegex =
+                  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+                return (
+                  emailRegex.test(value) || "Please enter a valid password"
+                );
+              }
+              return true;
+            },
           })}
         />
       </FormControl>
+      <span className="text-[11px] text-red-500">{errors?.message}</span>
     </>
   );
 };

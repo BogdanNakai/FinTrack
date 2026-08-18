@@ -1,4 +1,4 @@
-import type { UseFormRegister, FieldValues, Path} from "react-hook-form";
+import type { UseFormRegister, FieldValues, Path, FieldError} from "react-hook-form";
 
 export interface IRegisterFormType {
   name: string;
@@ -14,6 +14,7 @@ export interface IInput<T extends FieldValues> {
   iconInput?: string;
   name: Path<T>;
   register: UseFormRegister<T>;
+  errors: FieldError | undefined;
 }
 
 export interface IListValute {
@@ -24,3 +25,5 @@ export interface IListValute {
 export interface IInputMoney {
   listValute: IListValute[];
 }
+
+export type TOnSubmitForm = (data: IRegisterFormType ) => void
