@@ -19,8 +19,6 @@ const SingIn = () => {
     register,
     handleSubmit,
     reset,
-    getValues,
-    watch,
     formState: { errors, isSubmitSuccessful },
   } = useForm<IRegisterFormType>({
     mode: "onChange",
@@ -99,8 +97,6 @@ const SingIn = () => {
                       icon={password}
                       register={register}
                       errors={errors.password}
-                      getValues={getValues}
-                      watch={watch}
                     />
                   </div>
                   <div className="w-full max-w-[300px]">
