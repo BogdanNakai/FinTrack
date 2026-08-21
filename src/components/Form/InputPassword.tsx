@@ -15,8 +15,11 @@ const InputPassword = ({
   name,
   register,
   errors,
-  type
+  getValues,
+  watch,
+  type,
 }: IInput<IRegisterFormType>) => {
+
   const outlinedPasswordId = React.useId();
 
   const [showPassword, setShowPassword] = React.useState(false);
@@ -90,12 +93,14 @@ const InputPassword = ({
           {...register(name, {
             required: `Please enter password`,
             validate: (value) => {
-              if (type === "password") {
+              if (type === "password" && name !== "confirmPassword") {
                 const emailRegex =
                   /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
                 return (
                   emailRegex.test(value) || "Please enter a valid password"
                 );
+              } else {                
+                value === watch("password") || "Паролі не збігаються";
               }
               return true;
             },
