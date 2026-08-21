@@ -15,8 +15,6 @@ const InputPassword = ({
   name,
   register,
   errors,
-  getValues,
-  watch,
   type,
 }: IInput<IRegisterFormType>) => {
 
@@ -92,15 +90,16 @@ const InputPassword = ({
           }}
           {...register(name, {
             required: `Please enter password`,
-            validate: (value) => {
+            validate: (value, formValues) => {
               if (type === "password" && name !== "confirmPassword") {
                 const emailRegex =
                   /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
                 return (
                   emailRegex.test(value) || "Please enter a valid password"
                 );
-              } else {                
-                value === watch("password") || "Паролі не збігаються";
+              }
+              if (name === "confirmPassword") {
+                return value === formValues.password || "Passwords do not match";
               }
               return true;
             },
