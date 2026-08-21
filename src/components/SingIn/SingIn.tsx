@@ -13,6 +13,7 @@ import type {
   TOnSubmitForm,
 } from "@/components/Form/Form.type";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SingIn = () => {
   const {
@@ -20,13 +21,36 @@ const SingIn = () => {
     handleSubmit,
     reset,
     formState: { errors, isSubmitSuccessful },
+    setError,
   } = useForm<IRegisterFormType>({
     mode: "onChange",
   });
 
+  const navigate = useNavigate();
+  const listUsers = JSON.parse(localStorage.getItem("users") ?? "[]");
+
   const onSubmit: TOnSubmitForm = (data) => {
-    const newUsers = [data];
-    localStorage.setItem("user", JSON.stringify(newUsers));
+    const isEmailUsed = listUsers.find(
+      (user: IRegisterFormType) => user.email === data.email
+    );
+
+    if (isEmailUsed) {
+      setError("email", {
+        type: "manual",
+        message: "A user with this email address already exists",
+      });
+      return;
+    }
+
+    const user = {
+      ...data,
+      id: crypto.randomUUID(),
+    };
+
+    listUsers.push(user);
+    localStorage.setItem("users", JSON.stringify(listUsers));
+
+    navigate(`/dashboard`);
   };
 
   useEffect(() => {

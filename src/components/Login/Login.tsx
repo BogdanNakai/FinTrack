@@ -12,6 +12,7 @@ import type {
   TOnSubmitForm,
 } from "@/components/Form/Form.type";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const {
@@ -19,13 +20,35 @@ const Login = () => {
     handleSubmit,
     reset,
     formState: { errors, isSubmitSuccessful },
+    setError,
   } = useForm<IRegisterFormType>({
     mode: "onChange",
   });
 
+  const navigate = useNavigate();
+  const listUsers = JSON.parse(localStorage.getItem("users") ?? "[]");
+
   const onSubmit: TOnSubmitForm = (data) => {
-    const newUsers = [data];
-    localStorage.setItem("user", JSON.stringify(newUsers));
+    const matchedUser = listUsers.find(
+      (user: IRegisterFormType) => user.email === data.email
+    );
+
+	  if (!matchedUser) {
+      setError("email", {
+        type: "manual",
+        message: "User not found",
+      });
+      return;
+    } else if (matchedUser.password !== data.password) {
+      console.log("sdf");
+
+      setError("password", {
+        type: "manual",
+        message: "Incorrect password",
+      });
+      return;
+    }
+    navigate(`/dashboard`);
   };
 
   useEffect(() => {
