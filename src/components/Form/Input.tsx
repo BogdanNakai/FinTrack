@@ -11,6 +11,20 @@ const Input = <T extends FieldValues>({
   errors,
 }: IInput<IRegisterFormType>) => {
 
+  const { onChange, ...registerProps } = register(name, {
+          required: `Please enter ${name} `,
+          validate: (value) => {
+            if (type === "email") {
+              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              return (
+                emailRegex.test(value) || "Please enter a valid email address"
+              );
+            }
+            return true;
+          },
+          setValueAs: (value) => value.trim(),
+        })
+
   return (
     <>
       <TextField
@@ -34,18 +48,11 @@ const Input = <T extends FieldValues>({
             ),
           },
         }}
-        {...register(name, {
-          required: `Please enter ${name} `,
-          validate: (value) => {
-            if (type === "email") {
-              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-              return (
-                emailRegex.test(value) || "Please enter a valid email address"
-              );
-            }
-            return true;
-          },
-        })}
+        {...registerProps}
+        onChange={(e) => {
+          e.target.value = e.target.value.trim();
+          onChange(e);
+        }}
       />
       <span className="text-[11px] text-red-500">{errors?.message}</span>
     </>

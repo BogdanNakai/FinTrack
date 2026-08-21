@@ -36,6 +36,24 @@ const InputPassword = ({
     event.preventDefault();
   };
 
+  const { onChange, ...registerProps } = register(name, {
+    required: `Please enter password`,
+
+    validate: (value, formValues) => {
+      if (type === "password" && name !== "confirmPassword") {
+        const emailRegex =
+          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+        return emailRegex.test(value) || "Please enter a valid password";
+      }
+      if (name === "confirmPassword") {
+        return value === formValues.password || "Passwords do not match";
+      }
+      return true;
+    },
+    setValueAs: (value) => value.trim(),
+  });
+  
+
   return (
     <>
       <FormControl sx={{ width: "100%" }} variant="outlined">
@@ -88,22 +106,12 @@ const InputPassword = ({
               ),
             },
           }}
-          {...register(name, {
-            required: `Please enter password`,
-            validate: (value, formValues) => {
-              if (type === "password" && name !== "confirmPassword") {
-                const emailRegex =
-                  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
-                return (
-                  emailRegex.test(value) || "Please enter a valid password"
-                );
-              }
-              if (name === "confirmPassword") {
-                return value === formValues.password || "Passwords do not match";
-              }
-              return true;
-            },
-          })}
+          {...registerProps}
+          onChange={(e) => {
+            
+            e.target.value = e.target.value.trim();
+            onChange(e); 
+          }}
         />
       </FormControl>
       <span className="text-[11px] text-red-500">{errors?.message}</span>
