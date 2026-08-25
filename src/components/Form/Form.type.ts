@@ -5,7 +5,6 @@ export interface IRegisterFormType {
   email: string;
   password: string;
   confirmPassword: string;
-  id: string;
 }
 
 export interface IInput<T extends FieldValues> {
