@@ -6,8 +6,6 @@ import {
   TextField,
 } from "@mui/material";
 import type { IInput, IRegisterFormType } from "./Form.type";
-import passwordVisible from "@/assets/icon_passwordVisible.svg";
-import passwordVisibleOff from "@/assets/icon_passwordVisibleOff.svg";
 
 const InputPassword = ({
   placeholder,

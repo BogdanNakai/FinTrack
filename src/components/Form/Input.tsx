@@ -83,6 +83,7 @@ const Input = ({
             },
           },
         }}
+        {...registerProps}
         slotProps={{
           input: {
             startAdornment: (
