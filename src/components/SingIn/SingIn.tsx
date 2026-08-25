@@ -42,15 +42,31 @@ const SingIn = () => {
       return;
     }
 
+    const id = crypto.randomUUID();
+
     const user = {
       ...data,
-      id: crypto.randomUUID(),
+      id: id,
+      balanse: 0,
+      income: 0,
+      expense: 0,
+      transactions: [{}],
+      budget: {
+        budgetBalanse: 0,
+      },
+      goals: [
+        {
+          title: "",
+          target: 0,
+        },
+      ],
     };
 
     listUsers.push(user);
     localStorage.setItem("users", JSON.stringify(listUsers));
+    localStorage.setItem("userId", JSON.stringify(id));
 
-    navigate(`/dashboard`);
+    navigate(`/profile`);
   };
 
   useEffect(() => {
