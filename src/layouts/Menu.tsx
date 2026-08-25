@@ -1,8 +1,8 @@
 import "@/css/header.scss";
 import { Link } from "react-router-dom";
+import type { IMenu } from "./layouts.type";
 
-const Menu = ({ active }) => {
-
+const Menu = ({ active }: IMenu) => {
   const toggleMenu = () => {
     document.documentElement.toggleAttribute("data-fls-menu-open");
   };
