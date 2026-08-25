@@ -2,8 +2,12 @@ import "@/css/header.scss";
 import { Link } from "react-router-dom";
 
 const Menu = ({ active }) => {
+
   const toggleMenu = () => {
     document.documentElement.toggleAttribute("data-fls-menu-open");
+  };
+  const removeAtribute = () => {
+    document.documentElement.removeAttribute("data-fls-menu-open");
   };
 
   const menuItems = [
@@ -29,7 +33,7 @@ const Menu = ({ active }) => {
             {menuItems.map((e: any) => (
               <li key={e.id} className="menu__item flex items-center gap=[8px]">
                 <Link
-                  onClick={() => toggleMenu()}
+                  onClick={() => removeAtribute()}
                   to={e.url}
                   className={`menu__link text-[16px] block p-[10px] ${
                     e.id === active ? "menu__link-active" : null
