@@ -28,7 +28,7 @@ const GoalsPage = () => {
                     Set, track, and achieve your financial targets
                   </p>
                 </div>
-                <ButtonPrimaryActions textButton="Add Goal" />
+                <ButtonPrimaryActions textButton="Add Goal" type="button" />
               </div>
               <div className="flex items-center gap-[15px] md:gap-[20px] max-[480px]:flex-wrap">
                 <div className="min-[480px]:max-w-[220px] w-full">

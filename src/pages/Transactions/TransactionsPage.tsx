@@ -1,11 +1,9 @@
-import ButtonPrimary from "@/components/buttons/ButtonPrimary";
 import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryAtions";
 import ButtonsActionsList from "@/components/buttons/ButtonsActionsList";
 import SelectFilter from "@/components/selectFilter/SelectFilter";
 import {
   filterDateRange,
   filterNewestFirst,
-  filterTimePeriod,
   typeValue,
 } from "@/context/AppContext";
 import TabletTransaction from "@/features/transactions/component/TablleTransaction";
@@ -23,7 +21,7 @@ const TransactionsPage = () => {
               <h2 className="font-[Poppins] font-sans text-[20px] md:text-2xl text-[#1E293B] tracking-[0.02em] font-medium ">
                 Transactions
               </h2>
-              <ButtonPrimaryActions textButton={"Add Transaction"} />
+              <ButtonPrimaryActions textButton={"Add Transaction"} type="button" />
             </div>
             <div className="flex flex-wrap min-[550px]:flex-nowrap gap-2.5 lg:gap-5 pb-6">
               <div className="max-w-full min-[550px]:max-w-56 w-full">

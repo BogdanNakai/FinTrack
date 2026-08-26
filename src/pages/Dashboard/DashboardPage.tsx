@@ -23,9 +23,9 @@ const DashboardPage = () => {
           <div className="dashboard__container">
             <div>
               <div className="pb-[24px]">
-                {herroBalans.map((e: any) => {
+                {herroBalans.map((e, i) => {
                   return (
-                    <div className="flex items-center justify-center flex-wrap gap-2.5 md:gap-[24px]">
+                    <div key={i} className="flex items-center justify-center flex-wrap gap-2.5 md:gap-[24px]">
                       <DashboardCard
                         title="Total Balance"
                         balanse={e.totalBalans}
@@ -58,7 +58,7 @@ const DashboardPage = () => {
                   Spending Overview
                 </h2>
                 <div className="max-w-[150px]">
-                  <InputMonthe placeholder="This Month" />
+                  <InputMonthe placeholder="This Month" name="month" />
                 </div>
               </div>
               <div className="flex justify-center items-center max-[860px]:flex-wrap gap-2.5 xl:gap-16 pb-12">

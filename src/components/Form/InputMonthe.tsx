@@ -18,9 +18,9 @@ function InputMonthe({ placeholder }: IInput<IRegisterFormType>) {
         onOpen={() => setIsOpen(true)}
         onClose={() => setIsOpen(false)}
         slots={{
-          openPickerIcon: (props) => (
+          openPickerIcon: ({ ownerState, ...svgProps }) => (
             <svg
-              {...props}
+              {...svgProps}
               width="24"
               height="24"
               viewBox="0 0 24 24"

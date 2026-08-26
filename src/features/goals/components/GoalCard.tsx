@@ -4,10 +4,10 @@ import { listGoal } from "@/context/AppContext";
 const GoalCard = () => {
   return (
     <>
-      {listGoal.map((e) => {
+      {listGoal.map((e, i) => {
         const parsent = Math.round(e.saved / (e.target / 100));
         return (
-          <div className="p-[16px] shadow-[0_6px_18px_0_rgba(2,6,23,0.06)] bg-[#fff] rounded-[12px] max-w-[360px] w-full grid gap-[12px]">
+          <div key={i} className="p-[16px] shadow-[0_6px_18px_0_rgba(2,6,23,0.06)] bg-[#fff] rounded-[12px] max-w-[360px] w-full grid gap-[12px]">
             <h3 className="text-[16px] font-semibold tracking-tight">
               {e.label}
             </h3>

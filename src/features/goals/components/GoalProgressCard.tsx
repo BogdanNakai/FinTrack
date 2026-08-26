@@ -37,7 +37,7 @@ const GoalProgressCard = () => {
             stroke: "#CCCCCC",
             strokeWidth: 0.78,
           },
-          "& .MuiChartsGrid-line:nth-child(even)": {
+          "& .MuiChartsGrid-line:nth-of-type(even)": {
             stroke: "#EBEBEB",
             strokeWidth: 0.78,
           },

@@ -6,8 +6,8 @@ const ChartsBarsCard = () => {
   const maxValue = value.length > 0 ? Math.max(...value) : 0;
 
   return (
-    <div className="bg-white rounded-2xl md:p-6 p-3 font-sans shadow-[0_4px_20px_rgba(0,0,0,0.05)] max-w-[520px] w-full h-auto">
-      <div className="flex items-center gap-1.5 justify-between pb-[12px]">
+    <div className="bg-white rounded-2xl md:p-6 p-3 font-sans shadow-[0_4px_20px_rgba(0,0,0,0.05)] max-w-130 w-full h-auto">
+      <div className="flex items-center gap-1.5 justify-between pb-3">
         <h3 className="text-[18px] text-[#1E293B] font-bold">
           Spending by Category
         </h3>
@@ -59,7 +59,7 @@ const ChartsBarsCard = () => {
             stroke: "#CCCCCC",
             strokeWidth: 0.78,
           },
-          "& .MuiChartsGrid-line:nth-child(even)": {
+          "& .MuiChartsGrid-line&:nth-of-type(even)": {
             stroke: "#EBEBEB",
             strokeWidth: 0.78,
           },
