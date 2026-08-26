@@ -5,7 +5,6 @@ export interface IRegisterFormType {
   email: string;
   password: string;
   confirmPassword: string;
-  month: string;
 }
 
 export interface IInput<T extends FieldValues> {
@@ -16,6 +15,10 @@ export interface IInput<T extends FieldValues> {
   name: Path<T>;
   register?: UseFormRegister<T>;
   errors?: FieldError | undefined;
+}
+
+export interface IMonthInput { 
+  placeholder: string
 }
 
 export interface IListValute {

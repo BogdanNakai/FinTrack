@@ -58,7 +58,7 @@ const DashboardPage = () => {
                   Spending Overview
                 </h2>
                 <div className="max-w-[150px]">
-                  <InputMonthe placeholder="This Month" name="month" />
+                  <InputMonthe placeholder="This Month" />
                 </div>
               </div>
               <div className="flex justify-center items-center max-[860px]:flex-wrap gap-2.5 xl:gap-16 pb-12">
