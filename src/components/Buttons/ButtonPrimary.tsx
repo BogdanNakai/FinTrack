@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import type { IButtonProps } from "./Buttons.type";
 
 const ButtonPrimary = ({ textButton, type }: IButtonProps) => {

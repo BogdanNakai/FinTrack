@@ -1,9 +1,9 @@
 import { categoriesValue } from "@/context/AppContext";
-import ButtonPrimary from "../Buttons/ButtonPrimary";
-import ButtonSecondary from "../Buttons/ButtonSecondary";
-import InputMony from "../Form/InputMony";
-import InputPopap from "../Form/InputPopap";
-import SelectFilter from "../SelectFilter/SelectFilter";
+import ButtonPrimary from "../buttons/ButtonPrimary";
+import ButtonSecondary from "../buttons/ButtonSecondary";
+import InputMony from "../form/InputMony";
+import InputPopap from "../form/InputPopap";
+import SelectFilter from "../selectFilter/SelectFilter";
 
 const ModalAddBudget = () => {
   return (

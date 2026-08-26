@@ -1,12 +1,12 @@
-import ProfileSettingsCard from "@/components/Card/ProfileSettingsCard/ProfileSettingsCard";
-import UserInfo from "@/components/Card/UserInfo";
+import ProfileSettingsCard from "@/features/profile/components/ProfileSettingsCard/ProfileSettingsCard";
+import UserInfo from "@/features/profile/components/UserInfoCard/UserInfoCard";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
 
 const ProfilePage = () => {
   return (
     <>
-      <Header active='profile' />
+      <Header active="profile" />
       <main>
         <section className="py-[47px]">
           <div className="profile__container">

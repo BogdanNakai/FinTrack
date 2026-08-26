@@ -1,9 +1,8 @@
-import ButtonCansel from "../Buttons/ButtonCansel";
-import ButtonRemove from "../Buttons/ButtonRemove";
+import ButtonCansel from "../buttons/ButtonCansel";
+import ButtonRemove from "../buttons/ButtonRemove";
 
-
-const ModalDeleteTransactions = () => { 
-	return (
+const ModalDeleteTransactions = () => {
+  return (
     <>
       <div className="rounded-[12px] p-[25px] flex flex-col items-center gap-[14px] bg-[#fff] max-w-[480px]">
         <p className="text-[18px] text-[#1E293B]">Delete Transaction?</p>
@@ -13,11 +12,11 @@ const ModalDeleteTransactions = () => {
         </p>
         <div className="flex items-center gap-[10px]">
           <ButtonCansel />
-          <ButtonRemove textButton="Cansel"/>
+          <ButtonRemove textButton="Cansel" />
         </div>
       </div>
     </>
   );
 };
 
-export default ModalDeleteTransactions
+export default ModalDeleteTransactions;

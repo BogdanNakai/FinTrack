@@ -1,13 +1,13 @@
-import ButtonPrimaryActions from "@/components/Buttons/ButtonPrimaryAtions";
-import ExpenseBreakdownCard from "@/components/Card/ExpenseBreakdownCard/ExpenseBreakdownCard";
-import GoalCard from "@/components/Card/GoalCard/GoalCard";
-import GoalProgressCard from "@/components/Card/GoalProgressCard/GoalProgressCard";
-import SelectFilter from "@/components/SelectFilter/SelectFilter";
+import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryAtions";
+import ExpenseBreakdownCard from "@/components/charts/expenseBreakdownCard/ExpenseBreakdownCard";
+import SelectFilter from "@/components/selectFilter/SelectFilter";
 import {
   GoalProgress,
   filterTimePeriod,
   statusGoal,
 } from "@/context/AppContext";
+import GoalCard from "@/features/goals/components/GoalCard";
+import GoalProgressCard from "@/features/goals/components/GoalProgressCard";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
 

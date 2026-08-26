@@ -1,10 +1,10 @@
 import { categoriesValue, statusGoal, typeValue } from "@/context/AppContext";
-import ButtonPrimary from "../Buttons/ButtonPrimary";
-import ButtonSecondary from "../Buttons/ButtonSecondary";
-import InputData from "../Form/InputData";
-import InputMony from "../Form/InputMony";
-import InputPopap from "../Form/InputPopap";
-import SelectFilter from "../SelectFilter/SelectFilter";
+import ButtonPrimary from "../buttons/ButtonPrimary";
+import ButtonSecondary from "../buttons/ButtonSecondary";
+import InputData from "../form/InputData";
+import InputMony from "../form/InputMony";
+import InputPopap from "../form/InputPopap";
+import SelectFilter from "../selectFilter/SelectFilter";
 
 const ModalAddGoal = () => {
   return (

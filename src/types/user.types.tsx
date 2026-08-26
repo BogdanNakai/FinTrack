@@ -1,4 +1,5 @@
-import type { IGoal } from "./gola.types copy";
+
+import type { IGoal } from "./golas.types";
 import type { ITransaction } from "./transaction.types";
 
 export interface IUser {

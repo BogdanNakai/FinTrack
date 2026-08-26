@@ -1,9 +1,14 @@
-import ButtonPrimary from "@/components/Buttons/ButtonPrimary";
-import ButtonPrimaryActions from "@/components/Buttons/ButtonPrimaryAtions";
-import ButtonsActionsList from "@/components/Buttons/ButtonsActionsList";
-import SelectFilter from "@/components/SelectFilter/SelectFilter";
-import TabletTransaction from "@/components/Tablets/TablletTransaction";
-import { filterDateRange, filterNewestFirst, filterTimePeriod, typeValue } from "@/context/AppContext";
+import ButtonPrimary from "@/components/buttons/ButtonPrimary";
+import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryAtions";
+import ButtonsActionsList from "@/components/buttons/ButtonsActionsList";
+import SelectFilter from "@/components/selectFilter/SelectFilter";
+import {
+  filterDateRange,
+  filterNewestFirst,
+  filterTimePeriod,
+  typeValue,
+} from "@/context/AppContext";
+import TabletTransaction from "@/features/transactions/component/TablleTransaction";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
 

@@ -1,9 +1,7 @@
-import DashboardCard from "@/components/Card/DashboardCard/DashboardCard";
-import DashboardCardRate from "@/components/Card/DashboardCard/DashboardCardRate";
-import ExpenseBreakdownCard from "@/components/Card/ExpenseBreakdownCard/ExpenseBreakdownCard";
-import LineDiagram from "@/components/Card/LineDiagram/LineDiagram";
-import InputMonthe from "@/components/Form/InputMonthe";
-import TabletRecentTransactions from "@/components/Tablets/TabletRecentTransactions";
+import DashboardCard from "@/features/dashboard/components/DashboardCard";
+import DashboardCardRate from "@/features/dashboard/components/DashboardCardRate";
+import ExpenseBreakdownCard from "@/components/charts/expenseBreakdownCard/ExpenseBreakdownCard";
+import InputMonthe from "@/components/form/InputMonthe";
 import {
   categoriesData,
   dataExpense,
@@ -13,6 +11,8 @@ import {
 } from "@/context/AppContext";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
+import TabletRecentTransactions from "@/features/dashboard/components/TableRecentTransactions";
+import LineDiagram from "@/components/charts/lineDiagram/LineDiagram";
 
 const DashboardPage = () => {
   return (
