@@ -1,4 +1,7 @@
 import ButtonPrimary from "@/components/buttons/ButtonPrimary";
+import ChartsBarsCard from "@/components/charts/ChartsBarsCard";
+import ExpenseBreakdownCard from "@/components/charts/ExpenseBreakdownCard";
+import LineDiagram from "@/components/charts/LineDiagram";
 import SelectFilter from "@/components/selectFilter/SelectFilter";
 import {
   categoriesValue,
@@ -10,9 +13,6 @@ import {
 } from "@/context/AppContext";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
-import ExpenseBreakdownCard from "@/components/charts/expenseBreakdownCard/ExpenseBreakdownCard";
-import ChartsBarsCard from "@/components/charts/chartsBarsCard/ChartsBarsCard";
-import LineDiagram from "@/components/charts/lineDiagram/LineDiagram";
 
 const ReportsPage = () => {
   return (

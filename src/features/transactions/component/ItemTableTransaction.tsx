@@ -1,8 +1,8 @@
 import ButtonActions from "@/components/buttons/ButtonActions";
-import ElementTitleCategory from "@/components/ui/iconsTitleCategiry/ElementTitleCategory";
+import ElementTitleCategory from "@/components/ui/ElementTitleCategory";
 import { listTransaction } from "@/context/AppContext";
 
-const ItemTabletTransaction = () => {
+const ItemTableTransaction = () => {
   const monyFormatter = new Intl.NumberFormat("en-IN", {
     style: "currency",
     currency: "INR",
@@ -54,4 +54,4 @@ const ItemTabletTransaction = () => {
   );
 };
 
-export default ItemTabletTransaction;
+export default ItemTableTransaction;

@@ -1,5 +1,5 @@
 import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryAtions";
-import ExpenseBreakdownCard from "@/components/charts/expenseBreakdownCard/ExpenseBreakdownCard";
+import ExpenseBreakdownCard from "@/components/charts/ExpenseBreakdownCard";
 import SelectFilter from "@/components/selectFilter/SelectFilter";
 import {
   GoalProgress,

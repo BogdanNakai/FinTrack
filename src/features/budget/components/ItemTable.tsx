@@ -1,9 +1,9 @@
 import ButtonActions from "@/components/buttons/ButtonActions";
+import ElementTitleCategory from "@/components/ui/ElementTitleCategory";
 import ProgressLine from "@/components/ui/progressLine/ProgressLine";
-import ElementTitleCategory from "@/components/ui/iconsTitleCategiry/ElementTitleCategory";
 import { listTransactionBudget, monyFormatter } from "@/context/AppContext";
 
-const ItemTablet = () => {
+const ItemTable = () => {
   return (
     <>
       {listTransactionBudget.map((e: any) => {
@@ -34,4 +34,4 @@ const ItemTablet = () => {
   );
 };
 
-export default ItemTablet;
+export default ItemTable;

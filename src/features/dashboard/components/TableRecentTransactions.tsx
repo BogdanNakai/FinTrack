@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import ItemTabletRecent from "./ItemTableRecent";
+import ItemTableRecent from "./ItemTableRecent";
 
-const TabletRecentTransactions = () => {
+const TableRecentTransactions = () => {
   return (
     <>
       <div
@@ -35,7 +35,7 @@ const TabletRecentTransactions = () => {
                 Amount
               </p>
             </div>
-            <ItemTabletRecent />
+            <ItemTableRecent />
           </div>
         </div>
       </div>
@@ -43,4 +43,4 @@ const TabletRecentTransactions = () => {
   );
 };
 
-export default TabletRecentTransactions;
+export default TableRecentTransactions;

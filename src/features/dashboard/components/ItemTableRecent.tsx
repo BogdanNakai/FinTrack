@@ -1,6 +1,6 @@
 import { listTransaction, monyFormatter } from "@/context/AppContext";
 
-const ItemTabletRecent = () => {
+const ItemTableRecent = () => {
   return (
     <>
       {listTransaction.map((e, i: any) =>
@@ -30,4 +30,4 @@ const ItemTabletRecent = () => {
   );
 };
 
-export default ItemTabletRecent;
+export default ItemTableRecent;

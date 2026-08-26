@@ -1,6 +1,5 @@
 import DashboardCard from "@/features/dashboard/components/DashboardCard";
 import DashboardCardRate from "@/features/dashboard/components/DashboardCardRate";
-import ExpenseBreakdownCard from "@/components/charts/expenseBreakdownCard/ExpenseBreakdownCard";
 import InputMonthe from "@/components/form/InputMonthe";
 import {
   categoriesData,
@@ -12,7 +11,8 @@ import {
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
 import TabletRecentTransactions from "@/features/dashboard/components/TableRecentTransactions";
-import LineDiagram from "@/components/charts/lineDiagram/LineDiagram";
+import LineDiagram from "@/components/charts/LineDiagram";
+import ExpenseBreakdownCard from "@/components/charts/ExpenseBreakdownCard";
 
 const DashboardPage = () => {
   return (

@@ -1,6 +1,5 @@
 import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryAtions";
 import ButtonsActionsList from "@/components/buttons/ButtonsActionsList";
-import ExpenseBreakdownCard from "@/components/charts/expenseBreakdownCard/ExpenseBreakdownCard";
 import InputMonthe from "@/components/form/InputMonthe";
 import SelectFilter from "@/components/selectFilter/SelectFilter";
 import TabletBudget from "@/features/budget/components/TableBudget";
@@ -14,7 +13,8 @@ import {
 import BudgetCard from "@/features/budget/components/BudgetCard";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
-import LineDiagram from "@/components/charts/lineDiagram/LineDiagram";
+import LineDiagram from "@/components/charts/LineDiagram";
+import ExpenseBreakdownCard from "@/components/charts/ExpenseBreakdownCard";
 
 const BudgetPage = () => {
   return (

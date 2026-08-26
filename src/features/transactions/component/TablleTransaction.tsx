@@ -1,4 +1,4 @@
-import ItemTabletTransaction from "./ItemTableTransaction";
+import ItemTableTransaction from "./ItemTableTransaction";
 
 const TabletTransaction = () => {
   return (
@@ -20,7 +20,7 @@ const TabletTransaction = () => {
             Actions
           </div>
         </div>
-        <ItemTabletTransaction />
+        <ItemTableTransaction />
       </div>
     </>
   );

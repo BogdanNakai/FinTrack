@@ -1,6 +1,6 @@
-import ItemTablet from "./ItemTable";
+import ItemTable from "./ItemTable";
 
-const TabletBudget = () => {
+const TableBudget = () => {
   return (
     <>
       <div className="max-w-full">
@@ -18,10 +18,10 @@ const TabletBudget = () => {
             Actions
           </div>
         </div>
-        <ItemTablet />
+        <ItemTable />
       </div>
     </>
   );
 };
 
-export default TabletBudget;
+export default TableBudget;
