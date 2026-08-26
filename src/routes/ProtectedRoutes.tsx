@@ -2,7 +2,7 @@ import type { IUser } from "@/types/user.types";
 import { Outlet, Navigate } from "react-router-dom";
 
 const ProtectedRoutes = () => {
-	const userId = localStorage.getItem("userId");
+	const userId = JSON.parse(localStorage.getItem("userId") || '[]');
 	const users: IUser[] = JSON.parse(localStorage.getItem("users") || "[]");
 
 	const findIdUser = users.find(
