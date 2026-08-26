@@ -1,4 +1,5 @@
-import SingIn from "@/features/auth/SingIn";
+import SingIn from "@/features/auth/components/SingIn";
+
 
 const SingInPage = () => {
   return (
