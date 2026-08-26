@@ -29,7 +29,8 @@ const SingIn = () => {
   const navigate = useNavigate();
   const listUsers = JSON.parse(localStorage.getItem("users") ?? "[]");
 
-  const onSubmit: TOnSubmitForm = (data) => {
+  const onSubmit: TOnSubmitForm = ({ confirmPassword, ...data }) => {
+
     const isEmailUsed = listUsers.find(
       (user: IRegisterFormType) => user.email === data.email
     );
@@ -47,26 +48,13 @@ const SingIn = () => {
     const user = {
       ...data,
       id: id,
-      balanse: 0,
-      income: 0,
-      expense: 0,
-      transactions: [{}],
-      budget: {
-        budgetBalanse: 0,
-      },
-      goals: [
-        {
-          title: "",
-          target: 0,
-        },
-      ],
     };
 
     listUsers.push(user);
     localStorage.setItem("users", JSON.stringify(listUsers));
     localStorage.setItem("userId", JSON.stringify(id));
 
-    navigate(`/profile`);
+    navigate(`/dashboard`);
   };
 
   useEffect(() => {
