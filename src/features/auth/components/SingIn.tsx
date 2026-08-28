@@ -14,6 +14,7 @@ import type {
 } from "@/components/form/Form.type";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { getStorage, setStorage } from "@/services/localStorage";
 
 const SingIn = () => {
   const {
@@ -27,7 +28,7 @@ const SingIn = () => {
   });
 
   const navigate = useNavigate();
-  const listUsers = JSON.parse(localStorage.getItem("users") ?? "[]");
+  const listUsers = getStorage('users');
 
   const onSubmit: TOnSubmitForm = ({ confirmPassword, ...data }) => {
 
@@ -51,8 +52,8 @@ const SingIn = () => {
     };
 
     listUsers.push(user);
-    localStorage.setItem("users", JSON.stringify(listUsers));
-    localStorage.setItem("userId", JSON.stringify(id));
+    setStorage("users", listUsers)
+    setStorage("id", id)
 
     navigate(`/dashboard`);
   };

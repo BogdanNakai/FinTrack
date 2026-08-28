@@ -13,6 +13,7 @@ import type {
 } from "@/components/form/Form.type";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { getStorage } from "@/services/localStorage";
 
 const Login = () => {
   const {
@@ -26,7 +27,7 @@ const Login = () => {
   });
 
   const navigate = useNavigate();
-  const listUsers = JSON.parse(localStorage.getItem("users") ?? "[]");
+  const listUsers = getStorage('users');
 
   const onSubmit: TOnSubmitForm = (data) => {
     const matchedUser = listUsers.find(
@@ -40,8 +41,6 @@ const Login = () => {
       });
       return;
     } else if (matchedUser.password !== data.password) {
-      console.log("sdf");
-
       setError("password", {
         type: "manual",
         message: "Incorrect password",
