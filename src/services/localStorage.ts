@@ -19,3 +19,7 @@ export const getStorage = <DataStore>(key: string, defaultValue: DataStore): Dat
 export const setStorage = <DataStore>(key: string, data: DataStore) => {
   localStorage.setItem(key, JSON.stringify(data));
 };
+
+export const removeStorage = (key: string) => {
+  localStorage.removeItem(key);
+}
