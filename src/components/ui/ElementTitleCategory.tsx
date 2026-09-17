@@ -10,7 +10,7 @@ import investment from "@/assets/icon_investment.svg"
 import freelance from "@/assets/icon_freelance.svg"
 import salary from "@/assets/icon_salary.svg"
 import savings from "@/assets/icon_savings.svg"
-import type { IIconCategory } from "../Ui.type"
+import type { IIconCategory } from "./Ui.type"
 
 
 const ElementTitleCategory = ({ category }: IIconCategory) => {

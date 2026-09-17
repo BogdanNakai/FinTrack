@@ -19,7 +19,6 @@ const RoutesComponent: FC = () => {
   return (
     <Routes>
       <Route path="/" element={<ProtectedRoutes />}>
-        <Route path="/transactions" element={<TransactionsPage />}></Route>
         <Route path="/profile" element={<ProfilePage />}></Route>
         <Route path="/transactions" element={<TransactionsPage />}></Route>
         <Route path="/reports" element={<ReportsPage />}></Route>

@@ -7,7 +7,8 @@ import {
   type Plugin,
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
-import type { MyComponentProps } from "../Charts.type";
+import type { MyComponentProps } from "./Charts.type";
+
 
 
 ChartJS.register(ArcElement, Tooltip);
