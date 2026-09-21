@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import { useState } from "react";
 import type { IMonthInput } from "./Form.type";
 // Імпортуємо іконку стрілки вниз
-function InputMonthe({ placeholder }: IMonthInput) {
+function InputMonth({ placeholder }: IMonthInput) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -148,4 +148,4 @@ function InputMonthe({ placeholder }: IMonthInput) {
   );
 }
 
-export default InputMonthe;
+export default InputMonth;

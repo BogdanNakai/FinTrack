@@ -1,4 +1,8 @@
-import { listTransaction, monyFormatter } from "@/context/AppContext";
+import {
+  getCategoryLabel,
+  listTransaction,
+  moneyFormatter,
+} from "@/context/AppContext";
 
 const ItemTableRecent = () => {
   return (
@@ -10,18 +14,18 @@ const ItemTableRecent = () => {
               {e.description.slice(0, 20) + "..."}
             </p>
             <p className="flex-[0_0_23.68%] text-sm text-center text-slate-800">
-              {e.categories}
+              {getCategoryLabel(e.category)}
             </p>
             <p className="flex-[0_0_23.68%] text-sm text-center text-slate-800">
-              {e.dateValue.toLocaleDateString("en-GB", {
+              {new Date(e.date).toLocaleDateString("en-GB", {
                 day: "numeric",
                 month: "short",
                 year: "numeric",
               })}
             </p>
             <p className="flex-[0_0_18.42%] text-sm text-center text-slate-800">
-              {e.type === "Expense" ? "-" : null}
-              {monyFormatter.format(e.amount)}
+              {e.type === "expense" ? "-" : null}
+              {moneyFormatter.format(e.amount)}
             </p>
           </div>
         ) : null

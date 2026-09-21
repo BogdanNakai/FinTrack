@@ -10,12 +10,10 @@ const initialState: ITransactions = {
   transactions: getStorage(TRANSACTIONS, []),
 };
 
-export const counterSlice = createSlice({
+export const transactionsSlice = createSlice({
   name: "transactions",
   initialState,
-  reducers: {
-  
-  },
+  reducers: {},
 });
 
-export default counterSlice.reducer;
+export default transactionsSlice.reducer;

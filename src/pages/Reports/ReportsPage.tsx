@@ -7,7 +7,7 @@ import {
   categoriesValue,
   filterTimePeriod,
   categoriesData,
-  seriesBalanse,
+  balanceSeries,
   dataIncome,
   dataExpense,
 } from "@/context/AppContext";
@@ -51,7 +51,7 @@ const ReportsPage = () => {
                 <LineDiagram
                   uData={dataExpense}
                   pData={dataIncome}
-                  seriesData={seriesBalanse}
+                  seriesData={balanceSeries}
                   title="Monthly trend"
                 />
               </div>

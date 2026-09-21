@@ -1,5 +1,7 @@
+import type { TransactionCategory } from "@/types/transaction.types";
+
 export interface IIconCategory {
-  category: string;
+  category: TransactionCategory;
 }
 export interface IParcent {
   parsent: number;

@@ -1,6 +1,6 @@
 import trendUpp from "@/assets/icon_trendUpp.svg";
 import trendDown from "@/assets/icon_trendDown.svg";
-import { monyFormatter } from "@/context/AppContext";
+import { moneyFormatter } from "@/context/AppContext";
 import type { IDashboardCard } from "./DashboardCard.type";
 
 const DashboardCard = ({ title, balanse, growth }: IDashboardCard) => {
@@ -14,7 +14,7 @@ const DashboardCard = ({ title, balanse, growth }: IDashboardCard) => {
           {title}
         </p>
         <p className="flex-grow-0 flex-shrink-1 text-[22px] md:text-[28px] font-medium text-left text-slate-800">
-          {monyFormatter.format(Number(balanse))}
+          {moneyFormatter.format(Number(balanse))}
         </p>
 
         <div className="flex justify-center items-center flex-grow-0 flex-shrink-1  relative gap-2">

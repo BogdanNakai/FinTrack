@@ -1,5 +1,5 @@
 import ProgressLine from "@/components/ui/progressLine/ProgressLine";
-import { monyFormatter } from "@/context/AppContext";
+import { moneyFormatter } from "@/context/AppContext";
 import type { IBudgetCard } from "../Budget.type";
 
 const BudgetCard = ({ title, amount, type }: IBudgetCard) => {
@@ -13,7 +13,7 @@ const BudgetCard = ({ title, amount, type }: IBudgetCard) => {
           {title}
         </p>
         <p className="flex-grow-0 flex-shrink-1 text-[22px] md:text-[28px] font-medium text-left text-slate-800">
-          {monyFormatter.format(amount)}
+          {moneyFormatter.format(amount)}
         </p>
         <div className="flex items-center flex-grow-0 flex-shrink-1 relative gap-2 w-full">
           {type === "budget" ? (

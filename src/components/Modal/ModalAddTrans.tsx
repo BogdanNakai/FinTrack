@@ -2,7 +2,7 @@ import { categoriesValue, typeValue } from "@/context/AppContext";
 import ButtonPrimary from "../buttons/ButtonPrimary";
 import ButtonSecondary from "../buttons/ButtonSecondary";
 import InputData from "../form/InputData";
-import InputMony from "../form/InputMony";
+import InputMoney from "../form/InputMoney";
 import InputPopap from "../form/InputPopap";
 import SelectFilter from "../selectFilter/SelectFilter";
 
@@ -16,7 +16,7 @@ const ModalAddTrans = () => {
         </label>
         <label className="block w-40 h-10">
           <InputPopap
-            name="Description"
+            name="description"
             placeholder="Enter Description"
             type="text"
           />
@@ -34,10 +34,10 @@ const ModalAddTrans = () => {
           />
         </label>
         <label className="max-w-full w-40">
-          <InputMony name="Amount" type="number" placeholder="Amount" />
+          <InputMoney name="amount" type="number" placeholder="Amount" />
         </label>
         <div className="flex justify-end items-center gap-3">
-          <ButtonSecondary type="button" textButton="Cansel" />
+          <ButtonSecondary type="button" textButton="Cancel" />
           <ButtonPrimary type="button" textButton="Add" />
         </div>
       </form>

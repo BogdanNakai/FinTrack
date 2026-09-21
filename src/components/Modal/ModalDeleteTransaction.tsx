@@ -1,4 +1,4 @@
-import ButtonCansel from "../buttons/ButtonCansel";
+import ButtonCancel from "../buttons/ButtonCancel";
 import ButtonRemove from "../buttons/ButtonRemove";
 
 const ModalDeleteTransactions = () => {
@@ -11,8 +11,8 @@ const ModalDeleteTransactions = () => {
           be undone.
         </p>
         <div className="flex items-center gap-[10px]">
-          <ButtonCansel />
-          <ButtonRemove textButton="Cansel" />
+          <ButtonCancel textButton="Cancel" />
+          <ButtonRemove textButton="Delete" />
         </div>
       </div>
     </>

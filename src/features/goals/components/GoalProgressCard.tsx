@@ -2,17 +2,22 @@ import { listGoal } from "@/context/AppContext";
 import { BarChart } from "@mui/x-charts";
 
 const GoalProgressCard = () => {
+  const goalProgressData = listGoal.map((goal) => ({
+    ...goal,
+    remaining: Math.max(goal.target - goal.saved, 0),
+  }));
+
   return (
     <div className="bg-white rounded-2xl md:p-6 p-3 font-sans shadow-[0_4px_20px_rgba(0,0,0,0.05)] max-w-[520px] w-full h-auto">
       <div className="flex items-center gap-1.5 justify-between pb-[12px]">
         <h3 className="text-[18px] text-[#1E293B] font-bold">
-          Spending by Category
+          Goal Progress
         </h3>
       </div>
       <BarChart
         height={215}
         grid={{ vertical: false, horizontal: true }}
-        dataset={listGoal}
+        dataset={goalProgressData}
         xAxis={[
           {
             dataKey: "label",
@@ -22,7 +27,11 @@ const GoalProgressCard = () => {
         ]}
         series={[
           { dataKey: "saved", label: "Saved Amount", color: "#00B894" },
-          { dataKey: "target", label: "Remaining Amount", color: "#E2E8F0" },
+          {
+            dataKey: "remaining",
+            label: "Remaining Amount",
+            color: "#E2E8F0",
+          },
         ]}
         margin={{
           left: 0,

@@ -1,4 +1,4 @@
-import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryAtions";
+import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryActions";
 import ButtonsActionsList from "@/components/buttons/ButtonsActionsList";
 import SelectFilter from "@/components/selectFilter/SelectFilter";
 import {
@@ -6,7 +6,7 @@ import {
   filterNewestFirst,
   typeValue,
 } from "@/context/AppContext";
-import TabletTransaction from "@/features/transactions/component/TablleTransaction";
+import TableTransaction from "@/features/transactions/component/TableTransaction";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
 
@@ -46,7 +46,7 @@ const TransactionsPage = () => {
             <div>
               <div className="w-full overflow-x-auto pb-6">
                 <div className="min-w-[768px]">
-                  <TabletTransaction />
+                  <TableTransaction />
                 </div>
               </div>
               <div>

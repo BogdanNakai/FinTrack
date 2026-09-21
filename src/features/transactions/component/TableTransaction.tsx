@@ -1,6 +1,6 @@
 import ItemTableTransaction from "./ItemTableTransaction";
 
-const TabletTransaction = () => {
+const TableTransaction = () => {
   return (
     <>
       <div className="">
@@ -26,4 +26,4 @@ const TabletTransaction = () => {
   );
 };
 
-export default TabletTransaction;
+export default TableTransaction;

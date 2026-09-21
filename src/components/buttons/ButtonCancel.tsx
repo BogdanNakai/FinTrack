@@ -1,6 +1,6 @@
 import type { IButtonProps } from "./Buttons.type";
 
-const ButtonCansel = ({ textButton }: IButtonProps) => {
+const ButtonCancel = ({ textButton }: IButtonProps) => {
   return (
     <div>
       <button
@@ -13,4 +13,4 @@ const ButtonCansel = ({ textButton }: IButtonProps) => {
   );
 };
 
-export default ButtonCansel;
+export default ButtonCancel;

@@ -1,6 +1,6 @@
-import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryAtions";
+import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryActions";
 import ButtonsActionsList from "@/components/buttons/ButtonsActionsList";
-import InputMonthe from "@/components/form/InputMonthe";
+import InputMonth from "@/components/form/InputMonth";
 import SelectFilter from "@/components/selectFilter/SelectFilter";
 import TabletBudget from "@/features/budget/components/TableBudget";
 import {
@@ -37,7 +37,7 @@ const BudgetPage = () => {
               </div>
               <div className="flex items-center max-[480px]:flex-wrap gap-[15px] md:gap-[20px] flex-nowrap">
                 <div className="min-[550px]:max-w-[220px] w-full">
-                  <InputMonthe placeholder="Monthe"/>
+                  <InputMonth placeholder="Month" />
                 </div>
                 <div className="min-[550px]:max-w-[220px] w-full">
                   <SelectFilter

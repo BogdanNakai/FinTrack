@@ -1,8 +1,8 @@
-import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryAtions";
+import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryActions";
 import ExpenseBreakdownCard from "@/components/charts/ExpenseBreakdownCard";
 import SelectFilter from "@/components/selectFilter/SelectFilter";
 import {
-  GoalProgress,
+  goalProgress,
   filterTimePeriod,
   statusGoal,
 } from "@/context/AppContext";
@@ -22,7 +22,7 @@ const GoalsPage = () => {
               <div className="flex items-center flex-wrap justify-between gap-2.5 py-[24px]">
                 <div>
                   <h2 className="font-[Poppins] font-sans text-2xl text-[#1E293B] tracking-[0.02em] font-medium pb-[10px]">
-                    Budget Planner
+                    Financial Goals
                   </h2>
                   <p className="text-[#64748B] text-[14px]">
                     Set, track, and achieve your financial targets
@@ -54,7 +54,7 @@ const GoalsPage = () => {
                 <div className="grid gap-5 lg:grid-cols-2 grid-cols-1 lg:justify-items-normal justify-items-center">
                   <GoalProgressCard />
                   <ExpenseBreakdownCard
-                    categoriesData={GoalProgress}
+                    categoriesData={goalProgress}
                     title="Completed vs Ongoing Goals"
                   />
                 </div>

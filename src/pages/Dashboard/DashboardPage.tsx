@@ -1,12 +1,12 @@
 import DashboardCard from "@/features/dashboard/components/DashboardCard";
 import DashboardCardRate from "@/features/dashboard/components/DashboardCardRate";
-import InputMonthe from "@/components/form/InputMonthe";
+import InputMonth from "@/components/form/InputMonth";
 import {
   categoriesData,
   dataExpense,
   dataIncome,
-  herroBalans,
-  seriesBalanse,
+  heroBalance,
+  balanceSeries,
 } from "@/context/AppContext";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
@@ -23,12 +23,12 @@ const DashboardPage = () => {
           <div className="dashboard__container">
             <div>
               <div className="pb-[24px]">
-                {herroBalans.map((e, i) => {
+                {heroBalance.map((e, i) => {
                   return (
                     <div key={i} className="flex items-center justify-center flex-wrap gap-2.5 md:gap-[24px]">
                       <DashboardCard
                         title="Total Balance"
-                        balanse={e.totalBalans}
+                        balanse={e.totalBalance}
                         growth={+200}
                       />
                       <DashboardCard
@@ -58,7 +58,7 @@ const DashboardPage = () => {
                   Spending Overview
                 </h2>
                 <div className="max-w-[150px]">
-                  <InputMonthe placeholder="This Month" />
+                  <InputMonth placeholder="This Month" />
                 </div>
               </div>
               <div className="flex justify-center items-center max-[860px]:flex-wrap gap-2.5 xl:gap-16 pb-12">
@@ -66,7 +66,7 @@ const DashboardPage = () => {
                   <LineDiagram
                     uData={dataExpense}
                     pData={dataIncome}
-                    seriesData={seriesBalanse}
+                    seriesData={balanceSeries}
                     title="Income vs Expense"
                   />
                 </div>

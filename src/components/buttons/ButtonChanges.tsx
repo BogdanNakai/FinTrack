@@ -1,6 +1,6 @@
 import type { IButtonProps } from "./Buttons.type";
 
-const ButtonChenges = ({ textButton }: IButtonProps) => {
+const ButtonChanges = ({ textButton }: IButtonProps) => {
   return (
     <div>
       <button
@@ -13,4 +13,4 @@ const ButtonChenges = ({ textButton }: IButtonProps) => {
   );
 };
 
-export default ButtonChenges;
+export default ButtonChanges;

@@ -11,43 +11,44 @@ import freelance from "@/assets/icon_freelance.svg"
 import salary from "@/assets/icon_salary.svg"
 import savings from "@/assets/icon_savings.svg"
 import type { IIconCategory } from "./Ui.type"
+import { getCategoryLabel } from "@/context/AppContext"
 
 
 const ElementTitleCategory = ({ category }: IIconCategory) => {
   const image =
-    category === "Food & Dining"
+    category === "food-dining"
       ? food
-      : category === "Transport"
+      : category === "transport"
       ? transport
-      : category === "Entertainment"
+      : category === "entertainment"
       ? entertainment
-      : category === "Bills & Utilities"
+      : category === "bills-utilities"
       ? bills
-      : category === "Shopping"
+      : category === "shopping"
       ? shopping
-      : category === "Health & Fitness"
+      : category === "health-fitness"
       ? health
-      : category === "Education"
+      : category === "education"
       ? education
-      : category === "Others"
+      : category === "others"
       ? others
-      : category === "Investment"
+      : category === "investment"
       ? investment
-      : category === "Freelance"
+      : category === "freelance"
       ? freelance
-      : category === "Salary"
+      : category === "salary"
       ? salary
-      : category === "Savings Account"
+      : category === "savings-account"
       ? savings
-      : "None";
+      : others;
 
   return (
     <>
       <div className="flex items-center gap-[12px]">
         <div className="flex items-center justify-center rounded-[50%] w-[28px] h-[28px]  border-1 border-[#143a6c16]">
-          <img src={image} alt="Image" />
+          <img src={image} alt="" />
         </div>
-        {category}
+        {getCategoryLabel(category)}
       </div>
     </>
   );

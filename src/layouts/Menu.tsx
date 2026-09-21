@@ -6,7 +6,7 @@ const Menu = ({ active }: IMenu) => {
   const toggleMenu = () => {
     document.documentElement.toggleAttribute("data-fls-menu-open");
   };
-  const removeAtribute = () => {
+  const closeMenu = () => {
     document.documentElement.removeAttribute("data-fls-menu-open");
   };
 
@@ -33,7 +33,7 @@ const Menu = ({ active }: IMenu) => {
             {menuItems.map((e) => (
               <li key={e.id} className="menu__item flex items-center gap=[8px]">
                 <Link
-                  onClick={() => removeAtribute()}
+                  onClick={closeMenu}
                   to={e.url}
                   className={`menu__link text-[16px] block p-[10px] ${
                     e.id === active ? "menu__link-active" : null

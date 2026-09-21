@@ -1,7 +1,14 @@
-import ButtonChenges from "@/components/buttons/ButtonChenges";
+import ButtonChanges from "@/components/buttons/ButtonChanges";
 import ButtonPrimary from "@/components/buttons/ButtonPrimary";
+import { getStorage } from "@/services/localStorage";
+import { STORAGE_KEYS } from "@/services/storageKeys";
+import type { IUser } from "@/types/user.types";
 
 const UserInfo = () => {
+  const users = getStorage<IUser[]>(STORAGE_KEYS.USERS, []);
+  const activeUserId = getStorage(STORAGE_KEYS.ACTIVE_USER_ID, "");
+  const activeUser = users.find((user) => user.id === activeUserId);
+
   return (
     <>
       <div className="flex flex-col items-center max-w-[400px] gap-[24px] px-[39px] py-[20px] shadow-[0_6px_18px_0_rgba(2,6,23,0.1)] rounded-[12px]">
@@ -33,14 +40,16 @@ const UserInfo = () => {
               </defs>
             </svg>
           </div>
-          <p className="text-[18px] text-[#1E293B] tracking-[0.02em]">Name</p>
+          <p className="text-[18px] text-[#1E293B] tracking-[0.02em]">
+            {activeUser?.name ?? "User"}
+          </p>
           <p className="text-[14px] text-[#64748B] tracking-[0.02em]">
-            email@example.com
+            {activeUser?.email ?? "No email available"}
           </p>
         </div>
         <div className="flex items-center gap-[12px] flex-wrap justify-center">
           <ButtonPrimary type="button" textButton={"Edit Profile"} />
-          <ButtonChenges type="button" textButton={"Change Password"} />
+          <ButtonChanges type="button" textButton="Change Password" />
         </div>
       </div>
     </>

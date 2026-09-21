@@ -1,3 +1,8 @@
+import type {
+  ITransaction,
+  TransactionCategory,
+} from "@/types/transaction.types";
+
 export const categoriesValue = [
   { value: "savings-account", label: "Savings Account" },
   { value: "health-fitness", label: "Health & Fitness" },
@@ -11,7 +16,10 @@ export const categoriesValue = [
   { value: "entertainment", label: "Entertainment" },
   { value: "education", label: "Education" },
   { value: "others", label: "Others" },
-];
+] satisfies ReadonlyArray<{ value: TransactionCategory; label: string }>;
+
+export const getCategoryLabel = (category: TransactionCategory) =>
+  categoriesValue.find((item) => item.value === category)?.label ?? category;
 
 export const statusGoal = [
   { value: "ongoing", label: "Ongoing" },
@@ -58,7 +66,7 @@ export const categoriesData = [
   { label: "Others", value: 21.7, color: "#64748b", darkColor: "#334155" },
 ];
 
-export const totalСostsСategory = [
+export const totalCostsByCategory = [
   { value: 35000, label: "Food & Dining", color: "#FBBF24" },
   { value: 20000, label: "Transport", color: "#3B82F6" },
   { value: 15000, label: "Entertainment", color: "#EF4444" },
@@ -66,7 +74,7 @@ export const totalСostsСategory = [
   { value: 30000, label: "Bills & Utilities", color: "#8B5CF6" },
 ];
 
-export const GoalProgress = [
+export const goalProgress = [
   { label: "Ongoing", value: 17, color: "#00B894", darkColor: "#00B08D" },
   { label: "Completed", value: 83, color: "#22C55E", darkColor: "#1AD860" },
 ];
@@ -97,7 +105,7 @@ export const dataIncome = [null, 3, 34, 1111, 5, 142, 100];
 export const dataBudget = [null, 100, 100, 100, 100, 100, 100];
 export const dataSpending = [null, 3, 34, 20, 5, 142, 100];
 
-export const seriesBalanse = [
+export const balanceSeries = [
   { data: dataExpense, label: "Expense", color: "#EF4444" },
   { data: dataIncome, label: "Income", color: "#00B894" },
 ];
@@ -109,128 +117,149 @@ export const seriesBudgetSpending = [
 
 export const listTransactionBudget = [
   {
-    categories: "Food & Dining",
+    category: "food-dining" as TransactionCategory,
     limit: 100,
     spent: 50,
-    remaining: 1000,
   },
   {
-    categories: "Savings Account",
+    category: "savings-account" as TransactionCategory,
     limit: 10000,
     spent: 8300,
-    remaining: 1000,
   },
   {
-    categories: "Shopping",
+    category: "shopping" as TransactionCategory,
     limit: 10000,
     spent: 80300,
-    remaining: 1000,
   },
 ];
 
-export const listTransaction = [
+export const listTransaction: ITransaction[] = [
   {
-    dateValue: new Date(),
-    categories: "Investment",
+    id: "demo-transaction-1",
+    userId: "demo-user",
+    date: new Date().toISOString(),
+    category: "investment",
     description: "Lorem lorem lorem",
     amount: 2000,
-    type: "Expense",
+    type: "expense",
   },
   {
-    dateValue: new Date(),
-    categories: "Savings Account",
+    id: "demo-transaction-2",
+    userId: "demo-user",
+    date: new Date().toISOString(),
+    category: "savings-account",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, aspernatur.",
     amount: 43000,
-    type: "Income",
+    type: "income",
   },
   {
-    dateValue: new Date(),
-    categories: "Bills & Utilities",
+    id: "demo-transaction-3",
+    userId: "demo-user",
+    date: new Date().toISOString(),
+    category: "bills-utilities",
     description: "Lorem . Lorem ipsum dolor s",
     amount: 1223000,
-    type: "Expense",
+    type: "expense",
   },
   {
-    dateValue: new Date(),
-    categories: "Salary",
+    id: "demo-transaction-4",
+    userId: "demo-user",
+    date: new Date().toISOString(),
+    category: "salary",
     description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
     amount: 200,
-    type: "Income",
+    type: "income",
   },
   {
-    dateValue: new Date(),
-    categories: "Salary",
+    id: "demo-transaction-5",
+    userId: "demo-user",
+    date: new Date().toISOString(),
+    category: "salary",
     description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
     amount: 200,
-    type: "Income",
+    type: "income",
   },
   {
-    dateValue: new Date(),
-    categories: "Salary",
+    id: "demo-transaction-6",
+    userId: "demo-user",
+    date: new Date().toISOString(),
+    category: "salary",
     description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
     amount: 200,
-    type: "Income",
+    type: "income",
   },
   {
-    dateValue: new Date(),
-    categories: "Salary",
+    id: "demo-transaction-7",
+    userId: "demo-user",
+    date: new Date().toISOString(),
+    category: "salary",
     description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
     amount: 200,
-    type: "Income",
+    type: "income",
   },
   {
-    dateValue: new Date(),
-    categories: "Salary",
+    id: "demo-transaction-8",
+    userId: "demo-user",
+    date: new Date().toISOString(),
+    category: "salary",
     description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
     amount: 200,
-    type: "Income",
+    type: "income",
   },
   {
-    dateValue: new Date(),
-    categories: "Salary",
+    id: "demo-transaction-9",
+    userId: "demo-user",
+    date: new Date().toISOString(),
+    category: "salary",
     description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
     amount: 200,
-    type: "Income",
+    type: "income",
   },
   {
-    dateValue: new Date(),
-    categories: "Salary",
+    id: "demo-transaction-10",
+    userId: "demo-user",
+    date: new Date().toISOString(),
+    category: "salary",
     description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
     amount: 200,
-    type: "Income",
+    type: "income",
   },
   {
-    dateValue: new Date(),
-    categories: "Salary",
+    id: "demo-transaction-11",
+    userId: "demo-user",
+    date: new Date().toISOString(),
+    category: "salary",
     description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
     amount: 200,
-    type: "Income",
+    type: "income",
   },
   {
-    dateValue: new Date(),
-    categories: "Salary",
+    id: "demo-transaction-12",
+    userId: "demo-user",
+    date: new Date().toISOString(),
+    category: "salary",
     description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
     amount: 200,
-    type: "Income",
+    type: "income",
   },
 ];
 
-export const herroBalans = [
+export const heroBalance = [
   {
-    totalBalans: 10000,
+    totalBalance: 10000,
     totalIncome: 400,
     totalExpense: 510,
   },
 ];
 
-export const monyFormatter = new Intl.NumberFormat("en-IN", {
+export const moneyFormatter = new Intl.NumberFormat("en-IN", {
   style: "currency",
   currency: "INR",
   maximumFractionDigits: 0,
 });
 
-export const lastFiveMonthe = (startDate = new Date()) => {
+export const getLastSixMonthLabels = (startDate = new Date()) => {
   const months = [""];
   for (let i = 5; i >= 0; i--) {
     // цикл у зворотному порядку, щоб місяці йшли зліва направо хронологічно

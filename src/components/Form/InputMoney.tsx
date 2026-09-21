@@ -6,7 +6,7 @@ import {
 } from "@mui/material";
 import type { IBaseInput } from "./Form.type";
 
-const InputMony = ({ name, placeholder, type }: IBaseInput) => {
+const InputMoney = ({ name, placeholder, type }: IBaseInput) => {
   return (
     <>
       <FormControl size="small" variant="outlined">
@@ -15,11 +15,11 @@ const InputMony = ({ name, placeholder, type }: IBaseInput) => {
           id={name}
           type={type}
           label={placeholder}
-          endAdornment={<InputAdornment position="end">$</InputAdornment>}
+          endAdornment={<InputAdornment position="end">₹</InputAdornment>}
         />
       </FormControl>
     </>
   );
 };
 
-export default InputMony;
+export default InputMoney;

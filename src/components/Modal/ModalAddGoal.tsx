@@ -2,7 +2,7 @@ import { categoriesValue, statusGoal } from "@/context/AppContext";
 import ButtonPrimary from "../buttons/ButtonPrimary";
 import ButtonSecondary from "../buttons/ButtonSecondary";
 import InputData from "../form/InputData";
-import InputMony from "../form/InputMony";
+import InputMoney from "../form/InputMoney";
 import InputPopap from "../form/InputPopap";
 import SelectFilter from "../selectFilter/SelectFilter";
 
@@ -15,7 +15,11 @@ const ModalAddGoal = () => {
           <InputPopap name="goalName" placeholder="Goal Name" type="text" />
         </label>
         <label className="max-w-full w-40">
-          <InputMony name="Amount" type="number" placeholder="Target Amount" />
+          <InputMoney
+            name="targetAmount"
+            type="number"
+            placeholder="Target Amount"
+          />
         </label>
         <label className="w-full">
           <InputData placeholder="Start Date" />
@@ -34,7 +38,7 @@ const ModalAddGoal = () => {
         </label>
 
         <div className="flex justify-end items-center gap-3">
-          <ButtonSecondary type="button" textButton="Cansel" />
+          <ButtonSecondary type="button" textButton="Cancel" />
           <ButtonPrimary type="button" textButton="Add" />
         </div>
       </form>

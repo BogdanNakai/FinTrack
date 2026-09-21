@@ -1,6 +1,6 @@
-import { lastFiveMonthe } from "@/context/AppContext";
+import { getLastSixMonthLabels } from "@/context/AppContext";
 import { LineChart } from "@mui/x-charts";
-import type { ILineDiagram } from "./Charts.type";
+import type { ILineDiagram } from "./Charts.types";
 
 
 const LineDiagram: React.FC<ILineDiagram> = ({
@@ -16,7 +16,7 @@ const LineDiagram: React.FC<ILineDiagram> = ({
   const maxNumberU = numbersOnlyU.length > 0 ? Math.max(...numbersOnlyU) : 0;
 
   const maxNumber = Math.max(maxNumberP, maxNumberU);
-  const xLabels = lastFiveMonthe();
+  const xLabels = getLastSixMonthLabels();
 
   return (
     <div className="bg-white rounded-2xl p-3 lg:p-6 font-sans shadow-[0_4px_20px_rgba(0,0,0,0.05)] w-full max-w-[520px] w-full min-w-auto md:min-w-[340px] min-h-auto md:min-h-[300px] lg:min-h-[330px]">

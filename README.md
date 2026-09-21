@@ -1,151 +1,77 @@
-# 💰 Expense Tracker
+# 💰 FinTrack
 
-Веб-застосунок для обліку особистих фінансів. Дозволяє керувати доходами та витратами, переглядати статистику, контролювати баланс і аналізувати фінансову активність.
+FinTrack — навчальний React-застосунок для обліку особистих фінансів. Проєкт перебуває в активній розробці: інтерфейс основних сторінок готовий, а CRUD транзакцій, бюджетів і фінансових цілей ще підключається до Redux.
 
----
+## Поточні можливості
 
-## 🚀 Основні можливості
+- реєстрація та вхід із локальним збереженням користувачів;
+- захищені маршрути;
+- вихід із поточного облікового запису;
+- адаптивні сторінки Dashboard, Transactions, Budget, Goals, Reports і Profile;
+- демонстраційні таблиці та фінансові графіки;
+- підготовлений Redux store для транзакцій;
+- збереження даних у `localStorage`.
 
-### Авторизація
-- Реєстрація
-- Вхід
-- Вихід
-- Protected Routes
+> Авторизація через `localStorage` призначена лише для навчальної демонстрації. Вона не є заміною серверної авторизації.
 
-### Управління транзакціями
-- Додавання доходів і витрат
-- Редагування операцій
-- Видалення операцій
-- Категорії
-- Дата
-- Опис
-- Сума
+## У розробці
 
-### Аналітика
-- Загальний баланс
-- Загальна сума доходів
-- Загальна сума витрат
-- Статистика за категоріями
-- Графік витрат
+- додавання, редагування та видалення транзакцій;
+- підключення таблиць і графіків до Redux;
+- функціональні фільтри та сортування;
+- керування бюджетами та фінансовими цілями;
+- експорт і очищення даних профілю.
 
-### Додаткові можливості
-- Пошук транзакцій
-- Фільтрація за категорією
-- Фільтрація за типом
-- Фільтрація за датою
-- Сортування
-- Темна тема
-- Адаптивний дизайн
+## Технології
 
----
+- React 19;
+- TypeScript;
+- Vite;
+- React Router;
+- Redux Toolkit і React Redux;
+- React Hook Form;
+- Material UI;
+- MUI X Charts;
+- Chart.js і React Chart.js 2;
+- Tailwind CSS;
+- SCSS;
+- Day.js;
+- LocalStorage.
 
-## 🛠️ Технології
+## Структура
 
-- React
-- TypeScript
-- Vite
-- React Router
-- React Hook Form
-- Redux Toolkit
-- TanStack Query (React Query)
-- Axios
-- SCSS
-- Recharts
-- LocalStorage
-
----
-
-## 📁 Структура проєкту
-
-```
+```text
 src/
-│
-├── app/
-├── assets/
-├── components/
-├── features/
-│   ├── auth/
-│   ├── transactions/
-│   └── statistics/
-├── hooks/
-├── layouts/
-├── pages/
-├── routes/
-├── services/
-├── store/
-├── types/
-├── utils/
-└── styles/
+├── app/          # Redux store і типізовані hooks
+├── assets/       # SVG-ресурси
+├── components/   # Повторно використовувані UI-компоненти
+├── context/      # Тимчасові константи та демонстраційні дані
+├── features/     # Функціональні модулі застосунку
+├── layouts/      # Header, menu, loading і footer
+├── pages/        # Сторінки маршрутів
+├── routes/       # Конфігурація маршрутів і route guards
+├── services/     # Робота з localStorage
+└── types/        # Спільні TypeScript-типи
 ```
 
----
+## Запуск
 
-## ⚙️ Встановлення
+Потрібен Node.js і npm.
 
 ```bash
-git clone <repository-url>
-
-cd expense-tracker
-
 npm install
-
 npm run dev
 ```
 
----
-
-## 📦 Доступні команди
+## Команди
 
 ```bash
-npm run dev      # Запуск у режимі розробки
-
-npm run build    # Збірка проєкту
-
+npm run dev      # Локальний сервер розробки
+npm run lint     # Статичний аналіз ESLint
+npm run build    # TypeScript-перевірка і production-збірка
 npm run preview  # Перегляд production-збірки
-
-npm run lint     # Перевірка ESLint
 ```
 
----
-
-## 📸 Скріншоти
-
-Після завершення проєкту тут будуть додані скріншоти.
-
----
-
-## 🌐 Демо
-
-Vercel:
-```
-https://your-project.vercel.app
-```
-
----
-
-## 📚 Що було використано
-
-- React Components
-- React Hooks
-- React Router
-- React Hook Form
-- Redux Toolkit
-- TanStack Query
-- CRUD Operations
-- TypeScript
-- REST API
-- Responsive Design
-- Authentication
-- Charts & Analytics
-
----
-
-## 🎯 Мета проєкту
-
-Створити сучасний React-застосунок, максимально наближений до реального комерційного проєкту, та закріпити навички роботи з TypeScript, управління станом, формами, маршрутизацією, REST API та архітектурою великих React-додатків.
-
----
-
-## 👨‍💻 Автор
+## Автор
 
 Bogdan Nakai

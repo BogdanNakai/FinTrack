@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { FormControl, InputLabel, MenuItem } from "@mui/material";
 import Select, { type SelectChangeEvent } from "@mui/material/Select";
 import type { SelectFilterProps } from "./Select.types";
 
 const SelectFilter = ({ SelectOptionsList, NameSelect }: SelectFilterProps) => {
+  const selectId = useId();
   const [category, setCategory] = useState("");
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -32,10 +33,10 @@ const SelectFilter = ({ SelectOptionsList, NameSelect }: SelectFilterProps) => {
         },
       }}
     >
-      <InputLabel id="custom-select-label">{NameSelect}</InputLabel>
+      <InputLabel id={`${selectId}-label`}>{NameSelect}</InputLabel>
       <Select
-        labelId="custom-select-label"
-        id="custom-select"
+        labelId={`${selectId}-label`}
+        id={selectId}
         value={category}
         label={NameSelect}
         onChange={handleChange}

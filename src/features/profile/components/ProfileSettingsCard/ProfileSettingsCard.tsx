@@ -1,6 +1,7 @@
 import "./ProfileSettingsCard.scss";
 import ButtonPrimary from "@/components/buttons/ButtonPrimary";
 import ButtonRemove from "@/components/buttons/ButtonRemove";
+import ButtonLogout from "@/components/buttons/ButtonLogout";
 
 const ProfileSettingsCard = () => {
   return (
@@ -57,6 +58,7 @@ const ProfileSettingsCard = () => {
         <div className="flex gap-[12px] flex-wrap justify-center items-center">
           <ButtonPrimary type="button" textButton="Export Data" />
           <ButtonRemove type="button" textButton="Clear All Data" />
+          <ButtonLogout textButton="Log Out" />
         </div>
       </div>
     </>

@@ -1,8 +1,8 @@
-import { totalСostsСategory } from "@/context/AppContext";
+import { totalCostsByCategory } from "@/context/AppContext";
 import { BarChart } from "@mui/x-charts";
 
 const ChartsBarsCard = () => {
-  const value = totalСostsСategory.map((i) => i.value);
+  const value = totalCostsByCategory.map((i) => i.value);
   const maxValue = value.length > 0 ? Math.max(...value) : 0;
 
   return (
@@ -19,18 +19,18 @@ const ChartsBarsCard = () => {
         xAxis={[
           {
             scaleType: "band",
-            data: totalСostsСategory.map((d) => d.label),
+            data: totalCostsByCategory.map((d) => d.label),
             disableTicks: true,
             colorMap: {
               type: "ordinal",
-              values: totalСostsСategory.map((d) => d.label),
-              colors: totalСostsСategory.map((d) => d.color),
+              values: totalCostsByCategory.map((d) => d.label),
+              colors: totalCostsByCategory.map((d) => d.color),
             },
           },
         ]}
         series={[
           {
-            data: totalСostsСategory.map((d) => d.value),
+            data: totalCostsByCategory.map((d) => d.value),
           },
         ]}
         yAxis={[
