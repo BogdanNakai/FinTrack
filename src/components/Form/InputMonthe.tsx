@@ -1,7 +1,7 @@
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import dayjs, { Dayjs } from "dayjs";
+import dayjs from "dayjs";
 import { useState } from "react";
 import type { IMonthInput } from "./Form.type";
 // Імпортуємо іконку стрілки вниз
@@ -18,9 +18,8 @@ function InputMonthe({ placeholder }: IMonthInput) {
         onOpen={() => setIsOpen(true)}
         onClose={() => setIsOpen(false)}
         slots={{
-          openPickerIcon: ({ ownerState, ...svgProps }) => (
+          openPickerIcon: () => (
             <svg
-              {...svgProps}
               width="24"
               height="24"
               viewBox="0 0 24 24"
