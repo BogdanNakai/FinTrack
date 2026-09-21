@@ -22,4 +22,4 @@ export const setStorage = <DataStore>(key: string, data: DataStore) => {
 
 export const removeStorage = (key: string) => {
   localStorage.removeItem(key);
-}
+};
