@@ -1,37 +1,37 @@
 import google from "@/assets/icon_google.svg";
-import email from "@/assets/icon_message_input.svg";
-import password from "@/assets/icon_password_input.svg";
 import ButtonLinkPrimary from "@/components/buttons/ButtonLinkPrimary";
 import ButtonPrimary from "@/components/buttons/ButtonPrimary";
 import Input from "@/components/form/Input";
 import InputPassword from "@/components/form/InputPassword";
 
-import { FormProvider, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import type {
-  IRegisterFormType,
-  TOnSubmitForm,
+  TOnSubmitFormLogin,
+  ILoginFormType,
 } from "@/components/form/Form.type";
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getStorage } from "@/services/localStorage";
+import { getStorage, setStorage } from "@/services/localStorage";
+import type { IUser } from "@/types/user.types";
+import { STORAGE_KEYS } from "@/services/storageKeys";
+
+const { USERS, ACTIVE_USER_ID } = STORAGE_KEYS;
 
 const Login = () => {
   const {
     register,
     handleSubmit,
-    reset,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
     setError,
-  } = useForm<IRegisterFormType>({
+  } = useForm<ILoginFormType>({
     mode: "onChange",
   });
 
   const navigate = useNavigate();
-  const listUsers = getStorage('users');
+  const listUsers: IUser[] = getStorage(USERS, []);
 
-  const onSubmit: TOnSubmitForm = (data) => {
+  const onSubmit: TOnSubmitFormLogin = (data) => {
     const matchedUser = listUsers.find(
-      (user: IRegisterFormType) => user.email === data.email
+      (user) => user.email.trim().toUpperCase() === data.email.trim().toUpperCase(),
     );
 
     if (!matchedUser) {
@@ -47,14 +47,10 @@ const Login = () => {
       });
       return;
     }
+    setStorage(ACTIVE_USER_ID, matchedUser.id);
     navigate(`/dashboard`);
   };
 
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset();
-    }
-  }, [isSubmitSuccessful, reset]);
   return (
     <>
       <div className="flex-[0_0_100%]">
@@ -79,7 +75,6 @@ const Login = () => {
                       name="email"
                       type="email"
                       placeholder="Email"
-                      icon={email}
                       register={register}
                       errors={errors.email}
                     />
@@ -89,7 +84,6 @@ const Login = () => {
                       type="password"
                       name="password"
                       placeholder="Password"
-                      icon={password}
                       register={register}
                       errors={errors.password}
                     />
@@ -119,7 +113,7 @@ const Login = () => {
         <div className="flex justify-center w-[160px]">
           <ButtonLinkPrimary
             type={undefined}
-            link={"/singIn"}
+            link={"/sign-up"}
             textButton={"SIGN UP"}
           />
         </div>

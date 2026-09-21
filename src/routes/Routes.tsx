@@ -4,7 +4,7 @@ import { lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import ProtectedRoutes from "./ProtectedRoutes";
 import LoginPage from "@/pages/auth/LoginPage";
-import SingInPage from "@/pages/auth/SingInPage";
+import SignUpPage from "@/pages/auth/SignUpPage";
 
 const TransactionsPage = lazy(
   () => import("@/pages/transactions/TransactionsPage")
@@ -27,7 +27,7 @@ const RoutesComponent: FC = () => {
         <Route path="/dashboard" element={<DashboardPage />}></Route>
       </Route>
       <Route path="/login" element={<LoginPage />}></Route>
-      <Route path="/singIn" element={<SingInPage />}></Route>
+      <Route path="/sign-up" element={<SignUpPage />}></Route>
     </Routes>
   );
 };

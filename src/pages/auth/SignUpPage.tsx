@@ -1,16 +1,16 @@
-import SingIn from "@/features/auth/components/SingIn";
+import SignUp from "@/features/auth/components/SignUp";
 
 
-const SingInPage = () => {
+const SignUpPage = () => {
   return (
     <>
       <main>
         <section className="min-[768px]:flex overflow-hidden h-full">
-          <SingIn />
+          <SignUp />
         </section>
       </main>
     </>
   );
 };
 
-export default SingInPage;
+export default SignUpPage;

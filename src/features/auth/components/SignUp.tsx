@@ -1,40 +1,38 @@
 import google from "@/assets/icon_google.svg";
-import email from "@/assets/icon_message_input.svg";
-import password from "@/assets/icon_password_input.svg";
-import user from "@/assets/icon_user.svg";
 import ButtonPrimary from "@/components/buttons/ButtonPrimary";
 import Input from "@/components/form/Input";
 import InputPassword from "@/components/form/InputPassword";
 import ButtonLinkPrimary from "@/components/buttons/ButtonLinkPrimary";
 
 import { useForm } from "react-hook-form";
-import type {
-  IRegisterFormType,
-  TOnSubmitForm,
-} from "@/components/form/Form.type";
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getStorage, setStorage } from "@/services/localStorage";
+import { STORAGE_KEYS } from "@/services/storageKeys";
 
-const SingIn = () => {
+import { getStorage, setStorage } from "@/services/localStorage";
+import type { IUser } from "@/types/user.types";
+import type {
+  TOnSubmitFormRegister,
+  IRegisterFormType,
+} from "@/components/form/Form.type";
+
+const { USERS, ACTIVE_USER_ID } = STORAGE_KEYS;
+
+const SignUp = () => {
   const {
     register,
     handleSubmit,
-    reset,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
     setError,
   } = useForm<IRegisterFormType>({
     mode: "onChange",
   });
 
   const navigate = useNavigate();
-  const listUsers = getStorage('users');
+  const listUsers: IUser[] = getStorage(USERS, []);
+ 
 
-  const onSubmit: TOnSubmitForm = ({ confirmPassword, ...data }) => {
-
-    const isEmailUsed = listUsers.find(
-      (user: IRegisterFormType) => user.email === data.email
-    );
+  const onSubmit: TOnSubmitFormRegister = (data) => {
+    const isEmailUsed = listUsers.find((user) => user.email.trim().toUpperCase() === data.email.trim().toUpperCase());
 
     if (isEmailUsed) {
       setError("email", {
@@ -46,23 +44,19 @@ const SingIn = () => {
 
     const id = crypto.randomUUID();
 
-    const user = {
-      ...data,
-      id: id,
+    const user: IUser = {
+      id,
+      name: data.name,
+      email: data.email,
+      password: data.password,
     };
 
-    listUsers.push(user);
-    setStorage("users", listUsers)
-    setStorage("id", id)
+    const updatedUsers = [...listUsers, user];
+    setStorage(USERS, updatedUsers);
+    setStorage(ACTIVE_USER_ID, id);
 
     navigate(`/dashboard`);
   };
-
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset();
-    }
-  }, [isSubmitSuccessful, reset]);
 
   return (
     <>
@@ -103,7 +97,6 @@ const SingIn = () => {
                       name="name"
                       type="name"
                       placeholder="Name"
-                      icon={user}
                       register={register}
                       errors={errors.name}
                     />
@@ -113,7 +106,6 @@ const SingIn = () => {
                       name="email"
                       type="email"
                       placeholder="Email"
-                      icon={email}
                       register={register}
                       errors={errors.email}
                     />
@@ -123,7 +115,6 @@ const SingIn = () => {
                       name="password"
                       type="password"
                       placeholder="Password"
-                      icon={password}
                       register={register}
                       errors={errors.password}
                     />
@@ -133,7 +124,6 @@ const SingIn = () => {
                       name="confirmPassword"
                       type="password"
                       placeholder="Confirm Password"
-                      icon={password}
                       register={register}
                       errors={errors.confirmPassword}
                     />
@@ -151,4 +141,4 @@ const SingIn = () => {
   );
 };
 
-export default SingIn;
+export default SignUp;
