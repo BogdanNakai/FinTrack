@@ -2,7 +2,7 @@ export const categoriesValue = [
   { value: "savings-account", label: "Savings Account" },
   { value: "health-fitness", label: "Health & Fitness" },
   { value: "bills-utilities", label: "Bills & Utilities" },
-  { value: "feelance", label: "Freelance" },
+  { value: "freelance", label: "Freelance" },
   { value: "investment", label: "Investment" },
   { value: "shopping", label: "Shopping" },
   { value: "transport", label: "Transport" },

@@ -126,7 +126,7 @@ const SelectFilter = ({ SelectOptionsList, NameSelect }: SelectFilterProps) => {
           },
         }}
       >
-        {SelectOptionsList.map((item: any) => (
+        {SelectOptionsList.map((item) => (
           <MenuItem key={item.value} value={item.value}>
             {item.label}
           </MenuItem>

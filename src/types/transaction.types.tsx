@@ -1,7 +1,29 @@
+export interface ICategories {
+  category:
+    | "Savings Account"
+    | "Health & Fitness"
+    | "Bills & Utilities"
+    | "Freelance"
+    | "Investment"
+    | "Shopping"
+    | "Transport"
+    | "Salary"
+    | "Food & Dining"
+    | "Entertainment"
+    | "Education"
+    | "Others";
+}
+
 export interface ITransaction {
-  dateValue: Date;
-  categories: string;
+  date: Date;
+  category: ICategories;
   description: string;
-  amount: number;
-  type: string;
+  value: number;
+  type: "Expense" | "Income";
+  id: string;
+  userId: string;
+}
+
+export interface ITransactions {
+  transactions: ITransaction[];
 }

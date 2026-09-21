@@ -1,4 +1,4 @@
-import { categoriesValue, statusGoal, typeValue } from "@/context/AppContext";
+import { categoriesValue, statusGoal } from "@/context/AppContext";
 import ButtonPrimary from "../buttons/ButtonPrimary";
 import ButtonSecondary from "../buttons/ButtonSecondary";
 import InputData from "../form/InputData";

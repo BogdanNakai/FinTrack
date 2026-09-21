@@ -26,6 +26,16 @@ export interface IInput<T extends FieldValues> {
   errors?: FieldError | undefined;
 }
 
+export interface IBaseInput { 
+  type?: string;
+  placeholder?: string;
+  name: string;
+} 
+
+export interface IDateInput {
+  placeholder?: string;
+}
+
 export interface IMonthInput {
   placeholder: string;
 }

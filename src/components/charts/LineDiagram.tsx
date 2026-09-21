@@ -46,7 +46,7 @@ const LineDiagram: React.FC<ILineDiagram> = ({
               max: maxNumber * 1.2,
               width: 50,
               tickNumber: 10,
-              tickLabelInterval: (value, index) => index % 2 === 0,
+              tickLabelInterval: (_value, index) => index % 2 === 0,
               disableTicks: true,
               disableLine: true,
               valueFormatter: (value: number) =>

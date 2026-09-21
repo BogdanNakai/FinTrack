@@ -4,9 +4,9 @@ import {
   InputLabel,
   OutlinedInput,
 } from "@mui/material";
-import type { IInput, IRegisterFormType } from "./Form.type";
+import type { IBaseInput } from "./Form.type";
 
-const InputMony = ({ name, placeholder, type }: IInput<IRegisterFormType>) => {
+const InputMony = ({ name, placeholder, type }: IBaseInput) => {
   return (
     <>
       <FormControl size="small" variant="outlined">

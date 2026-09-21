@@ -1,9 +1,10 @@
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import type { IInput, IRegisterFormType } from "./Form.type";
+import type { IDateInput } from "./Form.type";
 
-function InputData({ placeholder }: IInput<IRegisterFormType>) {
+
+function InputData({ placeholder }: IDateInput) {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker

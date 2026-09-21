@@ -1,4 +1,6 @@
+@import url("https://fonts.googleapis.com/css?family=Inter:300,regular,500,600,700,800,900&display=swap");
 @import "tailwindcss";
+
 
 @theme {
   --breakpoint-mobile: 425px;
@@ -7,7 +9,6 @@
   --breakpoint-desktop: 1440px;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Inter:300,regular,500,600,700,800,900&display=swap");
 
 [class*="container"] {
   margin: 0 auto;

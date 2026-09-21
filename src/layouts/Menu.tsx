@@ -30,7 +30,7 @@ const Menu = ({ active }: IMenu) => {
         </button>
         <nav className="menu__body">
           <ul className="menu__list flex items-center ">
-            {menuItems.map((e: any) => (
+            {menuItems.map((e) => (
               <li key={e.id} className="menu__item flex items-center gap=[8px]">
                 <Link
                   onClick={() => removeAtribute()}

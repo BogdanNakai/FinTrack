@@ -1,7 +1,7 @@
 import { TextField } from "@mui/material";
-import type { IInput, IRegisterFormType } from "./Form.type";
+import type { IBaseInput } from "./Form.type";
 
-const InputPopap = ({ type, name, placeholder }: IInput<IRegisterFormType>) => {
+const InputPopap = ({ type, name, placeholder }: IBaseInput ) => {
   return (
     <TextField
       id={name}
