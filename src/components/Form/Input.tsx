@@ -1,14 +1,14 @@
-import type { IInput, IRegisterFormType } from "./Form.type";
+import type { IInput, IRegisterFormType, ILoginFormType } from "./Form.type";
 import { InputAdornment, TextField } from "@mui/material";
 
 const Input = ({
   type,
   name,
   placeholder,
-  icon,
   register,
   errors,
-}: IInput<IRegisterFormType>) => {
+}: IInput<IRegisterFormType | ILoginFormType>) => {
+  
   const { onChange, ...registerProps } = register(name, {
     required: `Please enter ${name} `,
     validate: (value) => {
@@ -84,6 +84,7 @@ const Input = ({
           },
         }}
         {...registerProps}
+        onChange={onChange}
         slotProps={{
           input: {
             startAdornment: (

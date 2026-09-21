@@ -1,4 +1,14 @@
-import type { UseFormRegister, FieldValues, Path, FieldError} from "react-hook-form";
+import type {
+  UseFormRegister,
+  FieldValues,
+  Path,
+  FieldError,
+} from "react-hook-form";
+
+export interface ILoginFormType {
+  email: string;
+  password: string;
+}
 
 export interface IRegisterFormType {
   name: string;
@@ -10,15 +20,14 @@ export interface IRegisterFormType {
 export interface IInput<T extends FieldValues> {
   type?: string;
   placeholder?: string;
-  icon?: string;
   iconInput?: string;
   name: Path<T>;
-  register?: UseFormRegister<T>;
+  register: UseFormRegister<T>;
   errors?: FieldError | undefined;
 }
 
-export interface IMonthInput { 
-  placeholder: string
+export interface IMonthInput {
+  placeholder: string;
 }
 
 export interface IListValute {
@@ -30,4 +39,5 @@ export interface IInputMoney {
   listValute: IListValute[];
 }
 
-export type TOnSubmitForm = (data: IRegisterFormType ) => void
+export type TOnSubmitFormRegister = (data: IRegisterFormType) => void;
+export type TOnSubmitFormLogin = (data: ILoginFormType) => void;

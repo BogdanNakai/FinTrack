@@ -5,16 +5,15 @@ import {
   InputAdornment,
   TextField,
 } from "@mui/material";
-import type { IInput, IRegisterFormType } from "./Form.type";
+import type { IInput, IRegisterFormType, ILoginFormType } from "./Form.type";
 
 const InputPassword = ({
   placeholder,
-  icon,
   name,
   register,
   errors,
   type,
-}: IInput<IRegisterFormType>) => {
+}: IInput<IRegisterFormType | ILoginFormType>) => {
   const outlinedPasswordId = React.useId();
 
   const [showPassword, setShowPassword] = React.useState(false);
