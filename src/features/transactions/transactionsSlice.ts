@@ -1,21 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { ITransactions } from "./transaction.type";
+
 import { getStorage } from "@/services/localStorage";
+import { STORAGE_KEYS } from "@/services/storageKeys";
+import type { ITransactions } from "@/types/transaction.types";
+
+const { TRANSACTIONS } = STORAGE_KEYS;
 
 const initialState: ITransactions = {
-  transactions: getStorage("transactions"),
+  transactions: getStorage(TRANSACTIONS, []),
 };
 
 export const counterSlice = createSlice({
-  name: "transaction",
+  name: "transactions",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.transactions;
-    },
+  
   },
 });
-
-export const { increment } = counterSlice.actions;
 
 export default counterSlice.reducer;
