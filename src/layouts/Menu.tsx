@@ -1,6 +1,6 @@
 import "@/css/header.scss";
 import { Link } from "react-router-dom";
-import type { IMenu } from "./layouts.type";
+import type { IMenu } from "./Layouts.type";
 
 const Menu = ({ active }: IMenu) => {
   const toggleMenu = () => {

@@ -4,7 +4,7 @@ import logo from "@/assets/logo.svg";
 import userActive from "@/assets/Icon_user_active.svg";
 import notifiaction from "@/assets/icon_notifiaction.svg";
 import { Link } from "react-router-dom";
-import type { IHeader } from "./layouts.type";
+import type { IHeader } from "./Layouts.type";
 
 const Header: React.FC<IHeader> = ({ active }) => {
   return (
