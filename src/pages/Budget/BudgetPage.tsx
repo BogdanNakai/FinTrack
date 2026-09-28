@@ -15,8 +15,13 @@ import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
 import LineDiagram from "@/components/charts/LineDiagram";
 import ExpenseBreakdownCard from "@/components/charts/ExpenseBreakdownCard";
+import ModalAddBudget from "@/components/modal/ModalAddBudget";
+import { useContext } from "react";
+import { ModalContext } from "@/context/ModalContex";
 
 const BudgetPage = () => {
+  const { openModal } = useContext(ModalContext);
+  
   return (
     <>
       <Header active="budget" />
@@ -33,7 +38,10 @@ const BudgetPage = () => {
                     Plan and monitor your monthly limits
                   </p>
                 </div>
-                <ButtonPrimaryActions textButton="Add New Budget" type="button"/>
+                <ButtonPrimaryActions
+                  textButton="Add New Budget"
+                  type="button"
+                />
               </div>
               <div className="flex items-center max-[480px]:flex-wrap gap-[15px] md:gap-[20px] flex-nowrap">
                 <div className="min-[550px]:max-w-[220px] w-full">
@@ -80,6 +88,7 @@ const BudgetPage = () => {
           </div>
         </section>
       </main>
+      {openModal && <ModalAddBudget/>}
       <Copyright />
     </>
   );

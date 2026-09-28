@@ -6,12 +6,17 @@ import {
   filterTimePeriod,
   statusGoal,
 } from "@/context/AppContext";
+import { ModalContext } from "@/context/ModalContex";
 import GoalCard from "@/features/goals/components/GoalCard";
 import GoalProgressCard from "@/features/goals/components/GoalProgressCard";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
+import ModalAddGoal from "@/components/modal/ModalAddGoal";
+import { useContext } from "react";
 
 const GoalsPage = () => {
+  const { openModal } = useContext(ModalContext);
+
   return (
     <>
       <Header active="goals" />
@@ -63,6 +68,7 @@ const GoalsPage = () => {
           </div>
         </section>
       </main>
+      {openModal && <ModalAddGoal />}
       <Copyright />
     </>
   );

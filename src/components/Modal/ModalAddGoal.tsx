@@ -8,40 +8,45 @@ import SelectFilter from "../selectFilter/SelectFilter";
 
 const ModalAddGoal = () => {
   return (
-    <div className="w-160 min-h-107.5 p-6 bg-[#ffffff] rounded-xl absolute top-50% visible border-1 border-[#000]">
-      <h3 className="text-2xl pb-5">Add New Goal</h3>
-      <form className="h-auto grid grid-cols-1 gap-3.5">
-        <label className="block max-w-full w-40 h-10">
-          <InputPopap name="goalName" placeholder="Goal Name" type="text" />
-        </label>
-        <label className="max-w-full w-40">
-          <InputMoney
-            name="targetAmount"
-            type="number"
-            placeholder="Target Amount"
-          />
-        </label>
-        <label className="w-full">
-          <InputData placeholder="Start Date" />
-        </label>
-        <label className="w-full">
-          <InputData placeholder="End Date" />
-        </label>
-        <label className="w-full">
-          <SelectFilter
-            SelectOptionsList={categoriesValue}
-            NameSelect={"All Category"}
-          />
-        </label>
-        <label className="w-full">
-          <SelectFilter SelectOptionsList={statusGoal} NameSelect={"Status"} />
-        </label>
+    <div className="fixed z-100 top-0 left-0 w-full h-full bg-[#0000003e] bg-opacity-50 flex justify-center items-center">
+      <div className="w-160 min-h-107.5 p-6 bg-[#ffffff] rounded-xl">
+        <h3 className="text-2xl pb-5">Add New Goal</h3>
+        <form className="h-auto grid grid-cols-1 gap-3.5">
+          <label className="block max-w-full w-40 h-10">
+            <InputPopap name="goalName" placeholder="Goal Name" type="text" />
+          </label>
+          <label className="max-w-full w-40">
+            <InputMoney
+              name="targetAmount"
+              type="number"
+              placeholder="Target Amount"
+            />
+          </label>
+          <label className="w-full">
+            <InputData placeholder="Start Date" />
+          </label>
+          <label className="w-full">
+            <InputData placeholder="End Date" />
+          </label>
+          <label className="w-full">
+            <SelectFilter
+              SelectOptionsList={categoriesValue}
+              NameSelect={"All Category"}
+            />
+          </label>
+          <label className="w-full">
+            <SelectFilter
+              SelectOptionsList={statusGoal}
+              NameSelect={"Status"}
+            />
+          </label>
 
-        <div className="flex justify-end items-center gap-3">
-          <ButtonSecondary type="button" textButton="Cancel" />
-          <ButtonPrimary type="button" textButton="Add" />
-        </div>
-      </form>
+          <div className="flex justify-end items-center gap-3">
+            <ButtonSecondary type="button" textButton="Cancel" />
+            <ButtonPrimary type="button" textButton="Add" />
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
