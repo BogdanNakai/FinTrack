@@ -8,7 +8,7 @@ import SelectFilter from "../selectFilter/SelectFilter";
 
 const ModalAddTrans = () => {
   return (
-    <div className="w-160 h-107.5 p-6 bg-[#ffffff] rounded-xl absolute top-50% visible border-2 border-[#000]">
+    <div className="w-160 h-107.5 p-6 bg-[#ffffff] rounded-xl visible">
       <h3 className="text-2xl pb-5">Add Transaction</h3>
       <form className="h-auto grid grid-cols-1 gap-3.5">
         <label className="relative flex items-center">
