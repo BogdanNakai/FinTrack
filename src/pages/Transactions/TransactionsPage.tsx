@@ -1,7 +1,7 @@
 import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryActions";
 import ButtonsActionsList from "@/components/buttons/ButtonsActionsList";
 import ModalAddTrans from "@/components/modal/ModalAddTrans";
-import SelectFilter from "@/components/selectFilter/SelectFilter";
+import SelectFilter from "@/components/form/SelectFilter";
 import {
   filterDateRange,
   filterNewestFirst,

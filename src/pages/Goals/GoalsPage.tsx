@@ -1,6 +1,6 @@
 import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryActions";
 import ExpenseBreakdownCard from "@/components/charts/ExpenseBreakdownCard";
-import SelectFilter from "@/components/selectFilter/SelectFilter";
+import SelectFilter from "@/components/form/SelectFilter";
 import {
   goalProgress,
   filterTimePeriod,

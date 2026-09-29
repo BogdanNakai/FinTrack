@@ -1,7 +1,7 @@
 import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryActions";
 import ButtonsActionsList from "@/components/buttons/ButtonsActionsList";
 import InputMonth from "@/components/form/InputMonth";
-import SelectFilter from "@/components/selectFilter/SelectFilter";
+import SelectFilter from "@/components/form/SelectFilter";
 import TabletBudget from "@/features/budget/components/TableBudget";
 import {
   categoriesData,
