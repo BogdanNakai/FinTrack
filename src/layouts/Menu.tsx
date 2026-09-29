@@ -31,7 +31,7 @@ const Menu = ({ active }: IMenu) => {
         <nav className="menu__body">
           <ul className="menu__list flex items-center ">
             {menuItems.map((e) => (
-              <li key={e.id} className="menu__item flex items-center gap=[8px]">
+              <li key={e.id} className="menu__item flex items-center gap-2">
                 <Link
                   onClick={closeMenu}
                   to={e.url}

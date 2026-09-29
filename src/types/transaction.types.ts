@@ -1,29 +1,17 @@
-export type TransactionCategory =
-  | "savings-account"
-  | "health-fitness"
-  | "bills-utilities"
-  | "freelance"
-  | "investment"
-  | "shopping"
-  | "transport"
-  | "salary"
-  | "food-dining"
-  | "entertainment"
-  | "education"
-  | "others";
+import type { TCategory, TType } from "./category.type";
 
-export type TransactionType = "income" | "expense";
-
-export interface ITransaction {
-  date: string;
-  category: TransactionCategory;
+export interface ITransactionForm {
   description: string;
+  date: string;
+  category: TCategory;
   amount: number;
-  type: TransactionType;
-  id: string;
-  userId: string;
+  type: TType;
+  idUser: string;
+  valute: string;
 }
 
 export interface ITransactions {
-  transactions: ITransaction[];
+  transactions: ITransactionForm[];
 }
+
+export type TOnSubmitFormTransaction = (data: ITransactionForm) => void;

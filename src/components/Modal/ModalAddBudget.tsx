@@ -4,22 +4,37 @@ import ButtonSecondary from "../buttons/ButtonSecondary";
 import InputMoney from "../form/InputMoney";
 import InputPopap from "../form/InputPopap";
 import SelectForm from "../form/SelectForm";
+import { useForm } from "react-hook-form";
+import type { IBudgetForm } from "@/types/budget.type";
 
 const ModalAddBudget = () => {
+
+  const { register, control, handleSubmit } = useForm<IBudgetForm>();
+
+  const onSubmit = (data: IBudgetForm) => {
+    console.log(data);
+  };
+
   return (
-    <div className="fixed z-100 top-0 left-0 w-full h-full bg-[#0000003e] bg-opacity-50 flex justify-center items-center">
-      <div className="w-160 min-h-90 max-h-320px p-6 bg-[#ffffff] rounded-xl visible mx-1.5">
+    <div className="fixed z-100 top-0 left-0 w-full h-full bg-[#0000003e] flex justify-center items-center">
+      <div className="w-160 min-h-90 max-h-80 p-6 bg-[#ffffff] rounded-xl visible mx-1.5">
         <h3 className="text-2xl pb-5">Add New Budget</h3>
-        <form className="h-full grid grid-cols-1 gap-3.5">
+        <form
+          className="h-full grid grid-cols-1 gap-3.5"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <label className="w-full">
             <SelectForm
-              SelectOptionsList={categoriesValue}
-              name={"All Category"}
+              options={categoriesValue}
+              name="category"
+              label="All Categories"
+              control={control}
             />
           </label>
           <label className="max-w-full w-40">
             <InputMoney
               name="budgetLimit"
+              register={register}
               type="number"
               placeholder="Budget Limit"
             />
@@ -27,13 +42,14 @@ const ModalAddBudget = () => {
           <label className="block max-w-full w-40 h-10">
             <InputPopap
               name="budgetName"
+              register={register}
               placeholder="Budget Name"
               type="text"
             />
           </label>
           <div className="flex justify-end items-center gap-3">
             <ButtonSecondary type="button" textButton="Cancel" />
-            <ButtonPrimary type="button" textButton="Add" />
+            <ButtonPrimary type="submit" textButton="Add" />
           </div>
         </form>
       </div>

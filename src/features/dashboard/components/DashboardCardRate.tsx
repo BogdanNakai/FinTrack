@@ -19,14 +19,14 @@ const DashboardCardRate = ({ title, balanse, growth }: IDashboardCard) => {
         <div className="flex justify-center items-center flex-grow-0 flex-shrink-1 relative gap-2">
           {growth > 0 ? (
             <>
-              <p className="flex-grow-0 flex-shrink-1 text-[8px] max-[450]:text-[10px] md:text-xs text-left text-green-500 wrap-break-word">
+              <p className="flex-grow-0 flex-shrink-1 text-[8px] max-[450px]:text-[10px] md:text-xs text-left text-green-500 wrap-break-word">
                 {growth}% improvement
               </p>
               <img src={trendUpp} alt="Image" />
             </>
           ) : (
             <>
-              <p className="flex-grow-0 flex-shrink-1 text-[8px] max-[450]:text-[10px] md:text-xs text-left text-red-500 wrap-break-word">
+              <p className="flex-grow-0 flex-shrink-1 text-[8px] max-[450px]:text-[10px] md:text-xs text-left text-red-500 wrap-break-word">
                 {growth}% deterioration
               </p>
 

@@ -4,42 +4,77 @@ import ButtonSecondary from "../buttons/ButtonSecondary";
 import InputData from "../form/InputData";
 import InputMoney from "../form/InputMoney";
 import InputPopap from "../form/InputPopap";
-import SelectFilter from "../selectFilter/SelectFilter";
+import { useForm } from "react-hook-form";
+import { useActions } from "@/hooks/useActions";
+import SelectForm from "../form/SelectForm";
+import { getStorage } from "@/services/localStorage";
+import { STORAGE_KEYS } from "@/services/storageKeys";
+import type { ITransactionForm, TOnSubmitFormTransaction } from "@/types/transaction.types";
+
 
 const ModalAddTrans = () => {
+  const {
+    register,
+    handleSubmit,
+    control,
+  } = useForm<ITransactionForm>({
+    mode: "onChange",
+  });
+  const { ACTIVE_USER_ID } = STORAGE_KEYS;
+  const { addTransaction } = useActions();
+
+  const onSubmit: TOnSubmitFormTransaction = (data) => {
+    data.idUser = getStorage(ACTIVE_USER_ID, "");
+    data.valute = "dolar";
+    addTransaction(data);
+  };
+
   return (
-    <div className="fixed z-100 top-0 left-0 w-full h-full bg-[#0000003e] bg-opacity-50 flex justify-center items-center">
+    <div className="fixed z-100 top-0 left-0 w-full h-full bg-[#0000003e] flex justify-center items-center">
       <div className="w-160 h-107.5 p-6 bg-[#ffffff] rounded-xl visible mx-1.5">
         <h3 className="text-2xl pb-5">Add Transaction</h3>
-        <form className="h-auto grid grid-cols-1 gap-3.5">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="h-auto grid grid-cols-1 gap-3.5"
+        >
           <label className="relative flex items-center">
-            <InputData />
+            <InputData name="date" control={control} />
           </label>
           <label className="block w-40 h-10">
             <InputPopap
+              register={register}
               name="description"
               placeholder="Enter Description"
               type="text"
             />
           </label>
           <label className="w-full">
-            <SelectFilter
-              SelectOptionsList={categoriesValue}
-              NameSelect={"All Category"}
+            <SelectForm
+              options={categoriesValue}
+              name="category"
+              label="All Categories"
+              control={control}
             />
           </label>
           <label className="w-full">
-            <SelectFilter
-              SelectOptionsList={typeValue}
-              NameSelect={"All Types"}
+            <SelectForm
+              options={typeValue}
+              name="type"
+              label="All Types"
+              control={control}
             />
           </label>
           <label className="max-w-full w-40">
-            <InputMoney name="amount" type="number" placeholder="Amount" />
+            <InputMoney
+              name="amount"
+              type="number"
+              placeholder="Amount"
+              register={register}
+            />
           </label>
           <div className="flex justify-end items-center gap-3">
             <ButtonSecondary type="button" textButton="Cancel" />
-            <ButtonPrimary type="button" textButton="Add" />
+            <ButtonPrimary type="submit" textButton="Add" />
           </div>
         </form>
       </div>

@@ -1,7 +1,7 @@
 import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryActions";
 import ButtonsActionsList from "@/components/buttons/ButtonsActionsList";
 import InputMonth from "@/components/form/InputMonth";
-import SelectForm from "@/components/form/SelectForm";
+import FilterSelect from "@/components/form/FilterSelect";
 import TabletBudget from "@/features/budget/components/TableBudget";
 import {
   categoriesData,
@@ -16,12 +16,13 @@ import Header from "@/layouts/Header";
 import LineDiagram from "@/components/charts/LineDiagram";
 import ExpenseBreakdownCard from "@/components/charts/ExpenseBreakdownCard";
 import ModalAddBudget from "@/components/modal/ModalAddBudget";
-import { useContext } from "react";
-import { ModalContext } from "@/context/ModalContex";
+import { useContext, useState } from "react";
+import { ModalContext } from "@/context/ModalContext";
 
 const BudgetPage = () => {
   const { openModal } = useContext(ModalContext);
-  
+  const [category, setCategory] = useState("");
+
   return (
     <>
       <Header active="budget" />
@@ -31,7 +32,7 @@ const BudgetPage = () => {
             <div className="grid gap-[12px]">
               <div className="flex items-center justify-between py-[24px] flex-wrap gap-1.5">
                 <div>
-                  <h2 className="font-[Poppins] font-sans text-[20px] md:text-2xl text-[#1E293B] tracking-[0.02em] font-medium pb-[10px]">
+                  <h2 className="font-[Poppins] text-[20px] md:text-2xl text-[#1E293B] tracking-[0.02em] font-medium pb-[10px]">
                     Budget Planner
                   </h2>
                   <p className="text-[#64748B] text-[12px] md:text-[14px]">
@@ -48,9 +49,11 @@ const BudgetPage = () => {
                   <InputMonth placeholder="Month" />
                 </div>
                 <div className="min-[550px]:max-w-[220px] w-full">
-                  <SelectForm
-                    SelectOptionsList={categoriesValue}
-                    name="All Categories"
+                  <FilterSelect
+                    options={categoriesValue}
+                    label="All Categories"
+                    value={category}
+                    onChange={setCategory}
                   />
                 </div>
               </div>
@@ -88,7 +91,7 @@ const BudgetPage = () => {
           </div>
         </section>
       </main>
-      {openModal && <ModalAddBudget/>}
+      {openModal && <ModalAddBudget />}
       <Copyright />
     </>
   );

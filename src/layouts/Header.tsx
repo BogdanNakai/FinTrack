@@ -12,7 +12,7 @@ const Header: React.FC<IHeader> = ({ active }) => {
       <header className="shadow-[0_2px_10px_0_rgba(2,6,23,0.06)] pt-[12px] pb-[12px] bg-white relative z-[50]">
         <div className="header__container">
           <div className="flex items-center gap-[20px] md:justify-between">
-            <div className="max-[768]:flex-[0_0_auto] flex-[1_0_auto] relative z-10">
+            <div className="max-[768px]:flex-[0_0_auto] flex-[1_0_auto] relative z-10">
               <div className=" max-w-[127px] h-[43px]">
                 <img src={logo} alt="FinTrack" className="w-full h-full" />
               </div>

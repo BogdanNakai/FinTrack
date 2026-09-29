@@ -17,7 +17,7 @@ const ButtonLogout = ({ textButton }: IButtonProps) => {
         <button
           type="button"
           onClick={handleLogout}
-          className="block bg-[#e2e8f0] tracking-[0.02em] px-5 box-border min-h-10 min-w-30 text-[16px] text-[#1E293B] rounded-lg hover:bg-[#cbd5e1] active:scale-[0.95] transition-[0.15s] border border-[#e2e8f0]"
+          className="block bg-[#e2e8f0] tracking-[0.02em] px-5 box-border min-h-10 min-w-30 text-[16px] text-[#1E293B] rounded-lg hover:bg-[#cbd5e1] active:scale-[0.95] transition duration-150 border border-[#e2e8f0]"
         >
           {textButton}
         </button>

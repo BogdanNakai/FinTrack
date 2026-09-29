@@ -2,7 +2,7 @@ import ButtonPrimary from "@/components/buttons/ButtonPrimary";
 import ChartsBarsCard from "@/components/charts/ChartsBarsCard";
 import ExpenseBreakdownCard from "@/components/charts/ExpenseBreakdownCard";
 import LineDiagram from "@/components/charts/LineDiagram";
-import SelectForm from "@/components/form/SelectForm";
+import FilterSelect from "@/components/form/FilterSelect";
 import {
   categoriesValue,
   filterTimePeriod,
@@ -13,8 +13,12 @@ import {
 } from "@/context/AppContext";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
+import { useState } from "react";
 
 const ReportsPage = () => {
+  const [timePeriod, setTimePeriod] = useState("");
+  const [category, setCategory] = useState("");
+
   return (
     <>
       <Header active="reports" />
@@ -23,22 +27,26 @@ const ReportsPage = () => {
           <div className="reports__container">
             <div className="grid gap-[12px]">
               <div className="flex items-center flex-wrap gap-2.5 justify-between py-[24px]">
-                <h2 className="font-[Poppins] font-sans text-2xl text-[#1E293B] tracking-[0.02em] font-medium ">
+                <h2 className="font-[Poppins] text-2xl text-[#1E293B] tracking-[0.02em] font-medium ">
                   Reports / Analytics
                 </h2>
                 <ButtonPrimary type="button" textButton="Export" />
               </div>
               <div className="flex items-center gap-[15px] md:gap-[20px] max-[480px]:flex-wrap">
                 <div className="min-[480px]:max-w-[220px] w-full">
-                  <SelectForm
-                    SelectOptionsList={filterTimePeriod}
-                    NameSelect="Time Period"
+                  <FilterSelect
+                    options={filterTimePeriod}
+                    label="Time Period"
+                    value={timePeriod}
+                    onChange={setTimePeriod}
                   />
                 </div>
                 <div className="min-[480px]:max-w-[220px] w-full">
-                  <SelectForm
-                    SelectOptionsList={categoriesValue}
-                    NameSelect="All Categories"
+                  <FilterSelect
+                    options={categoriesValue}
+                    label="All Categories"
+                    value={category}
+                    onChange={setCategory}
                   />
                 </div>
               </div>

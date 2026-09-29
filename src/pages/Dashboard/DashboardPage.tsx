@@ -53,8 +53,8 @@ const DashboardPage = () => {
                   );
                 })}
               </div>
-              <div className="flex flex-wrap gap-3 flex-wrap justify-between pb-6">
-                <h2 className="font-[Poppins] font-sans text-[20px] md:text-2xl text-[#1E293B] tracking-[0.02em] font-medium ">
+              <div className="flex flex-wrap gap-3 justify-between pb-6">
+                <h2 className="font-[Poppins] text-[20px] md:text-2xl text-[#1E293B] tracking-[0.02em] font-medium ">
                   Spending Overview
                 </h2>
                 <div className="max-w-[150px]">

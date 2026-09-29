@@ -5,17 +5,19 @@ import {
   filterTimePeriod,
   statusGoal,
 } from "@/context/AppContext";
-import { ModalContext } from "@/context/ModalContex";
+import { ModalContext } from "@/context/ModalContext";
 import GoalCard from "@/features/goals/components/GoalCard";
 import GoalProgressCard from "@/features/goals/components/GoalProgressCard";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
 import ModalAddGoal from "@/components/modal/ModalAddGoal";
-import { useContext } from "react";
-import SelectForm from "@/components/form/SelectForm";
+import { useContext, useState } from "react";
+import FilterSelect from "@/components/form/FilterSelect";
 
 const GoalsPage = () => {
   const { openModal } = useContext(ModalContext);
+  const [timePeriod, setTimePeriod] = useState("");
+  const [goalStatus, setGoalStatus] = useState("");
 
   return (
     <>
@@ -26,7 +28,7 @@ const GoalsPage = () => {
             <div className="grid gap-[12px]">
               <div className="flex items-center flex-wrap justify-between gap-2.5 py-[24px]">
                 <div>
-                  <h2 className="font-[Poppins] font-sans text-2xl text-[#1E293B] tracking-[0.02em] font-medium pb-[10px]">
+                  <h2 className="font-[Poppins] text-2xl text-[#1E293B] tracking-[0.02em] font-medium pb-[10px]">
                     Financial Goals
                   </h2>
                   <p className="text-[#64748B] text-[14px]">
@@ -37,15 +39,19 @@ const GoalsPage = () => {
               </div>
               <div className="flex items-center gap-[15px] md:gap-[20px] max-[480px]:flex-wrap">
                 <div className="min-[480px]:max-w-[220px] w-full">
-                  <SelectForm
-                    SelectOptionsList={filterTimePeriod}
-                    name="Time Period"
+                  <FilterSelect
+                    options={filterTimePeriod}
+                    label="Time Period"
+                    value={timePeriod}
+                    onChange={setTimePeriod}
                   />
                 </div>
                 <div className="min-[480px]:max-w-[220px] w-full">
-                  <SelectForm
-                    SelectOptionsList={statusGoal}
-                    name="Status"
+                  <FilterSelect
+                    options={statusGoal}
+                    label="Status"
+                    value={goalStatus}
+                    onChange={setGoalStatus}
                   />
                 </div>
               </div>

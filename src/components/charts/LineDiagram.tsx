@@ -19,7 +19,7 @@ const LineDiagram: React.FC<ILineDiagram> = ({
   const xLabels = getLastSixMonthLabels();
 
   return (
-    <div className="bg-white rounded-2xl p-3 lg:p-6 font-sans shadow-[0_4px_20px_rgba(0,0,0,0.05)] w-full max-w-[520px] w-full min-w-auto md:min-w-[340px] min-h-auto md:min-h-[300px] lg:min-h-[330px]">
+    <div className="bg-white rounded-2xl p-3 lg:p-6 font-sans shadow-[0_4px_20px_rgba(0,0,0,0.05)] max-w-[520px] w-full min-w-auto md:min-w-[340px] min-h-auto md:min-h-[300px] lg:min-h-[330px]">
       <div className="flex items-center gap-1.5 justify-between pb-[12px]">
         <h3 className="text-[14px] md:text-[18px] text-[#1E293B] font-bold">
           {title}
@@ -28,7 +28,7 @@ const LineDiagram: React.FC<ILineDiagram> = ({
           Monthly trend
         </p>
       </div>
-      <div className="h-50 md:h-58 ld:h-64">
+      <div className="h-50 md:h-58 lg:h-64">
         <LineChart
           grid={{ vertical: false, horizontal: true }}
           series={seriesData}

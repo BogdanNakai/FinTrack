@@ -1,34 +1,39 @@
 import ButtonActions from "@/components/buttons/ButtonActions";
 import ElementTitleCategory from "@/components/ui/ElementTitleCategory";
-import { listTransaction, moneyFormatter } from "@/context/AppContext";
+import { moneyFormatter } from "@/context/AppContext";
+import { useAppSelector } from "@/app/hooks";
 
 const ItemTableTransaction = () => {
+  const transactions = useAppSelector(
+    (state) => state.transactions.transactions,
+  );
+
   return (
     <>
-      {listTransaction.map((e, i) => {
+      {transactions.map((e, i) => {
         return (
           <div
             key={i}
             className="bg-white hover:bg-[#F2F7FF] text-[#1E293B] flex justify-center items-center gap-[16px] min-h-[56px]  px-[10px] border-y border-[#143a6c16]"
           >
-            <div className="text-[14px] font-regular flex-[0_1_10%]">
+            <div className="text-[14px] font-normal flex-[0_1_10%]">
               {new Date(e.date).toLocaleDateString("en-GB", {
                 day: "numeric",
                 month: "short",
                 year: "numeric",
               })}
             </div>
-            <div className="text-[14px] font-regular flex-[0_1_18.3%]">
+            <div className="text-[14px] font-normal flex-[0_1_18.3%]">
               <ElementTitleCategory category={e.category} />
             </div>
-            <div className="text-[14px] font-regular flex-[0_1_24.5%]">
+            <div className="text-[14px] font-normal flex-[0_1_24.5%]">
               {e.description}
             </div>
-            <div className="text-[14px] font-regular flex-[0_1_11.6%]">
+            <div className="text-[14px] font-normal flex-[0_1_11.6%]">
               {moneyFormatter.format(e.amount)}
             </div>
-            <div className="text-[14px] font-regular flex-[0_1_8.3%] text-center">
-              {e.type === "expense" ? (
+            <div className="text-[14px] font-normal flex-[0_1_8.3%] text-center">
+              {e.type === "Expense" ? (
                 <span className="flex items-center justify-center w-25 h-7 rounded-4xl bg-[#fdecec] text-[#c72525]">
                   Expense
                 </span>
@@ -38,7 +43,7 @@ const ItemTableTransaction = () => {
                 </span>
               )}
             </div>
-            <div className="text-[14px] font-regular flex-[0_1_8.3%] text-center">
+            <div className="text-[14px] font-normal flex-[0_1_8.3%] text-center">
               <ButtonActions />
             </div>
           </div>

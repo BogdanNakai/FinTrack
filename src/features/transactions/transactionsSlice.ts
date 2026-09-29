@@ -2,21 +2,28 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 import { getStorage, setStorage } from "@/services/localStorage";
 import { STORAGE_KEYS } from "@/services/storageKeys";
-import type { ITransactions } from "@/types/transaction.types";
+import type { ITransactionForm, ITransactions } from "@/types/transaction.types";
 
 const { TRANSACTIONS } = STORAGE_KEYS;
 
+const storedTransactions = getStorage<ITransactionForm[] | ITransactions>(
+  TRANSACTIONS,
+  [],
+);
+
 const initialState: ITransactions = {
-  transactions: getStorage(TRANSACTIONS, []),
+  transactions: Array.isArray(storedTransactions)
+    ? storedTransactions
+    : storedTransactions.transactions,
 };
 
 export const transactionsSlice = createSlice({
   name: "transactions",
   initialState,
   reducers: {
-    addTransaction: (state, action) => {
+    addTransaction: (state, action: PayloadAction<ITransactionForm>) => {
       state.transactions.push(action.payload);
-      setStorage(TRANSACTIONS, state);
+      setStorage(TRANSACTIONS, state.transactions);
     },
   },
 });

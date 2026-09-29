@@ -137,7 +137,7 @@ const ExpenseBreakdownCard: React.FC<MyComponentProps> = ({
         >
           <Pie data={data} options={options} plugins={[bottomDepthPlugin]} />
         </div>
-        <div className="flex min-w-[120px] flex-col max-[425px]:flex-row  max-[425px]:flex-wrap max-[425px]:gap-2 gap-1.8">
+        <div className="flex min-w-[120px] flex-col max-[425px]:flex-row max-[425px]:flex-wrap max-[425px]:gap-2 gap-[7.2px]">
           {categoriesData.map((item) => (
             <div key={item.label} className="flex items-center gap-2.5">
               <span

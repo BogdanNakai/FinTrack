@@ -12,40 +12,30 @@ import salary from "@/assets/icon_salary.svg"
 import savings from "@/assets/icon_savings.svg"
 import type { IIconCategory } from "./Ui.type"
 import { getCategoryLabel } from "@/context/AppContext"
+import type { TCategory } from "@/types/category.type"
 
+const categoryIcons: Record<TCategory, string> = {
+  "Food & Dining": food,
+  Transport: transport,
+  Entertainment: entertainment,
+  "Bills & Utilities": bills,
+  Shopping: shopping,
+  "Health & Fitness": health,
+  Education: education,
+  Others: others,
+  Investment: investment,
+  Freelance: freelance,
+  Salary: salary,
+  "Savings Account": savings,
+};
 
 const ElementTitleCategory = ({ category }: IIconCategory) => {
-  const image =
-    category === "food-dining"
-      ? food
-      : category === "transport"
-      ? transport
-      : category === "entertainment"
-      ? entertainment
-      : category === "bills-utilities"
-      ? bills
-      : category === "shopping"
-      ? shopping
-      : category === "health-fitness"
-      ? health
-      : category === "education"
-      ? education
-      : category === "others"
-      ? others
-      : category === "investment"
-      ? investment
-      : category === "freelance"
-      ? freelance
-      : category === "salary"
-      ? salary
-      : category === "savings-account"
-      ? savings
-      : others;
+  const image = categoryIcons[category];
 
   return (
     <>
       <div className="flex items-center gap-[12px]">
-        <div className="flex items-center justify-center rounded-[50%] w-[28px] h-[28px]  border-1 border-[#143a6c16]">
+        <div className="flex items-center justify-center rounded-[50%] w-[28px] h-[28px] border border-[#143a6c16]">
           <img src={image} alt="" />
         </div>
         {getCategoryLabel(category)}

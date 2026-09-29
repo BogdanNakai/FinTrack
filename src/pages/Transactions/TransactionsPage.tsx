@@ -1,20 +1,23 @@
 import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryActions";
 import ButtonsActionsList from "@/components/buttons/ButtonsActionsList";
-import SelectForm from "@/components/form/SelectForm";
+import FilterSelect from "@/components/form/FilterSelect";
 import ModalAddTrans from "@/components/modal/ModalAddTrans";
 import {
   filterDateRange,
   filterNewestFirst,
   typeValue,
 } from "@/context/AppContext";
-import { ModalContext } from "@/context/ModalContex";
+import { ModalContext } from "@/context/ModalContext";
 import TableTransaction from "@/features/transactions/component/TableTransaction";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 const TransactionsPage = () => {
   const { openModal } = useContext(ModalContext);
+  const [dateRange, setDateRange] = useState("");
+  const [transactionType, setTransactionType] = useState("");
+  const [sortOrder, setSortOrder] = useState("");
 
   return (
     <>
@@ -23,7 +26,7 @@ const TransactionsPage = () => {
         <section className="pt-12">
           <div className="herro__container">
             <div className="flex flex-wrap gap-3 justify-between pb-6">
-              <h2 className="font-[Poppins] font-sans text-[20px] md:text-2xl text-[#1E293B] tracking-[0.02em] font-medium ">
+              <h2 className="font-[Poppins] text-[20px] md:text-2xl text-[#1E293B] tracking-[0.02em] font-medium ">
                 Transactions
               </h2>
               <ButtonPrimaryActions
@@ -33,21 +36,27 @@ const TransactionsPage = () => {
             </div>
             <div className="flex flex-wrap min-[550px]:flex-nowrap gap-2.5 lg:gap-5 pb-6">
               <div className="max-w-full min-[550px]:max-w-56 w-full">
-                <SelectForm
-                  SelectOptionsList={filterDateRange}
-                  name="This Month"
+                <FilterSelect
+                  options={filterDateRange}
+                  label="This Month"
+                  value={dateRange}
+                  onChange={setDateRange}
                 />
               </div>
               <div className="max-w-full min-[550px]:max-w-56 w-full">
-                <SelectForm
-                  SelectOptionsList={typeValue}
-                  name="All Types"
+                <FilterSelect
+                  options={typeValue}
+                  label="All Types"
+                  value={transactionType}
+                  onChange={setTransactionType}
                 />
               </div>
               <div className="max-w-full min-[550px]:max-w-56 w-full">
-                <SelectForm
-                  SelectOptionsList={filterNewestFirst}
-                  name="Newest First"
+                <FilterSelect
+                  options={filterNewestFirst}
+                  label="Newest First"
+                  value={sortOrder}
+                  onChange={setSortOrder}
                 />
               </div>
             </div>

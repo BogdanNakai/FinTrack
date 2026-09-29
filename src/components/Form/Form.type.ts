@@ -3,6 +3,7 @@ import type {
   FieldValues,
   Path,
   FieldError,
+  Control,
 } from "react-hook-form";
 
 export interface ILoginFormType {
@@ -26,14 +27,24 @@ export interface IInput<T extends FieldValues> {
   errors?: FieldError | undefined;
 }
 
-export interface IBaseInput { 
-  type?: string;
+export interface IDataInput<T extends FieldValues> {
+  control: Control<T>;
+  name: Path<T>;
   placeholder?: string;
-  name: string;
-} 
+}
 
-export interface IDateInput {
-  placeholder?: string;
+export interface IPopapInput<T extends FieldValues> {
+  register: UseFormRegister<T>;
+  name: Path<T>;
+  placeholder: string;
+  type: string;
+}
+
+export interface IMoneyInput<T extends FieldValues> {
+  register: UseFormRegister<T>;
+  name: Path<T>;
+  placeholder: string;
+  type: string;
 }
 
 export interface IMonthInput {
@@ -47,6 +58,18 @@ export interface IListValute {
 
 export interface IInputMoney {
   listValute: IListValute[];
+}
+
+export interface ISelectOption {
+  value: string;
+  label: string;
+}
+
+export interface SelectFilterProps<T extends FieldValues> {
+  name: Path<T>;
+  label: string;
+  control: Control<T>;
+  options: ReadonlyArray<ISelectOption>;
 }
 
 export type TOnSubmitFormRegister = (data: IRegisterFormType) => void;

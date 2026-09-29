@@ -1,7 +1,6 @@
-import { createContext, useState } from "react";
+import { useState } from "react";
 import type { ContextProviderProps, IModalProps } from "./Modal.type";
-
-export const ModalContext = createContext({} as IModalProps);
+import { ModalContext } from "./ModalContext";
 
 export const ContextProvider = ({ children }: ContextProviderProps) => {
 	const [openModal, setOpenModal] = useState(false);

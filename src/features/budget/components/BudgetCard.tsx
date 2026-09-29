@@ -17,7 +17,7 @@ const BudgetCard = ({ title, amount, type }: IBudgetCard) => {
         </p>
         <div className="flex items-center flex-grow-0 flex-shrink-1 relative gap-2 w-full">
           {type === "budget" ? (
-            <p className="flex-grow-0 flex-shrink-1 text-[10px] md:text-xstext-left text-green-500">
+            <p className="flex-grow-0 flex-shrink-1 text-[10px] md:text-xs text-left text-green-500">
               for Oct 2025
             </p>
           ) : type === "spent" ? (

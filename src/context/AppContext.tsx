@@ -1,57 +1,88 @@
-import type {
-  ITransaction,
-  TransactionCategory,
-} from "@/types/transaction.types";
+import type { ISelectOption } from "@/components/form/Form.type";
+import type { TCategory } from "@/types/category.type";
 
 export const categoriesValue = [
-  { value: "savings-account", label: "Savings Account" },
-  { value: "health-fitness", label: "Health & Fitness" },
-  { value: "bills-utilities", label: "Bills & Utilities" },
-  { value: "freelance", label: "Freelance" },
-  { value: "investment", label: "Investment" },
-  { value: "shopping", label: "Shopping" },
-  { value: "transport", label: "Transport" },
-  { value: "salary", label: "Salary" },
-  { value: "food-dining", label: "Food & Dining" },
-  { value: "entertainment", label: "Entertainment" },
-  { value: "education", label: "Education" },
-  { value: "others", label: "Others" },
-] satisfies ReadonlyArray<{ value: TransactionCategory; label: string }>;
-
-export const getCategoryLabel = (category: TransactionCategory) =>
-  categoriesValue.find((item) => item.value === category)?.label ?? category;
+  {
+    value: "Savings Account",
+    label: "Savings Account",
+  },
+  {
+    value: "Health & Fitness",
+    label: "Health & Fitness",
+  },
+  {
+    value: "Bills & Utilities",
+    label: "Bills & Utilities",
+  },
+  {
+    value: "Freelance",
+    label: "Freelance",
+  },
+  {
+    value: "Investment",
+    label: "Investment",
+  },
+  {
+    value: "Shopping",
+    label: "Shopping",
+  },
+  {
+    value: "Transport",
+    label: "Transport",
+  },
+  {
+    value: "Salary",
+    label: "Salary",
+  },
+  {
+    value: "Food & Dining",
+    label: "Food & Dining",
+  },
+  {
+    value: "Entertainment",
+    label: "Entertainment",
+  },
+  {
+    value: "Education",
+    label: "Education",
+  },
+  {
+    value: "Others",
+    label: "Others",
+  },
+] satisfies ReadonlyArray<ISelectOption>;
 
 export const statusGoal = [
-  { value: "ongoing", label: "Ongoing" },
-  { value: "completed", label: "Completed" },
-];
+  { value: "Ongoing", label: "Ongoing" },
+  { value: "Completed", label: "Completed" },
+] satisfies ReadonlyArray<ISelectOption>;
 
 export const typeValue = [
-  { value: "income", label: "Income" },
-  { value: "expense", label: "Expense" },
-];
+  { value: "Income", label: "Income" },
+  { value: "Expense", label: "Expense" },
+] satisfies ReadonlyArray<ISelectOption>;
 
 export const filterTimePeriod = [
-  { value: "weekly", label: "Weekly" },
-  { value: "monthly", label: "Monthly" },
-  { value: "quarterly", label: "Quarterly" },
-  { value: "yearly", label: "Yearly" },
-];
+  { value: "Weekly", label: "Weekly" },
+  { value: "Monthly", label: "Monthly" },
+  { value: "Quarterly", label: "Quarterly" },
+  { value: "Yearly", label: "Yearly" },
+] satisfies ReadonlyArray<ISelectOption>;
 
 export const filterNewestFirst = [
-  { value: "newest", label: "Newest First" },
-  { value: "oldest", label: "Oldest First" },
-  { value: "highest", label: "Highest Amount" },
-  { value: "lowest", label: "Lowest Amount" },
-];
+  { value: "Newest First", label: "Newest First" },
+  { value: "Oldest First", label: "Oldest First" },
+  { value: "Highest Amount", label: "Highest Amount" },
+  { value: "Lowest Amount", label: "Lowest Amount" },
+] satisfies ReadonlyArray<ISelectOption>;
 
 export const filterDateRange = [
-  { value: "today", label: "Today" },
-  { value: "thisWeek", label: "This Week" },
-  { value: "thisMonth", label: "This Month" },
-  { value: "lastMonth", label: "Last Month" },
-  { value: "lastThreeMonths", label: "Last 3 Months" },
-];
+  { value: "Today", label: "Today" },
+  { value: "This Week", label: "This Week" },
+  { value: "This Month", label: "This Month" },
+  { value: "Last Month", label: "Last Month" },
+  { value: "Last 3 Months", label: "Last 3 Months" },
+] satisfies ReadonlyArray<ISelectOption>;
 
 export const categoriesData = [
   { label: "Food", value: 26.1, color: "#22c55e", darkColor: "#15803d" },
@@ -117,131 +148,19 @@ export const seriesBudgetSpending = [
 
 export const listTransactionBudget = [
   {
-    category: "food-dining" as TransactionCategory,
+    category: "Food & Dining" as TCategory,
     limit: 100,
     spent: 50,
   },
   {
-    category: "savings-account" as TransactionCategory,
+    category: "Savings Account" as TCategory,
     limit: 10000,
     spent: 8300,
   },
   {
-    category: "shopping" as TransactionCategory,
+    category: "Shopping" as TCategory,
     limit: 10000,
     spent: 80300,
-  },
-];
-
-export const listTransaction: ITransaction[] = [
-  {
-    id: "demo-transaction-1",
-    userId: "demo-user",
-    date: new Date().toISOString(),
-    category: "investment",
-    description: "Lorem lorem lorem",
-    amount: 2000,
-    type: "expense",
-  },
-  {
-    id: "demo-transaction-2",
-    userId: "demo-user",
-    date: new Date().toISOString(),
-    category: "savings-account",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, aspernatur.",
-    amount: 43000,
-    type: "income",
-  },
-  {
-    id: "demo-transaction-3",
-    userId: "demo-user",
-    date: new Date().toISOString(),
-    category: "bills-utilities",
-    description: "Lorem . Lorem ipsum dolor s",
-    amount: 1223000,
-    type: "expense",
-  },
-  {
-    id: "demo-transaction-4",
-    userId: "demo-user",
-    date: new Date().toISOString(),
-    category: "salary",
-    description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
-    amount: 200,
-    type: "income",
-  },
-  {
-    id: "demo-transaction-5",
-    userId: "demo-user",
-    date: new Date().toISOString(),
-    category: "salary",
-    description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
-    amount: 200,
-    type: "income",
-  },
-  {
-    id: "demo-transaction-6",
-    userId: "demo-user",
-    date: new Date().toISOString(),
-    category: "salary",
-    description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
-    amount: 200,
-    type: "income",
-  },
-  {
-    id: "demo-transaction-7",
-    userId: "demo-user",
-    date: new Date().toISOString(),
-    category: "salary",
-    description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
-    amount: 200,
-    type: "income",
-  },
-  {
-    id: "demo-transaction-8",
-    userId: "demo-user",
-    date: new Date().toISOString(),
-    category: "salary",
-    description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
-    amount: 200,
-    type: "income",
-  },
-  {
-    id: "demo-transaction-9",
-    userId: "demo-user",
-    date: new Date().toISOString(),
-    category: "salary",
-    description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
-    amount: 200,
-    type: "income",
-  },
-  {
-    id: "demo-transaction-10",
-    userId: "demo-user",
-    date: new Date().toISOString(),
-    category: "salary",
-    description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
-    amount: 200,
-    type: "income",
-  },
-  {
-    id: "demo-transaction-11",
-    userId: "demo-user",
-    date: new Date().toISOString(),
-    category: "salary",
-    description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
-    amount: 200,
-    type: "income",
-  },
-  {
-    id: "demo-transaction-12",
-    userId: "demo-user",
-    date: new Date().toISOString(),
-    category: "salary",
-    description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor s",
-    amount: 200,
-    type: "income",
   },
 ];
 
@@ -258,6 +177,9 @@ export const moneyFormatter = new Intl.NumberFormat("en-IN", {
   currency: "INR",
   maximumFractionDigits: 0,
 });
+
+export const getCategoryLabel = (category: TCategory) =>
+  categoriesValue.find((item) => item.value === category)?.label ?? category;
 
 export const getLastSixMonthLabels = (startDate = new Date()) => {
   const months = [""];

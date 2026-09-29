@@ -14,7 +14,7 @@ const TableRecentTransactions = () => {
         <div>
           <Link
             to="/transactions"
-            className="flex-grow-0 flex-shrink-0 block text-sm font-medium text-left transition duration-200 hover:text-blue-400 text-blue-600 active:scale-[0.9] border-b-1 border-blue-600 "
+            className="flex-grow-0 flex-shrink-0 block text-sm font-medium text-left transition duration-200 hover:text-blue-400 text-blue-600 active:scale-[0.9] border-b border-blue-600 "
           >
             View All
           </Link>
