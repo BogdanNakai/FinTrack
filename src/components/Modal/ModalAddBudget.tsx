@@ -3,7 +3,7 @@ import ButtonPrimary from "../buttons/ButtonPrimary";
 import ButtonSecondary from "../buttons/ButtonSecondary";
 import InputMoney from "../form/InputMoney";
 import InputPopap from "../form/InputPopap";
-import SelectFilter from "../selectFilter/SelectFilter";
+import SelectForm from "../form/SelectForm";
 
 const ModalAddBudget = () => {
   return (
@@ -12,9 +12,9 @@ const ModalAddBudget = () => {
         <h3 className="text-2xl pb-5">Add New Budget</h3>
         <form className="h-full grid grid-cols-1 gap-3.5">
           <label className="w-full">
-            <SelectFilter
+            <SelectForm
               SelectOptionsList={categoriesValue}
-              NameSelect={"All Category"}
+              name={"All Category"}
             />
           </label>
           <label className="max-w-full w-40">

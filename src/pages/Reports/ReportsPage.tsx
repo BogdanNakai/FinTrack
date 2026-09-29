@@ -2,7 +2,7 @@ import ButtonPrimary from "@/components/buttons/ButtonPrimary";
 import ChartsBarsCard from "@/components/charts/ChartsBarsCard";
 import ExpenseBreakdownCard from "@/components/charts/ExpenseBreakdownCard";
 import LineDiagram from "@/components/charts/LineDiagram";
-import SelectFilter from "@/components/selectFilter/SelectFilter";
+import SelectForm from "@/components/form/SelectForm";
 import {
   categoriesValue,
   filterTimePeriod,
@@ -30,13 +30,13 @@ const ReportsPage = () => {
               </div>
               <div className="flex items-center gap-[15px] md:gap-[20px] max-[480px]:flex-wrap">
                 <div className="min-[480px]:max-w-[220px] w-full">
-                  <SelectFilter
+                  <SelectForm
                     SelectOptionsList={filterTimePeriod}
                     NameSelect="Time Period"
                   />
                 </div>
                 <div className="min-[480px]:max-w-[220px] w-full">
-                  <SelectFilter
+                  <SelectForm
                     SelectOptionsList={categoriesValue}
                     NameSelect="All Categories"
                   />

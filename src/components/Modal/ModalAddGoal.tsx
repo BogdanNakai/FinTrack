@@ -4,7 +4,7 @@ import ButtonSecondary from "../buttons/ButtonSecondary";
 import InputData from "../form/InputData";
 import InputMoney from "../form/InputMoney";
 import InputPopap from "../form/InputPopap";
-import SelectFilter from "../selectFilter/SelectFilter";
+import SelectForm from "../form/SelectForm";
 
 const ModalAddGoal = () => {
   return (
@@ -23,22 +23,19 @@ const ModalAddGoal = () => {
             />
           </label>
           <label className="w-full">
-            <InputData placeholder="Start Date" />
+            <InputData name="date" placeholder="Start Date" />
           </label>
           <label className="w-full">
-            <InputData placeholder="End Date" />
+            <InputData name="date" placeholder="End Date" />
           </label>
           <label className="w-full">
-            <SelectFilter
+            <SelectForm
               SelectOptionsList={categoriesValue}
-              NameSelect={"All Category"}
+              name={"All Category"}
             />
           </label>
           <label className="w-full">
-            <SelectFilter
-              SelectOptionsList={statusGoal}
-              NameSelect={"Status"}
-            />
+            <SelectForm SelectOptionsList={statusGoal} name={"Status"} />
           </label>
 
           <div className="flex justify-end items-center gap-3">

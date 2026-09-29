@@ -1,7 +1,7 @@
 import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryActions";
 import ButtonsActionsList from "@/components/buttons/ButtonsActionsList";
+import SelectForm from "@/components/form/SelectForm";
 import ModalAddTrans from "@/components/modal/ModalAddTrans";
-import SelectFilter from "@/components/form/SelectFilter";
 import {
   filterDateRange,
   filterNewestFirst,
@@ -33,21 +33,21 @@ const TransactionsPage = () => {
             </div>
             <div className="flex flex-wrap min-[550px]:flex-nowrap gap-2.5 lg:gap-5 pb-6">
               <div className="max-w-full min-[550px]:max-w-56 w-full">
-                <SelectFilter
+                <SelectForm
                   SelectOptionsList={filterDateRange}
-                  NameSelect="This Month"
+                  name="This Month"
                 />
               </div>
               <div className="max-w-full min-[550px]:max-w-56 w-full">
-                <SelectFilter
+                <SelectForm
                   SelectOptionsList={typeValue}
-                  NameSelect="All Types"
+                  name="All Types"
                 />
               </div>
               <div className="max-w-full min-[550px]:max-w-56 w-full">
-                <SelectFilter
+                <SelectForm
                   SelectOptionsList={filterNewestFirst}
-                  NameSelect="Newest First"
+                  name="Newest First"
                 />
               </div>
             </div>

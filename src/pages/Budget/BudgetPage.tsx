@@ -1,7 +1,7 @@
 import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryActions";
 import ButtonsActionsList from "@/components/buttons/ButtonsActionsList";
 import InputMonth from "@/components/form/InputMonth";
-import SelectFilter from "@/components/form/SelectFilter";
+import SelectForm from "@/components/form/SelectForm";
 import TabletBudget from "@/features/budget/components/TableBudget";
 import {
   categoriesData,
@@ -48,9 +48,9 @@ const BudgetPage = () => {
                   <InputMonth placeholder="Month" />
                 </div>
                 <div className="min-[550px]:max-w-[220px] w-full">
-                  <SelectFilter
+                  <SelectForm
                     SelectOptionsList={categoriesValue}
-                    NameSelect="All Categories"
+                    name="All Categories"
                   />
                 </div>
               </div>

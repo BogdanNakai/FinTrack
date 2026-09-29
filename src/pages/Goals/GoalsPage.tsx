@@ -1,6 +1,5 @@
 import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryActions";
 import ExpenseBreakdownCard from "@/components/charts/ExpenseBreakdownCard";
-import SelectFilter from "@/components/form/SelectFilter";
 import {
   goalProgress,
   filterTimePeriod,
@@ -13,6 +12,7 @@ import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
 import ModalAddGoal from "@/components/modal/ModalAddGoal";
 import { useContext } from "react";
+import SelectForm from "@/components/form/SelectForm";
 
 const GoalsPage = () => {
   const { openModal } = useContext(ModalContext);
@@ -37,15 +37,15 @@ const GoalsPage = () => {
               </div>
               <div className="flex items-center gap-[15px] md:gap-[20px] max-[480px]:flex-wrap">
                 <div className="min-[480px]:max-w-[220px] w-full">
-                  <SelectFilter
+                  <SelectForm
                     SelectOptionsList={filterTimePeriod}
-                    NameSelect="Time Period"
+                    name="Time Period"
                   />
                 </div>
                 <div className="min-[480px]:max-w-[220px] w-full">
-                  <SelectFilter
+                  <SelectForm
                     SelectOptionsList={statusGoal}
-                    NameSelect="Status"
+                    name="Status"
                   />
                 </div>
               </div>
