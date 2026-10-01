@@ -2,10 +2,12 @@ import { bindActionCreators } from "redux"
 import { transactionsSlice } from "@/features/transactions/transactionsSlice"
 import { useAppDispatch} from "@/app/hooks"
 import { budgetsSlice } from "@/features/budget/budgetsSlice"
+import { goalsSlice } from "@/features/goals/goalsSlice"
 
 const allActions = {
 	...transactionsSlice.actions,
-	...budgetsSlice.actions
+	...budgetsSlice.actions,
+	...goalsSlice.actions
 }
 
 

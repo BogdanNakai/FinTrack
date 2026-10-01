@@ -1,27 +1,37 @@
 import ProgressLine from "@/components/ui/progressLine/ProgressLine";
-import { listGoal } from "@/context/AppContext";
+import { useAppSelector } from "@/app/hooks";
+import { getStorage } from "@/services/localStorage";
+import { STORAGE_KEYS } from "@/services/storageKeys";
 
 const GoalCard = () => {
+  const idUser = getStorage(STORAGE_KEYS.ACTIVE_USER_ID, "");
+  const goals = useAppSelector((state) => state.goals.goals).filter(
+    (goal) => goal.idUser === idUser,
+  );
+
   return (
     <>
-      {listGoal.map((e, i) => {
-        const parsent = Math.round(e.saved / (e.target / 100));
+      {goals.map((goal, index) => {
+        const percent = goal.targetAmount
+          ? Math.round((goal.savedAmount / goal.targetAmount) * 100)
+          : 0;
+
         return (
-          <div key={i} className="p-[16px] shadow-[0_6px_18px_0_rgba(2,6,23,0.06)] bg-[#fff] rounded-[12px] max-w-[360px] w-full grid gap-[12px]">
+          <div key={index} className="p-[16px] shadow-[0_6px_18px_0_rgba(2,6,23,0.06)] bg-[#fff] rounded-[12px] max-w-[360px] w-full grid gap-[12px]">
             <h3 className="text-[16px] font-semibold tracking-tight">
-              {e.label}
+              {goal.goalName}
             </h3>
             <p className="text-[16px] text-[#64748B] tracking-tight flex items-center">
-              {e.target.toLocaleString("en-US", { minimumFractionDigits: 0 })}{" "}
+              {goal.targetAmount.toLocaleString("en-US", { minimumFractionDigits: 0 })}{" "}
               Target |{" "}
-              {e.saved.toLocaleString("en-US", { minimumFractionDigits: 0 })}{" "}
+              {goal.savedAmount.toLocaleString("en-US", { minimumFractionDigits: 0 })}{" "}
               Saved
             </p>
             <div>
-              <ProgressLine parsent={parsent} />
+              <ProgressLine parsent={percent} />
             </div>
             <div>
-              {e.status === "Ongoing" ? (
+              {goal.status === "Ongoing" ? (
                 <div className="text-[#00B894] bg-[#DCFCE7] rounded-[20px] text-[8px] tracking-tight w-[57px] text-center py-[4px]">
                   Ongoing
                 </div>

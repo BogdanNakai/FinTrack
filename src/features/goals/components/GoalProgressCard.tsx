@@ -1,11 +1,17 @@
-import { listGoal } from "@/context/AppContext";
+import { useAppSelector } from "@/app/hooks";
+import { getStorage } from "@/services/localStorage";
+import { STORAGE_KEYS } from "@/services/storageKeys";
 import { BarChart } from "@mui/x-charts";
 
 const GoalProgressCard = () => {
-  const goalProgressData = listGoal.map((goal) => ({
-    ...goal,
-    remaining: Math.max(goal.target - goal.saved, 0),
-  }));
+  const idUser = getStorage(STORAGE_KEYS.ACTIVE_USER_ID, "");
+  const goalProgressData = useAppSelector((state) => state.goals.goals)
+    .filter((goal) => goal.idUser === idUser)
+    .map((goal) => ({
+      label: goal.goalName,
+      saved: goal.savedAmount,
+      remaining: Math.max(goal.targetAmount - goal.savedAmount, 0),
+    }));
 
   return (
     <div className="bg-white rounded-2xl md:p-6 p-3 font-sans shadow-[0_4px_20px_rgba(0,0,0,0.05)] max-w-[520px] w-full h-auto">

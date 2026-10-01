@@ -3,4 +3,5 @@ export const STORAGE_KEYS = {
   ACTIVE_USER_ID: "activeUserId",
   TRANSACTIONS: "transactions",
   BUDGETS: "budgets",
+  GOALS: "goals",
 };

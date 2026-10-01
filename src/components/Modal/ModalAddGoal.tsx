@@ -6,14 +6,21 @@ import InputMoney from "../form/InputMoney";
 import InputPopap from "../form/InputPopap";
 import SelectForm from "../form/SelectForm";
 import { useForm } from "react-hook-form";
-import type { IGoalForm } from "@/types/goals.types";
+import type { IGoalForm, TOnSubmitFormGoal } from "@/types/goals.types";
+import { useActions } from "@/hooks/useActions";
+import { getStorage } from "@/services/localStorage";
+import { STORAGE_KEYS } from "@/services/storageKeys";
 
 const ModalAddGoal = () => {
-
   const { register, control, handleSubmit } = useForm<IGoalForm>();
+  const { addGoal } = useActions();
 
-  const onSubmit = (data: IGoalForm) => {
-    console.log(data);
+  const onSubmit: TOnSubmitFormGoal = (data) => {
+    data.idUser = getStorage(STORAGE_KEYS.ACTIVE_USER_ID, "");
+    data.valute = "dolar";
+    data.savedAmount = 0;
+
+    addGoal(data);
   };
 
   return (
