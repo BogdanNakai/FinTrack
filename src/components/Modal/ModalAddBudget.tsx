@@ -6,13 +6,21 @@ import InputPopap from "../form/InputPopap";
 import SelectForm from "../form/SelectForm";
 import { useForm } from "react-hook-form";
 import type { IBudgetForm } from "@/types/budget.type";
+import { getStorage } from "@/services/localStorage";
+import { STORAGE_KEYS } from "@/services/storageKeys";
+import { useActions } from "@/hooks/useActions";
 
 const ModalAddBudget = () => {
-
   const { register, control, handleSubmit } = useForm<IBudgetForm>();
+  const { ACTIVE_USER_ID } = STORAGE_KEYS;
+  const { addBudget } = useActions();
 
   const onSubmit = (data: IBudgetForm) => {
-    console.log(data);
+    data.idUser = getStorage(ACTIVE_USER_ID, "");
+    data.valute = "dolar";
+    data.budgetSpent = 0; 
+
+    addBudget(data);
   };
 
   return (
