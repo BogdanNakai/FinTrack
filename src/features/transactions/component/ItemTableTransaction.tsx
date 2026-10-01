@@ -2,11 +2,14 @@ import ButtonActions from "@/components/buttons/ButtonActions";
 import ElementTitleCategory from "@/components/ui/ElementTitleCategory";
 import { moneyFormatter } from "@/context/AppContext";
 import { useAppSelector } from "@/app/hooks";
+import { getStorage } from "@/services/localStorage";
+import { STORAGE_KEYS } from "@/services/storageKeys";
 
 const ItemTableTransaction = () => {
+  const idUser = getStorage(STORAGE_KEYS.ACTIVE_USER_ID, "");
   const transactions = useAppSelector(
     (state) => state.transactions.transactions,
-  );
+  ).filter((transaction) => transaction.idUser === idUser);
 
   return (
     <>
