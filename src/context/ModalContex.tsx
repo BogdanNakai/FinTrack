@@ -3,7 +3,14 @@ import type { ContextProviderProps, IModalProps } from "./Modal.type";
 import { ModalContext } from "./ModalContext";
 
 export const ContextProvider = ({ children }: ContextProviderProps) => {
-	const [openModal, setOpenModal] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [openModalMessage, setOpenModalMessage] = useState(false);
+  
+  setTimeout(() => {
+    if (openModalMessage) {
+      setOpenModalMessage(false);
+    }
+  }, 3000);
 	
 	const blockScroll = () => {
 		if (!openModal) {
@@ -16,6 +23,8 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
   const value: IModalProps = {
     openModal,
     setOpenModal,
+    openModalMessage,
+    setOpenModalMessage,
     blockScroll,
   };
 	

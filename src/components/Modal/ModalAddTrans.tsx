@@ -32,7 +32,7 @@ const ModalAddTrans = () => {
   });
   const { ACTIVE_USER_ID } = STORAGE_KEYS;
   const { addTransaction } = useActions();
-  const { setOpenModal } = useContext(ModalContext);
+  const { setOpenModal, setOpenModalMessage } = useContext(ModalContext);
 
   const onSubmit: TOnSubmitFormTransaction = (data) => {
     data.idUser = getStorage(ACTIVE_USER_ID, "");
@@ -41,6 +41,7 @@ const ModalAddTrans = () => {
     addTransaction(data);
     reset();
     setOpenModal(false);
+    setOpenModalMessage(true);
   };
 
   return (

@@ -1,4 +1,4 @@
 export interface IMessage {
-  textMessag: string;
+  textMessage: string;
   type: "Failed" | "Success";
 }

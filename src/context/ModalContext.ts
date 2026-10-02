@@ -5,4 +5,6 @@ export const ModalContext = createContext<IModalProps>({
   openModal: false,
   setOpenModal: () => undefined,
   blockScroll: () => undefined,
+  openModalMessage: false,
+  setOpenModalMessage: () => undefined,
 });
