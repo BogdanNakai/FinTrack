@@ -1,9 +1,15 @@
 export interface IModalProps {
-  openModal: boolean;
-  setOpenModal: (isOpen: boolean) => void;
-  openModalMessage: boolean;
-  setOpenModalMessage: (isOpen: boolean) => void;
+  openModalTransactions: boolean;
+  setOpenModalTransactions: (isOpen: boolean) => void;
   blockScroll: () => void;
+  openModalMessageSuccess: boolean;
+  setOpenModalMessageSuccess: (isOpen: boolean) => void;
+  openModalMessageFailed: boolean;
+  setOpenModalMessageFailed: (isOpen: boolean) => void;
+  openModalMessageDelete: boolean;
+  setOpenModalMessageDelete: (isOpen: boolean) => void;
+  idTransaction: string;
+  setIdTransaction: (id: string) => void;
 }
 
 export type ContextProviderProps = {

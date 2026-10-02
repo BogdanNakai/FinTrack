@@ -3,31 +3,42 @@ import type { ContextProviderProps, IModalProps } from "./Modal.type";
 import { ModalContext } from "./ModalContext";
 
 export const ContextProvider = ({ children }: ContextProviderProps) => {
-  const [openModal, setOpenModal] = useState(false);
-  const [openModalMessage, setOpenModalMessage] = useState(false);
-  
+  const [openModalTransactions, setOpenModalTransactions] = useState(false);
+  const [openModalMessageSuccess, setOpenModalMessageSuccess] = useState(false);
+  const [openModalMessageFailed, setOpenModalMessageFailed] = useState(false);
+  const [openModalMessageDelete, setOpenModalMessageDelete] = useState(false);
+  const [idTransaction, setIdTransaction] = useState('');
+
   setTimeout(() => {
-    if (openModalMessage) {
-      setOpenModalMessage(false);
+    if (openModalMessageSuccess) {
+      setOpenModalMessageSuccess(false);
     }
   }, 3000);
-	
-	const blockScroll = () => {
-		if (!openModal) {
+
+  const isBlocke = openModalTransactions || openModalMessageSuccess || openModalMessageFailed || openModalMessageDelete;
+
+  const blockScroll = () => {
+    if (!isBlocke) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-	};
+  };
 
   const value: IModalProps = {
-    openModal,
-    setOpenModal,
-    openModalMessage,
-    setOpenModalMessage,
+    openModalTransactions,
+    setOpenModalTransactions,
+    openModalMessageSuccess,
+    setOpenModalMessageSuccess,
+    openModalMessageFailed,
+    setOpenModalMessageFailed,
     blockScroll,
+    openModalMessageDelete,
+    setOpenModalMessageDelete,
+    idTransaction,
+    setIdTransaction,
   };
-	
+
   return (
     <ModalContext.Provider value={value}>{children}</ModalContext.Provider>
   );

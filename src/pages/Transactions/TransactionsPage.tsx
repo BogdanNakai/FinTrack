@@ -3,6 +3,7 @@ import ButtonsActionsList from "@/components/buttons/ButtonsActionsList";
 import FilterSelect from "@/components/form/FilterSelect";
 import Message from "@/components/message/Message";
 import ModalAddTrans from "@/components/modal/ModalAddTrans";
+import ModalDeleteTransactions from "@/components/modal/ModalDeleteTransaction";
 import {
   filterDateRange,
   filterNewestFirst,
@@ -15,7 +16,12 @@ import Header from "@/layouts/Header";
 import { useContext, useState } from "react";
 
 const TransactionsPage = () => {
-  const { openModal, openModalMessage } = useContext(ModalContext);
+  const {
+    openModalTransactions,
+    openModalMessageSuccess,
+    openModalMessageFailed,
+    openModalMessageDelete,
+  } = useContext(ModalContext);
   const [dateRange, setDateRange] = useState("");
   const [transactionType, setTransactionType] = useState("");
   const [sortOrder, setSortOrder] = useState("");
@@ -75,8 +81,19 @@ const TransactionsPage = () => {
         </section>
       </main>
       <Copyright />
-      {openModal && <ModalAddTrans />}
-      {openModalMessage && <Message textMessage="Transaction added successfully!" type="Success" />}
+      {openModalTransactions && <ModalAddTrans />}
+      {openModalMessageSuccess && (
+        <Message textMessage="Transaction added successfully!" type="Success" />
+      )}
+      {openModalMessageFailed && (
+        <Message
+          textMessage="Failed to add transaction. Please try again."
+          type="Failed"
+        />
+      )}
+      {openModalMessageDelete && (
+        <ModalDeleteTransactions />
+      )}
     </>
   );
 };

@@ -31,6 +31,8 @@ export const transactionsSlice = createSlice({
       );
       setStorage(TRANSACTIONS, state.transactions);
     },
+    editTransaction: (state, action: PayloadAction<ITransactionForm>) => {
+    }
   },
 });
 

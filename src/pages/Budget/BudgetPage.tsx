@@ -20,7 +20,7 @@ import { useContext, useState } from "react";
 import { ModalContext } from "@/context/ModalContext";
 
 const BudgetPage = () => {
-  const { openModal } = useContext(ModalContext);
+  const { openModalTransactions } = useContext(ModalContext);
   const [category, setCategory] = useState("");
 
   return (
@@ -91,7 +91,7 @@ const BudgetPage = () => {
           </div>
         </section>
       </main>
-      {openModal && <ModalAddBudget />}
+      {openModalTransactions && <ModalAddBudget />}
       <Copyright />
     </>
   );

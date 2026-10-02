@@ -7,13 +7,13 @@ const ButtonPrimaryActions = ({
   textButton,
   type = "button",
 }: IButtonProps) => {
-  const { setOpenModal, blockScroll } = useContext(ModalContext);
+  const { setOpenModalTransactions, blockScroll } = useContext(ModalContext);
 
   return (
     <button
       type={type}
       onClick={() => {
-        setOpenModal(true);
+        setOpenModalTransactions(true);
         blockScroll();
       }}
       className="flex justify-center items-center gap-3.75 rounded-lg tracking-[0.02em] px-5 box-border min-h-10 min-w-30 bg-[#00B894] text-white hover:bg-[#00DCA0] active:scale-[0.95] active:bg-[#BEEBD8] transition duration-150 border border-[#e2e8f0]"

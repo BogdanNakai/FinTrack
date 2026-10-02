@@ -18,21 +18,23 @@ import { ModalContext } from "@/context/ModalContext";
 import dayjs from "dayjs";
 
 const ModalAddTrans = () => {
+  const { ACTIVE_USER_ID } = STORAGE_KEYS;
+  const { addTransaction } = useActions();
+  const { setOpenModalTransactions, setOpenModalMessageSuccess } =
+    useContext(ModalContext);
+
   const {
     register,
     handleSubmit,
     control,
-    formState: { errors },
+    formState: { errors, isValid },
     reset,
   } = useForm<ITransactionForm>({
-    mode: "all",
+    mode: "onSubmit",
     defaultValues: {
       date: dayjs().format("YYYY-MM-DD"),
     },
   });
-  const { ACTIVE_USER_ID } = STORAGE_KEYS;
-  const { addTransaction } = useActions();
-  const { setOpenModal, setOpenModalMessage } = useContext(ModalContext);
 
   const onSubmit: TOnSubmitFormTransaction = (data) => {
     data.idUser = getStorage(ACTIVE_USER_ID, "");
@@ -40,8 +42,8 @@ const ModalAddTrans = () => {
     data.idTransaction = `transaction_${Date.now()}`;
     addTransaction(data);
     reset();
-    setOpenModal(false);
-    setOpenModalMessage(true);
+    setOpenModalTransactions(false);
+    setOpenModalMessageSuccess(true);
   };
 
   return (
@@ -49,9 +51,7 @@ const ModalAddTrans = () => {
       <div className="w-160 h-107.5 p-6 bg-[#ffffff] rounded-xl visible mx-1.5">
         <h3 className="text-2xl pb-5">Add Transaction</h3>
         <form
-          onSubmit={
-            handleSubmit(onSubmit)
-          }
+          onSubmit={handleSubmit(onSubmit)}
           className="h-auto grid grid-cols-1 gap-3.5"
         >
           <label className="relative flex items-center">
@@ -95,7 +95,7 @@ const ModalAddTrans = () => {
           </label>
           <div className="flex justify-end items-center gap-3">
             <ButtonSecondary type="button" textButton="Cancel" />
-            <ButtonPrimary type="submit" textButton="Add" />
+            <ButtonPrimary type="submit" textButton="Add" isValid={isValid} />
           </div>
         </form>
       </div>
