@@ -19,7 +19,7 @@ const InputData = <T extends FieldValues>({
           <DatePicker
             label={placeholder}
             format="DD MMMM YYYY"
-            value={field.value ? dayjs(field.value) : null}
+            value={field.value ? dayjs(field.value) : dayjs(new Date())}
             onChange={(value) => {
               field.onChange(value?.format("YYYY-MM-DD") ?? "");
             }}
