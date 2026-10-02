@@ -13,6 +13,8 @@ import type {
   ITransactionForm,
   TOnSubmitFormTransaction,
 } from "@/types/transaction.types";
+import { useContext } from "react";
+import { ModalContext } from "@/context/ModalContext";
 
 const ModalAddTrans = () => {
   const {
@@ -20,16 +22,20 @@ const ModalAddTrans = () => {
     handleSubmit,
     control,
     formState: { errors },
+    reset,
   } = useForm<ITransactionForm>({
     mode: "all",
   });
   const { ACTIVE_USER_ID } = STORAGE_KEYS;
   const { addTransaction } = useActions();
+  const { setOpenModal } = useContext(ModalContext);
 
   const onSubmit: TOnSubmitFormTransaction = (data) => {
     data.idUser = getStorage(ACTIVE_USER_ID, "");
     data.valute = "dolar";
     addTransaction(data);
+    reset();
+    setOpenModal(false);
   };
 
   return (
@@ -37,7 +43,9 @@ const ModalAddTrans = () => {
       <div className="w-160 h-107.5 p-6 bg-[#ffffff] rounded-xl visible mx-1.5">
         <h3 className="text-2xl pb-5">Add Transaction</h3>
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={
+            handleSubmit(onSubmit)
+          }
           className="h-auto grid grid-cols-1 gap-3.5"
         >
           <label className="relative flex items-center">

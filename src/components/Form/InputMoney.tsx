@@ -90,7 +90,7 @@ const InputMoney = <T extends FieldValues>({
 
   const registerProps = register(name, {
     validate: (value) => {
-      if (type === "number" && value === '' ) {
+      if (type === "number" && value === '' && !/^[0-9]+$$/.test(value)) {
         return "This field is required";
       }
       return true;
