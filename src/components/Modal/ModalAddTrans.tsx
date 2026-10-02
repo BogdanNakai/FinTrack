@@ -9,16 +9,19 @@ import { useActions } from "@/hooks/useActions";
 import SelectForm from "../form/SelectForm";
 import { getStorage } from "@/services/localStorage";
 import { STORAGE_KEYS } from "@/services/storageKeys";
-import type { ITransactionForm, TOnSubmitFormTransaction } from "@/types/transaction.types";
-
+import type {
+  ITransactionForm,
+  TOnSubmitFormTransaction,
+} from "@/types/transaction.types";
 
 const ModalAddTrans = () => {
   const {
     register,
     handleSubmit,
     control,
+    formState: { errors },
   } = useForm<ITransactionForm>({
-    mode: "onChange",
+    mode: "all",
   });
   const { ACTIVE_USER_ID } = STORAGE_KEYS;
   const { addTransaction } = useActions();
@@ -46,6 +49,7 @@ const ModalAddTrans = () => {
               name="description"
               placeholder="Enter Description"
               type="text"
+              errors={errors.description}
             />
           </label>
           <label className="w-full">
@@ -54,6 +58,7 @@ const ModalAddTrans = () => {
               name="category"
               label="All Categories"
               control={control}
+              errors={errors.category}
             />
           </label>
           <label className="w-full">
@@ -62,6 +67,7 @@ const ModalAddTrans = () => {
               name="type"
               label="All Types"
               control={control}
+              errors={errors.type}
             />
           </label>
           <label className="max-w-full w-40">
@@ -70,6 +76,7 @@ const ModalAddTrans = () => {
               type="number"
               placeholder="Amount"
               register={register}
+              errors={errors.amount}
             />
           </label>
           <div className="flex justify-end items-center gap-3">

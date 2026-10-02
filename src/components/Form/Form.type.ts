@@ -38,6 +38,7 @@ export interface IPopapInput<T extends FieldValues> {
   name: Path<T>;
   placeholder: string;
   type: string;
+  errors?: FieldError | undefined;
 }
 
 export interface IMoneyInput<T extends FieldValues> {
@@ -45,6 +46,7 @@ export interface IMoneyInput<T extends FieldValues> {
   name: Path<T>;
   placeholder: string;
   type: string;
+  errors?: FieldError | undefined;
 }
 
 export interface IMonthInput {
@@ -70,6 +72,7 @@ export interface SelectFilterProps<T extends FieldValues> {
   label: string;
   control: Control<T>;
   options: ReadonlyArray<ISelectOption>;
+  errors?: FieldError | undefined;
 }
 
 export type TOnSubmitFormRegister = (data: IRegisterFormType) => void;
