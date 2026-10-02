@@ -37,6 +37,7 @@ const ModalAddTrans = () => {
   const onSubmit: TOnSubmitFormTransaction = (data) => {
     data.idUser = getStorage(ACTIVE_USER_ID, "");
     data.valute = "dolar";
+    data.idTransaction = `transaction_${Date.now()}`;
     addTransaction(data);
     reset();
     setOpenModal(false);

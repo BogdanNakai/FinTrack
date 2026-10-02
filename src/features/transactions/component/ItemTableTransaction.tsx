@@ -47,7 +47,7 @@ const ItemTableTransaction = () => {
               )}
             </div>
             <div className="text-[14px] font-normal flex-[0_1_8.3%] text-center">
-              <ButtonActions />
+              <ButtonActions idTransaction={e.idTransaction} />
             </div>
           </div>
         );
