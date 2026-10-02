@@ -1,44 +1,110 @@
 import { useId } from "react";
 import { FormControl, InputLabel, MenuItem } from "@mui/material";
 import Select from "@mui/material/Select";
-import type { SelectFilterProps } from "./Form.type";
 import { Controller, type FieldValues } from "react-hook-form";
+
+import type { SelectFilterProps } from "./Form.type";
+
+const COLORS = {
+  primary: "#00B894",
+  error: "#d32f2f",
+  text: "#64748B",
+  border: "#cbd5e1",
+  background: "#fff",
+  hoverBackground: "#f8fafc",
+} as const;
+
+const getFormControlStyles = (hasError: boolean) => {
+  const stateColor = hasError ? COLORS.error : COLORS.primary;
+
+  return {
+    "& .MuiInputLabel-root": {
+      color: hasError ? COLORS.error : COLORS.text,
+      "&.Mui-focused": {
+        color: stateColor,
+      },
+    },
+    "&:hover .MuiInputLabel-root": {
+      color: stateColor,
+    },
+    "& .MuiOutlinedInput-root": {
+      backgroundColor: COLORS.background,
+      "& .MuiSelect-select": {
+        color: COLORS.text,
+        fontSize: "14px",
+      },
+      "& .MuiSelect-icon": {
+        color: hasError ? COLORS.error : COLORS.text,
+        transition: "transform 0.2s ease-in-out, color 0.2s ease-in-out",
+      },
+      "& .MuiOutlinedInput-notchedOutline": {
+        borderColor: hasError ? COLORS.error : COLORS.border,
+        borderWidth: "1px",
+        transition: "border-color 0.2s ease-in-out",
+      },
+      "&:hover": {
+        backgroundColor: COLORS.hoverBackground,
+        "& .MuiSelect-select, & .MuiSelect-icon": {
+          color: stateColor,
+        },
+        "& .MuiOutlinedInput-notchedOutline": {
+          borderColor: stateColor,
+        },
+      },
+      "&.Mui-focused": {
+        backgroundColor: COLORS.background,
+        "& .MuiSelect-select, & .MuiSelect-icon": {
+          color: stateColor,
+        },
+        "& .MuiOutlinedInput-notchedOutline": {
+          borderColor: stateColor,
+          borderWidth: "2px",
+        },
+      },
+    },
+    "& .MuiInputLabel-root.Mui-error": {
+      color: COLORS.error,
+    },
+    "& .MuiOutlinedInput-root.Mui-error": {
+      "& .MuiSelect-icon": {
+        color: COLORS.error,
+      },
+      "& .MuiOutlinedInput-notchedOutline": {
+        borderColor: COLORS.error,
+      },
+    },
+  };
+};
 
 const SelectForm = <T extends FieldValues>({
   options,
   name,
   control,
   label,
+  errors,
 }: SelectFilterProps<T>) => {
   const selectId = useId();
+  const hasError = Boolean(errors);
 
   return (
     <FormControl
       fullWidth
+      required={!!errors}
+      error={hasError}
       size="small"
-      sx={{
-        // === 1. СТИЛІ ЛЕЙБЛА ===
-        "& .MuiInputLabel-root": {
-          color: "#64748b",
-          // При фокусі робимо лейбл зеленим
-          "&.Mui-focused": {
-            color: "#00B894 !important",
-          },
-        },
-        // Зелений лейбл при наведенні (Hover)
-        "&:hover .MuiInputLabel-root": {
-          color: "#00B894 !important",
-        },
-        // Зелена стрілка при наведенні на FormControl
-        "&:hover .MuiSelect-icon": {
-          color: "#00B894 !important",
-        },
-      }}
+      sx={getFormControlStyles(hasError)}
     >
       <InputLabel id={`${selectId}-label`}>{label}</InputLabel>
       <Controller
         name={name}
         control={control}
+        rules={{
+          required: "This field is required",
+          pattern: {
+            value: /^[\s\S]+$/,
+            message: "Please select an option",
+          },
+        }}
         render={({ field }) => (
           <Select
             {...field}
@@ -63,58 +129,13 @@ const SelectForm = <T extends FieldValues>({
                 <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
               </svg>
             )}
-            sx={{
-              backgroundColor: "#fff",
-
-              // === 2. ТЕКСТ ОБРАНОГО ЗНАЧЕННЯ ===
-              "& .MuiSelect-select": {
-                color: "#64748B !important",
-                fontSize: "14px",
-              },
-
-              // === 3. БАЗОВИЙ БОРДЕР ===
-              "& .MuiOutlinedInput-notchedOutline, & fieldset": {
-                borderColor: "#cbd5e1 !important",
-                borderWidth: "1px !important",
-                transition: "border-color 0.2s ease-in-out",
-              },
-
-              // === 4. HOVER СТАН ===
-              "&:hover": {
-                backgroundColor: "#f8fafc",
-                "& .MuiOutlinedInput-notchedOutline, & fieldset": {
-                  borderColor: "#00B894 !important",
-                },
-              },
-
-              // === 5. FOCUS / ACTIVE СТАН (Бордер та зелена іконка) ===
-              "&.Mui-focused": {
-                backgroundColor: "#fff",
-                "& .MuiOutlinedInput-notchedOutline, & fieldset": {
-                  borderColor: "#00B894 !important",
-                  borderWidth: "1px !important",
-                },
-                "& .MuiSelect-icon": {
-                  color: "#00B894 !important", // Іконка залишається зеленою при фокусі
-                },
-              },
-
-              // === 6. ІКОНКА СТРІЛКИ ===
-              "& .MuiSelect-icon": {
-                color: "#64748b",
-                right: "10px",
-                transition:
-                  "transform 0.2s ease-in-out, color 0.2s ease-in-out",
-              },
-            }}
-            // === 7. СТИЛІЗАЦІЯ ВИПАДАЮЧОГО СПИСКУ ===
             MenuProps={{
               slotProps: {
                 paper: {
                   sx: {
                     marginTop: "4px",
                     borderRadius: "8px",
-                    boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.08)",
+                    boxShadow: "0px 4px 20px rgba(0, 0,0,0.08)",
                     "& .MuiMenuItem-root": {
                       fontSize: "14px",
                       padding: "10px 16px",
@@ -125,7 +146,7 @@ const SelectForm = <T extends FieldValues>({
                         backgroundColor: "#8BD9C9",
                         color: "#fff",
                         "&:hover": {
-                          backgroundColor: "#00B894",
+                          backgroundColor: COLORS.primary,
                         },
                       },
                     },
