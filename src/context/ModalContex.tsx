@@ -7,6 +7,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
   const [openModalMessageSuccess, setOpenModalMessageSuccess] = useState(false);
   const [openModalMessageFailed, setOpenModalMessageFailed] = useState(false);
   const [openModalMessageDelete, setOpenModalMessageDelete] = useState(false);
+  const [openModalTransactionChanges, setOpenModalTransactionChanges] = useState(false);
   const [idTransaction, setIdTransaction] = useState('');
 
   setTimeout(() => {
@@ -37,6 +38,8 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
     setOpenModalMessageDelete,
     idTransaction,
     setIdTransaction,
+    openModalTransactionChanges,
+    setOpenModalTransactionChanges,
   };
 
   return (

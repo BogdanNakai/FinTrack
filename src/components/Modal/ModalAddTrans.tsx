@@ -16,12 +16,21 @@ import type {
 import { useContext } from "react";
 import { ModalContext } from "@/context/ModalContext";
 import dayjs from "dayjs";
+import { useAppSelector } from "@/app/hooks";
 
 const ModalAddTrans = () => {
   const { ACTIVE_USER_ID } = STORAGE_KEYS;
-  const { addTransaction } = useActions();
-  const { setOpenModalTransactions, setOpenModalMessageSuccess } =
-    useContext(ModalContext);
+  const { addTransaction, editTransaction } = useActions();
+  const {
+    setOpenModalTransactions,
+    setOpenModalMessageSuccess,
+    openModalTransactionChanges,
+    setOpenModalTransactionChanges,
+    idTransaction,
+  } = useContext(ModalContext);
+  const transactions = useAppSelector(
+    (state) => state.transactions.transactions,
+  ).filter((transaction) => transaction.idTransaction === idTransaction);
 
   const {
     register,
@@ -29,6 +38,7 @@ const ModalAddTrans = () => {
     control,
     formState: { errors, isValid },
     reset,
+    setValue,
   } = useForm<ITransactionForm>({
     mode: "onSubmit",
     defaultValues: {
@@ -36,15 +46,38 @@ const ModalAddTrans = () => {
     },
   });
 
+  const isChengedTransaction = () => {
+    if (openModalTransactionChanges) {
+      setValue("category", transactions[0].category);
+      setValue("date", transactions[0].date);
+      setValue("description", transactions[0].description);
+      setValue("amount", transactions[0].amount);
+      setValue("type", transactions[0].type);
+    }
+    return null;
+  };
+
   const onSubmit: TOnSubmitFormTransaction = (data) => {
-    data.idUser = getStorage(ACTIVE_USER_ID, "");
-    data.valute = "dolar";
-    data.idTransaction = `transaction_${Date.now()}`;
-    addTransaction(data);
+    if (!openModalTransactionChanges) {
+      data.idUser = getStorage(ACTIVE_USER_ID, "");
+      data.valute = "dolar";
+      data.idTransaction = `transaction_${Date.now()}`;
+      addTransaction(data);
+    } else {
+      data.idUser = getStorage(ACTIVE_USER_ID, "");
+      data.valute = "dolar";
+      data.idTransaction = openModalTransactionChanges
+        ? transactions[0].idTransaction
+        : `transaction_${Date.now()}`;
+      editTransaction(data);
+    }
     reset();
     setOpenModalTransactions(false);
     setOpenModalMessageSuccess(true);
+    setOpenModalTransactionChanges(false);
   };
+
+  isChengedTransaction();
 
   return (
     <div className="fixed z-100 top-0 left-0 w-full h-full bg-[#0000003e] flex justify-center items-center">

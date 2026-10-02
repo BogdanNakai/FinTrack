@@ -32,6 +32,12 @@ export const transactionsSlice = createSlice({
       setStorage(TRANSACTIONS, state.transactions);
     },
     editTransaction: (state, action: PayloadAction<ITransactionForm>) => {
+      state.transactions = state.transactions.map((transaction) =>
+        transaction.idTransaction === action.payload.idTransaction
+          ? action.payload
+          : transaction,
+      );
+      setStorage(TRANSACTIONS, state.transactions);
     }
   },
 });

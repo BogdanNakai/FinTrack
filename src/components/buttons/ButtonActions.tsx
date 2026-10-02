@@ -9,6 +9,7 @@ const ButtonActions = ({ idTransaction }: { idTransaction: string }) => {
     setOpenModalMessageDelete,
     setIdTransaction,
     blockScroll,
+    setOpenModalTransactionChanges,
   } = useContext(ModalContext);
 
   return (
@@ -17,7 +18,9 @@ const ButtonActions = ({ idTransaction }: { idTransaction: string }) => {
         type="button"
         className="bg-[#F5C644] w-9 h-9 rounded-full flex justify-center items-center"
         onClick={() => {
+          setOpenModalTransactionChanges(true);
           setOpenModalTransactions(true);
+          setIdTransaction(idTransaction);
           blockScroll();
         }}
       >

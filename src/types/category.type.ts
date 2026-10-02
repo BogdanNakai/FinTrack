@@ -10,9 +10,10 @@ export type TCategory =
   | "Food & Dining"
   | "Entertainment"
   | "Education"
-  | "Others";
+  | "Others"
+  | undefined;
 
-export type TType = "Income" | "Expense";
+export type TType = "Income" | "Expense" | undefined;
 
 export type TStatusGoal = "Ongoing" | "Completed";
 

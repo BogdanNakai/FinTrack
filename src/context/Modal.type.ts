@@ -10,6 +10,8 @@ export interface IModalProps {
   setOpenModalMessageDelete: (isOpen: boolean) => void;
   idTransaction: string;
   setIdTransaction: (id: string) => void;
+  openModalTransactionChanges: boolean;
+  setOpenModalTransactionChanges: (isOpen: boolean) => void;
 }
 
 export type ContextProviderProps = {
