@@ -15,6 +15,7 @@ import type {
 } from "@/types/transaction.types";
 import { useContext } from "react";
 import { ModalContext } from "@/context/ModalContext";
+import dayjs from "dayjs";
 
 const ModalAddTrans = () => {
   const {
@@ -25,6 +26,9 @@ const ModalAddTrans = () => {
     reset,
   } = useForm<ITransactionForm>({
     mode: "all",
+    defaultValues: {
+      date: dayjs().format("YYYY-MM-DD"),
+    },
   });
   const { ACTIVE_USER_ID } = STORAGE_KEYS;
   const { addTransaction } = useActions();
