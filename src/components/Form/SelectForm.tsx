@@ -5,77 +5,6 @@ import { Controller, type FieldValues } from "react-hook-form";
 
 import type { SelectFilterProps } from "./Form.type";
 
-const COLORS = {
-  primary: "#00B894",
-  error: "#d32f2f",
-  text: "#64748B",
-  border: "#cbd5e1",
-  background: "#fff",
-  hoverBackground: "#f8fafc",
-} as const;
-
-const getFormControlStyles = (hasError: boolean) => {
-  const stateColor = hasError ? COLORS.error : COLORS.primary;
-
-  return {
-    "& .MuiInputLabel-root": {
-      color: hasError ? COLORS.error : COLORS.text,
-      "&.Mui-focused": {
-        color: stateColor,
-      },
-    },
-    "&:hover .MuiInputLabel-root": {
-      color: stateColor,
-    },
-    "& .MuiOutlinedInput-root": {
-      backgroundColor: COLORS.background,
-      "& .MuiSelect-select": {
-        color: COLORS.text,
-        fontSize: "14px",
-      },
-      "& .MuiSelect-icon": {
-        color: hasError ? COLORS.error : COLORS.text,
-        transition: "transform 0.2s ease-in-out, color 0.2s ease-in-out",
-      },
-      "& .MuiOutlinedInput-notchedOutline": {
-        borderColor: hasError ? COLORS.error : COLORS.border,
-        borderWidth: "1px",
-        transition: "border-color 0.2s ease-in-out",
-      },
-      "&:hover": {
-        backgroundColor: COLORS.hoverBackground,
-        "& .MuiSelect-select, & .MuiSelect-icon": {
-          color: stateColor,
-        },
-        "& .MuiOutlinedInput-notchedOutline": {
-          borderColor: stateColor,
-        },
-      },
-      "&.Mui-focused": {
-        backgroundColor: COLORS.background,
-        "& .MuiSelect-select, & .MuiSelect-icon": {
-          color: stateColor,
-        },
-        "& .MuiOutlinedInput-notchedOutline": {
-          borderColor: stateColor,
-          borderWidth: "2px",
-        },
-      },
-    },
-    "& .MuiInputLabel-root.Mui-error": {
-      color: COLORS.error,
-    },
-    "& .MuiOutlinedInput-root.Mui-error": {
-      "& .MuiSelect-icon": {
-        color: COLORS.error,
-      },
-      "& .MuiOutlinedInput-notchedOutline": {
-        borderColor: COLORS.error,
-      },
-    },
-  };
-};
-
 const SelectForm = <T extends FieldValues>({
   options,
   name,
@@ -92,7 +21,6 @@ const SelectForm = <T extends FieldValues>({
       required={!!errors}
       error={hasError}
       size="small"
-      sx={getFormControlStyles(hasError)}
     >
       <InputLabel id={`${selectId}-label`}>{label}</InputLabel>
       <Controller
@@ -146,7 +74,7 @@ const SelectForm = <T extends FieldValues>({
                         backgroundColor: "#8BD9C9",
                         color: "#fff",
                         "&:hover": {
-                          backgroundColor: COLORS.primary,
+                          backgroundColor: "primary.main",
                         },
                       },
                     },

@@ -8,7 +8,6 @@ const Input = ({
   register,
   errors,
 }: IInput<IRegisterFormType | ILoginFormType>) => {
-  
   const { onChange, ...registerProps } = register(name, {
     required: `Please enter ${name} `,
     validate: (value) => {
@@ -30,60 +29,7 @@ const Input = ({
         size="small"
         fullWidth
         error={!!errors}
-        sx={{
-          width: "100%", // або "300px", "50%" тощо
-          minWidth: "100px",
-          maxWidth: "100%", // якщо потрібно о
-
-          // 1. ЛЕЙБЛ
-          "& .MuiInputLabel-root": {
-            color: "#64748b",
-            fontSize: "14px",
-            "&.MuiInputLabel-shrink": {
-              backgroundColor: "#fff",
-              padding: "0 6px",
-            },
-          },
-
-          // 3. ЗВИЧАЙНИЙ БОРДЕР
-          "& .MuiOutlinedInput-notchedOutline, & fieldset": {
-            borderColor: "#cbd5e1 !important",
-            borderWidth: "1px !important",
-            transition: "border-color 0.2s ease-in-out",
-          },
-
-          // 4. БОРДЕР ПРИ НАВЕДЕННІ (Hover)
-          "&:hover .MuiOutlinedInput-notchedOutline, &:hover fieldset": {
-            borderColor: "#00B894 !important",
-          },
-
-          // 5. БОРДЕР ПРИ ФОКУСІ / ВІДКРИТТІ
-          "& .Mui-focused .MuiOutlinedInput-notchedOutline, & .MuiOutlinedInput-root.Mui-focused fieldset":
-            {
-              borderColor: "#00B894 !important",
-              borderWidth: "1px !important",
-            },
-
-          // === ЗАГАЛЬНИЙ HOVER ДЛЯ ВСІХ ЕЛЕМЕНТІВ ІНПУТА ===
-          "&:hover": {
-            // Зелений лейбл при наведенні
-            "& .MuiInputLabel-root": {
-              color: "#00B894 !important",
-            },
-            // ЗЕЛЕНА ІКОНКА СТРІЛКИ ПРИ НАВЕДЕННІ
-            "& .MuiInputAdornment-root svg": {
-              fill: "#00B894",
-            },
-          },
-
-          "& .Mui-focused": {
-            color: "#00B894 !important",
-            "& .MuiInputAdornment-root svg": {
-              fill: "#00B894",
-            },
-          },
-        }}
-        {...registerProps}
+                {...registerProps}
         onChange={onChange}
         slotProps={{
           input: {

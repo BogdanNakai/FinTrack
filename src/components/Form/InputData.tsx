@@ -41,10 +41,6 @@ const InputData = <T extends FieldValues>({
                 onBlur: field.onBlur,
                 fullWidth: true,
                 size: "small",
-                sx: {
-                  borderRadius: 10,
-                  minWidth: 300,
-                },
               },
             }}
           />

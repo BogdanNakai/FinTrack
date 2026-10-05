@@ -13,7 +13,7 @@ import type {
   ITransactionForm,
   TOnSubmitFormTransaction,
 } from "@/types/transaction.types";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ModalContext } from "@/context/ModalContext";
 import dayjs from "dayjs";
 import { useAppSelector } from "@/app/hooks";
@@ -27,10 +27,13 @@ const ModalAddTrans = () => {
     openModalTransactionChanges,
     setOpenModalTransactionChanges,
     idTransaction,
+    blockScroll,
   } = useContext(ModalContext);
   const transactions = useAppSelector(
     (state) => state.transactions.transactions,
   ).filter((transaction) => transaction.idTransaction === idTransaction);
+  const transaction = transactions[0];
+
 
   const {
     register,
@@ -38,21 +41,12 @@ const ModalAddTrans = () => {
     control,
     formState: { errors, isValid },
     reset,
-    setValue,
   } = useForm<ITransactionForm>({
     mode: "onSubmit",
     defaultValues: {
       date: dayjs().format("YYYY-MM-DD"),
     },
   });
-
-  if (openModalTransactionChanges) {
-    setValue("category", transactions[0].category);
-    setValue("date", transactions[0].date);
-    setValue("description", transactions[0].description);
-    setValue("amount", transactions[0].amount);
-    setValue("type", transactions[0].type);
-  }
 
   const onSubmit: TOnSubmitFormTransaction = (data) => {
     if (!openModalTransactionChanges) {
@@ -72,7 +66,18 @@ const ModalAddTrans = () => {
     setOpenModalTransactions(false);
     setOpenModalMessageSuccess(true);
     setOpenModalTransactionChanges(false);
+    blockScroll();
   };
+
+  useEffect(() => {
+    reset({
+      category: transaction?.category,
+      date: transaction?.date,
+      description: transaction?.description,
+      amount: transaction?.amount,
+      type: transaction?.type,
+    });
+  }, [openModalTransactionChanges]);
 
   return (
     <div className="fixed z-100 top-0 left-0 w-full h-full bg-[#0000003e] flex justify-center items-center">

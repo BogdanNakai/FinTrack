@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { ContextProviderProps, IModalProps } from "./Modal.type";
 import { ModalContext } from "./ModalContext";
 
@@ -10,21 +10,24 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
   const [openModalTransactionChanges, setOpenModalTransactionChanges] = useState(false);
   const [idTransaction, setIdTransaction] = useState('');
 
+  const isBlocke =
+    openModalTransactions ||
+    openModalMessageFailed ||
+    openModalMessageDelete;
+  
+  const blockScroll = () => {
+    if (!isBlocke) {
+      document.body.style.overflow = "hidden";
+    } else { 
+      document.body.style.overflow = "auto";
+    }
+  };
+
   setTimeout(() => {
     if (openModalMessageSuccess) {
       setOpenModalMessageSuccess(false);
     }
   }, 3000);
-
-  const isBlocke = openModalTransactions || openModalMessageSuccess || openModalMessageFailed || openModalMessageDelete;
-
-  const blockScroll = () => {
-    if (!isBlocke) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  };
 
   const value: IModalProps = {
     openModalTransactions,

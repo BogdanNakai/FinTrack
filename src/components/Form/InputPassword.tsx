@@ -59,64 +59,6 @@ const InputPassword = ({
           label={placeholder}
           size="small"
           error={!!errors}
-          sx={{
-            width: "100%", // або "300px", "50%" тощо
-            minWidth: "100px",
-            maxWidth: "100%", // якщо потрібно о
-
-            // 1. ЛЕЙБЛ
-            "& .MuiInputLabel-root": {
-              color: "#64748b",
-              fontSize: "14px",
-              "&.MuiInputLabel-shrink": {
-                backgroundColor: "#fff",
-                padding: "0 6px",
-              },
-            },
-
-            // 3. ЗВИЧАЙНИЙ БОРДЕР
-            "& .MuiOutlinedInput-notchedOutline, & fieldset": {
-              borderColor: "#cbd5e1 !important",
-              borderWidth: "1px !important",
-              transition: "border-color 0.2s ease-in-out",
-            },
-
-            // 4. БОРДЕР ПРИ НАВЕДЕННІ (Hover)
-            "&:hover .MuiOutlinedInput-notchedOutline, &:hover fieldset": {
-              borderColor: "#00B894 !important",
-            },
-
-            // 5. БОРДЕР ПРИ ФОКУСІ / ВІДКРИТТІ
-            "& .Mui-focused .MuiOutlinedInput-notchedOutline, & .MuiOutlinedInput-root.Mui-focused fieldset":
-              {
-                borderColor: "#00B894 !important",
-                borderWidth: "1px !important",
-              },
-
-            // === ЗАГАЛЬНИЙ HOVER ДЛЯ ВСІХ ЕЛЕМЕНТІВ ІНПУТА ===
-            "&:hover": {
-              "& .icon-visible": {
-                stroke: "#00B894",
-              },
-              "& .icon-noVisible": {
-                fill: "#00B894",
-              },
-              // Зелений лейбл при наведенні
-              "& .MuiInputLabel-root": {
-                color: "#00B894 !important",
-              },
-            },
-
-            "& .Mui-focused": {
-              color: "#00B894 !important",
-              "& .icon-visible": {
-                stroke: "#00B894",
-              },
-              "& .icon-noVisible": {
-                fill: "#00B894",
-              },
-            },
-          }}
           slotProps={{
             input: {
               endAdornment: (
