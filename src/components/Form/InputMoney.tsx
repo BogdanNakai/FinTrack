@@ -14,7 +14,6 @@ const InputMoney = <T extends FieldValues>({
   register,
   errors,
 }: IMoneyInput<T>) => {
-
   const COLORS = {
     primary: "#00B894",
     error: "#d32f2f",
@@ -89,12 +88,23 @@ const InputMoney = <T extends FieldValues>({
   const hasError = Boolean(errors);
 
   const registerProps = register(name, {
-    validate: (value) => {
-      if (type === "number" && value === '' && !/^[0-9]+$$/.test(value)) {
-        return "This field is required";
-      }
-      return true;
-    }
+    max: {
+      value: 1_000_000,
+      message: "Value exceeds the maximum limit",
+    },
+    min: {
+      value: 1.0,
+      message: "Value must be greater than or equal to 1",
+    },
+    valueAsNumber: true,
+    validate: {
+      validNumber: (value) =>
+        Number.isFinite(value) || "Enter the correct number",
+
+      precision: (value) =>
+        Math.abs(value * 100 - Math.round(value * 100)) < 0.000001 ||
+        "A maximum of two digits after the period is allowed",
+    },
   });
   return (
     <>
@@ -104,10 +114,9 @@ const InputMoney = <T extends FieldValues>({
         variant="outlined"
         sx={getFormControlStyles(hasError)}
       >
-        <InputLabel htmlFor={name}>
-          {placeholder}
-        </InputLabel>
+        <InputLabel htmlFor={name}>{placeholder}</InputLabel>
         <OutlinedInput
+          inputProps={{ step: 0.01 }}
           error={!!errors}
           {...registerProps}
           id={name}
