@@ -34,7 +34,6 @@ const ModalAddTrans = () => {
   ).filter((transaction) => transaction.idTransaction === idTransaction);
   const transaction = transactions[0];
 
-
   const {
     register,
     handleSubmit,
@@ -49,12 +48,15 @@ const ModalAddTrans = () => {
   });
 
   const onSubmit: TOnSubmitFormTransaction = (data) => {
+    console.log(data);
+
     if (!openModalTransactionChanges) {
       data.idUser = getStorage(ACTIVE_USER_ID, "");
       data.valute = "dolar";
       data.idTransaction = `transaction_${Date.now()}`;
       addTransaction(data);
     } else {
+      if (!transaction) return;
       data.idUser = getStorage(ACTIVE_USER_ID, "");
       data.valute = "dolar";
       data.idTransaction = openModalTransactionChanges
@@ -70,14 +72,18 @@ const ModalAddTrans = () => {
   };
 
   useEffect(() => {
-    reset({
-      category: transaction?.category,
-      date: transaction?.date,
-      description: transaction?.description,
-      amount: transaction?.amount,
-      type: transaction?.type,
-    });
-  }, [openModalTransactionChanges]);
+    if (openModalTransactionChanges) {
+      if (!transaction) return;
+      reset({
+        category: transaction?.category,
+        date: transaction?.date,
+        description: transaction?.description,
+        amount: transaction?.amount,
+        type: transaction?.type,
+      });
+      return;
+    }
+  }, [openModalTransactionChanges, reset, transaction]);
 
   return (
     <div className="fixed z-100 top-0 left-0 w-full h-full bg-[#0000003e] flex justify-center items-center">

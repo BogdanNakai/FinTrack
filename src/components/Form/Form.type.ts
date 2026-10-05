@@ -31,6 +31,7 @@ export interface IDataInput<T extends FieldValues> {
   control: Control<T>;
   name: Path<T>;
   placeholder?: string;
+  includeTime?: boolean;
 }
 
 export interface IPopapInput<T extends FieldValues> {

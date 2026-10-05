@@ -175,7 +175,8 @@ export const heroBalance = [
 export const moneyFormatter = new Intl.NumberFormat("en-IN", {
   style: "currency",
   currency: "INR",
-  maximumFractionDigits: 0,
+  currencySign: "accounting",
+  maximumFractionDigits: 1,
 });
 
 export const getCategoryLabel = (category: TCategory) =>
