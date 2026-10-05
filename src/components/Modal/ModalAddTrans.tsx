@@ -46,16 +46,13 @@ const ModalAddTrans = () => {
     },
   });
 
-  const isChengedTransaction = () => {
-    if (openModalTransactionChanges) {
-      setValue("category", transactions[0].category);
-      setValue("date", transactions[0].date);
-      setValue("description", transactions[0].description);
-      setValue("amount", transactions[0].amount);
-      setValue("type", transactions[0].type);
-    }
-    return null;
-  };
+  if (openModalTransactionChanges) {
+    setValue("category", transactions[0].category);
+    setValue("date", transactions[0].date);
+    setValue("description", transactions[0].description);
+    setValue("amount", transactions[0].amount);
+    setValue("type", transactions[0].type);
+  }
 
   const onSubmit: TOnSubmitFormTransaction = (data) => {
     if (!openModalTransactionChanges) {
@@ -67,7 +64,7 @@ const ModalAddTrans = () => {
       data.idUser = getStorage(ACTIVE_USER_ID, "");
       data.valute = "dolar";
       data.idTransaction = openModalTransactionChanges
-        ? transactions[0].idTransaction
+        ? transactions[0]?.idTransaction
         : `transaction_${Date.now()}`;
       editTransaction(data);
     }
@@ -76,8 +73,6 @@ const ModalAddTrans = () => {
     setOpenModalMessageSuccess(true);
     setOpenModalTransactionChanges(false);
   };
-
-  isChengedTransaction();
 
   return (
     <div className="fixed z-100 top-0 left-0 w-full h-full bg-[#0000003e] flex justify-center items-center">
