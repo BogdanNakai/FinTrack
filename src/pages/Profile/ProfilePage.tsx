@@ -11,7 +11,7 @@ const ProfilePage = () => {
         <section className="py-[47px]">
           <div className="profile__container">
             <div>
-              <h2 className="font-[Poppins] text-2xl text-[#1E293B] tracking-[0.02em] font-medium pb-[30px]">
+              <h2 className="font-sans text-2xl text-[#1E293B] tracking-[0.02em] font-medium pb-[30px]">
                 My Profile
               </h2>
               <div className="flex items-start flex-wrap gap-5 justify-center">

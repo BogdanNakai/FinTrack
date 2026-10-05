@@ -7,8 +7,8 @@
   --breakpoint-tablet: 768px;
   --breakpoint-laptop: 1024px;
   --breakpoint-desktop: 1440px;
+  --font-sans: "Inter", sans-serif;
 }
-
 
 [class*="container"] {
   margin: 0 auto;
@@ -17,10 +17,9 @@
 }
 
 body {
-  font-family: "Inter",
-    sans-serif;
-    height: 100vh;
-    background: #F8FAFC;
+  font-family: var(--font-sans);
+  height: 100vh;
+  background: #F8FAFC;
 }
 
 [data-fls-menu-open] body {

@@ -33,7 +33,7 @@ const TransactionsPage = () => {
         <section className="pt-12">
           <div className="herro__container">
             <div className="flex flex-wrap gap-3 justify-between pb-6">
-              <h2 className="font-[Poppins] text-[20px] md:text-2xl text-[#1E293B] tracking-[0.02em] font-medium ">
+              <h2 className="font-sans text-[20px] md:text-2xl text-[#1E293B] tracking-[0.02em] font-medium ">
                 Transactions
               </h2>
               <ButtonPrimaryActions

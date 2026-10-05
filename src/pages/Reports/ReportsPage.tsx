@@ -27,7 +27,7 @@ const ReportsPage = () => {
           <div className="reports__container">
             <div className="grid gap-[12px]">
               <div className="flex items-center flex-wrap gap-2.5 justify-between py-[24px]">
-                <h2 className="font-[Poppins] text-2xl text-[#1E293B] tracking-[0.02em] font-medium ">
+                <h2 className="font-sans text-2xl text-[#1E293B] tracking-[0.02em] font-medium ">
                   Reports / Analytics
                 </h2>
                 <ButtonPrimary type="button" textButton="Export" />

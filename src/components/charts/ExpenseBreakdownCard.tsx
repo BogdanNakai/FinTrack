@@ -12,6 +12,7 @@ import type { MyComponentProps } from "./Charts.types";
 
 
 ChartJS.register(ArcElement, Tooltip);
+ChartJS.defaults.font.family = '"Inter", sans-serif';
 
 const options: ChartOptions<"pie"> = {
   responsive: true,
@@ -96,7 +97,7 @@ const ExpenseBreakdownCard: React.FC<MyComponentProps> = ({
 
         ctx.save();
         ctx.fillStyle = "#ffffff";
-        ctx.font = "600 14px system-ui, -apple-system, sans-serif";
+        ctx.font = '600 14px "Inter", sans-serif';
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
 

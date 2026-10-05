@@ -32,7 +32,7 @@ const BudgetPage = () => {
             <div className="grid gap-[12px]">
               <div className="flex items-center justify-between py-[24px] flex-wrap gap-1.5">
                 <div>
-                  <h2 className="font-[Poppins] text-[20px] md:text-2xl text-[#1E293B] tracking-[0.02em] font-medium pb-[10px]">
+                  <h2 className="font-sans text-[20px] md:text-2xl text-[#1E293B] tracking-[0.02em] font-medium pb-[10px]">
                     Budget Planner
                   </h2>
                   <p className="text-[#64748B] text-[12px] md:text-[14px]">

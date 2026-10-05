@@ -28,7 +28,7 @@ const GoalsPage = () => {
             <div className="grid gap-[12px]">
               <div className="flex items-center flex-wrap justify-between gap-2.5 py-[24px]">
                 <div>
-                  <h2 className="font-[Poppins] text-2xl text-[#1E293B] tracking-[0.02em] font-medium pb-[10px]">
+                  <h2 className="font-sans text-2xl text-[#1E293B] tracking-[0.02em] font-medium pb-[10px]">
                     Financial Goals
                   </h2>
                   <p className="text-[#64748B] text-[14px]">
