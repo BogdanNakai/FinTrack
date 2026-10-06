@@ -10,8 +10,7 @@ export type TCategory =
   | "Food & Dining"
   | "Entertainment"
   | "Education"
-  | "Others"
-  | undefined;
+  | "Others";
 
 export type TType = "Income" | "Expense" | undefined;
 
