@@ -176,7 +176,7 @@ export const moneyFormatter = new Intl.NumberFormat("en-IN", {
   style: "currency",
   currency: "INR",
   currencySign: "accounting",
-  maximumFractionDigits: 1,
+  maximumFractionDigits: 0,
 });
 
 export const getCategoryLabel = (category: TCategory) =>

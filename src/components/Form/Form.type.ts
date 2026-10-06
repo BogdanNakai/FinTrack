@@ -48,6 +48,7 @@ export interface IMoneyInput<T extends FieldValues> {
   placeholder: string;
   type: string;
   errors?: FieldError | undefined;
+  isExpense?: boolean;
 }
 
 export interface IMonthInput {

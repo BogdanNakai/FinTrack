@@ -4,7 +4,7 @@ import ButtonSecondary from "../buttons/ButtonSecondary";
 import InputData from "../form/InputData";
 import InputMoney from "../form/InputMoney";
 import InputPopap from "../form/InputPopap";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { useActions } from "@/hooks/useActions";
 import SelectForm from "../form/SelectForm";
 import { getStorage } from "@/services/localStorage";
@@ -48,8 +48,6 @@ const ModalAddTrans = () => {
   });
 
   const onSubmit: TOnSubmitFormTransaction = (data) => {
-    console.log(data);
-
     if (!openModalTransactionChanges) {
       data.idUser = getStorage(ACTIVE_USER_ID, "");
       data.valute = "dolar";
@@ -70,6 +68,8 @@ const ModalAddTrans = () => {
     setOpenModalTransactionChanges(false);
     blockScroll();
   };
+
+  const transactionType = useWatch({ control, name: "type" });
 
   useEffect(() => {
     if (openModalTransactionChanges) {
@@ -130,6 +130,7 @@ const ModalAddTrans = () => {
               placeholder="Amount"
               register={register}
               errors={errors.amount}
+              isExpense={transactionType === "Expense"}
             />
           </label>
           <div className="flex justify-end items-center gap-3">

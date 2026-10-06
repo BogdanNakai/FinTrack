@@ -13,15 +13,15 @@ const InputMoney = <T extends FieldValues>({
   type,
   register,
   errors,
+  isExpense = false,
 }: IMoneyInput<T>) => {
-
   const registerProps = register(name, {
     max: {
       value: 1_000_000,
       message: "Value exceeds the maximum limit",
     },
     min: {
-      value: 1.0,
+      value: 0.01,
       message: "Value must be greater than or equal to 1",
     },
     valueAsNumber: true,
@@ -34,6 +34,7 @@ const InputMoney = <T extends FieldValues>({
         "A maximum of two digits after the period is allowed",
     },
   });
+
   return (
     <>
       <FormControl
@@ -50,6 +51,11 @@ const InputMoney = <T extends FieldValues>({
           id={name}
           type={type}
           label={placeholder}
+          startAdornment={
+            isExpense ? (
+              <InputAdornment position="start">−</InputAdornment>
+            ) : undefined
+          }
           endAdornment={<InputAdornment position="end">₹</InputAdornment>}
         />
       </FormControl>
