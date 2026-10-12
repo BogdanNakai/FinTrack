@@ -12,6 +12,8 @@ export interface IModalProps {
   setIdTransaction: (id: string) => void;
   openModalTransactionChanges: boolean;
   setOpenModalTransactionChanges: (isOpen: boolean) => void;
+  curentPageTransactions: number;
+  setCurentPageTransactions: (isOpen: number) => void;
 }
 
 export type ContextProviderProps = {

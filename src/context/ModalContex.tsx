@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import type { ContextProviderProps, IModalProps } from "./Modal.type";
 import { ModalContext } from "./ModalContext";
 
@@ -9,6 +9,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
   const [openModalMessageDelete, setOpenModalMessageDelete] = useState(false);
   const [openModalTransactionChanges, setOpenModalTransactionChanges] = useState(false);
   const [idTransaction, setIdTransaction] = useState('');
+  const [curentPageTransactions, setCurentPageTransactions] = useState(1);
 
   const isBlocke =
     openModalTransactions ||
@@ -43,6 +44,8 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
     setIdTransaction,
     openModalTransactionChanges,
     setOpenModalTransactionChanges,
+    curentPageTransactions,
+    setCurentPageTransactions,
   };
 
   return (

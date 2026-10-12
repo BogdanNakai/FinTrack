@@ -11,8 +11,10 @@ export const ModalContext = createContext<IModalProps>({
   setOpenModalMessageFailed: () => undefined,
   openModalMessageDelete: false,
   setOpenModalMessageDelete: () => undefined,
-  idTransaction: '',
+  idTransaction: "",
   setIdTransaction: () => undefined,
   openModalTransactionChanges: false,
   setOpenModalTransactionChanges: () => undefined,
+  curentPageTransactions: 1,
+  setCurentPageTransactions: () => undefined,
 });

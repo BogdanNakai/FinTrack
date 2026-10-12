@@ -4,16 +4,22 @@ import { moneyFormatter } from "@/context/AppContext";
 import { useAppSelector } from "@/app/hooks";
 import { getStorage } from "@/services/localStorage";
 import { STORAGE_KEYS } from "@/services/storageKeys";
+import { useContext } from "react";
+import { ModalContext } from "@/context/ModalContext";
 
 const ItemTableTransaction = () => {
-  const idUser = getStorage(STORAGE_KEYS.ACTIVE_USER_ID, "");
+  const idUser = getStorage(STORAGE_KEYS.ACTIVE_USER_ID, ""); 
   const transactions = useAppSelector(
     (state) => state.transactions.transactions,
   ).filter((transaction) => transaction.idUser === idUser);
+  const { curentPageTransactions} = useContext(ModalContext)
+  const perPage = 8;
+  const start = (curentPageTransactions - 1) * perPage;
+  const visibleTrans = transactions.slice(start, start + perPage) 
 
   return (
     <>
-      {transactions.map((e, i) => {
+      {visibleTrans.map((e, i) => {
         return (
           <div
             key={i}

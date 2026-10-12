@@ -1,3 +1,4 @@
+import { useAppSelector } from "@/app/hooks";
 import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryActions";
 import ButtonsActionsList from "@/components/buttons/ButtonsActionsList";
 import FilterSelect from "@/components/form/FilterSelect";
@@ -13,6 +14,8 @@ import { ModalContext } from "@/context/ModalContext";
 import TableTransaction from "@/features/transactions/component/TableTransaction";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
+import { getStorage } from "@/services/localStorage";
+import { STORAGE_KEYS } from "@/services/storageKeys";
 import { useContext, useState } from "react";
 
 const TransactionsPage = () => {
@@ -22,9 +25,13 @@ const TransactionsPage = () => {
     openModalMessageFailed,
     openModalMessageDelete,
   } = useContext(ModalContext);
+  const idUser = getStorage(STORAGE_KEYS.ACTIVE_USER_ID, "");
   const [dateRange, setDateRange] = useState("");
   const [transactionType, setTransactionType] = useState("");
   const [sortOrder, setSortOrder] = useState("");
+  const transactions = useAppSelector(
+    (state) => state.transactions.transactions,
+  ).filter((transaction) => transaction.idUser === idUser);
 
   return (
     <>
@@ -74,7 +81,7 @@ const TransactionsPage = () => {
                 </div>
               </div>
               <div>
-                <ButtonsActionsList />
+                <ButtonsActionsList listObject={transactions} />
               </div>
             </div>
           </div>
@@ -91,9 +98,7 @@ const TransactionsPage = () => {
           type="Failed"
         />
       )}
-      {openModalMessageDelete && (
-        <ModalDeleteTransactions />
-      )}
+      {openModalMessageDelete && <ModalDeleteTransactions />}
     </>
   );
 };
