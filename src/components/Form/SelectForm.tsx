@@ -16,25 +16,17 @@ const SelectForm = <T extends FieldValues>({
   const hasError = Boolean(errors);
 
   return (
-    <FormControl
-      fullWidth
-      required={!!errors}
-      error={hasError}
-      size="small"
-    >
+    <FormControl fullWidth required={!!errors} error={hasError} size="small">
       <InputLabel id={`${selectId}-label`}>{label}</InputLabel>
       <Controller
         name={name}
         control={control}
         rules={{
           required: "This field is required",
-          pattern: {
-            value: /^[\s\S]+$/,
-            message: "Please select an option",
-          },
         }}
         render={({ field }) => (
           <Select
+            type=""
             {...field}
             labelId={`${selectId}-label`}
             id={selectId}

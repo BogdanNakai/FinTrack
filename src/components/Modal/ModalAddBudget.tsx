@@ -21,7 +21,14 @@ const ModalAddBudget = () => {
     setOpenModalTransactionChanges,
     blockScroll,
   } = useContext(ModalContext);
-  const { register, control, handleSubmit } = useForm<IBudgetForm>({
+  const {
+    register,
+    control,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<IBudgetForm>({
+    mode: "onSubmit",
     defaultValues: {
       month: dayjs().format("YYYY-MM"),
     },
@@ -32,10 +39,11 @@ const ModalAddBudget = () => {
   const onSubmit = (data: IBudgetForm) => {
     data.idUser = getStorage(ACTIVE_USER_ID, "");
     data.valute = "dolar";
-    data.budgetSpent = 0; 
+    data.budgetSpent = 0;
 
     addBudget(data);
 
+    reset();
     setOpenModalTransactions(false);
     setOpenModalMessageSuccess(true);
     setOpenModalTransactionChanges(false);
@@ -56,6 +64,7 @@ const ModalAddBudget = () => {
               name="category"
               label="All Categories"
               control={control}
+              errors={errors.category}
             />
           </label>
           <label className="max-w-full w-40">
@@ -64,10 +73,11 @@ const ModalAddBudget = () => {
               register={register}
               type="number"
               placeholder="Budget Limit"
+              errors={errors.budgetLimit}
             />
           </label>
           <label>
-            <FormInputMonth  control={control} name="month"/>
+            <FormInputMonth control={control} name="month" />
           </label>
           <label className="block max-w-full w-40 h-10">
             <InputPopap
@@ -75,6 +85,7 @@ const ModalAddBudget = () => {
               register={register}
               placeholder="Notes"
               type="text"
+              errors={errors.budgetName}
             />
           </label>
           <div className="flex justify-end items-center gap-3">
