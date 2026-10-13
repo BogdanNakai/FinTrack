@@ -50,6 +50,10 @@ export const categoriesValue = [
     value: "Others",
     label: "Others",
   },
+  {
+    value: "All Categories",
+    label: "All Categories",
+  },
 ] satisfies ReadonlyArray<ISelectOption>;
 
 export const statusGoal = [

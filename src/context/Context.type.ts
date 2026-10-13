@@ -31,7 +31,11 @@ export interface ITransactionContext {
 }
 
 export interface IBudgetContext {
-  listBudgets: IBudgetForm[];
+  resultFilterListBurget: IBudgetForm[];
+  category: string;
+  setCategory: (isOpen: string) => void;
+  month: string;
+  setMonth: (isOpen: string) => void;
 }
 
 export type ContextProviderProps = {

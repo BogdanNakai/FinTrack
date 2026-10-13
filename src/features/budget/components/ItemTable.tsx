@@ -5,12 +5,11 @@ import { BudgetContext } from "@/context/BudgetContext/useBudgetContext";
 import { useContext } from "react";
 
 const ItemTable = () => {
-  const {listBudgets} = useContext(BudgetContext)
-  console.log(listBudgets);
+  const { resultFilterListBurget } = useContext(BudgetContext);
   
   return (
     <>
-      {listBudgets.map((e, i) => {
+      {resultFilterListBurget.map((e, i) => {
         return (
           <div
             key={i}
@@ -31,7 +30,7 @@ const ItemTable = () => {
             <div className="text-[14px] font-normal flex-[0_1_25%] text-center">
               <ProgressLine parsent={e.budgetSpent / (e.budgetLimit / 100)} />
             </div>
-       {/*      <div className="text-[14px] font-normal flex-[0_1_8.3%]">
+            {/*      <div className="text-[14px] font-normal flex-[0_1_8.3%]">
               <ButtonActions />
             </div> */}
           </div>

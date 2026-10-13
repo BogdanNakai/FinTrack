@@ -16,11 +16,11 @@ import Header from "@/layouts/Header";
 import LineDiagram from "@/components/charts/LineDiagram";
 import ExpenseBreakdownCard from "@/components/charts/ExpenseBreakdownCard";
 import ModalAddBudget from "@/components/modal/ModalAddBudget";
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import { ModalContext } from "@/context/ModalContexnt/useModalContext";
 import Message from "@/components/message/Message";
 import ModalDeleteTransactions from "@/components/modal/ModalDeleteTransaction";
-import dayjs from "dayjs";
+import { BudgetContext } from "@/context/BudgetContext/useBudgetContext";
 
 const BudgetPage = () => {
   const {
@@ -29,8 +29,7 @@ const BudgetPage = () => {
     openModalMessageFailed,
     openModalMessageDelete,
   } = useContext(ModalContext);
-  const [category, setCategory] = useState("");
-  const [month, setMonth] = useState(dayjs().format('YYYY-MM'));
+  const { category, setCategory, month, setMonth } = useContext(BudgetContext);
 
   return (
     <>
