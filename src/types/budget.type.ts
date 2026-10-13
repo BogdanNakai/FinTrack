@@ -7,6 +7,7 @@ export interface IBudgetForm {
   budgetLimit: number;
   budgetSpent: number;
   category: TCategory;
+  month: string;
 }
 
 export interface IBudgets {

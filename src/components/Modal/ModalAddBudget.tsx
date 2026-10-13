@@ -9,10 +9,10 @@ import type { IBudgetForm } from "@/types/budget.type";
 import { getStorage } from "@/services/localStorage";
 import { STORAGE_KEYS } from "@/services/storageKeys";
 import { useActions } from "@/hooks/useActions";
-import InputMonth from "../form/InputMonth";
 import dayjs from "dayjs";
 import { useContext } from "react";
 import { ModalContext } from "@/context/ModalContexnt/useModalContext";
+import FormInputMonth from "../form/FormInputMonth";
 
 const ModalAddBudget = () => {
   const {
@@ -67,7 +67,7 @@ const ModalAddBudget = () => {
             />
           </label>
           <label>
-            <InputMonth placeholder="" control={control} name='month' />
+            <FormInputMonth  control={control} name="month"/>
           </label>
           <label className="block max-w-full w-40 h-10">
             <InputPopap

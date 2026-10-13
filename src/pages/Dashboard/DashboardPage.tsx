@@ -13,8 +13,11 @@ import Header from "@/layouts/Header";
 import TabletRecentTransactions from "@/features/dashboard/components/TableRecentTransactions";
 import LineDiagram from "@/components/charts/LineDiagram";
 import ExpenseBreakdownCard from "@/components/charts/ExpenseBreakdownCard";
+import { useState } from "react";
+import dayjs from "dayjs";
 
 const DashboardPage = () => {
+    const [month, setMonth] = useState(dayjs().format("YYYY-MM"));
   return (
     <>
       <Header active="dashboard" />
@@ -25,7 +28,10 @@ const DashboardPage = () => {
               <div className="pb-[24px]">
                 {heroBalance.map((e, i) => {
                   return (
-                    <div key={i} className="flex items-center justify-center flex-wrap gap-2.5 md:gap-[24px]">
+                    <div
+                      key={i}
+                      className="flex items-center justify-center flex-wrap gap-2.5 md:gap-[24px]"
+                    >
                       <DashboardCard
                         title="Total Balance"
                         balanse={e.totalBalance}
@@ -45,7 +51,7 @@ const DashboardPage = () => {
                         title="Total Rate"
                         balanse={Math.round(
                           (e.totalIncome - e.totalExpense) /
-                            (e.totalIncome / 100)
+                            (e.totalIncome / 100),
                         )}
                         growth={12}
                       />
@@ -58,7 +64,7 @@ const DashboardPage = () => {
                   Spending Overview
                 </h2>
                 <div className="max-w-[150px]">
-                  <InputMonth placeholder="This Month" />
+                  <InputMonth value={month} onChange={setMonth} />
                 </div>
               </div>
               <div className="flex justify-center items-center max-[860px]:flex-wrap gap-2.5 xl:gap-16 pb-12">

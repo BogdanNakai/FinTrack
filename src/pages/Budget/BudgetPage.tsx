@@ -20,6 +20,7 @@ import { useContext, useState } from "react";
 import { ModalContext } from "@/context/ModalContexnt/useModalContext";
 import Message from "@/components/message/Message";
 import ModalDeleteTransactions from "@/components/modal/ModalDeleteTransaction";
+import dayjs from "dayjs";
 
 const BudgetPage = () => {
   const {
@@ -29,6 +30,7 @@ const BudgetPage = () => {
     openModalMessageDelete,
   } = useContext(ModalContext);
   const [category, setCategory] = useState("");
+  const [month, setMonth] = useState(dayjs().format('YYYY-MM'));
 
   return (
     <>
@@ -53,9 +55,7 @@ const BudgetPage = () => {
               </div>
               <div className="flex items-center max-[480px]:flex-wrap gap-[15px] md:gap-[20px] flex-nowrap">
                 <div className="min-[550px]:max-w-[220px] w-full">
-                  {/*         <InputMonth
-                    placeholder="Month"
-                  /> */}
+                  <InputMonth value={month} onChange={setMonth} />
                 </div>
                 <div className="min-[550px]:max-w-[220px] w-full">
                   <FilterSelect

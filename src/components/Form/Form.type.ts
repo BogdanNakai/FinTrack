@@ -51,8 +51,14 @@ export interface IMoneyInput<T extends FieldValues> {
   isExpense?: boolean;
 }
 
-export interface IMonthInput<T extends FieldValues> {
-  placeholder: string;
+export interface IMonthInput {
+  value: string;
+  onChange: (value: string) => void;
+  onBlur?: () => void;
+  error?: string;
+}
+
+export interface IFormInputMonth<T extends FieldValues> {
   control: Control<T>;
   name: Path<T>;
   errors?: FieldError | undefined;
