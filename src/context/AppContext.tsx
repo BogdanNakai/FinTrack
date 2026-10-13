@@ -58,6 +58,7 @@ export const statusGoal = [
 ] satisfies ReadonlyArray<ISelectOption>;
 
 export const typeValue = [
+  { value: "All Type", label: "All Type" },
   { value: "Income", label: "Income" },
   { value: "Expense", label: "Expense" },
 ] satisfies ReadonlyArray<ISelectOption>;

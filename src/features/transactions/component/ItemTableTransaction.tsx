@@ -1,21 +1,16 @@
 import ButtonActions from "@/components/buttons/ButtonActions";
 import ElementTitleCategory from "@/components/ui/ElementTitleCategory";
 import { moneyFormatter } from "@/context/AppContext";
-import { useAppSelector } from "@/app/hooks";
-import { getStorage } from "@/services/localStorage";
-import { STORAGE_KEYS } from "@/services/storageKeys";
 import { useContext } from "react";
-import { ModalContext } from "@/context/ModalContext";
+import { ModalContext } from "@/context/ModalContexnt/useModalContext";
+import { TransactionContext } from "@/context/TransactionsContext/useTransactionsContext";
 
 const ItemTableTransaction = () => {
-  const idUser = getStorage(STORAGE_KEYS.ACTIVE_USER_ID, ""); 
-  const transactions = useAppSelector(
-    (state) => state.transactions.transactions,
-  ).filter((transaction) => transaction.idUser === idUser);
-  const { curentPageTransactions} = useContext(ModalContext)
+  const { transactions, resultTransactions } = useContext(TransactionContext);
+  const { curentPageTransactions } = useContext(ModalContext);
   const perPage = 8;
   const start = (curentPageTransactions - 1) * perPage;
-  const visibleTrans = transactions.slice(start, start + perPage) 
+  const visibleTrans = resultTransactions.slice(start, start + perPage);
 
   return (
     <>

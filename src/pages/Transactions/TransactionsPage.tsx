@@ -1,4 +1,3 @@
-import { useAppSelector } from "@/app/hooks";
 import ButtonPrimaryActions from "@/components/buttons/ButtonPrimaryActions";
 import ButtonsActionsList from "@/components/buttons/ButtonsActionsList";
 import FilterSelect from "@/components/form/FilterSelect";
@@ -10,12 +9,11 @@ import {
   filterNewestFirst,
   typeValue,
 } from "@/context/AppContext";
-import { ModalContext } from "@/context/ModalContext";
+import { ModalContext } from "@/context/ModalContexnt/useModalContext";
+import { TransactionContext } from "@/context/TransactionsContext/useTransactionsContext";
 import TableTransaction from "@/features/transactions/component/TableTransaction";
 import Copyright from "@/layouts/Copyright";
 import Header from "@/layouts/Header";
-import { getStorage } from "@/services/localStorage";
-import { STORAGE_KEYS } from "@/services/storageKeys";
 import { useContext, useState } from "react";
 
 const TransactionsPage = () => {
@@ -25,13 +23,16 @@ const TransactionsPage = () => {
     openModalMessageFailed,
     openModalMessageDelete,
   } = useContext(ModalContext);
-  const idUser = getStorage(STORAGE_KEYS.ACTIVE_USER_ID, "");
-  const [dateRange, setDateRange] = useState("");
-  const [transactionType, setTransactionType] = useState("");
-  const [sortOrder, setSortOrder] = useState("");
-  const transactions = useAppSelector(
-    (state) => state.transactions.transactions,
-  ).filter((transaction) => transaction.idUser === idUser);
+  const {
+    dateRange,
+    transactionType,
+    sortPrice,
+    transactions,
+    resultTransactions,
+    setTransactionType,
+    setDateRange,
+    setSortPrice,
+  } = useContext(TransactionContext);
 
   return (
     <>
@@ -69,8 +70,8 @@ const TransactionsPage = () => {
                 <FilterSelect
                   options={filterNewestFirst}
                   label="Newest First"
-                  value={sortOrder}
-                  onChange={setSortOrder}
+                  value={sortPrice}
+                  onChange={setSortPrice}
                 />
               </div>
             </div>
@@ -81,7 +82,7 @@ const TransactionsPage = () => {
                 </div>
               </div>
               <div>
-                <ButtonsActionsList listObject={transactions} />
+                <ButtonsActionsList listObject={resultTransactions} />
               </div>
             </div>
           </div>
