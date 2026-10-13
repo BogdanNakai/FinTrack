@@ -15,7 +15,7 @@ const ProgressLine = ({ parsent }: IParcent) => {
           } as React.CSSProperties
         }
       >
-        <span className="goal__parsent">{parsent}%</span>
+        <span className="goal__parsent">{Math.floor(parsent)}%</span>
       </div>
     </>
   );

@@ -39,7 +39,6 @@ const ModalAddBudget = () => {
   const onSubmit = (data: IBudgetForm) => {
     data.idUser = getStorage(ACTIVE_USER_ID, "");
     data.valute = "dolar";
-    data.budgetSpent = 0;
 
     addBudget(data);
 

@@ -180,7 +180,7 @@ export const heroBalance = [
 export const moneyFormatter = new Intl.NumberFormat("en-IN", {
   style: "currency",
   currency: "INR",
-  currencySign: "accounting",
+  currencySign: "standard",
   maximumFractionDigits: 0,
 });
 
