@@ -11,8 +11,16 @@ import { STORAGE_KEYS } from "@/services/storageKeys";
 import { useActions } from "@/hooks/useActions";
 import InputMonth from "../form/InputMonth";
 import dayjs from "dayjs";
+import { useContext } from "react";
+import { ModalContext } from "@/context/ModalContexnt/useModalContext";
 
 const ModalAddBudget = () => {
+  const {
+    setOpenModalTransactions,
+    setOpenModalMessageSuccess,
+    setOpenModalTransactionChanges,
+    blockScroll,
+  } = useContext(ModalContext);
   const { register, control, handleSubmit } = useForm<IBudgetForm>({
     defaultValues: {
       month: dayjs().format("YYYY-MM"),
@@ -27,6 +35,11 @@ const ModalAddBudget = () => {
     data.budgetSpent = 0; 
 
     addBudget(data);
+
+    setOpenModalTransactions(false);
+    setOpenModalMessageSuccess(true);
+    setOpenModalTransactionChanges(false);
+    blockScroll();
   };
 
   return (

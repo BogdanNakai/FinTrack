@@ -18,9 +18,16 @@ import ExpenseBreakdownCard from "@/components/charts/ExpenseBreakdownCard";
 import ModalAddBudget from "@/components/modal/ModalAddBudget";
 import { useContext, useState } from "react";
 import { ModalContext } from "@/context/ModalContexnt/useModalContext";
+import Message from "@/components/message/Message";
+import ModalDeleteTransactions from "@/components/modal/ModalDeleteTransaction";
 
 const BudgetPage = () => {
-  const { openModalTransactions } = useContext(ModalContext);
+  const {
+    openModalTransactions,
+    openModalMessageSuccess,
+    openModalMessageFailed,
+    openModalMessageDelete,
+  } = useContext(ModalContext);
   const [category, setCategory] = useState("");
 
   return (
@@ -46,7 +53,9 @@ const BudgetPage = () => {
               </div>
               <div className="flex items-center max-[480px]:flex-wrap gap-[15px] md:gap-[20px] flex-nowrap">
                 <div className="min-[550px]:max-w-[220px] w-full">
-                  <InputMonth placeholder="Month" />
+                  {/*         <InputMonth
+                    placeholder="Month"
+                  /> */}
                 </div>
                 <div className="min-[550px]:max-w-[220px] w-full">
                   <FilterSelect
@@ -67,9 +76,7 @@ const BudgetPage = () => {
                   <TabletBudget />
                 </div>
               </div>
-              <div>
-                {/* <ButtonsActionsList /> */}
-              </div>
+              <div>{/* <ButtonsActionsList /> */}</div>
               <div className="">
                 <h2 className="text-[20px] text-[#1E293B] font-semibold pb-[21px]">
                   Budget Insights
@@ -92,6 +99,16 @@ const BudgetPage = () => {
         </section>
       </main>
       {openModalTransactions && <ModalAddBudget />}
+      {openModalMessageSuccess && (
+        <Message textMessage="Budger added successfully!" type="Success" />
+      )}
+      {openModalMessageFailed && (
+        <Message
+          textMessage="Failed to add transaction. Please try again."
+          type="Failed"
+        />
+      )}
+      {openModalMessageDelete && <ModalDeleteTransactions />}
       <Copyright />
     </>
   );
