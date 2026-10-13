@@ -1,25 +1,24 @@
 import { useState } from "react";
 import type { ContextProviderProps, IModalProps } from "./Modal.type";
-import { ModalContext } from "./ModalContext";
+import { ModalContext } from "./useModalContext";
 
 export const ContextProvider = ({ children }: ContextProviderProps) => {
   const [openModalTransactions, setOpenModalTransactions] = useState(false);
   const [openModalMessageSuccess, setOpenModalMessageSuccess] = useState(false);
   const [openModalMessageFailed, setOpenModalMessageFailed] = useState(false);
   const [openModalMessageDelete, setOpenModalMessageDelete] = useState(false);
-  const [openModalTransactionChanges, setOpenModalTransactionChanges] = useState(false);
-  const [idTransaction, setIdTransaction] = useState('');
+  const [openModalTransactionChanges, setOpenModalTransactionChanges] =
+    useState(false);
+  const [idTransaction, setIdTransaction] = useState("");
   const [curentPageTransactions, setCurentPageTransactions] = useState(1);
 
   const isBlocke =
-    openModalTransactions ||
-    openModalMessageFailed ||
-    openModalMessageDelete;
-  
+    openModalTransactions || openModalMessageFailed || openModalMessageDelete;
+
   const blockScroll = () => {
     if (!isBlocke) {
       document.body.style.overflow = "hidden";
-    } else { 
+    } else {
       document.body.style.overflow = "auto";
     }
   };
