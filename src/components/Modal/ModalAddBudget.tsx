@@ -9,9 +9,15 @@ import type { IBudgetForm } from "@/types/budget.type";
 import { getStorage } from "@/services/localStorage";
 import { STORAGE_KEYS } from "@/services/storageKeys";
 import { useActions } from "@/hooks/useActions";
+import InputMonth from "../form/InputMonth";
+import dayjs from "dayjs";
 
 const ModalAddBudget = () => {
-  const { register, control, handleSubmit } = useForm<IBudgetForm>();
+  const { register, control, handleSubmit } = useForm<IBudgetForm>({
+    defaultValues: {
+      month: dayjs().format("YYYY-MM"),
+    },
+  });
   const { ACTIVE_USER_ID } = STORAGE_KEYS;
   const { addBudget } = useActions();
 
@@ -47,11 +53,14 @@ const ModalAddBudget = () => {
               placeholder="Budget Limit"
             />
           </label>
+          <label>
+            <InputMonth placeholder="" control={control} name='month' />
+          </label>
           <label className="block max-w-full w-40 h-10">
             <InputPopap
               name="budgetName"
               register={register}
-              placeholder="Budget Name"
+              placeholder="Notes"
               type="text"
             />
           </label>
