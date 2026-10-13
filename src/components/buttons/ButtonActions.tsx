@@ -1,7 +1,7 @@
 import deleteIcon from "@/assets/icon_remove.svg";
 import editIcon from "@/assets/icon_change.svg";
 import { useContext } from "react";
-import { ModalContext } from "@/context/ModalContext";
+import { ModalContext } from "@/context/ModalContexnt/useModalContext";
 
 const ButtonActions = ({ idTransaction }: { idTransaction: string }) => {
   const {

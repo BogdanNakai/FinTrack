@@ -1,6 +1,6 @@
-import { ModalContext } from "@/context/ModalContext";
 import type { IButtonProps } from "./Buttons.type";
 import plus from "@/assets/icon_plus.svg";
+import { ModalContext } from "@/context/ModalContexnt/useModalContext";
 import { useContext } from "react";
 
 const ButtonPrimaryActions = ({

@@ -17,7 +17,7 @@ import LineDiagram from "@/components/charts/LineDiagram";
 import ExpenseBreakdownCard from "@/components/charts/ExpenseBreakdownCard";
 import ModalAddBudget from "@/components/modal/ModalAddBudget";
 import { useContext, useState } from "react";
-import { ModalContext } from "@/context/ModalContext";
+import { ModalContext } from "@/context/ModalContexnt/useModalContext";
 
 const BudgetPage = () => {
   const { openModalTransactions } = useContext(ModalContext);

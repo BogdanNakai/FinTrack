@@ -5,7 +5,7 @@ import {
   filterTimePeriod,
   statusGoal,
 } from "@/context/AppContext";
-import { ModalContext } from "@/context/ModalContext";
+import { ModalContext } from "@/context/ModalContexnt/useModalContext";
 import GoalCard from "@/features/goals/components/GoalCard";
 import GoalProgressCard from "@/features/goals/components/GoalProgressCard";
 import Copyright from "@/layouts/Copyright";

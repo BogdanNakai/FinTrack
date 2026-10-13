@@ -1,9 +1,13 @@
-import { ModalContext } from "@/context/ModalContext";
+import { ModalContext } from "@/context/ModalContexnt/useModalContext";
 import type { IButtonProps } from "./Buttons.type";
 import { useContext } from "react";
 
 const ButtonSecondary = ({ textButton, type = "button" }: IButtonProps) => {
-  const { setOpenModalTransactions, blockScroll, setOpenModalTransactionChanges } = useContext(ModalContext);
+  const {
+    setOpenModalTransactions,
+    blockScroll,
+    setOpenModalTransactionChanges,
+  } = useContext(ModalContext);
   return (
     <button
       type={type}

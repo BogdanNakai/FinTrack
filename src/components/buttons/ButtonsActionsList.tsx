@@ -1,9 +1,9 @@
+import { ModalContext } from "@/context/ModalContexnt/useModalContext";
 import type { IButtonPaginations } from "./Buttons.type";
 import { useContext } from "react";
-import { ModalContext } from "@/context/ModalContext";
 
 const ButtonsActionsList = ({ listObject }: IButtonPaginations) => {
-  const quantityCount = Math.ceil(listObject.length / 9);
+  const quantityCount = Math.ceil(listObject.length / 8);
   const quantityCountArray = Array.from(
     { length: quantityCount },
     (_, index) => index + 1,
@@ -13,7 +13,7 @@ const ButtonsActionsList = ({ listObject }: IButtonPaginations) => {
 
   return (
     <>
-      {quantityCount >= 1 ? (
+      {quantityCount > 1 ? (
         <div className="flex flex-wrap items-center justify-center gap-[12px] py-[6px]">
           <button
             onClick={() => {

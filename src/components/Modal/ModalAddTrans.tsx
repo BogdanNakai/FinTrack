@@ -14,7 +14,7 @@ import type {
   TOnSubmitFormTransaction,
 } from "@/types/transaction.types";
 import { useContext, useEffect } from "react";
-import { ModalContext } from "@/context/ModalContext";
+import { ModalContext } from "@/context/ModalContexnt/useModalContext";
 import dayjs from "dayjs";
 import { useAppSelector } from "@/app/hooks";
 

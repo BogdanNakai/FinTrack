@@ -1,4 +1,4 @@
-import { ModalContext } from "@/context/ModalContext";
+import { ModalContext } from "@/context/ModalContexnt/useModalContext";
 import type { IButtonProps } from "./Buttons.type";
 import { useContext } from "react";
 
