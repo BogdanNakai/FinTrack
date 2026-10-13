@@ -1,16 +1,13 @@
-import { useAppSelector } from "@/app/hooks";
-import ButtonActions from "@/components/buttons/ButtonActions";
 import ElementTitleCategory from "@/components/ui/ElementTitleCategory";
 import ProgressLine from "@/components/ui/progressLine/ProgressLine";
 import { moneyFormatter } from "@/context/AppContext";
-import { getStorage } from "@/services/localStorage";
-import { STORAGE_KEYS } from "@/services/storageKeys";
+import { BudgetContext } from "@/context/BudgetContext/useBudgetContext";
+import { useContext } from "react";
 
 const ItemTable = () => {
-
-  const idUser = getStorage(STORAGE_KEYS.ACTIVE_USER_ID, "");
-  const listBudgets = useAppSelector((state) => state.budgets.budgets).filter((budget) => budget.idUser === idUser);
-
+  const {listBudgets} = useContext(BudgetContext)
+  console.log(listBudgets);
+  
   return (
     <>
       {listBudgets.map((e, i) => {
@@ -34,9 +31,9 @@ const ItemTable = () => {
             <div className="text-[14px] font-normal flex-[0_1_25%] text-center">
               <ProgressLine parsent={e.budgetSpent / (e.budgetLimit / 100)} />
             </div>
-            <div className="text-[14px] font-normal flex-[0_1_8.3%]">
+       {/*      <div className="text-[14px] font-normal flex-[0_1_8.3%]">
               <ButtonActions />
-            </div>
+            </div> */}
           </div>
         );
       })}

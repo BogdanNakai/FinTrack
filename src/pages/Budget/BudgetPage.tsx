@@ -68,7 +68,7 @@ const BudgetPage = () => {
                 </div>
               </div>
               <div>
-                <ButtonsActionsList />
+                {/* <ButtonsActionsList /> */}
               </div>
               <div className="">
                 <h2 className="text-[20px] text-[#1E293B] font-semibold pb-[21px]">

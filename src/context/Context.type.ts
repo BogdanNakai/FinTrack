@@ -1,3 +1,4 @@
+import type { IBudgetForm } from "@/types/budget.type";
 import type { ITransactionForm } from "@/types/transaction.types";
 
 export interface IModalProps {
@@ -29,7 +30,9 @@ export interface ITransactionContext {
   setSortPrice: (isOpen: string) => void;
 }
 
-export interface IBudgetContext {}
+export interface IBudgetContext {
+  listBudgets: IBudgetForm[];
+}
 
 export type ContextProviderProps = {
   children: React.ReactNode;
