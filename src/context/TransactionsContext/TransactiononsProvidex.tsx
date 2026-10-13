@@ -1,8 +1,4 @@
 import { useAppSelector } from "@/app/hooks";
-import type {
-  ContextProviderProps,
-  ITransactionContext,
-} from "./TransactionsContext.type";
 import { TransactionContext } from "./useTransactionsContext";
 import { STORAGE_KEYS } from "@/services/storageKeys";
 import { getStorage } from "@/services/localStorage";
@@ -10,6 +6,7 @@ import { useState } from "react";
 import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 import isoWeek from "dayjs/plugin/isoWeek";
+import type { ContextProviderProps, ITransactionContext } from "../Context.type";
 dayjs.extend(isBetween);
 dayjs.extend(isoWeek);
 

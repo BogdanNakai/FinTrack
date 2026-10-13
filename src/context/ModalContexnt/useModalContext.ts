@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import type { IModalProps } from "./Modal.type";
+import type { IModalProps } from "../Context.type";
 
 export const ModalContext = createContext<IModalProps>({
   openModalTransactions: false,

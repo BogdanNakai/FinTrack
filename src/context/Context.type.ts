@@ -1,3 +1,5 @@
+import type { ITransactionForm } from "@/types/transaction.types";
+
 export interface IModalProps {
   openModalTransactions: boolean;
   setOpenModalTransactions: (isOpen: boolean) => void;
@@ -15,6 +17,19 @@ export interface IModalProps {
   curentPageTransactions: number;
   setCurentPageTransactions: (isOpen: number) => void;
 }
+
+export interface ITransactionContext {
+  transactions: ITransactionForm[];
+  resultTransactions: ITransactionForm[];
+  dateRange: string;
+  transactionType: string;
+  sortPrice: string;
+  setTransactionType: (isOpen: string) => void;
+  setDateRange: (isOpen: string) => void;
+  setSortPrice: (isOpen: string) => void;
+}
+
+export interface IBudgetContext {}
 
 export type ContextProviderProps = {
   children: React.ReactNode;

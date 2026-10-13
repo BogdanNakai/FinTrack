@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import type { ITransactionContext } from "./TransactionsContext.type";
+import type { ITransactionContext } from "../Context.type";
 
 export const TransactionContext = createContext<ITransactionContext>({
   transactions: [],
