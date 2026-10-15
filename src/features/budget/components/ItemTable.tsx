@@ -1,3 +1,4 @@
+import ButtonActions from "@/components/buttons/ButtonActions";
 import ElementTitleCategory from "@/components/ui/ElementTitleCategory";
 import ProgressLine from "@/components/ui/progressLine/ProgressLine";
 import { moneyFormatter } from "@/context/AppContext";
@@ -35,9 +36,9 @@ const ItemTable = () => {
             <div className="text-[14px] font-normal flex-[0_1_25%] text-center">
               <ProgressLine parsent={e.budgetSpent / (e.budgetLimit / 100)} />
             </div>
-            {/*      <div className="text-[14px] font-normal flex-[0_1_8.3%]">
+                 <div className="text-[14px] font-normal flex-[0_1_8.3%]">
               <ButtonActions />
-            </div> */}
+            </div>
           </div>
         );
       })}

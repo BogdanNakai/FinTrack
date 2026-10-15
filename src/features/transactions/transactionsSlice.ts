@@ -2,7 +2,10 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 import { getStorage, setStorage } from "@/services/localStorage";
 import { STORAGE_KEYS } from "@/services/storageKeys";
-import type { ITransactionForm, ITransactions } from "@/types/transaction.types";
+import type {
+  ITransactionForm,
+  ITransactions,
+} from "@/types/transaction.types";
 
 const { TRANSACTIONS } = STORAGE_KEYS;
 
@@ -27,18 +30,18 @@ export const transactionsSlice = createSlice({
     },
     deleteTransaction: (state, action: PayloadAction<string>) => {
       state.transactions = state.transactions.filter(
-        (transaction) => transaction.idTransaction !== action.payload,
+        (transaction) => transaction.idPar !== action.payload,
       );
       setStorage(TRANSACTIONS, state.transactions);
     },
     editTransaction: (state, action: PayloadAction<ITransactionForm>) => {
       state.transactions = state.transactions.map((transaction) =>
-        transaction.idTransaction === action.payload.idTransaction
+        transaction.idPar === action.payload.idPar
           ? action.payload
           : transaction,
       );
       setStorage(TRANSACTIONS, state.transactions);
-    }
+    },
   },
 });
 

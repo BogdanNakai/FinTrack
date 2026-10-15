@@ -3,7 +3,7 @@ import editIcon from "@/assets/icon_change.svg";
 import { useContext } from "react";
 import { ModalContext } from "@/context/ModalContexnt/useModalContext";
 
-const ButtonActions = ({ idTransaction }: { idTransaction: string }) => {
+const ButtonActions = ({ idPar }: { idPar: string }) => {
   const {
     setOpenModalTransactions,
     setOpenModalMessageDelete,
@@ -20,7 +20,7 @@ const ButtonActions = ({ idTransaction }: { idTransaction: string }) => {
         onClick={() => {
           setOpenModalTransactionChanges(true);
           setOpenModalTransactions(true);
-          setIdTransaction(idTransaction);
+          setIdTransaction(idPar);
           blockScroll();
         }}
       >
@@ -30,7 +30,7 @@ const ButtonActions = ({ idTransaction }: { idTransaction: string }) => {
         type="button"
         className="bg-[#EF4444] w-9 min-h-9 rounded-full flex justify-center items-center"
         onClick={() => {
-          setIdTransaction(idTransaction);
+          setIdTransaction(idPar);
           setOpenModalMessageDelete(true);
           blockScroll();
         }}

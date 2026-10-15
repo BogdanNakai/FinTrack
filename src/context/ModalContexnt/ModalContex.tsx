@@ -9,7 +9,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
   const [openModalMessageDelete, setOpenModalMessageDelete] = useState(false);
   const [openModalTransactionChanges, setOpenModalTransactionChanges] =
     useState(false);
-  const [idTransaction, setIdTransaction] = useState("");
+  const [idPar, setIdTransaction] = useState("");
   const [curentPageTransactions, setCurentPageTransactions] = useState(1);
 
   const isBlocke =
@@ -39,7 +39,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
     blockScroll,
     openModalMessageDelete,
     setOpenModalMessageDelete,
-    idTransaction,
+    idPar,
     setIdTransaction,
     openModalTransactionChanges,
     setOpenModalTransactionChanges,

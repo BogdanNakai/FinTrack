@@ -26,12 +26,12 @@ const ModalAddTrans = () => {
     setOpenModalMessageSuccess,
     openModalTransactionChanges,
     setOpenModalTransactionChanges,
-    idTransaction,
+    idPar,
     blockScroll,
   } = useContext(ModalContext);
   const transactions = useAppSelector(
     (state) => state.transactions.transactions,
-  ).filter((transaction) => transaction.idTransaction === idTransaction);
+  ).filter((transaction) => transaction.idPar === idPar);
   const transaction = transactions[0];
 
   const {
@@ -51,14 +51,14 @@ const ModalAddTrans = () => {
     if (!openModalTransactionChanges) {
       data.idUser = getStorage(ACTIVE_USER_ID, "");
       data.valute = "dolar";
-      data.idTransaction = `transaction_${Date.now()}`;
+      data.idPar = `transaction_${Date.now()}`;
       addTransaction(data);
     } else {
       if (!transaction) return;
       data.idUser = getStorage(ACTIVE_USER_ID, "");
       data.valute = "dolar";
-      data.idTransaction = openModalTransactionChanges
-        ? transactions[0]?.idTransaction
+      data.idPar = openModalTransactionChanges
+        ? transactions[0]?.idPar
         : `transaction_${Date.now()}`;
       editTransaction(data);
     }

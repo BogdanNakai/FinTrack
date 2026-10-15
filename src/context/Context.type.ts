@@ -11,7 +11,7 @@ export interface IModalProps {
   setOpenModalMessageFailed: (isOpen: boolean) => void;
   openModalMessageDelete: boolean;
   setOpenModalMessageDelete: (isOpen: boolean) => void;
-  idTransaction: string;
+  idPar: string;
   setIdTransaction: (id: string) => void;
   openModalTransactionChanges: boolean;
   setOpenModalTransactionChanges: (isOpen: boolean) => void;
