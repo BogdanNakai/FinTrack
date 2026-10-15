@@ -15,7 +15,7 @@ import { useContext, useState } from "react";
 import FilterSelect from "@/components/form/FilterSelect";
 
 const GoalsPage = () => {
-  const { openModalTransactions } = useContext(ModalContext);
+  const { openModal } = useContext(ModalContext);
   const [timePeriod, setTimePeriod] = useState("");
   const [goalStatus, setGoalStatus] = useState("");
 
@@ -74,7 +74,7 @@ const GoalsPage = () => {
           </div>
         </section>
       </main>
-      {openModalTransactions && <ModalAddGoal />}
+      {openModal && <ModalAddGoal />}
       <Copyright />
     </>
   );

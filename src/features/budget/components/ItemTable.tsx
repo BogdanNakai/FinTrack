@@ -8,9 +8,9 @@ import { useContext } from "react";
 
 const ItemTable = () => {
   const { resultFilterListBurget } = useContext(BudgetContext);
-  const { curentPageTransactions } = useContext(ModalContext);
+  const { curentRecardsList } = useContext(ModalContext);
   const perPage = 5;
-  const start = (curentPageTransactions - 1) * perPage;
+  const start = (curentRecardsList - 1) * perPage;
   const visibleTrans = resultFilterListBurget.slice(start, start + perPage);
 
   return (
@@ -37,7 +37,7 @@ const ItemTable = () => {
               <ProgressLine parsent={e.budgetSpent / (e.budgetLimit / 100)} />
             </div>
             <div className="text-[14px] font-normal flex-[0_1_8.3%]">
-              <ButtonActions idPar={e.idPar} />
+              <ButtonActions idRecord={e.idRecord} />
             </div>
           </div>
         );

@@ -7,9 +7,9 @@ import { TransactionContext } from "@/context/TransactionsContext/useTransaction
 
 const ItemTableTransaction = () => {
   const { transactions, resultTransactions } = useContext(TransactionContext);
-  const { curentPageTransactions } = useContext(ModalContext);
+  const { curentRecardsList } = useContext(ModalContext);
   const perPage = 8;
-  const start = (curentPageTransactions - 1) * perPage;
+  const start = (curentRecardsList - 1) * perPage;
   const visibleTrans = resultTransactions.slice(start, start + perPage);
 
   return (
@@ -48,7 +48,7 @@ const ItemTableTransaction = () => {
               )}
             </div>
             <div className="text-[14px] font-normal flex-[0_1_8.3%] text-center">
-              <ButtonActions idPar={e.idPar} />
+              <ButtonActions idRecord={e.idRecord} />
             </div>
           </div>
         );

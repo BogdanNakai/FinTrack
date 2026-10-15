@@ -7,8 +7,7 @@ const ButtonsActionsList = ({ quantityCount }: IButtonPaginations) => {
     { length: quantityCount },
     (_, index) => index + 1,
   );
-  const { curentPageTransactions, setCurentPageTransactions } =
-    useContext(ModalContext);
+  const { curentRecardsList, setCurentRecardsList } = useContext(ModalContext);
 
   return (
     <>
@@ -16,8 +15,8 @@ const ButtonsActionsList = ({ quantityCount }: IButtonPaginations) => {
         <div className="flex flex-wrap items-center justify-center gap-[12px] py-[6px]">
           <button
             onClick={() => {
-              if (curentPageTransactions >= 2) {
-                return setCurentPageTransactions(curentPageTransactions - 1);
+              if (curentRecardsList >= 2) {
+                return setCurentRecardsList(curentRecardsList - 1);
               }
             }}
             className="bg-[#fff] p-[10px] text-[#1E293B] font-medium text-[14px] border border-[#143a6c]/[0.04] rounded-[8px] w-[51px] h-[36px] flex items-center justify-center hover:text-[#fff] hover:bg-[#00DCA0] active:scale-[0.95] active:bg-[#BEEBD8] transition duration-150 focus:text-[#fff] focus:bg-[#00DCA0]"
@@ -27,7 +26,7 @@ const ButtonsActionsList = ({ quantityCount }: IButtonPaginations) => {
           {quantityCountArray.map((i) => (
             <button
               key={i}
-              onClick={() => setCurentPageTransactions(i)}
+              onClick={() => setCurentRecardsList(i)}
               className="bg-[#ffffff] p-[10px] text-[#1E293B] font-medium text-[14px] border border-[#143a6c]/[0.04] rounded-[8px] w-[36px] h-[36px] flex items-center justify-center hover:text-[#fff] hover:bg-[#00DCA0] active:scale-[0.95] active:bg-[#BEEBD8] focus:bg-[#00B894] transition duration-150 focus:text-[#fff] focus:bg-[#00DCA0]"
             >
               {i}
@@ -35,8 +34,8 @@ const ButtonsActionsList = ({ quantityCount }: IButtonPaginations) => {
           ))}
           <button
             onClick={() => {
-              if (curentPageTransactions < quantityCountArray.length)
-                return setCurentPageTransactions(curentPageTransactions + 1);
+              if (curentRecardsList < quantityCountArray.length)
+                return setCurentRecardsList(curentRecardsList + 1);
             }}
             className="bg-[#fff] p-[10px] text-[#1E293B] font-medium text-[14px] border border-[#143a6c]/[0.04] rounded-[8px] w-[51px] h-[36px] flex items-center justify-center hover:text-[#fff] hover:bg-[#00DCA0] active:scale-[0.95] active:bg-[#BEEBD8] transition duration-150 focus:text-[#fff] focus:bg-[#00DCA0]"
           >

@@ -24,7 +24,7 @@ import { BudgetContext } from "@/context/BudgetContext/useBudgetContext";
 
 const BudgetPage = () => {
   const {
-    openModalTransactions,
+    openModal,
     openModalMessageSuccess,
     openModalMessageFailed,
     openModalMessageDelete,
@@ -78,9 +78,7 @@ const BudgetPage = () => {
                 </div>
               </div>
               <div>
-                <ButtonsActionsList
-                  quantityCount={quantityCount}
-                />
+                <ButtonsActionsList quantityCount={quantityCount} />
               </div>
               <div className="">
                 <h2 className="text-[20px] text-[#1E293B] font-semibold pb-[21px]">
@@ -103,7 +101,7 @@ const BudgetPage = () => {
           </div>
         </section>
       </main>
-      {openModalTransactions && <ModalAddBudget />}
+      {openModal && <ModalAddBudget />}
       {openModalMessageSuccess && (
         <Message textMessage="Budger added successfully!" type="Success" />
       )}

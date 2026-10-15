@@ -30,13 +30,13 @@ export const transactionsSlice = createSlice({
     },
     deleteTransaction: (state, action: PayloadAction<string>) => {
       state.transactions = state.transactions.filter(
-        (transaction) => transaction.idPar !== action.payload,
+        (transaction) => transaction.idRecord !== action.payload,
       );
       setStorage(TRANSACTIONS, state.transactions);
     },
     editTransaction: (state, action: PayloadAction<ITransactionForm>) => {
       state.transactions = state.transactions.map((transaction) =>
-        transaction.idPar === action.payload.idPar
+        transaction.idRecord === action.payload.idRecord
           ? action.payload
           : transaction,
       );

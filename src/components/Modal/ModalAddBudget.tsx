@@ -19,16 +19,16 @@ const ModalAddBudget = () => {
   const { ACTIVE_USER_ID } = STORAGE_KEYS;
   const { addBudget, editBudget } = useActions();
   const {
-    idPar,
-    openModalTransactionChanges,
-    setOpenModalTransactions,
+    idRecord,
+    openModalChanges,
+    setOpenModal,
     setOpenModalMessageSuccess,
-    setOpenModalTransactionChanges,
+    setOpenModalChanges,
     blockScroll,
   } = useContext(ModalContext);
   const { resultFilterListBurget } = useContext(BudgetContext);
   const itemBudgetChenge = resultFilterListBurget.filter(
-    (e) => e.idPar === idPar,
+    (e) => e.idRecord === idRecord,
   )[0];
   const {
     register,
@@ -44,26 +44,26 @@ const ModalAddBudget = () => {
   });
 
   const onSubmit: TOnSubmitFormBudget = (data) => {
-    if (!openModalTransactionChanges) {
+    if (!openModalChanges) {
       data.idUser = getStorage(ACTIVE_USER_ID, "");
-      data.idPar = `budget_${Date.now()}`;
+      data.idRecord = `budget_${Date.now()}`;
       addBudget(data);
     } else {
       if (!itemBudgetChenge) return;
       data.idUser = getStorage(ACTIVE_USER_ID, "");
-      data.idPar = itemBudgetChenge.idPar;
-      editBudget(data)
+      data.idRecord = itemBudgetChenge.idRecord;
+      editBudget(data);
     }
 
     reset();
-    setOpenModalTransactions(false);
+    setOpenModal(false);
     setOpenModalMessageSuccess(true);
-    setOpenModalTransactionChanges(false);
+    setOpenModalChanges(false);
     blockScroll();
   };
 
   useEffect(() => {
-    if (openModalTransactionChanges) {
+    if (openModalChanges) {
       if (!itemBudgetChenge) return;
       reset({
         category: itemBudgetChenge?.category,
@@ -73,7 +73,7 @@ const ModalAddBudget = () => {
       });
       return;
     }
-  }, [openModalTransactionChanges, reset, itemBudgetChenge]);
+  }, [openModalChanges, reset, itemBudgetChenge]);
 
   return (
     <div className="fixed z-100 top-0 left-0 w-full h-full bg-[#0000003e] flex justify-center items-center">

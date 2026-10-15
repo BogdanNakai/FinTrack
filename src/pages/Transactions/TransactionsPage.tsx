@@ -18,7 +18,7 @@ import { useContext, useState } from "react";
 
 const TransactionsPage = () => {
   const {
-    openModalTransactions,
+    openModal,
     openModalMessageSuccess,
     openModalMessageFailed,
     openModalMessageDelete,
@@ -34,7 +34,7 @@ const TransactionsPage = () => {
     setSortPrice,
   } = useContext(TransactionContext);
   const quantityCount = Math.ceil(resultTransactions.length / 8);
-  
+
   return (
     <>
       <Header active="transactions" />
@@ -83,16 +83,14 @@ const TransactionsPage = () => {
                 </div>
               </div>
               <div>
-                <ButtonsActionsList
-                  quantityCount={quantityCount}
-                />
+                <ButtonsActionsList quantityCount={quantityCount} />
               </div>
             </div>
           </div>
         </section>
       </main>
       <Copyright />
-      {openModalTransactions && <ModalAddTrans />}
+      {openModal && <ModalAddTrans />}
       {openModalMessageSuccess && (
         <Message textMessage="Transaction added successfully!" type="Success" />
       )}

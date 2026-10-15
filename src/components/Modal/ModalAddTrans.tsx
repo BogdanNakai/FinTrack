@@ -22,16 +22,16 @@ const ModalAddTrans = () => {
   const { ACTIVE_USER_ID } = STORAGE_KEYS;
   const { addTransaction, editTransaction } = useActions();
   const {
-    setOpenModalTransactions,
+    setOpenModal,
     setOpenModalMessageSuccess,
-    openModalTransactionChanges,
-    setOpenModalTransactionChanges,
-    idPar,
+    openModalChanges,
+    setOpenModalChanges,
+    idRecord,
     blockScroll,
   } = useContext(ModalContext);
   const { transactions } = useContext(TransactionContext);
   const transaction = transactions.filter(
-    (transaction) => transaction.idPar === idPar,
+    (transaction) => transaction.idRecord === idRecord,
   )[0];
 
   const {
@@ -48,29 +48,29 @@ const ModalAddTrans = () => {
   });
 
   const onSubmit: TOnSubmitFormTransaction = (data) => {
-    if (!openModalTransactionChanges) {
+    if (!openModalChanges) {
       data.idUser = getStorage(ACTIVE_USER_ID, "");
       data.valute = "dolar";
-      data.idPar = `transaction_${Date.now()}`;
+      data.idRecord = `transaction_${Date.now()}`;
       addTransaction(data);
     } else {
       if (!transaction) return;
       data.idUser = getStorage(ACTIVE_USER_ID, "");
       data.valute = "dolar";
-      data.idPar = transaction.idPar;
+      data.idRecord = transaction.idRecord;
       editTransaction(data);
     }
     reset();
-    setOpenModalTransactions(false);
+    setOpenModal(false);
     setOpenModalMessageSuccess(true);
-    setOpenModalTransactionChanges(false);
+    setOpenModalChanges(false);
     blockScroll();
   };
 
   const transactionType = useWatch({ control, name: "type" });
 
   useEffect(() => {
-    if (openModalTransactionChanges) {
+    if (openModalChanges) {
       if (!transaction) return;
       reset({
         category: transaction?.category,
@@ -81,7 +81,7 @@ const ModalAddTrans = () => {
       });
       return;
     }
-  }, [openModalTransactionChanges, reset, transaction]);
+  }, [openModalChanges, reset, transaction]);
 
   return (
     <div className="fixed z-100 top-0 left-0 w-full h-full bg-[#0000003e] flex justify-center items-center">

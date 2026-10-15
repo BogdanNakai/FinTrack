@@ -3,17 +3,16 @@ import { ModalContext } from "./useModalContext";
 import type { ContextProviderProps, IModalProps } from "../Context.type";
 
 export const ContextProvider = ({ children }: ContextProviderProps) => {
-  const [openModalTransactions, setOpenModalTransactions] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const [openModalMessageSuccess, setOpenModalMessageSuccess] = useState(false);
   const [openModalMessageFailed, setOpenModalMessageFailed] = useState(false);
   const [openModalMessageDelete, setOpenModalMessageDelete] = useState(false);
-  const [openModalTransactionChanges, setOpenModalTransactionChanges] =
-    useState(false);
-  const [idPar, setIdTransaction] = useState("");
-  const [curentPageTransactions, setCurentPageTransactions] = useState(1);
+  const [openModalChanges, setOpenModalChanges] = useState(false);
+  const [idRecord, setIdTransaction] = useState("");
+  const [curentRecardsList, setCurentRecardsList] = useState(1);
 
   const isBlocke =
-    openModalTransactions || openModalMessageFailed || openModalMessageDelete;
+    openModal || openModalMessageFailed || openModalMessageDelete;
 
   const blockScroll = () => {
     if (!isBlocke) {
@@ -30,8 +29,8 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
   }, 3000);
 
   const value: IModalProps = {
-    openModalTransactions,
-    setOpenModalTransactions,
+    openModal,
+    setOpenModal,
     openModalMessageSuccess,
     setOpenModalMessageSuccess,
     openModalMessageFailed,
@@ -39,12 +38,12 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
     blockScroll,
     openModalMessageDelete,
     setOpenModalMessageDelete,
-    idPar,
+    idRecord,
     setIdTransaction,
-    openModalTransactionChanges,
-    setOpenModalTransactionChanges,
-    curentPageTransactions,
-    setCurentPageTransactions,
+    openModalChanges,
+    setOpenModalChanges,
+    curentRecardsList,
+    setCurentRecardsList,
   };
 
   return (

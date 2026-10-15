@@ -2,8 +2,8 @@ import { createContext } from "react";
 import type { IModalProps } from "../Context.type";
 
 export const ModalContext = createContext<IModalProps>({
-  openModalTransactions: false,
-  setOpenModalTransactions: () => undefined,
+  openModal: false,
+  setOpenModal: () => undefined,
   blockScroll: () => undefined,
   openModalMessageSuccess: false,
   setOpenModalMessageSuccess: () => undefined,
@@ -11,10 +11,10 @@ export const ModalContext = createContext<IModalProps>({
   setOpenModalMessageFailed: () => undefined,
   openModalMessageDelete: false,
   setOpenModalMessageDelete: () => undefined,
-  idPar: "",
+  idRecord: "",
   setIdTransaction: () => undefined,
-  openModalTransactionChanges: false,
-  setOpenModalTransactionChanges: () => undefined,
-  curentPageTransactions: 1,
-  setCurentPageTransactions: () => undefined,
+  openModalChanges: false,
+  setOpenModalChanges: () => undefined,
+  curentRecardsList: 1,
+  setCurentRecardsList: () => undefined,
 });

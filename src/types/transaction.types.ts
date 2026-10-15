@@ -8,7 +8,7 @@ export interface ITransactionForm {
   type: TType;
   idUser: string;
   valute: string;
-  idPar: string;
+  idRecord: string;
 }
 
 export interface ITransactions {

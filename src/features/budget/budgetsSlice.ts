@@ -22,7 +22,7 @@ export const budgetsSlice = createSlice({
     },
     editBudget: (state, action: PayloadAction<IBudgetForm>) => {
       state.budgets = state.budgets.map((budgets) =>
-        budgets.idPar === action.payload.idPar ? action.payload : budgets,
+        budgets.idRecord === action.payload.idRecord ? action.payload : budgets,
       );
       setStorage(BUDGETS, state.budgets);
     },
