@@ -16,7 +16,7 @@ import Header from "@/layouts/Header";
 import LineDiagram from "@/components/charts/LineDiagram";
 import ExpenseBreakdownCard from "@/components/charts/ExpenseBreakdownCard";
 import ModalAddBudget from "@/components/modal/ModalAddBudget";
-import { useContext} from "react";
+import { useContext } from "react";
 import { ModalContext } from "@/context/ModalContexnt/useModalContext";
 import Message from "@/components/message/Message";
 import ModalDeleteTransactions from "@/components/modal/ModalDeleteTransaction";
@@ -30,6 +30,8 @@ const BudgetPage = () => {
     openModalMessageDelete,
   } = useContext(ModalContext);
   const { category, setCategory, month, setMonth } = useContext(BudgetContext);
+  const { resultFilterListBurget } = useContext(BudgetContext);
+  const quantityCount = Math.ceil(resultFilterListBurget.length / 5);
 
   return (
     <>
@@ -75,7 +77,11 @@ const BudgetPage = () => {
                   <TabletBudget />
                 </div>
               </div>
-              <div>{/* <ButtonsActionsList /> */}</div>
+              <div>
+                <ButtonsActionsList
+                  quantityCount={quantityCount}
+                />
+              </div>
               <div className="">
                 <h2 className="text-[20px] text-[#1E293B] font-semibold pb-[21px]">
                   Budget Insights

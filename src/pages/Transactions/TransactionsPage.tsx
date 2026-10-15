@@ -33,7 +33,8 @@ const TransactionsPage = () => {
     setDateRange,
     setSortPrice,
   } = useContext(TransactionContext);
-
+  const quantityCount = Math.ceil(resultTransactions.length / 8);
+  
   return (
     <>
       <Header active="transactions" />
@@ -82,7 +83,9 @@ const TransactionsPage = () => {
                 </div>
               </div>
               <div>
-                <ButtonsActionsList listObject={resultTransactions} />
+                <ButtonsActionsList
+                  quantityCount={quantityCount}
+                />
               </div>
             </div>
           </div>

@@ -2,8 +2,7 @@ import { ModalContext } from "@/context/ModalContexnt/useModalContext";
 import type { IButtonPaginations } from "./Buttons.type";
 import { useContext } from "react";
 
-const ButtonsActionsList = ({ listObject }: IButtonPaginations) => {
-  const quantityCount = Math.ceil(listObject.length / 8);
+const ButtonsActionsList = ({ quantityCount }: IButtonPaginations) => {
   const quantityCountArray = Array.from(
     { length: quantityCount },
     (_, index) => index + 1,

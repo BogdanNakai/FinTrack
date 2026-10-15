@@ -41,13 +41,6 @@ const BudgetProvider = ({ children }: ContextProviderProps) => {
     
   })
 
-  console.log(filterListBurget);
-  console.log(resultFilterListBurget);
-  
-  
-
-
-
   const value: IBudgetContext = {
     resultFilterListBurget,
     category,

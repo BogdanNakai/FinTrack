@@ -2,14 +2,19 @@ import ElementTitleCategory from "@/components/ui/ElementTitleCategory";
 import ProgressLine from "@/components/ui/progressLine/ProgressLine";
 import { moneyFormatter } from "@/context/AppContext";
 import { BudgetContext } from "@/context/BudgetContext/useBudgetContext";
+import { ModalContext } from "@/context/ModalContexnt/useModalContext";
 import { useContext } from "react";
 
 const ItemTable = () => {
   const { resultFilterListBurget } = useContext(BudgetContext);
+    const { curentPageTransactions } = useContext(ModalContext);
+    const perPage = 5;
+    const start = (curentPageTransactions - 1) * perPage;
+    const visibleTrans = resultFilterListBurget.slice(start, start + perPage);
   
   return (
     <>
-      {resultFilterListBurget.map((e, i) => {
+      {visibleTrans.map((e, i) => {
         return (
           <div
             key={i}

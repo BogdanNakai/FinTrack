@@ -1,3 +1,4 @@
+import type { IBudgetForm } from "@/types/budget.type";
 import type { ITransactionForm } from "@/types/transaction.types";
 
 export interface IButtonProps {
@@ -8,5 +9,5 @@ export interface IButtonProps {
 }
 
 export interface IButtonPaginations {
-  listObject: ITransactionForm[]
+  quantityCount: number;
 }
