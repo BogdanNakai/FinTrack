@@ -16,7 +16,7 @@ import type {
 import { useContext, useEffect } from "react";
 import { ModalContext } from "@/context/ModalContexnt/useModalContext";
 import dayjs from "dayjs";
-import { useAppSelector } from "@/app/hooks";
+import { TransactionContext } from "@/context/TransactionsContext/useTransactionsContext";
 
 const ModalAddTrans = () => {
   const { ACTIVE_USER_ID } = STORAGE_KEYS;
@@ -29,10 +29,10 @@ const ModalAddTrans = () => {
     idPar,
     blockScroll,
   } = useContext(ModalContext);
-  const transactions = useAppSelector(
-    (state) => state.transactions.transactions,
-  ).filter((transaction) => transaction.idPar === idPar);
-  const transaction = transactions[0];
+  const { transactions } = useContext(TransactionContext);
+  const transaction = transactions.filter(
+    (transaction) => transaction.idPar === idPar,
+  )[0];
 
   const {
     register,
@@ -57,9 +57,7 @@ const ModalAddTrans = () => {
       if (!transaction) return;
       data.idUser = getStorage(ACTIVE_USER_ID, "");
       data.valute = "dolar";
-      data.idPar = openModalTransactionChanges
-        ? transactions[0]?.idPar
-        : `transaction_${Date.now()}`;
+      data.idPar = transaction.idPar;
       editTransaction(data);
     }
     reset();

@@ -8,11 +8,11 @@ import { useContext } from "react";
 
 const ItemTable = () => {
   const { resultFilterListBurget } = useContext(BudgetContext);
-    const { curentPageTransactions } = useContext(ModalContext);
-    const perPage = 5;
-    const start = (curentPageTransactions - 1) * perPage;
-    const visibleTrans = resultFilterListBurget.slice(start, start + perPage);
-  
+  const { curentPageTransactions } = useContext(ModalContext);
+  const perPage = 5;
+  const start = (curentPageTransactions - 1) * perPage;
+  const visibleTrans = resultFilterListBurget.slice(start, start + perPage);
+
   return (
     <>
       {visibleTrans.map((e, i) => {
@@ -36,8 +36,8 @@ const ItemTable = () => {
             <div className="text-[14px] font-normal flex-[0_1_25%] text-center">
               <ProgressLine parsent={e.budgetSpent / (e.budgetLimit / 100)} />
             </div>
-                 <div className="text-[14px] font-normal flex-[0_1_8.3%]">
-              <ButtonActions />
+            <div className="text-[14px] font-normal flex-[0_1_8.3%]">
+              <ButtonActions idPar={e.idPar} />
             </div>
           </div>
         );

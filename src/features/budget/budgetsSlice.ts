@@ -4,18 +4,12 @@ import { getStorage, setStorage } from "@/services/localStorage";
 import { STORAGE_KEYS } from "@/services/storageKeys";
 import type { IBudgetForm, IBudgets } from "@/types/budget.type";
 
-
 const { BUDGETS } = STORAGE_KEYS;
 
-const storedBudgets = getStorage<IBudgetForm[] | IBudgets>(
-  BUDGETS,
-  [],
-);
+const storedBudgets = getStorage<IBudgetForm[] | IBudgets>(BUDGETS, []);
 
 const initialState: IBudgets = {
-  budgets: Array.isArray(storedBudgets)
-    ? storedBudgets
-    : storedBudgets.budgets,
+  budgets: Array.isArray(storedBudgets) ? storedBudgets : storedBudgets.budgets,
 };
 
 export const budgetsSlice = createSlice({
@@ -24,6 +18,12 @@ export const budgetsSlice = createSlice({
   reducers: {
     addBudget: (state, action: PayloadAction<IBudgetForm>) => {
       state.budgets.push(action.payload);
+      setStorage(BUDGETS, state.budgets);
+    },
+    editBudget: (state, action: PayloadAction<IBudgetForm>) => {
+      state.budgets = state.budgets.map((budgets) =>
+        budgets.idPar === action.payload.idPar ? action.payload : budgets,
+      );
       setStorage(BUDGETS, state.budgets);
     },
   },

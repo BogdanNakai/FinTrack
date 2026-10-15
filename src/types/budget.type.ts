@@ -2,7 +2,7 @@ import type { TCategory } from "./category.type";
 
 export interface IBudgetForm {
   idUser: string;
-  valute: string;
+  idPar: string;
   budgetName: string;
   budgetLimit: number;
   budgetSpent: number;
@@ -13,3 +13,5 @@ export interface IBudgetForm {
 export interface IBudgets {
   budgets: IBudgetForm[];
 }
+
+export type TOnSubmitFormBudget = (data: IBudgetForm) => void;

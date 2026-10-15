@@ -5,22 +5,31 @@ import InputMoney from "../form/InputMoney";
 import InputPopap from "../form/InputPopap";
 import SelectForm from "../form/SelectForm";
 import { useForm } from "react-hook-form";
-import type { IBudgetForm } from "@/types/budget.type";
+import type { IBudgetForm, TOnSubmitFormBudget } from "@/types/budget.type";
 import { getStorage } from "@/services/localStorage";
 import { STORAGE_KEYS } from "@/services/storageKeys";
 import { useActions } from "@/hooks/useActions";
 import dayjs from "dayjs";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ModalContext } from "@/context/ModalContexnt/useModalContext";
 import FormInputMonth from "../form/FormInputMonth";
+import { BudgetContext } from "@/context/BudgetContext/useBudgetContext";
 
 const ModalAddBudget = () => {
+  const { ACTIVE_USER_ID } = STORAGE_KEYS;
+  const { addBudget, editBudget } = useActions();
   const {
+    idPar,
+    openModalTransactionChanges,
     setOpenModalTransactions,
     setOpenModalMessageSuccess,
     setOpenModalTransactionChanges,
     blockScroll,
   } = useContext(ModalContext);
+  const { resultFilterListBurget } = useContext(BudgetContext);
+  const itemBudgetChenge = resultFilterListBurget.filter(
+    (e) => e.idPar === idPar,
+  )[0];
   const {
     register,
     control,
@@ -33,14 +42,18 @@ const ModalAddBudget = () => {
       month: dayjs().format("YYYY-MM"),
     },
   });
-  const { ACTIVE_USER_ID } = STORAGE_KEYS;
-  const { addBudget } = useActions();
 
-  const onSubmit = (data: IBudgetForm) => {
-    data.idUser = getStorage(ACTIVE_USER_ID, "");
-    data.valute = "dolar";
-
-    addBudget(data);
+  const onSubmit: TOnSubmitFormBudget = (data) => {
+    if (!openModalTransactionChanges) {
+      data.idUser = getStorage(ACTIVE_USER_ID, "");
+      data.idPar = `budget_${Date.now()}`;
+      addBudget(data);
+    } else {
+      if (!itemBudgetChenge) return;
+      data.idUser = getStorage(ACTIVE_USER_ID, "");
+      data.idPar = itemBudgetChenge.idPar;
+      editBudget(data)
+    }
 
     reset();
     setOpenModalTransactions(false);
@@ -48,6 +61,19 @@ const ModalAddBudget = () => {
     setOpenModalTransactionChanges(false);
     blockScroll();
   };
+
+  useEffect(() => {
+    if (openModalTransactionChanges) {
+      if (!itemBudgetChenge) return;
+      reset({
+        category: itemBudgetChenge?.category,
+        month: itemBudgetChenge?.month,
+        budgetLimit: itemBudgetChenge?.budgetLimit,
+        budgetName: itemBudgetChenge?.budgetName,
+      });
+      return;
+    }
+  }, [openModalTransactionChanges, reset, itemBudgetChenge]);
 
   return (
     <div className="fixed z-100 top-0 left-0 w-full h-full bg-[#0000003e] flex justify-center items-center">
