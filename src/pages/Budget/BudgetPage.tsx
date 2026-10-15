@@ -111,7 +111,12 @@ const BudgetPage = () => {
           type="Failed"
         />
       )}
-      {openModalMessageDelete && <ModalDeleteTransactions />}
+      {openModalMessageDelete && (
+        <ModalDeleteTransactions
+          typeRecords="Budget"
+          typeRecordsText="budget"
+        />
+      )}
       <Copyright />
     </>
   );

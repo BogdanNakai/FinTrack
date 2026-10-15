@@ -100,7 +100,7 @@ const TransactionsPage = () => {
           type="Failed"
         />
       )}
-      {openModalMessageDelete && <ModalDeleteTransactions />}
+      {openModalMessageDelete && <ModalDeleteTransactions typeRecords='Transaction' typeRecordsText = 'transaction' />}
     </>
   );
 };
