@@ -37,7 +37,7 @@ const ItemTable = () => {
               <ProgressLine parsent={e.budgetSpent / (e.budgetLimit / 100)} />
             </div>
             <div className="text-[14px] font-normal flex-[0_1_8.3%]">
-              <ButtonActions idRecord={e.idRecord} />
+              <ButtonActions idRecord={e.idRecord} typeButton={'budget'} />
             </div>
           </div>
         );

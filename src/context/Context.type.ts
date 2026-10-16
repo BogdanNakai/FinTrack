@@ -17,6 +17,8 @@ export interface IModalProps {
   setOpenModalChanges: (isOpen: boolean) => void;
   curentRecardsList: number;
   setCurentRecardsList: (isOpen: number) => void;
+  deleteTarget: string;
+  setDeleteTarget: (isOpen: string) => void;
 }
 
 export interface ITransactionContext {

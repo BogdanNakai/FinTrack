@@ -17,4 +17,6 @@ export const ModalContext = createContext<IModalProps>({
   setOpenModalChanges: () => undefined,
   curentRecardsList: 1,
   setCurentRecardsList: () => undefined,
+  deleteTarget: '',
+  setDeleteTarget: () => undefined,
 });

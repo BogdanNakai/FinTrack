@@ -20,6 +20,12 @@ export const budgetsSlice = createSlice({
       state.budgets.push(action.payload);
       setStorage(BUDGETS, state.budgets);
     },
+    deleteBudget: (state, action: PayloadAction<string>) => {
+      state.budgets = state.budgets.filter(
+        (budgets) => budgets.idRecord !== action.payload,
+      );
+      setStorage(BUDGETS, state.budgets);
+    },
     editBudget: (state, action: PayloadAction<IBudgetForm>) => {
       state.budgets = state.budgets.map((budgets) =>
         budgets.idRecord === action.payload.idRecord ? action.payload : budgets,

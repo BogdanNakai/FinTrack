@@ -10,6 +10,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
   const [openModalChanges, setOpenModalChanges] = useState(false);
   const [idRecord, setIdTransaction] = useState("");
   const [curentRecardsList, setCurentRecardsList] = useState(1);
+  const [deleteTarget, setDeleteTarget] = useState('');
 
   const isBlocke =
     openModal || openModalMessageFailed || openModalMessageDelete;
@@ -44,6 +45,8 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
     setOpenModalChanges,
     curentRecardsList,
     setCurentRecardsList,
+    deleteTarget,
+    setDeleteTarget,
   };
 
   return (

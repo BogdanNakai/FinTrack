@@ -48,7 +48,7 @@ const ItemTableTransaction = () => {
               )}
             </div>
             <div className="text-[14px] font-normal flex-[0_1_8.3%] text-center">
-              <ButtonActions idRecord={e.idRecord} />
+              <ButtonActions idRecord={e.idRecord} typeButton="transaction" />
             </div>
           </div>
         );
