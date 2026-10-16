@@ -7,4 +7,6 @@ export const BudgetContext = createContext<IBudgetContext>({
   setCategory: () => undefined,
   month: "",
   setMonth: () => undefined,
+  totalBudgetAmountMonth: {},
+  totalBudgetAmountLastMonth: {},
 });

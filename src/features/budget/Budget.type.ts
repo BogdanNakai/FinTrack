@@ -1,6 +1,6 @@
 export interface IBudgetCard {
   title: string;
-  amount: number;
+  amount?: number;
   type: string;
 }
 

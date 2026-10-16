@@ -1,4 +1,5 @@
 import type { IBudgetForm } from "@/types/budget.type";
+import type { TCategory } from "@/types/category.type";
 import type { ITransactionForm } from "@/types/transaction.types";
 
 export interface IModalProps {
@@ -38,8 +39,25 @@ export interface IBudgetContext {
   setCategory: (isOpen: string) => void;
   month: string;
   setMonth: (isOpen: string) => void;
+  totalBudgetAmountMonth: {
+    [key: string]: number;
+  };
+  totalBudgetAmountLastMonth: {
+    [key: string]: number;
+  };
 }
 
 export type ContextProviderProps = {
   children: React.ReactNode;
+};
+
+export type TGetResultListBudge = (
+  listBudgets: IBudgetForm[],
+  spendByCategory: Partial<Record<TCategory, number>>,
+  month: string,
+) => IBudgetForm[];
+
+export type TGetTotalSumBudget = (listBudgetlistBudget: IBudgetForm[]) => {
+  totalBudget: number;
+  totalSpent: number;
 };
