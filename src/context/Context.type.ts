@@ -61,3 +61,7 @@ export type TGetTotalSumBudget = (listBudgetlistBudget: IBudgetForm[]) => {
   totalBudget: number;
   totalSpent: number;
 };
+
+export type TGetTotalSpentTransactions = (
+  month: string,
+) => Partial<Record<TCategory, number>>;

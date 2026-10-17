@@ -3,6 +3,7 @@ import type {
   ContextProviderProps,
   IBudgetContext,
   TGetResultListBudge,
+  TGetTotalSpentTransactions,
   TGetTotalSumBudget,
 } from "../Context.type";
 import { BudgetContext } from "./useBudgetContext";
@@ -11,6 +12,7 @@ import { STORAGE_KEYS } from "@/services/storageKeys";
 import { useState } from "react";
 import dayjs from "dayjs";
 import type { TCategory } from "@/types/category.type";
+
 const BudgetProvider = ({ children }: ContextProviderProps) => {
   const idUser = getStorage(STORAGE_KEYS.ACTIVE_USER_ID, "");
   const listBudgets = useAppSelector((state) => state.budgets.budgets).filter(
@@ -59,8 +61,8 @@ const BudgetProvider = ({ children }: ContextProviderProps) => {
     );
   };
 
-  const getTotalSpentTransactions = (month) => {
-    return transactions.reduce(
+  const getTotalSpentTransactions: TGetTotalSpentTransactions = (month) => {
+    return transactions.reduce<Partial<Record<TCategory, number>>>(
       (acc, curent) => {
         if (
           curent.type === "Expense" &&
@@ -77,6 +79,10 @@ const BudgetProvider = ({ children }: ContextProviderProps) => {
   const spentByCategory = getTotalSpentTransactions(month);
   const spentByCategoryLastMonth = getTotalSpentTransactions(lastMonth);  
 
+  console.log(spentByCategoryLastMonth);
+  console.log(spentByCategory);
+  
+ 
   const resultFilterListBurget = getResultListBudget(
     listBudgets,
     spentByCategory,
