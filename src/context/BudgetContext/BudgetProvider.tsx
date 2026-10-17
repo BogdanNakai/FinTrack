@@ -77,24 +77,17 @@ const BudgetProvider = ({ children }: ContextProviderProps) => {
   };
 
   const spentByCategory = getTotalSpentTransactions(month);
-  const spentByCategoryLastMonth = getTotalSpentTransactions(lastMonth);  
-
-  console.log(spentByCategoryLastMonth);
-  console.log(spentByCategory);
-  
- 
+  const spentByCategoryLastMonth = getTotalSpentTransactions(lastMonth);
   const resultFilterListBurget = getResultListBudget(
     listBudgets,
     spentByCategory,
     month,
   );
-
   const resultFilterListBurgetLasMonth = getResultListBudget(
     listBudgets,
     spentByCategoryLastMonth,
     lastMonth,
   );
-
   const totalBudgetAmountMonth = getTotalSumBudget(resultFilterListBurget);
   const totalBudgetAmountLastMonth = getTotalSumBudget(
     resultFilterListBurgetLasMonth,
