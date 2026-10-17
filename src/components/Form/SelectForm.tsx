@@ -83,6 +83,9 @@ const SelectForm = <T extends FieldValues>({
           </Select>
         )}
       />
+      {errors?.type === "setValueAs" ? (
+        <p className="text-[12px] text-red-500">{errors?.message}</p>
+      ) : null}
     </FormControl>
   );
 };

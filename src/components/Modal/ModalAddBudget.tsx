@@ -36,6 +36,7 @@ const ModalAddBudget = () => {
     handleSubmit,
     formState: { errors },
     reset,
+    setError,
   } = useForm<IBudgetForm>({
     mode: "onSubmit",
     defaultValues: {
@@ -44,22 +45,33 @@ const ModalAddBudget = () => {
   });
 
   const onSubmit: TOnSubmitFormBudget = (data) => {
-    if (!openModalChanges) {
-      data.idUser = getStorage(ACTIVE_USER_ID, "");
-      data.idRecord = `budget_${Date.now()}`;
-      addBudget(data);
-    } else {
-      if (!itemBudgetChenge) return;
-      data.idUser = getStorage(ACTIVE_USER_ID, "");
-      data.idRecord = itemBudgetChenge.idRecord;
-      editBudget(data);
-    }
+    const duplicate = resultFilterListBurget.filter(
+      (e) => e.category === data.category,
+    );
 
-    reset();
-    setOpenModal(false);
-    setOpenModalMessageSuccess(true);
-    setOpenModalChanges(false);
-    blockScroll();
+    if (duplicate.length) {
+      setError("category", {
+        type: "setValueAs",
+        message: "Such a budget already exists",
+      });
+    } else {
+      if (openModalChanges) {
+        if (!itemBudgetChenge) return;
+        data.idUser = getStorage(ACTIVE_USER_ID, "");
+        data.idRecord = itemBudgetChenge.idRecord;
+        editBudget(data);
+      } else {
+        data.idUser = getStorage(ACTIVE_USER_ID, "");
+        data.idRecord = `budget_${Date.now()}`;
+        addBudget(data);
+      }
+
+      reset();
+      setOpenModal(false);
+      setOpenModalMessageSuccess(true);
+      setOpenModalChanges(false);
+      blockScroll();
+    }
   };
 
   useEffect(() => {
