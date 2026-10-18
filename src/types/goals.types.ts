@@ -3,6 +3,7 @@ import type { TCategory, TStatusGoal } from "./category.type";
 export interface IGoalForm {
   idUser: string;
   valute: string;
+  idRecord: string;
   goalName: string;
   targetAmount: number;
   savedAmount: number;

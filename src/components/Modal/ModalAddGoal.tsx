@@ -17,9 +17,8 @@ const ModalAddGoal = () => {
 
   const onSubmit: TOnSubmitFormGoal = (data) => {
     data.idUser = getStorage(STORAGE_KEYS.ACTIVE_USER_ID, "");
-    data.valute = "dolar";
     data.savedAmount = 0;
-
+    data.idRecord = `goals_${Date.now()}`;
     addGoal(data);
   };
 

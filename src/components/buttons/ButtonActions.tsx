@@ -20,7 +20,7 @@ const ButtonActions = ({
   } = useContext(ModalContext);
 
   return (
-    <span className="flex justify-center gap-1.5">
+    <span className="flex justify-start gap-1.5">
       <button
         type="button"
         className="bg-[#F5C644] w-9 h-9 rounded-full flex justify-center items-center"
