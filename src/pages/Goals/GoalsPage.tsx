@@ -55,7 +55,7 @@ const GoalsPage = () => {
                   />
                 </div>
               </div>
-              <div className="flex items-start gap-[24px] max-[680px]:flex-wrap flex-nowrap justify-center pb-[24px]">
+              <div className="flex items-start gap-[24px] flex-wrap flex-nowrap justify-center pb-[24px]">
                 <GoalCard />
               </div>
               <div className="">

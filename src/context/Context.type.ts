@@ -1,5 +1,6 @@
 import type { IBudgetForm } from "@/types/budget.type";
 import type { TCategory } from "@/types/category.type";
+import type { IGoalForm } from "@/types/goals.types";
 import type { ITransactionForm } from "@/types/transaction.types";
 
 export interface IModalProps {
@@ -45,6 +46,11 @@ export interface IBudgetContext {
   totalBudgetAmountLastMonth: {
     [key: string]: number;
   };
+}
+
+export interface IGoalContext {
+  goals: IGoalForm[];
+  goalsTransactionAmount: IGoalForm[];
 }
 
 export type ContextProviderProps = {
