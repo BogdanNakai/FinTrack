@@ -92,7 +92,7 @@ const ModalAddTrans = () => {
           className="h-auto grid grid-cols-1 gap-3.5"
         >
           <label className="relative flex items-center">
-            <InputData name="date" control={control} />
+            <InputData name="date" control={control} errors={errors.date}/>
           </label>
           <label className="block w-40 h-10">
             <InputPopap

@@ -45,33 +45,41 @@ const ModalAddBudget = () => {
   });
 
   const onSubmit: TOnSubmitFormBudget = (data) => {
-    const duplicate = resultFilterListBurget.filter(
-      (e) => e.category === data.category,
+    const duplicate = resultFilterListBurget.find(
+      (e) => e.category === data.category && e.idRecord !== idRecord,
     );
 
-    if (duplicate.length) {
-      setError("category", {
-        type: "setValueAs",
-        message: "Such a budget already exists",
-      });
+    if (openModalChanges) {
+      if (!itemBudgetChenge) return;
+      if (duplicate && duplicate.idRecord !== idRecord) {
+        setError("category", {
+          type: "setValueAs",
+          message: "1",
+        });
+        return;
+      }
+      data.idUser = getStorage(ACTIVE_USER_ID, "");
+      data.idRecord = itemBudgetChenge.idRecord;
+      editBudget(data);
     } else {
-      if (openModalChanges) {
-        if (!itemBudgetChenge) return;
-        data.idUser = getStorage(ACTIVE_USER_ID, "");
-        data.idRecord = itemBudgetChenge.idRecord;
-        editBudget(data);
-      } else {
-        data.idUser = getStorage(ACTIVE_USER_ID, "");
-        data.idRecord = `budget_${Date.now()}`;
-        addBudget(data);
+      if (duplicate && duplicate.idRecord !== idRecord) {
+        setError("category", {
+          type: "setValueAs",
+          message: "1",
+        });
+        return;
       }
 
-      reset();
-      setOpenModal(false);
-      setOpenModalMessageSuccess(true);
-      setOpenModalChanges(false);
-      blockScroll();
+      data.idUser = getStorage(ACTIVE_USER_ID, "");
+      data.idRecord = `budget_${Date.now()}`;
+      addBudget(data);
     }
+
+    reset();
+    setOpenModal(false);
+    setOpenModalMessageSuccess(true);
+    setOpenModalChanges(false);
+    blockScroll();
   };
 
   useEffect(() => {
