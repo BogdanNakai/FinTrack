@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { useActions } from "@/hooks/useActions";
 
 const ButtonRemove = ({ textButton }: IButtonProps) => {
-  const { deleteTransaction, deleteBudget } = useActions();
+  const { deleteTransaction, deleteBudget, deleteGoal } = useActions();
   const { idRecord, setOpenModalMessageDelete, blockScroll, deleteTarget } =
     useContext(ModalContext);
 
@@ -19,7 +19,9 @@ const ButtonRemove = ({ textButton }: IButtonProps) => {
               ? deleteBudget(idRecord)
               : deleteTarget === "transaction"
                 ? deleteTransaction(idRecord)
-                : null;
+                : deleteTarget === "goal"
+                  ? deleteGoal(idRecord)
+                  : null;
 
             setOpenModalMessageDelete(false);
             blockScroll();

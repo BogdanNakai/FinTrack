@@ -14,21 +14,26 @@ const InputData = <T extends FieldValues>({
   name,
   placeholder,
   includeTime = false,
+  errors,
 }: IDataInput<T>) => {
   const Picker = includeTime ? DateTimePicker : DatePicker;
   const storageFormat = includeTime ? "YYYY-MM-DDTHH:mm" : "YYYY-MM-DD";
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
+    <LocalizationProvider dateAdapter={AdapterDayjs} >
       <Controller
         name={name}
         control={control}
         rules={{
-          required: includeTime ? "Please enter date and time" : "Please enter a date",
+          required: includeTime
+            ? "Please enter date and time"
+            : "Please enter a date",
           validate: (value) =>
             (typeof value === "string" &&
               dayjs(value, storageFormat, true).isValid()) ||
-            (includeTime ? "Please enter a valid date and time" : "Please enter a valid date"),
+            (includeTime
+              ? "Please enter a valid date and time"
+              : "Please enter a valid date"),
         }}
         render={({ field, fieldState }) => (
           <Picker

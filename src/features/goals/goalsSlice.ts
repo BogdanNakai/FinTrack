@@ -20,6 +20,18 @@ export const goalsSlice = createSlice({
       state.goals.push(action.payload);
       setStorage(GOALS, state.goals);
     },
+    deleteGoal: (state, action: PayloadAction<string>) => {
+      state.goals = state.goals.filter(
+        (goal) => goal.idRecord !== action.payload,
+      );
+      setStorage(GOALS, state.goals);
+    },
+    editGoal: (state, action: PayloadAction<IGoalForm>) => {
+      state.goals = state.goals.map((goal) =>
+        goal.idRecord === action.payload.idRecord ? action.payload : goal,
+      );
+      setStorage(GOALS, state.goals);
+    },
   },
 });
 

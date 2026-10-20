@@ -32,6 +32,7 @@ export interface IDataInput<T extends FieldValues> {
   name: Path<T>;
   placeholder?: string;
   includeTime?: boolean;
+  errors: FieldError | undefined;
 }
 
 export interface IPopapInput<T extends FieldValues> {

@@ -13,9 +13,12 @@ import Header from "@/layouts/Header";
 import ModalAddGoal from "@/components/modal/ModalAddGoal";
 import { useContext, useState } from "react";
 import FilterSelect from "@/components/form/FilterSelect";
+import ModalDeleteTransactions from "@/components/modal/ModalDeleteTransaction";
+import Message from "@/components/message/Message";
 
 const GoalsPage = () => {
-  const { openModal } = useContext(ModalContext);
+  const { openModal, openModalMessageDelete, openModalMessageSuccess } =
+    useContext(ModalContext);
   const [timePeriod, setTimePeriod] = useState("");
   const [goalStatus, setGoalStatus] = useState("");
 
@@ -75,6 +78,12 @@ const GoalsPage = () => {
         </section>
       </main>
       {openModal && <ModalAddGoal />}
+      {openModalMessageSuccess && (
+        <Message textMessage="Goal added successfully!" type="Success" />
+      )}
+      {openModalMessageDelete && (
+        <ModalDeleteTransactions typeRecords="Goal" typeRecordsText="goal" />
+      )}
       <Copyright />
     </>
   );
